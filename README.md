@@ -16,6 +16,7 @@ Tiedonluovuttajat eli luottolaitokset, maksulaitokset, sähkörahayhteisöt ja k
 [5. Business Application Header](#luku5)  
 [6. Kyselysanoma](#luku6)  
 [7. Vastaussanoma](#luku7)  
+[8. Virhetilanteet](#luku8)  
 
 ## 1. Yhteystiedot <a name="luku1"></a>
 
