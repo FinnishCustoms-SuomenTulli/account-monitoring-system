@@ -87,14 +87,6 @@ Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuske
 
 </details>
 
-<details>
-<summary> Tilirekisterin palvelinvarmenne </summary>
-<br>
-Tiedonluovuttaja tunnistaa yhteyden vastapuolen Tilirekisteriksi palvelinvarmenteen perusteella seuraavin edellytyksin:  
-a) Tilirekisterin ylläpitäjän (Tullin) palvelinvarmenteen on myöntänyt DVV, varmenne on voimassa eikä esiinny DVV:n ylläpitämällä sulkulistalla  
-b) varmenteen kohteen serialNumber attributti on “FI02454428” tai “0245442-8”.
-</details>
-
 ### 3.2 Tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon tietoliikennevarmenne <a name="3-2"></a>
 
 Tietoliikenne on suojattava (salaus ja vastapuolen tunnistus) x.509 (versio 3) varmenteita käyttäen.
