@@ -102,7 +102,7 @@ Mikäli tiedonluovuttajan palvelinvarmenteessa ja lähtevän sanoman allekirjoit
 Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuskeskuksen tietoturvavaatimukset, tulee käytettävän varmenteen julkisen avaimen (RSA public key) olla vähintään 3072 bittinen. Lisäksi varmenteen tulee olla QWAC (Qualified Website Authentication Certificate) tyyppinen palvelinvarmenne, joka sisältää laajennukset (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Nämä tulee huomioida varmennetta tilattaessa.
 
 <details>
-<summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen <a name="xml-allekirjoitus"></a>a></summary>
+<summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen <a name="xml-allekirjoitus"></a></summary>
 <br>
 
 Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#header) Sgntr-elementin alle.
