@@ -190,7 +190,7 @@ Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](examples/general/e
 
 ## 5. Business Application Header <a name="luku5"></a>
 
-ISO 20022 standardin mukainen BusinessApplicationHeaderV01 (head.001.001.01) sanoma liitetään sekä kysely- että vastaussanomaan. Kenttien käyttö on muutoin samanlaista kysely- ja vastaussanomassa, paitsi kyselysanomassa tulee lähettää yhteystiedot mahdollista lisäselvityspyyntöä varten.
+ISO 20022 standardin mukainen BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) sanoma liitetään sekä kysely- että vastaussanomaan. Kenttien käyttö on muutoin samanlaista kysely- ja vastaussanomassa, paitsi kyselysanomassa tulee lähettää yhteystiedot mahdollista lisäselvityspyyntöä varten.
 
 Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanomassa viranomaisen tiedot, tiedonluovuttajan lähettämässä sanomassa tiedonluovuttajan tiedot ja Tullin välittämissä sanomissa Tullin tiedot. Vastaavasti To-kentän vastaanottajatiedoissa on Tullin tiedot, kun lähetetään sanoma koostavaan sovellukseen, ja sanoman vastaanottavan viranomaisen tai tiedonluovuttajan tiedot, kun koostava sovellus välittää sanoman eteenpäin.
 
@@ -366,31 +366,41 @@ Lähettäjän muodostama [XML-allekirjoitus](#xml-allekirjoitus)
 
 ## 6. Kyselysanoma <a name="luku6"></a>
 
-Kyselysanomassa käytetään ISO 20022 sanomaa InformationRequestOpeningV01 (auth.001.001.01). InformationRequestOpeningV01 sanoman supplementary data -osiossa käytetään kansallista InformationRequestFIN012 (fin.012.001.04) sanomalaajennosta.
+Kyselysanomassa käytetään ISO 20022 sanomaa InformationRequestOpeningV01 [auth.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.001.001.01.xsd). InformationRequestOpeningV01 sanoman supplementary data -osiossa käytetään kansallista InformationRequestFIN012 (fin.012.001.04) sanomalaajennosta.
 
-Alla on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04](schemas/fin.012.001.04.xsd) skeema. Esimerkkejä [kyselysanomasta](examples/queries).
+Alla luvussa 6.2 on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04](schemas/fin.012.001.04.xsd) skeema. Esimerkkejä [kyselysanomasta](examples/queries).
 
-*Esimerkkisanoma saldo- ja tilitapahtumatietojen kyselystä:* [Esimerkkisanoma](examples/general/example_requesting_only_bal_or_entry_or_both.xml)
+### 6.1 Erityyppisten tietojen hakeminen <a name="6-1"></a>
 
-*Pelkkien tilitapahtumatietojen haku*
+Keskitetystä saldo- ja tilitapahtumatietojärjestelmästä on mahdollista hakea pelkkiä saldotietoja, pelkkiä tilitapahtumatietoja, tai molempia.
+
+[Esimerkkisanoma](examples/general/example_requesting_only_bal_or_entry_or_both.xml) saldo- ja tilitapahtumatietojen kyselystä.
+
+#### Pelkkien tilitapahtumatietojen haku
 
 Käytetään ajantasaisten tilitapahtumatietojen noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
+
 Kyselyn mukana välitetään aina kaikki muut tiedot, paitsi saldo (bal-elementti) sisältämät kentät ja lisätiedot.
+
 Pelkkiä tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: TRAN. 
 
-*Pelkkien saldotietojen haku*
+#### Pelkkien saldotietojen haku
 
 Käytetään luovutushetken saldotietojen noutamiseen. 
+
 Kyselyn mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtuma (entry-elementti) sisältämät kentät ja lisätiedot.
+
 Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN.
 
-*Saldo- ja tilitapahtumatietojen haku*
+#### Saldo- ja tilitapahtumatietojen haku
 
 Käytetään hakuaikavälin tilitapahtumatietojen sekä aikavälin alku- ja loppuhetken saldotiedon noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
-Kyselyn mukana välitetään aina kaikki muut tiedot paitsi lisätiedot.
-Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: TRAN & BALN.
 
-### 6.1 InformationRequestOpeningV01 sanoman sisältö <a name="6-1"></a>
+Kyselyn mukana välitetään aina kaikki muut tiedot paitsi lisätiedot.
+
+Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erilllisinä elementteinä investigationTypeCode: TRAN ja investigationTypeCode: BALN.
+
+### 6.2 InformationRequestOpeningV01 sanoman sisältö <a name="6-2"></a>
 
 <table>
   <colgroup><col /><col /><col /><col /></colgroup>
@@ -626,9 +636,9 @@ Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen
 
 ## 7. Vastaussanoma <a name="luku7"></a>
 
-Vastaussanomassa käytetään ISO 20022 sanomia BusinessApplicationHeaderV01 (head.001.001.01) ja InformationRequestResponseV01 (auth.002.001.01). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
+Vastaussanomassa käytetään ISO 20022 sanomia BusinessApplicationHeaderV01 (head.001.001.01) ja InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
 
-Alla on kuvattu, mitä kenttiä käytetään vastaussanomassa. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
+Alla on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
 
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
@@ -907,12 +917,18 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Incl</td>
       <td>TrueFalseIndicator</td>
-      <td>Ilmaisin, sisältääkö saldo luottorajan     (lisätieto)</td>
+      <td>
+        
+Ilmaisin, sisältääkö saldo luottorajan. Lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-2)
+      </td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Käytettävissä oleva luottoraja.          (lisätieto)</td>
+      <td>
+      
+Käytettävissä oleva luottoraja. Lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-2)
+      </td>
     </tr>
   </tbody>
 </table>
