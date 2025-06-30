@@ -597,7 +597,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erilllisin
       </td>
       <td >0..2</td>
       <td >InvestigationTypeCode</td>
-      <td >Jos haetaan tilitapahtumia, lähetetään elementti arvolla "TRAN". <br>Jos haetaan saldotietoja, lähetetään elementti arvolla "BALN". <br>Jos haetaan sekä tilitapahtuma- että saldotiedot, lähetetään elementti kummallakin arvolla.</td>
+      <td >Jos haetaan tilitapahtumia, lähetetään elementti arvolla "TRAN". <br>Jos haetaan saldotietoja, lähetetään elementti arvolla "BALN". <br>Jos haetaan sekä tilitapahtuma- että saldotiedot, lähetetään elementti kahdesti, kerran kummallakin arvolla.</td>
     </tr>
     <tr>
       <td >
