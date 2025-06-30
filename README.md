@@ -102,7 +102,7 @@ Mikäli tiedonluovuttajan palvelinvarmenteessa ja lähtevän sanoman allekirjoit
 Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuskeskuksen tietoturvavaatimukset, tulee käytettävän varmenteen julkisen avaimen (RSA public key) olla vähintään 3072 bittinen. Lisäksi varmenteen tulee olla QWAC (Qualified Website Authentication Certificate) tyyppinen palvelinvarmenne, joka sisältää laajennukset (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Nämä tulee huomioida varmennetta tilattaessa.
 
 <details>
-<summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen</summary>
+<summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen <a name="xml-allekirjoitus"></a>a></summary>
 <br>
 
 Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#header) Sgntr-elementin alle.
@@ -197,11 +197,11 @@ Allaolevassa kuvassa on esitetty yleiskuva saldo- ja tilitapahtumatietokyselyn t
 
 ![Pankki- ja maksutilien valvontajärjestelmä](diagrams/tilitap_tiedonkulku_fi.png "Pankki- ja maksutilien valvontajärjestelmä")  
 
-1. Viranomaisen järjestelmä lähettää saldo- ja tilitapahtumatietokyselyn [koostavan sovelluksen kyselyrajapintaan](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta). Kyselysanoman sisältö on kuvattu luvussa [Kyselysanoma](#kyselysanoma). 
+1. Viranomaisen järjestelmä lähettää saldo- ja tilitapahtumatietokyselyn koostavan sovelluksen [kyselyrajapintaan](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-kysely). Kyselysanoman sisältö on kuvattu luvussa [Kyselysanoma](#kyselysanoma). 
 2. Koostava sovellus välittää saldo- ja tilitapahtumatietokyselyn toimijalle, jolle kysely on suunnattu joko rajapinnan kautta tiedonhakujärjestelmään tai turvasähköpostilla tilirekisterin toimijalle.  
 3. Tiedonluovuttaja vastaa saldo- ja tilitapahtumatietokyselyyn viimeistään seuraavan pankkipäivän aikana. Jos kysely on osoitettu tiedonhakujärjestelmän toteuttaneelle toimijalle, tiedonhakujärjestelmä lähettää vastaussanoman koostavalle sovellukselle rajapinnan kautta. Jos kysely on osoitettu tilirekisteriä käyttävälle toimijalle, tämä toimittaa vastaussanoman tiedonluovutusjärjestelmään.     
 4. Vastaussanoma välittyy tiedonluovutusjärjestelmästä koostavaan sovellukseen.  
-5. Viranomainen hakee vastauksen saldo- ja tilitapahtumatietokyselyynsä koostavan sovelluksen rajapinnasta. Vastauksen haussa käytetään koostavan sovelluksen status- ja tulosrajapintoja (kts. [Koostavan sovelluksen rajapintakuvaus](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md)).
+5. Viranomainen hakee vastauksen saldo- ja tilitapahtumatietokyselyynsä koostavan sovelluksen rajapinnasta. Vastauksen haussa käytetään koostavan sovelluksen [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-status) ja [tulosrajapintoja](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-tulos).
 
 ### Ohjeita tiedonluovuttajille
 
@@ -215,7 +215,7 @@ Saldo- ja tilitapahtumakyselyitä ei voi tehdä kansainvälisinä kyselyinä.
 
 #### Tiedonluovutusjärjestelmään raportoivat toimijat
 
-Tilirekisteriin päivittäville tiedonluovuttajille saldo- ja tilitapahtumatietokysely toimitetaan suojatulla sähköpostilla (kts.  [esimerkki sähköposti](#assets\Example_email)). Pyyntösanoma on sähköpostin liitteenä XML-muodossa. Mikäli saldo- ja tilitapahtumakyselyn käsittelyssä tulee virhetilanne, tietoja ei jostain syystä löydykään tai kysely menee lisäselvityspyyntöön, tulee rajapintaan toimittaa vastaus ja ilmoittaa kunkin tilanteen mukainen tieto. Vastaus kyselyyn tulee toimittaa  XML-muotoisena sanomana Tullin rajapintaan.
+Tilirekisteriin päivittäville tiedonluovuttajille saldo- ja tilitapahtumatietokysely toimitetaan suojatulla sähköpostilla (kts. [esimerkki sähköposti](assets\Example_email.png)). Pyyntösanoma on sähköpostin liitteenä XML-muodossa. Mikäli saldo- ja tilitapahtumakyselyn käsittelyssä tulee virhetilanne, tietoja ei jostain syystä löydykään tai kysely menee lisäselvityspyyntöön, tulee rajapintaan toimittaa vastaus ja ilmoittaa kunkin tilanteen mukainen tieto. Vastaus kyselyyn tulee toimittaa XML-muotoisena sanomana Tullin rajapintaan.
 
 Mikäli jostain syystä tietoja haun kohteesta ei löydykään, tiedonluovuttajan tulee vastata kyselyyn NFOU-statuskoodilla.
 
@@ -223,9 +223,9 @@ Mikäli jostain syystä tietoja haun kohteesta ei löydykään, tiedonluovuttaja
 
 Jos tiedonluovuttaja katsoo vastaanottamansa kyselyn sellaiseksi, että se tarvitsee lisäselvitystä, voi tiedonluovuttaja palauttaa kyselyyn NRES-statuskoodin (käsittely kesken) ja ottaa suoraan yhteyttä kyselyn lähettäneeseen viranomaiseen pyytääkseen lisätietoja. Lisäselvityspyyntöä varten viranomainen lähettää aina kyselysanoman headerin Fr/OrgId/CtctDtls -elementissä yhteystiedot (nimi, puhelinnumero, sähköposti). 
 
-Tiedonluovuttaja vastaa alkuperäiseen kyselyyn lisäselvityksen käsittelyn jälkeen, jos se on aikarajojen puitteissa mahdollista. Mikäli kyselyyn ei ehditä vastata aikarajan puitteissa, voi viranomainen tarvittaessa tehdä uuden kyselyn, johon tiedonluovuttaja vastaa sovitusti. Jos tiedonluovuttaja on vastannut kyselyyn NRES, koostava sovellus yrittää uudelleennoutaa vastauksen tiedonluovuttajalta tiedonluovutuksen aikarajan loppuun asti. Tiedonluovutuksen aikarajan umpeuduttua kysely suljetaan.
+Tiedonluovuttaja vastaa alkuperäiseen kyselyyn lisäselvityksen käsittelyn jälkeen, jos se on aikarajojen puitteissa mahdollista. Jos kyselyyn ei ehditä vastata aikarajan puitteissa, voi viranomainen tarvittaessa tehdä uuden kyselyn, johon tiedonluovuttaja vastaa sovitusti. Jos tiedonluovuttaja on vastannut kyselyyn NRES, koostava sovellus yrittää uudelleennoutaa vastauksen tiedonluovuttajalta tiedonluovutuksen aikarajan loppuun asti. Tiedonluovutuksen aikarajan umpeuduttua kysely suljetaan.
 
-Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](#examples\general\example_passing_contact_details.xml)
+Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](examples\general\example_passing_contact_details.xml)
 
 ## Business Application Header <a name="header"></a>
 
@@ -373,7 +373,10 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >0..1</td>
       <td >SignatureEnvelope</td>
-      <td >Lähettäjän muodostama XML-allekirjoitus, ks. LINKKI</td>
+      <td >
+        
+Lähettäjän muodostama [XML-allekirjoitus](#xml-allekirjoitus)        
+      </td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -400,11 +403,11 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
   </tbody>
 </table>
 
-## Kyselysanoma
+## Kyselysanoma <a name="kyselysanoma"></a>
 
 Kyselysanomassa käytetään ISO 20022 sanomaa InformationRequestOpeningV01 (auth.001.001.01). InformationRequestOpeningV01 sanoman supplementary data -osiossa käytetään kansallista InformationRequestFIN012 (fin.012.001.04) sanomalaajennosta.
 
-Alla on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04 skeema](schemas\fin.012.001.04.xsd). [Esimerkkejä kyselysanomasta](examples\queries).
+Alla on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04](schemas\fin.012.001.04.xsd) skeema. Esimerkkejä [kyselysanomasta](examples\queries).
 
 *Esimerkkisanoma saldo- ja tilitapahtumatietojen kyselystä:* [Esimerkkisanoma](#examples\general\example_requesting_only_bal_or_entry_or_both.xml)
 
