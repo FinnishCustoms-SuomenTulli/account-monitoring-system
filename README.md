@@ -619,19 +619,19 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erilllisin
       <td >TransactionFieldCode</td>
       <td >
         
-Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä lisätiedoista: [TransactionFieldCode](#6-2) </td>
+Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä lisätiedoista: [TransactionFieldCode](#6-3) </td>
     </tr>
   </tbody>
 </table>
 
-### 6.2 TransactionFieldCode: erikseen pyydettävät lisätiedot <a name="6-2"></a>
+### 6.3 TransactionFieldCode: erikseen pyydettävät lisätiedot <a name="6-3"></a>
 
 | Kuvaus                                | Tietue                                  | Koodi            |
 |:--------------------------------------|:----------------------------------------|:-----------------|
 | Ilmaisin sisältääkö saldo luottorajan | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Käytettävissä oleva luottoraja        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-*Esimerkkisanoma erikseen pyydettävistä lisätiedoista:* [Esimerkkisanoma](examples/general/example_request_additional_info.xml)
+[Esimerkkisanoma](examples/general/example_request_additional_info.xml) erikseen pyydettävistä lisätiedoista.
 
 
 ## 7. Vastaussanoma <a name="luku7"></a>
@@ -919,7 +919,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>TrueFalseIndicator</td>
       <td>
         
-Ilmaisin, sisältääkö saldo luottorajan. Lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-2)
+Ilmaisin, sisältääkö saldo luottorajan. Lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
       </td>
     </tr>
     <tr>
@@ -927,7 +927,7 @@ Ilmaisin, sisältääkö saldo luottorajan. Lisätieto, joka palautetaan ainoast
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Käytettävissä oleva luottoraja. Lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-2)
+Käytettävissä oleva luottoraja. Lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
