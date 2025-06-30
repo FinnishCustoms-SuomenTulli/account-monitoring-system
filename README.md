@@ -7,6 +7,15 @@ Pankki- ja maksutilien valvontajärjestelmä välittää tiedonhyödyntäjille e
 
 Tiedonluovuttajat eli luottolaitokset, maksulaitokset, sähkörahayhteisöt ja kryptovarapalvelun tarjoajat luovuttavat asiakkaidensa pankki- ja maksutilitiedot joko pankki- ja maksutilirekisterin tai oman tiedonhakujärjestelmänsä kautta. Tulli ylläpitää koostavaa sovellusta, joka välittää viranomaisten tietopyynnöt pankki- ja maksutilirekisteriin ja tiedonhakujärjestelmiin sekä siirtää vastaanotetut tiedot viranomaiselle. Saldo- ja tilitapahtumakyselyt toimitetaan joko tiedonluovuttajan tiedonhakujärjestelmään tai suojatulla sähköpostilla tilirekisterin toimijoille. Kyselyihin vastataan joko oman tiedonhakujärjestelmän tai tiedonluovutusjärjestelmän kautta.
 
+### Sisällysluettelo
+
+[1. Yhteystiedot](#luku1)
+[2. Sanasto & lyhenteet](#luku2)
+[3. Varmenteet](#luku3)
+[4. Saldo- ja tilitapahtumatietokyselyn tiedonkulku](#luku4)
+[5. Business Application Header](#luku5)
+[6. Kyselysanoma](#luku6)
+[7. Vastaussanoma](#luku7)
 
 ## 1. Yhteystiedot <a name="luku1"></a>
 
