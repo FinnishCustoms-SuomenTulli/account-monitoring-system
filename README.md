@@ -215,7 +215,7 @@ Saldo- ja tilitapahtumakyselyitä ei voi tehdä kansainvälisinä kyselyinä.
 
 #### Tiedonluovutusjärjestelmään raportoivat toimijat
 
-Tilirekisteriin päivittäville tiedonluovuttajille saldo- ja tilitapahtumatietokysely toimitetaan suojatulla sähköpostilla (kts. [esimerkki sähköposti](assets\Example_email.png)). Pyyntösanoma on sähköpostin liitteenä XML-muodossa. Mikäli saldo- ja tilitapahtumakyselyn käsittelyssä tulee virhetilanne, tietoja ei jostain syystä löydykään tai kysely menee lisäselvityspyyntöön, tulee rajapintaan toimittaa vastaus ja ilmoittaa kunkin tilanteen mukainen tieto. Vastaus kyselyyn tulee toimittaa XML-muotoisena sanomana Tullin rajapintaan.
+Tilirekisteriin päivittäville tiedonluovuttajille saldo- ja tilitapahtumatietokysely toimitetaan suojatulla sähköpostilla (kts. [esimerkki sähköposti](assets/Example_email.png)). Pyyntösanoma on sähköpostin liitteenä XML-muodossa. Mikäli saldo- ja tilitapahtumakyselyn käsittelyssä tulee virhetilanne, tietoja ei jostain syystä löydykään tai kysely menee lisäselvityspyyntöön, tulee rajapintaan toimittaa vastaus ja ilmoittaa kunkin tilanteen mukainen tieto. Vastaus kyselyyn tulee toimittaa XML-muotoisena sanomana Tullin rajapintaan.
 
 Mikäli jostain syystä tietoja haun kohteesta ei löydykään, tiedonluovuttajan tulee vastata kyselyyn NFOU-statuskoodilla.
 
@@ -225,7 +225,7 @@ Jos tiedonluovuttaja katsoo vastaanottamansa kyselyn sellaiseksi, että se tarvi
 
 Tiedonluovuttaja vastaa alkuperäiseen kyselyyn lisäselvityksen käsittelyn jälkeen, jos se on aikarajojen puitteissa mahdollista. Jos kyselyyn ei ehditä vastata aikarajan puitteissa, voi viranomainen tarvittaessa tehdä uuden kyselyn, johon tiedonluovuttaja vastaa sovitusti. Jos tiedonluovuttaja on vastannut kyselyyn NRES, koostava sovellus yrittää uudelleennoutaa vastauksen tiedonluovuttajalta tiedonluovutuksen aikarajan loppuun asti. Tiedonluovutuksen aikarajan umpeuduttua kysely suljetaan.
 
-Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](examples\general\example_passing_contact_details.xml)
+Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](examples/general/example_passing_contact_details.xml)
 
 ## Business Application Header <a name="header"></a>
 
@@ -407,9 +407,9 @@ Lähettäjän muodostama [XML-allekirjoitus](#xml-allekirjoitus)
 
 Kyselysanomassa käytetään ISO 20022 sanomaa InformationRequestOpeningV01 (auth.001.001.01). InformationRequestOpeningV01 sanoman supplementary data -osiossa käytetään kansallista InformationRequestFIN012 (fin.012.001.04) sanomalaajennosta.
 
-Alla on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04](schemas\fin.012.001.04.xsd) skeema. Esimerkkejä [kyselysanomasta](examples\queries).
+Alla on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04](schemas/fin.012.001.04.xsd) skeema. Esimerkkejä [kyselysanomasta](examples/queries).
 
-*Esimerkkisanoma saldo- ja tilitapahtumatietojen kyselystä:* [Esimerkkisanoma](#examples\general\example_requesting_only_bal_or_entry_or_both.xml)
+*Esimerkkisanoma saldo- ja tilitapahtumatietojen kyselystä:* [Esimerkkisanoma](examples/general/example_requesting_only_bal_or_entry_or_both.xml)
 
 *Pelkkien tilitapahtumatietojen haku*
 
@@ -646,7 +646,9 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigat
       </td>
       <td >0..*</td>
       <td >TransactionFieldCode</td>
-      <td >Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä lisätiedoista: [TransactionFieldCode](#transaction-field-code) </td>
+      <td >
+        
+Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä lisätiedoista: [TransactionFieldCode](#transaction-field-code) </td>
     </tr>
   </tbody>
 </table>
@@ -658,14 +660,14 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigat
 | Ilmaisin sisältääkö saldo luottorajan | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Käytettävissä oleva luottoraja        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-*Esimerkkisanoma erikseen pyydettävistä lisätiedoista:* [Esimerkkisanoma](#examples\general\example_request_additional_info.xml)
+*Esimerkkisanoma erikseen pyydettävistä lisätiedoista:* [Esimerkkisanoma](#examples/general/example_request_additional_info.xml)
 
 
 ## Vastaussanoma
 
 Vastaussanomassa käytetään ISO 20022 sanomia BusinessApplicationHeaderV01 (head.001.001.01) ja InformationRequestResponseV01 (auth.002.001.01). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
 
-Alla on kuvattu, mitä kenttiä käytetään vastaussanomassa. Alisanoman [camt.052.001.08 skeema](schemas\camt.052.001.08.xsd). [Esimerkkejä vastaussanomasta](examples\queries). 
+Alla on kuvattu, mitä kenttiä käytetään vastaussanomassa. Alisanoman [camt.052.001.08 skeema](schemas/camt.052.001.08.xsd). [Esimerkkejä vastaussanomasta](examples/queries). 
 
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
