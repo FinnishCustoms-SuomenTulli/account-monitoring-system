@@ -9,13 +9,13 @@ Tiedonluovuttajat eli luottolaitokset, maksulaitokset, sähkörahayhteisöt ja k
 
 ### Sisällysluettelo
 
-[1. Yhteystiedot](#luku1)
-[2. Sanasto & lyhenteet](#luku2)
-[3. Varmenteet](#luku3)
-[4. Saldo- ja tilitapahtumatietokyselyn tiedonkulku](#luku4)
-[5. Business Application Header](#luku5)
-[6. Kyselysanoma](#luku6)
-[7. Vastaussanoma](#luku7)
+[1. Yhteystiedot](#luku1)  
+[2. Sanasto & lyhenteet](#luku2)  
+[3. Varmenteet](#luku3)  
+[4. Saldo- ja tilitapahtumatietokyselyn tiedonkulku](#luku4)  
+[5. Business Application Header](#luku5)  
+[6. Kyselysanoma](#luku6)  
+[7. Vastaussanoma](#luku7)  
 
 ## 1. Yhteystiedot <a name="luku1"></a>
 
