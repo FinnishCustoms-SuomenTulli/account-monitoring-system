@@ -667,7 +667,7 @@ Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen
 
 Vastaussanomassa käytetään ISO 20022 sanomia BusinessApplicationHeaderV01 (head.001.001.01) ja InformationRequestResponseV01 (auth.002.001.01). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
 
-Alla on kuvattu, mitä kenttiä käytetään vastaussanomassa. Alisanoman [camt.052.001.08 skeema](schemas/camt.052.001.08.xsd). [Esimerkkejä vastaussanomasta](examples/queries). 
+Alla on kuvattu, mitä kenttiä käytetään vastaussanomassa. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
 
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
