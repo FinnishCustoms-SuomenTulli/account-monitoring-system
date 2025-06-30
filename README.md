@@ -541,7 +541,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erilllisin
       </td>
       <td >1..1</td>
       <td >Max140Text</td>
-      <td >Kyselyn lähettäjän tunniste</td>
+      <td >Kyselyn lähettävän viranomaisen tunniste</td>
     </tr>
     <tr>
       <td >
@@ -555,7 +555,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erilllisin
       </td>
       <td >1..1</td>
       <td >Max140Text</td>
-      <td >Kyselyn hyväksyjän tunniste</td>
+      <td >Kyselyn hyväksyvän viranomaisen tunniste</td>
     </tr>
         <tr>
       <td >
