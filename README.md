@@ -105,7 +105,7 @@ Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuske
 <summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen</summary>
 <br>
 
-Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#BAH) Sgntr-elementin alle.
+Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#header) Sgntr-elementin alle.
 
 Esimerkki SignedInfo
 ![esimerkki SignedInfon käytöstä](diagrams/image.png) 
@@ -227,7 +227,7 @@ Tiedonluovuttaja vastaa alkuperäiseen kyselyyn lisäselvityksen käsittelyn jä
 
 Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](#examples\general\example_passing_contact_details.xml)
 
-## Business Application Header <a name="BAH"></a>
+## Business Application Header <a name="header"></a>
 
 ISO 20022 standardin mukainen BusinessApplicationHeaderV01 (head.001.001.01) sanoma liitetään sekä kysely- että vastaussanomaan. Kenttien käyttö on muutoin samanlaista kysely- ja vastaussanomassa, paitsi kyselysanomassa tulee lähettää yhteystiedot mahdollista lisäselvityspyyntöä varten.
 
