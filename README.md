@@ -10,7 +10,7 @@ Tiedonluovuttajat eli luottolaitokset, maksulaitokset, sähkörahayhteisöt ja k
 
 ## Yhteystiedot
 
-Sähköposti: **[Tilirekisteri](tilirekisteri@tulli.fi)**.
+Sähköposti: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 
 ## Sanasto & lyhenteet
 
@@ -105,7 +105,7 @@ Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuske
 <summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen</summary>
 <br>
 
-Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](https://finnishcustoms-suomentulli.github.io/account-register-information-query/#4-4) Sgntr-elementin alle.
+Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#BAH) Sgntr-elementin alle.
 
 Esimerkki SignedInfo
 ![esimerkki SignedInfon käytöstä](diagrams/image.png) 
@@ -227,7 +227,7 @@ Tiedonluovuttaja vastaa alkuperäiseen kyselyyn lisäselvityksen käsittelyn jä
 
 Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](#examples\general\example_passing_contact_details.xml)
 
-## Business Application Header
+## Business Application Header <a name="BAH"></a>
 
 ISO 20022 standardin mukainen BusinessApplicationHeaderV01 (head.001.001.01) sanoma liitetään sekä kysely- että vastaussanomaan. Kenttien käyttö on muutoin samanlaista kysely- ja vastaussanomassa, paitsi kyselysanomassa tulee lähettää yhteystiedot mahdollista lisäselvityspyyntöä varten.
 
