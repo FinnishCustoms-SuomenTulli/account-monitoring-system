@@ -312,7 +312,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >1..1</td>
       <td >Max35Text</td>
-      <td >Sanoma-id, kyselysanomassa "auth.001.001.01"</td>
+      <td >Sanoma-id, kyselysanomassa "auth.001.001.01" ja vastaussanomassa "auth.002.001.01"</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
