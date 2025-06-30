@@ -660,7 +660,7 @@ Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen
 | Ilmaisin sisältääkö saldo luottorajan | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Käytettävissä oleva luottoraja        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-*Esimerkkisanoma erikseen pyydettävistä lisätiedoista:* [Esimerkkisanoma](#examples/general/example_request_additional_info.xml)
+*Esimerkkisanoma erikseen pyydettävistä lisätiedoista:* [Esimerkkisanoma](examples/general/example_request_additional_info.xml)
 
 
 ## Vastaussanoma
