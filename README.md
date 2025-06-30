@@ -8,11 +8,11 @@ Pankki- ja maksutilien valvontajärjestelmä välittää tiedonhyödyntäjille e
 Tiedonluovuttajat eli luottolaitokset, maksulaitokset, sähkörahayhteisöt ja kryptovarapalvelun tarjoajat luovuttavat asiakkaidensa pankki- ja maksutilitiedot joko pankki- ja maksutilirekisterin tai oman tiedonhakujärjestelmänsä kautta. Tulli ylläpitää koostavaa sovellusta, joka välittää viranomaisten tietopyynnöt pankki- ja maksutilirekisteriin ja tiedonhakujärjestelmiin sekä siirtää vastaanotetut tiedot viranomaiselle. Saldo- ja tilitapahtumakyselyt toimitetaan joko tiedonluovuttajan tiedonhakujärjestelmään tai suojatulla sähköpostilla tilirekisterin toimijoille. Kyselyihin vastataan joko oman tiedonhakujärjestelmän tai tiedonluovutusjärjestelmän kautta.
 
 
-## Yhteystiedot
+## 1. Yhteystiedot <a name="luku1"></a>
 
 Sähköposti: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 
-## Sanasto & lyhenteet
+## 2. Sanasto & lyhenteet <a name="luku2"></a>
 
 | Termi    | Selite |
 | -------- | ------- |
@@ -28,7 +28,7 @@ Sähköposti: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 | Tilitapahtumatiedot | Yksityiskohtaisia tietoja toimista, jotka on suoritettu tiettynä ajanjaksona tietyn maksutilin tai IBAN-tilinumerolla yksilöidyn pankkitilin kautta, tai yksityiskohtaisia tietoja kryptovarojen siirroista (kts. pankki- ja maksutilien valvontajärjestelmästä annetun lain 2 §:n 15 kohta). |
 
 
-## Varmenteet
+## 3. Varmenteet <a name="luku3"></a>
 
 Pankki- ja maksutilien valvontajärjestelmässä ulkoiset yhteydet suojataan varmenteilla. Tiedonluovuttajan tulee ilmoittaa Tullille, mitä varmenteita se käyttää. Varmenteiden tulee olla Tullin ohjeistuksen mukaisia. Tiedonluovuttajan tulee hankkia varmennevaatimukset täyttävät palvelin- ja järjestelmäallekirjoitusvarmenteet ja asentaa ne järjestelmiinsä. Sanomien allekirjoitukseen tarvitaan lisäksi allekirjoitusvarmenne. Teknisesti sama varmenne voi toimia sekä palvelin- että järjestelmäallekirjoitusvarmenteena tai varmenteet voivat olla erillisiä. Tyypillisesti palvelinvarmenne asennetaan tietoliikenneyhteyksiä hoitavaan edustapalvelimeen ja allekirjoitusvarmenne vastaukset muodostavaan taustapalvelimeen.
 
@@ -44,7 +44,7 @@ Pankki- ja maksutilien valvontajärjestelmässä ulkoiset yhteydet suojataan var
 Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät sekä tiedonluovuttajat tai tiedonluovuttajan valtuuttamat tahot tunnistetaan X.509-varmenteilla (Tietoliikennevarmenne). Kyselyrajapinnan kysely- ja vastaussanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitusvarmenne).
 </details>
 
-### Tiedonluovuttajan allekirjoitusvarmenne
+### 3.1 Tiedonluovuttajan allekirjoitusvarmenne <a name="3-1"></a>
 
 Tiedonluovuttajan on allekirjoitettava lähettämänsä sanomat käyttäen x.509 palvelinvarmennetta, josta käy ilmi ko. tiedonluovuttajan Y-tunnus tai ALV-tunnus. Tiedonhakujärjestelmän toteuttajien on myös tarkistettava saapuvien sanomien allekirjoitus. Vastaanottaja ei saa hyväksyä sanomaa ilman hyväksyttävää allekirjoitusta. Allekirjoituksen hyväksyminen edellyttää, että XML-allekirjoitus on validi (kun kyseessä tiedonhakujärjestelmä) ja että
 joko   
@@ -85,7 +85,7 @@ a) Tilirekisterin ylläpitäjän (Tullin) palvelinvarmenteen on myöntänyt DVV,
 b) varmenteen kohteen serialNumber attributti on “FI02454428” tai “0245442-8”.
 </details>
 
-### Tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon tietoliikennevarmenne
+### 3.2 Tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon tietoliikennevarmenne <a name="3-2"></a>
 
 Tietoliikenne on suojattava (salaus ja vastapuolen tunnistus) x.509 (versio 3) varmenteita käyttäen.
 Tiedonhakujärjestelmän ollessa kyseessä toimivaltainen viranomainen, joka ottaa yhteyden kyselyrajapintaan, tunnistaa tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon palvelinvarmenteen avulla.
@@ -105,7 +105,7 @@ Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuske
 <summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen <a name="xml-allekirjoitus"></a></summary>
 <br>
 
-Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#header) Sgntr-elementin alle.
+Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#luku5) Sgntr-elementin alle.
 
 Esimerkki SignedInfo
 ![esimerkki SignedInfon käytöstä](diagrams/image.png) 
@@ -116,94 +116,45 @@ Allekirjoituksessa käytettyjen kryptografisten algoritmien on vastattava krypto
 
 </details>
 
-<details>
-<summary>Tilirekisterin päivitysrajapinnan sanomatason allekirjoitus</summary>
-<br>
-
-Päivitysrajapinnan sanomat allekirjoitetaan JWS-allekirjoituksella (PKI). JWS-allekirjoitukseen käytetään RS256 algoritmia ja ne allekirjoitetaan lähettäjän yksityisellä avaimella. Julkisen avaimen sisältävän varmenteen toimittamisesta Tullille ohjeistetaan Pankki- ja maksutilirekisterin käyttöönoton ja ylläpidon ohjeessa.  
-
-Allekirjoituksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Traficomin määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle TL IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).  
-
-Päivityssanomassa on oltava kaksi erillistä JWS-allekirjoitusta (esimerkit alempana):  
-a) Authorization headerissa on oltava Bearer token JWS josta löytyy sub-väitteessä (sub claim) lähettäjän Y-tunnus tai ALV-tunnus.  
-b) Request bodyssa on oltava JWS jossa "reportUpdate" property sisältää [JSON skeeman](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-update/blob/master/index.md#4-5) mukaisen päivityssanoman.  
-
-Molempien JWS-allekirjoitusten sub-kentässä tulee olla lähettäjän Y-tunnus tai VAT-tunnus samassa muodossa kuin lähettäjän julkisessa varmenteessa SERIALNUMBER-kentässä.  
-
-Virheellisen tai virheelliseksi epäillyn sanoman ilmoitus eroaa päivityssanomasta niin, että "reportUpdate" claim jää kokonaan pois ja sen tilalla on joko "reportDisputable" tai "reportIncorrect" tilanteesta riippuen (kts. [Tilirekisterin päivitysrajapinnan yleiskuvaus](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-update/blob/master/index.md#p%C3%A4ivitysrajapinta)).  
-a) Authorization header JWS:
-JWT Header
-````
-{
-  "alg": "RS256",
-  "typ": "JWT"
-}`
-````
-JWT Payload
-```
-{
-  "sub": "[SUBJECT]",
-  "aud": "accountRegister"
-}`
-````
-b) Request body JWS:  
-JWT Header
-````
-{
-  "alg": "RS256",
-  "typ": "JWT"
-}`
-````
-JWT Payload
-````
-{
-  "sub": "[SUBJECT]",
-  "aud": "accountRegister",
-  "reportUpdate": "[JSON OBJECT]"
-}
-````
-
-</details>
-
-### Yhteyksien suojaaminen
+### 3.3 Yhteyksien suojaaminen <a name="3-3"></a>
 
 Tilirekisterin päivitysrajapinnan ja tiedonhakujärjestelmän kyselyrajapinnan yhteydet on suojattava TLS-salauksella käyttäen TLS-protokollan versiota 1.2 tai korkeampaa. Yhteyden molemmat päät tunnistetaan yllä kuvatuilla palvelinvarmenteilla käyttäen kaksisuuntaista kättelyä. Yhteys on muodostettava käyttäen ephemeral Diffie-Hellman (DHE) avaintenvaihtoa, jossa jokaiselle sessiolle luodaan uusi uniikki yksityinen salausavain. Tämän menettelyn tarkoituksena on taata salaukselle forward secrecy -ominaisuus, jotta salausavaimen paljastuminen ei jälkikäteen johtaisi salattujen tietojen paljastumiseen.
 TLS-salauksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Traficomin määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle TL IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
 
-### Sallittu HTTP-versio
+### 3.4 Sallittu HTTP-versio <a name="3-4"></a>
 
 Tilirekisterin päivitysrajapinnan ja tiedonhakujärjestelmän kyselyrajapinnan yhteydet käyttävät HTTP-protokollan versiota 1.1.
 
-### Varmenteiden hankinta
+### 3.5 Varmenteiden hankinta <a name="3-5"></a>
 
 Varmenteet hakee se taho, joka muodostaa ja välittää vastaukset tiedonhyödyntäjien kyselyihin. Jos käytetään palveluntarjoajaa, joka muodostaa ja välittää sanomat ilmoitusvelvollisen puolesta, palvelinvarmennetta hakee palveluntarjoaja. Tällöin ilmoitusvelvollisen tulee valtuuttaa palveluntarjoaja allekirjoittamaan lähetettävät sanomat.
 Mikäli varmenteeseen liittyvä yksityinen avain paljastuu tai sen epäillään joutuneen vääriin käsiin, tulee varmenteen haltijan huolehtia siitä, että varmenne suljetaan välittömästi ja tästä ilmoitetaan Tullille ilman viivytystä. Vastaavasti mikäli varmenne myönnetään vahingossa tai vilpillisesti väärälle taholle, tulee varmenteen oikean kohteen huolehtia siitä, että varmenne suljetaan ja tästä ilmoitetaan Tullille välittömästi varmenteen oikean kohteen tultua tietoiseksi asiasta.
 
-### Varmenteiden päivitys
+### 3.6 Varmenteiden päivitys <a name="3-6"></a>
 
 Tiedonluovuttajan tulee uusia varmenne hyvissä ajoin ennen sen vanhenemista. Vanhentunutta varmennetta ei voi käyttää. 
 Ellei muuta ole sovittu, uusi tai uusittu varmenne tulee toimittaa Tullille sähköisesti kiistämätöntä ja tietoturvallista tiedonsiirtomenetelmää käyttäen viimeistään 1 kk ennen sen käyttöönottoa. Varmenne tulee lähettää Tullin turvasähköpostipalvelua (https://turvaviesti.tulli.fi/) käyttäen osoitteeseen tilirekisteri@tulli.fi.
 Pankki- ja maksutilien valvontajärjestelmän laissa pykälässä 8 §:n Tullilla on oikeus saada tiedot maksuttomasti, ja näin ollen tiedonluovuttaja vastaa käyttämänsä varmenteen kustannuksista.
 
-### Tietoturvapoikkeamien ilmoitusvelvollisuus
+### 3.7 Tietoturvapoikkeamien ilmoitusvelvollisuus <a name="3-7"></a>
 
 Tilirekisterin rajapinnan käyttäjä on velvollinen ilmoittamaan viivytyksettä käyttämiensä varmenteiden tai näiden salaisten avainten vaarantumisesta sekä varmenteen myöntäjälle, että Tullille. Rajapinnan käyttäjä on velvollinen ilmoittamaan viivytyksettä Tullille myös, mikäli rajapintaa käyttävässä tietojärjestelmässä havaitaan tietoturvapoikkeama.
 Mikäli tiedonhakujärjestelmän toteuttajan varmenteet tai näiden salaiset avaimet vaarantuvat on tästä ilmoitettava välittömästi varmenteen myöntäjälle ja niille toimivaltaisille viranomaisille, jotka hyödyntävät tiedonhakujärjestelmää. Toimivaltaisille viranomaisille on ilmoitettava myös, jos tiedonhakujärjestelmässä havaitaan tietoturvapoikkeama.
 Mikäli tiedonhakujärjestelmää hyödyntävän toimivaltaisen viranomaisen varmenteet tai näiden salaiset avaimet vaarantuvat on tästä ilmoitettava välittömästi varmenteen myöntäjälle ja niille tiedonhakujärjestelmän toteuttajille, joiden toteutusta tiedonhakujärjestelmästä kyseinen toimivaltainen viranomainen hyödyntää.
 
-## Saldo- ja tilitapahtumatietokyselyn tiedonkulku
+## 4. Saldo- ja tilitapahtumatietokyselyn tiedonkulku <a name="luku4"></a>
 
 Allaolevassa kuvassa on esitetty yleiskuva saldo- ja tilitapahtumatietokyselyn tiedonkulusta pankki- ja maksutilien valvontajärjestelmässä.
 
 ![Pankki- ja maksutilien valvontajärjestelmä](diagrams/tilitap_tiedonkulku_fi.png "Pankki- ja maksutilien valvontajärjestelmä")  
 
-1. Viranomaisen järjestelmä lähettää saldo- ja tilitapahtumatietokyselyn koostavan sovelluksen [kyselyrajapintaan](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-kysely). Kyselysanoman sisältö on kuvattu luvussa [Kyselysanoma](#kyselysanoma). 
+1. Viranomaisen järjestelmä lähettää saldo- ja tilitapahtumatietokyselyn koostavan sovelluksen [kyselyrajapintaan](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-kysely). Kyselysanoman sisältö on kuvattu luvussa [Kyselysanoma](#luku6). 
 2. Koostava sovellus välittää saldo- ja tilitapahtumatietokyselyn toimijalle, jolle kysely on suunnattu joko rajapinnan kautta tiedonhakujärjestelmään tai turvasähköpostilla tilirekisterin toimijalle.  
 3. Tiedonluovuttaja vastaa saldo- ja tilitapahtumatietokyselyyn viimeistään seuraavan pankkipäivän aikana. Jos kysely on osoitettu tiedonhakujärjestelmän toteuttaneelle toimijalle, tiedonhakujärjestelmä lähettää vastaussanoman koostavalle sovellukselle rajapinnan kautta. Jos kysely on osoitettu tilirekisteriä käyttävälle toimijalle, tämä toimittaa vastaussanoman tiedonluovutusjärjestelmään.     
 4. Vastaussanoma välittyy tiedonluovutusjärjestelmästä koostavaan sovellukseen.  
 5. Viranomainen hakee vastauksen saldo- ja tilitapahtumatietokyselyynsä koostavan sovelluksen rajapinnasta. Vastauksen haussa käytetään koostavan sovelluksen [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-status) ja [tulosrajapintoja](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-tulos).
 
-### Ohjeita tiedonluovuttajille
+### 4.1 Ohjeita tiedonluovuttajille <a name="4-1"></a>
 
 Saldo- ja tilitapahtumatietokyselyihin on vastattava viipymättä, mutta viimeistään seuraavana pankkipäivänä virka-ajan päättymiseen eli kello 16:15 (EET) mennessä. Mikäli kysely ei tule virka-ajan puitteissa eli kello 8:00-16:15 välillä, määräajan laskenta alkaa seuraavasta pankkipäivästä. Esimerkiksi, jos viranomainen lähettää kyselyn perjantaina kello 18:00, vastaus tulee toimittaa viimeistään seuraavaan tiistaihin kello 16:15 mennessä.
 
@@ -219,7 +170,7 @@ Tilirekisteriin päivittäville tiedonluovuttajille saldo- ja tilitapahtumatieto
 
 Mikäli jostain syystä tietoja haun kohteesta ei löydykään, tiedonluovuttajan tulee vastata kyselyyn NFOU-statuskoodilla.
 
-### Lisäselvityspyyntö
+### 4.2 Lisäselvityspyyntö <a name="4-2"></a>
 
 Jos tiedonluovuttaja katsoo vastaanottamansa kyselyn sellaiseksi, että se tarvitsee lisäselvitystä, voi tiedonluovuttaja palauttaa kyselyyn NRES-statuskoodin (käsittely kesken) ja ottaa suoraan yhteyttä kyselyn lähettäneeseen viranomaiseen pyytääkseen lisätietoja. Lisäselvityspyyntöä varten viranomainen lähettää aina kyselysanoman headerin Fr/OrgId/CtctDtls -elementissä yhteystiedot (nimi, puhelinnumero, sähköposti). 
 
@@ -227,7 +178,7 @@ Tiedonluovuttaja vastaa alkuperäiseen kyselyyn lisäselvityksen käsittelyn jä
 
 Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](examples/general/example_passing_contact_details.xml)
 
-## Business Application Header <a name="header"></a>
+## 5. Business Application Header <a name="luku5"></a>
 
 ISO 20022 standardin mukainen BusinessApplicationHeaderV01 (head.001.001.01) sanoma liitetään sekä kysely- että vastaussanomaan. Kenttien käyttö on muutoin samanlaista kysely- ja vastaussanomassa, paitsi kyselysanomassa tulee lähettää yhteystiedot mahdollista lisäselvityspyyntöä varten.
 
@@ -403,7 +354,7 @@ Lähettäjän muodostama [XML-allekirjoitus](#xml-allekirjoitus)
   </tbody>
 </table>
 
-## Kyselysanoma <a name="kyselysanoma"></a>
+## 6. Kyselysanoma <a name="luku6"></a>
 
 Kyselysanomassa käytetään ISO 20022 sanomaa InformationRequestOpeningV01 (auth.001.001.01). InformationRequestOpeningV01 sanoman supplementary data -osiossa käytetään kansallista InformationRequestFIN012 (fin.012.001.04) sanomalaajennosta.
 
@@ -429,7 +380,7 @@ Käytetään hakuaikavälin tilitapahtumatietojen sekä aikavälin alku- ja lopp
 Kyselyn mukana välitetään aina kaikki muut tiedot paitsi lisätiedot.
 Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: TRAN & BALN.
 
-### InformationRequestOpeningV01 sanoman sisältö
+### 6.1 InformationRequestOpeningV01 sanoman sisältö <a name="6-1"></a>
 
 <table>
   <colgroup><col /><col /><col /><col /></colgroup>
@@ -648,12 +599,12 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigat
       <td >TransactionFieldCode</td>
       <td >
         
-Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä lisätiedoista: [TransactionFieldCode](#transaction-field-code) </td>
+Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä lisätiedoista: [TransactionFieldCode](#6-2) </td>
     </tr>
   </tbody>
 </table>
 
-### TransactionFieldCode: erikseen pyydettävät lisätiedot <a name="transaction-field-code"></a>
+### 6.2 TransactionFieldCode: erikseen pyydettävät lisätiedot <a name="6-2"></a>
 
 | Kuvaus                                | Tietue                                  | Koodi            |
 |:--------------------------------------|:----------------------------------------|:-----------------|
@@ -663,7 +614,7 @@ Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen
 *Esimerkkisanoma erikseen pyydettävistä lisätiedoista:* [Esimerkkisanoma](examples/general/example_request_additional_info.xml)
 
 
-## Vastaussanoma
+## 7. Vastaussanoma <a name="luku7"></a>
 
 Vastaussanomassa käytetään ISO 20022 sanomia BusinessApplicationHeaderV01 (head.001.001.01) ja InformationRequestResponseV01 (auth.002.001.01). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
 
@@ -671,7 +622,7 @@ Alla on kuvattu, mitä kenttiä käytetään vastaussanomassa. Alisanoman [camt.
 
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
-### Saldo- ja tilitapahtumakyselyssä välitettävät kentät
+### 7.1 Saldo- ja tilitapahtumakyselyssä välitettävät kentät <a name="7-1"></a>
 
 
 <table>
@@ -957,7 +908,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
 </table>
 
 
-## Virhetilanteet
+## 8. Virhetilanteet <a name="luku8"></a>
 
 
 <table>
