@@ -392,7 +392,7 @@ Käytetään hakuaikavälin tilitapahtumatietojen sekä aikavälin alku- ja lopp
 
 Vastauksen mukana välitetään aina kaikki muut tiedot paitsi lisätiedot.
 
-Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erilllisinä elementteinä investigationTypeCode: TRAN ja investigationTypeCode: BALN.
+Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisinä elementteinä investigationTypeCode: TRAN ja investigationTypeCode: BALN.
 
 ### 6.2 InformationRequestOpeningV01 sanoman sisältö <a name="6-2"></a>
 
