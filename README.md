@@ -636,7 +636,7 @@ Alla on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.05
 
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
-### 7.1 Saldo- ja tilitapahtumakyselyssä välitettävät kentät <a name="7-1"></a>
+### 7.1 Alisanoman camt.052.001.08 sisältö <a name="7-1"></a>
 
 
 <table>
