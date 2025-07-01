@@ -374,7 +374,7 @@ Keskitetystä saldo- ja tilitapahtumatietojärjestelmästä on mahdollista hakea
 
 Käytetään ajantasaisten tilitapahtumatietojen noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
 
-Kyselyn mukana välitetään aina kaikki muut tiedot, paitsi saldo (bal-elementti) sisältämät kentät ja lisätiedot.
+Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi saldo (bal-elementti) sisältämät kentät ja lisätiedot.
 
 Pelkkiä tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: TRAN. 
 
@@ -382,7 +382,7 @@ Pelkkiä tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigati
 
 Käytetään luovutushetken saldotietojen noutamiseen. 
 
-Kyselyn mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtuma (entry-elementti) sisältämät kentät ja lisätiedot.
+Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtuma (entry-elementti) sisältämät kentät ja lisätiedot.
 
 Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN.
 
@@ -390,7 +390,7 @@ Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeC
 
 Käytetään hakuaikavälin tilitapahtumatietojen sekä aikavälin alku- ja loppuhetken saldotiedon noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
 
-Kyselyn mukana välitetään aina kaikki muut tiedot paitsi lisätiedot.
+Vastauksen mukana välitetään aina kaikki muut tiedot paitsi lisätiedot.
 
 Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erilllisinä elementteinä investigationTypeCode: TRAN ja investigationTypeCode: BALN.
 
