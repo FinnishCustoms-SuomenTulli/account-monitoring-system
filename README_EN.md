@@ -340,7 +340,7 @@ It is possible to request only account balance information, only account transac
 
 Used for retrieving up-to-date account transaction information. Includes also incomplete transactions [Transaction status: "Pending"]
 
-All other information is always included in the response except the fields including balance information (bal element) and additional information.
+All other information is always included in the response except the fields including balance information (bal element) and separately requested information.
 
 When requesting only account transaction information the investigationTypeCode: TRAN is included in the query message. 
 
@@ -348,7 +348,7 @@ When requesting only account transaction information the investigationTypeCode: 
 
 Used for retrieving latest (response time) balance information. 
 
-All other information is always included in the response except the fields including transaction information (entry element) and additional information.
+All other information is always included in the response except the fields including transaction information (entry element) and separately requested information.
 
 When requesting only account balance information the investigationTypeCode: BALN is included in the query message.
 
@@ -356,7 +356,7 @@ When requesting only account balance information the investigationTypeCode: BALN
 
 Used for retrieving account transaction information from the investigation period, and account balance information at investigation period start and end time. Includes also incomplete transactions [Transaction status: "Pending"]
 
-All other information is always included in the response except additional information.
+All other information is always included in the response except separately requested information.
 
 When requesting both account balance and transaction information the investigationTypeCode is included twice in the query message: once with value TRAN and once with value BALN.
 
@@ -579,12 +579,12 @@ When requesting both account balance and transaction information the investigati
       <td >TransactionFieldCode</td>
       <td >
         
-Used if requesting additional information to be returned in the response in addition to the basic information. List of additional information that can be included in the response if needed: [TransactionFieldCode](#6-3) </td>
+Used if requesting separately requested additional information to be returned in the response in addition to the basic information. List of additional information that can be included in the response if needed: [TransactionFieldCode](#6-3) </td>
     </tr>
   </tbody>
 </table>
 
-### 6.3 TransactionFieldCode: additional information requested separately <a name="6-3"></a>
+### 6.3 TransactionFieldCode: separately requested additional information <a name="6-3"></a>
 
 | Description                                             | Field                                   | Code             |
 |:--------------------------------------------------------|:----------------------------------------|:-----------------|
@@ -878,7 +878,7 @@ The content of the response message is similar for all data providers regardless
       <td>TrueFalseIndicator</td>
       <td>
         
-Indicator whether account balance includes credit limit. Separately requested information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
+Indicator whether account balance includes credit limit. Separately requested additional information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
       </td>
     </tr>
     <tr>
@@ -886,7 +886,7 @@ Indicator whether account balance includes credit limit. Separately requested in
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Available credit limit. Separately requested information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
+Available credit limit. Separately requested additional information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
