@@ -37,8 +37,8 @@ Email: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 | Data disclosure system | Data suppliers updating the information to the Account Register deliver the response messages to account balance and transaction information queries to the data disclosure system. |
 | Account balance |  The amount of money available on a bank and payment account at the time of the reply. Possible authorizations should be deducted from the amount.  |
 | Transaction information | Detailed information on transactions carried out during a specific period of time through a specific payment account, or bank account identified by an IBAN account number, or detailed information on transfers of crypto assets (see subsection 15 under Section 2 of the Act on the Bank and Payment Accounts Control System). |
-| Request for additional information | The data supplier requests additional information from the authority that made the query before providing the information requested.  |
-| Separately requested information | Information that is not returned in the response message of the data supplier unless the authority making the query has specifically requested for that data.  |
+| Request for clarification | The data supplier requests further clarification from the authority that made the query before providing the information requested.  |
+| Separately requested (additional) information | Information that is not returned in the response message of the data supplier unless the authority making the query has specifically requested for that data.  |
 
 ## 3. Certificates <a name="luku3"></a>
 
