@@ -38,6 +38,8 @@ Sähköposti: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 | Tiedonluovuttaja | Tiedonluovuttajalla tarkoitetaan maksulaitosta,  sähkörahayhteisöä, luottolaitosta tai kryptovarapalvelun tarjoajaa, joka toimittaa laissa pankki- ja maksutilien valvontajärjestelmästä määriteltyjä tietoja Tullin ylläpitämän tilirekisterin päivitysrajapinnan kautta tai välittää vastaavia tietoja ylläpitämänsä tiedonhakujärjestelmän kautta. Tiedonluovuttajalla tarkoitetaan myös ulkomaisen maksulaitoksen, sähkörahayhteisön, luottolaitoksen ja virtuaalivaluutan tarjoajan Suomessa sijaitsevaa sivuliikettä. |
 | Tiedonluovutusjärjestelmä | Järjestelmä, johon tilirekisteriin päivittävät tiedonluovuttajat toimittavat vastaussanoman saldo- ja tilitapahtumatietokyselyyn.  |
 | Tilitapahtumatiedot | Yksityiskohtaisia tietoja toimista, jotka on suoritettu tiettynä ajanjaksona tietyn maksutilin tai IBAN-tilinumerolla yksilöidyn pankkitilin kautta, tai yksityiskohtaisia tietoja kryptovarojen siirroista (kts. pankki- ja maksutilien valvontajärjestelmästä annetun lain 2 §:n 15 kohta). |
+| Lisäselvityspyyntö | Tiedonluovuttaja pyytää lisätietoja kyselyn tehneeltä viranomaiselta ennen tiedonluovutusta.  |
+| Erikseen pyydettävät (lisä)tiedot | Tiedot, joita tiedonluovuttaja ei palauta vastaussanomassa ellei viranomainen erikseen pyydä niitä kyselysanomassaan.  |
 
 
 ## 3. Varmenteet <a name="luku3"></a>
