@@ -9,11 +9,11 @@ The Bank and Payment Account Monitoring system transmits information on the bank
 Credit institutions, payment institutions, electric money institutions and providers of crypto-assets, i.e. data suppliers, provide the information on their customers bank and payment accounts either via the Bank and Payment Account Register or their own data retrieval systems. Customs maintains the aggregating application that transmits the information requests by the authorities to the Bank and Payment Account Register and data retrieval systems and transports the received information to the authorities. The account balance and transaction queries are delivered either to the data suppliers data retrieval system or via a secured email to the Account Register participants. The queries are replied to either via the data disclosure system or the data suppliers own data retrieval system.
 
 
-## Contact information
+## 1. Contact information <a name="luku1"></a>
 
 Email: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 
-## Certificates
+## 3. Certificates <a name="luku3"></a>
 
 External connections are secured through certificates in the Bank and Payment Account Monitoring System. Data suppliers must notify Customs as to what certificates they use. Certificates must comply with the instructions from Customs. Data suppliers must obtain signature certificates for servers and systems that meet the requirements set out for certificates, and install the certificates in their systems. Technically, an individual certificate can be used for signatures for servers as well as systems. Separate certificates can also be used. The EIDAS certificate profile that is used is in both cases WAC, website authentication certificate. Typically, server certificates are installed in front-end servers that administer data communications, whereas signature certificates are installed in back end servers that generate replies.
 
@@ -29,7 +29,7 @@ External connections are secured through certificates in the Bank and Payment Ac
 The utilisers of the data retrieval system interface and the data suppliers or the parties authorised by the data supplier are identified with X.509 certificates (Data traffic certificate). The query and response messages of the query interface are signed using XML signatures (Signature certificate).
 </details>
 
-### Signature certificate of the data supplier
+### 3.1 Signature certificate of the data supplier <a name="3-1"></a>
 
 The outgoing messages must be automatically signed using x.509 (version 3) server certificate showing the Business ID or VAT identifier of the data supplier concerned. Acceptance of the signature requires that either         
  a) the certificate was issued by the Digital and Population Data Services Agency, the certificate is valid and is not included in the certificate revocation list of the Digital and Population Data Services Agency, and the serialNumber attribute of the Subject field of the certificate consists of the Business ID or VAT number of the data supplier     
@@ -62,7 +62,7 @@ c) the serialNumber attribute of the Subject field of the certificate consists o
 Please note: For the protection of data communications to meet the information security requirements of the National Cyber Security Centre referred to below, the RSA public key of the certificate used must have at least 3072 bits. In addition, the server certificate must be of type QWAC (Qualified Website Authentication Certificate), which includes extensions (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). These factors must be taken into account when ordering a certificate.
 </details>
 
-### Data traffic certificate of the data supplier or the party authorised by the data supplier
+### 3.2 Data traffic certificate of the data supplier or the party authorised by the data supplier <a name="3-2"></a>
 
 Data traffic must be protected (encryption and counterpart identification) using x.509 (version 3) certificates. Regarding the data retrieval system, the competent authority contacting the query interface identifies the data supplier or the party authorised by the data supplier with the help of the server certificate.
 
@@ -93,25 +93,25 @@ In terms of cryptographic strength, the cryptographic algorithms used in signatu
 
 </details>
 
-### Protecting the connections
+### 3.3 Protecting the connections <a name="3-3"></a>
 
 The connections of the Account Register data updating interface must be protected with TLS encryption using version 1.2 or later of the TLS protocol. Both ends of the connection are identified with the server certificates described above, using two-way handshaking. The connection must be established using the ephemeral Diffie-Hellman (DHE) key exchange protocol where a new unique private encryption key is created for each session. The purpose of this procedure is to ensure that encryption has the forward secrecy feature so that possible discovery of the encryption key would not subsequently lead to a disclosure of the encrypted information.
 
 The cryptographic algorithms used in TLS encryption must have a cryptographic strength at least equal to the cryptographic strength requirements specified by the Finnish Transport and Communications Agency Traficom for national protection level TL IV. The current strength requirements are described (in Finnish) in the document https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
 
-### Permitted HTTP-version
+### 3.4 Permitted HTTP-version <a name="3-4"></a>
 
 The connections of the data updating interface use HTTP version 1.1.
 
-### Applying for certificates
+### 3.5 Applying for certificates <a name="3-5"></a>
 
 Certificates are to be acquired by the party that generates and transmits replies to queries submitted by data users. If a service provider is used for building and transmitting messages on behalf of the party obligated to provide information, the server certificate is to be acquired by the service provider. In such cases, the party obligated to provide information must authorize the service provider to sign the messages to be sent. If a private key related to a certificate is revealed or it is suspected that the key has fallen into the wrong hands, the certificate holder must see to that the certificate is immediately revoked and that Customs is notified of this without delay. Correspondingly, if a certificate is accidentally or fraudulently granted to an incorrect party, the correct certificate subject must see to that the certificate is revoked and that Customs is notified of this immediately after the correct certificate subject has become aware of the matter.
 
-### Renewal of the certificates
+### 3.6 Renewal of the certificates <a name="3-6"></a>
 
 Certificates must be renewed in good time before their expiry. An expired certificate cannot be used. Unless otherwise agreed, a new or renewed certificate is to be submitted electronically to Customs using a data-secure method of transfer no later than one month before the certificate is to be taken into use. Certificates are to submitted using the Customs secure email service (https://turvaviesti.tulli.fi/) to tilirekisteri@tulli.fi. Section 8 of the Act on the Bank and Payment Accounts Control System provides that Customs has the right to obtain information free of charge. Therefore, data suppliers are responsible for the costs relating to their certificates.
 
-### Duty to report information security deviations
+### 3.7 Duty to report information security deviations <a name="3-7"></a>
 
 The user of the Account Register interface is obliged to immediately report to both the party issuing the certificate and Customs any cases of the certificates or their secret keys having been compromised. The user of the interface is also obliged to immediately report to Customs any information security deviations observed in the information system using the interface. If the certificates or private key of the party implementing the data retrieval system are compromised, the party issuing the certificate and the competent authorities utilising the data retrieval system must be immediately informed of this. The competent authorities must also be informed if an information security deviation is observed in the data retrieval system. If the certificates or private key of the competent authority utilising the data retrieval system are compromised, the party issuing the certificate and the parties implementing the data retrieval system whose implementation of the data retrieval system is utilised by the competent authority concerned must be immediately informed of this.
 
