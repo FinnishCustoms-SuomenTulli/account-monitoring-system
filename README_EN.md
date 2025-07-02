@@ -150,7 +150,7 @@ Figure below presents the overall picture of the data flow for account balance a
 
 1. Authority's system sends an account balance and transaction information query to the [query interface](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_en.md#4-2) of the aggregating application. Content of the query message is described in chapter [Query message](#luku6). 
 2. The aggregating application forwards the account balance and transaction information query to the party it is directed to either via the data retrieval system interface or via secure email to a party using the account register.  
-3. The data provider responds to the account balance and transaction information query during the next banking day at the latest. If the query was directed to a data provider that is using a data retrieval system, the party responds by sending a response message to the aggregating application interface. If the query was directed to a data provider that is using the account register, they deliver the response message via data disclosure system.     
+3. The data supplier responds to the account balance and transaction information query during the next banking day at the latest. If the query was directed to a data supplier that is using a data retrieval system, the party responds by sending a response message to the aggregating application interface. If the query was directed to a data supplier that is using the account register, they deliver the response message via data disclosure system.     
 4. The data disclosure system forwards the message to the aggregating application.  
 5. The authority retrieves the response to their account balance and transaction information query using the aggregating application's [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_en.md#4-3) and [result APIs](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_en.md#4-4).
 
@@ -158,9 +158,9 @@ Figure below presents the overall picture of the data flow for account balance a
 
 ### 4.2 Request for clarification <a name="4-2"></a>
 
-If the data provider considers that a query they have received requires clarification, the data provider can respond to the query with status code NRES (processing) and contact the requesting authority requesting directly to ask for more information. The authority always sends their contact information (name, phone number, email address) in the query message header element Fr/OrgId/CtctDtls in case clarification is needed.
+If the data supplier considers that a query they have received requires clarification, the data supplier can respond to the query with status code NRES (processing) and contact the requesting authority requesting directly to ask for more information. The authority always sends their contact information (name, phone number, email address) in the query message header element Fr/OrgId/CtctDtls in case clarification is needed.
 
-The data provider responds to the original query after the clarification if the time limit allows it. If it is not possible to respond to the query within the time limit, the authority can, if needed, make another query, to which the data provider responds as agreed. If the data provider has responded to the query with NRES, the aggregating application tries to retrieve the response again from the data provider until the time limit is reached. After the time limit for providing data is reached, the query is closed.
+The data supplier responds to the original query after the clarification if the time limit allows it. If it is not possible to respond to the query within the time limit, the authority can, if needed, make another query, to which the data supplier responds as agreed. If the data supplier has responded to the query with NRES, the aggregating application tries to retrieve the response again from the data supplier until the time limit is reached. After the time limit for supplying data is reached, the query is closed.
 
 Example of forwarding contact information: [Example message](examples/general/example_passing_contact_details.xml)
 
@@ -168,7 +168,7 @@ Example of forwarding contact information: [Example message](examples/general/ex
 
 ISO 20022 standard BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) is attached to both the query and the response message. The fields are otherwise used in a similar way in both the query and the response message, except contact details must be sent in the query message in case the data provider needs to ask additional information.
 
-The sender details in Fr fields contain the authority's information when an authority sends a message, the data provider's information when the data provider sends a message and Finnish Customs' information when Finnish Customs forwards a message. Respectively receiver details in To fields contain Finnish Customs' information when a message is sent to aggregating application (koostava sovellus), and the information of the authority or the data provider when aggregating application forwards the message.
+The sender details in Fr fields contain the authority's information when an authority sends a message, the data supplier's information when the data provider sends a message and Finnish Customs' information when Finnish Customs forwards a message. Respectively receiver details in To fields contain Finnish Customs' information when a message is sent to aggregating application (koostava sovellus), and the information of the authority or the data supplier when aggregating application forwards the message.
 
 <table>
   <colgroup><col /><col /><col /><col /></colgroup>
@@ -621,7 +621,7 @@ The response message uses ISO 20022 message InformationRequestResponseV01 [auth.
 
 The fields used in the reponse message are described in chapter 7.1 below. Schema for submessage [camt.052.001.08](schemas/camt.052.001.08.xsd). Examples of the [response message](examples/queries).
 
-The content of the response message is similar for all data providers regardless of whether they have implemented a data retrieval system or an interface to account register. Only the method for delivering the response message is different.
+The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or an interface to account register. Only the method for delivering the response message is different.
 
 ### 7.1 Content of submessage camt.052.001.08 <a name="7-1"></a>
 
