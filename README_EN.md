@@ -166,9 +166,9 @@ Example of forwarding contact information: [Example message](examples/general/ex
 
 ## 5. Business Application Header <a name="luku5"></a>
 
-ISO 20022 standard BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) is attached to both the query and the response message. The fields are otherwise used in a similar way in both the query and the response message, except contact details must be sent in the query message in case the data provider needs to ask additional information.
+ISO 20022 standard BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) is attached to both the query and the response message. The fields are otherwise used in a similar way in both the query and the response message, except contact details must be sent in the query message in case the data supplier needs to ask additional information.
 
-The sender details in Fr fields contain the authority's information when an authority sends a message, the data supplier's information when the data provider sends a message and Finnish Customs' information when Finnish Customs forwards a message. Respectively receiver details in To fields contain Finnish Customs' information when a message is sent to aggregating application (koostava sovellus), and the information of the authority or the data supplier when aggregating application forwards the message.
+The sender details in Fr fields contain the authority's information when an authority sends a message, the data supplier's information when the data supplier sends a message and Finnish Customs' information when Finnish Customs forwards a message. Respectively receiver details in To fields contain Finnish Customs' information when a message is sent to aggregating application (koostava sovellus), and the information of the authority or the data supplier when aggregating application forwards the message.
 
 <table>
   <colgroup><col /><col /><col /><col /></colgroup>
