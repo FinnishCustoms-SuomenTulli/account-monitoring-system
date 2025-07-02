@@ -8,6 +8,16 @@ The Bank and Payment Account Monitoring system transmits information on the bank
 
 Credit institutions, payment institutions, electric money institutions and providers of crypto-assets, i.e. data suppliers, provide the information on their customers bank and payment accounts either via the Bank and Payment Account Register or their own data retrieval systems. Customs maintains the aggregating application that transmits the information requests by the authorities to the Bank and Payment Account Register and data retrieval systems and transports the received information to the authorities. The account balance and transaction queries are delivered either to the data suppliers data retrieval system or via a secured email to the Account Register participants. The queries are replied to either via the data disclosure system or the data suppliers own data retrieval system.
 
+### Table of contents
+
+[1. Contact information](#luku1)  
+[2. Glossary & abbreviations](#luku2)  
+[3. Certificates](#luku3)  
+[4. Data flow of the account balance and transaction information query](#luku4)  
+[5. Business Application Header](#luku5)  
+[6. Query message](#luku6)  
+[7. Response message](#luku7)  
+[8. Error situations](#luku8)  
 
 ## 1. Contact information <a name="luku1"></a>
 
