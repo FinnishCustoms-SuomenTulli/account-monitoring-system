@@ -374,7 +374,7 @@ Keskitetystä saldo- ja tilitapahtumatietojärjestelmästä on mahdollista hakea
 
 Käytetään ajantasaisten tilitapahtumatietojen noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
 
-Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi saldo (bal-elementti) sisältämät kentät ja lisätiedot.
+Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi saldoon (bal-elementti) kuuluvat kentät ja erikseen pyydettävät tiedot.
 
 Pelkkiä tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: TRAN. 
 
@@ -382,7 +382,7 @@ Pelkkiä tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigati
 
 Käytetään luovutushetken saldotietojen noutamiseen. 
 
-Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtuma (entry-elementti) sisältämät kentät ja lisätiedot.
+Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtumatietoja (entry-elementti) sisältävät kentät ja erikseen pyydettävät tiedot.
 
 Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN.
 
@@ -390,7 +390,7 @@ Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeC
 
 Käytetään hakuaikavälin tilitapahtumatietojen sekä aikavälin alku- ja loppuhetken saldotiedon noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
 
-Vastauksen mukana välitetään aina kaikki muut tiedot paitsi lisätiedot.
+Vastauksen mukana välitetään aina kaikki muut tiedot paitsi erikseen pyydettävät tiedot.
 
 Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisinä elementteinä investigationTypeCode: TRAN ja investigationTypeCode: BALN.
 
@@ -613,7 +613,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       <td >TransactionFieldCode</td>
       <td >
         
-Käytetään, jos vastauksessa halutaan palautettavan lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä lisätiedoista: [TransactionFieldCode](#6-3) </td>
+Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä erikseen pyydettävistä tiedoista: [TransactionFieldCode](#6-3) </td>
     </tr>
   </tbody>
 </table>
@@ -913,7 +913,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>TrueFalseIndicator</td>
       <td>
         
-Ilmaisin, sisältääkö saldo luottorajan. Lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
+Ilmaisin, sisältääkö saldo luottorajan. Erikseen pyydettävä lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
       </td>
     </tr>
     <tr>
@@ -921,7 +921,7 @@ Ilmaisin, sisältääkö saldo luottorajan. Lisätieto, joka palautetaan ainoast
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Käytettävissä oleva luottoraja. Lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
+Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
