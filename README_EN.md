@@ -299,33 +299,39 @@ The fields used in the query message are described in chapter 6.2 below. Schema 
 
 ### 6.1 Requesting different kinds of information <a name="6-1"></a>
 
+The query message uses ISO 20022 message InformationRequestOpeningV01 [auth.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.001.001.01.xsd). InformationRequestOpeningV01 message's supplementary data contains the national message extension InformationRequestFIN012 (fin.012.001.04).
+
+The fields used in the query message are described in chapter 6.2 below. Schema for submessage [fin.012.001.04](schemas/fin.012.001.04.xsd). Examples of the [query message](examples/queries).
+
+### 6.1 Requesting different kinds of information <a name="6-1"></a>
+
 It is possible to request only account balance information, only account transaction information, or both from the centralised account balance and transaction information system.
 
 [Example message](examples/general/example_requesting_only_bal_or_entry_or_both.xml) of requesting account balance and transaction information.
 
 #### Requesting only account transaction information
 
-Käytetään ajantasaisten tilitapahtumatietojen noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
+Used for retrieving up-to-date account transaction information. Includes also incomplete transactions [Transaction status: "Pending"]
 
-Kyselyn mukana välitetään aina kaikki muut tiedot, paitsi saldo (bal-elementti) sisältämät kentät ja lisätiedot.
+All other information is always included in the response except the fields including balance information (bal element) and additional information.
 
-Pelkkiä tilitaphtumatietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: TRAN. 
+When requesting only account transaction information the investigationTypeCode: TRAN is included in the query message. 
 
 #### Requesting only account balance information
 
-Käytetään luovutushetken saldotietojen noutamiseen. 
+Used for retrieving latest (response time) balance information. 
 
-Kyselyn mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtuma (entry-elementti) sisältämät kentät ja lisätiedot.
+All other information is always included in the response except the fields including transaction information (entry element) and additional information.
 
-Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN.
+When requesting only account balance information the investigationTypeCode: BALN is included in the query message.
 
 #### Requesting both account balance and transaction information
 
-Käytetään hakuaikavälin tilitapahtumatietojen sekä aikavälin alku- ja loppuhetken saldotiedon noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
+Used for retrieving account transaction information from the investigation period, and account balance information at investigation period start and end time. Includes also incomplete transactions [Transaction status: "Pending"]
 
-Kyselyn mukana välitetään aina kaikki muut tiedot paitsi lisätiedot.
+All other information is always included in the response except additional information.
 
-Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erilllisinä elementteinä investigationTypeCode: TRAN ja investigationTypeCode: BALN.
+When requesting both account balance and transaction information the investigationTypeCode is included twice in the query message: once with value TRAN and once with value BALN.
 
 ### 6.2 InformationRequestOpeningV01 message content <a name="6-2"></a>
 
@@ -560,3 +566,301 @@ Used if requesting additional information to be returned in the response in addi
 
 [Example message](examples/general/example_request_additional_info.xml) of separately requesting additional information.
 
+## 7. Response message <a name="luku7"></a>
+
+Vastaussanomassa käytetään ISO 20022 sanomia BusinessApplicationHeaderV01 (head.001.001.01) ja InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
+
+Alla on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
+
+Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
+
+### 7.1 Content of submessage camt.052.001.08 <a name="7-1"></a>
+
+
+<table>
+  <colgroup><col /><col /><col /></colgroup>
+  <tbody>
+    <tr>
+      <th>Element name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgId
+      </td>
+      <td>Max35Text</td>
+      <td>Unique message identification.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++CreDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Message creation date and time.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++AddtlInf
+      </td>
+      <td>Max500Text</td>
+      <td>Additional information given by the sender.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Id
+      </td>
+      <td>Max35Text</td>
+      <td>Unique identification of the report.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++CreDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Report creation date and time.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++FrToDt<br>
+        +++FrDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Start date of the time period covered by the report.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++FrToDt<br>
+        +++ToDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>End date of the time period covered by the report.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++IBAN
+      </td>
+      <td>IBAN2007Identifier</td>
+      <td>IBAN of the account on the report.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Acct<br>+++Othr<br>++++Id</td>
+      <td>Max34Text</td>
+      <td>Other (than IBAN) account identification of the account on the report.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++CdtDbtInd</td>
+      <td>CreditDebitCode</td>
+      <td>Indicator whether the transaction is debit or credit.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++RvslInd</td>
+      <td>TrueFalseIndicator</td>
+      <td>Indicator is the transaction a correction.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BookgDt<br>++++Dt</td>
+      <td>ISODate</td>
+      <td>Booking date of the transaction to the account.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++Amt</td>
+      <td>ActiveOrHistoricCurrencyAndAmount</td>
+      <td>Transaction amount and currency.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++ValDt<br>++++ValDt (Dt)</td>
+      <td>ISODate</td>
+      <td>Value date of the transaction.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++AcctSvcrRef</td>
+      <td>Max35Text</td>
+      <td>Account servicer reference.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Prtry<br>+++++Cd</td>
+      <td>Max35Text</td>
+      <td>Bank's internal transaction code.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domm<br>+++++Cd</td>
+      <td>ExternalBankTransactionDomain1Code</td>
+      <td>Bank transaction's standardised code family.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++sts<br>++++Cd</td>
+      <td>ExternalEntryStatus1Code</td>
+      <td>Transaction status (for example booked, pending).</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++MsgId</td>
+      <td>Max35Text</td>
+      <td>Identification of the batch transaction.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++PmtInfId</td>
+      <td>Max35Text</td>
+      <td>Identification of the payment information.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++NbOfTxs</td>
+      <td>Max15NumericText</td>
+      <td>Number of batch transactions.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++TtlAmt</td>
+      <td>ActiveOrHistoricCurrencyAndAmount</td>
+      <td>Total amount of batch transactions.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>++NtryDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++Amt</td>
+      <td>ActiveOrHistoricCurrencyAndAmount</td>
+      <td>Transaction amount.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++TxDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++CcyXchg<br>++++++UnitCcy</td>
+      <td>ActiveOrHistoricCurrencyCode</td>
+      <td>Original currency of the transaction.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
+      <td>BaseOneRate</td>
+      <td>Currency exchange rate that was used.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
+      <td>Max140Text</td>
+      <td>Unstructured message information.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Strd<br>+++++++CdtrRefInf<br>++++++++Ref</td>
+      <td>Max35Text</td>
+      <td>Receiveräs reference information.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Refs<br>++++++InstrId</td>
+      <td>Max35Text</td>
+      <td>Identification given by the original party.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Purp<br>++++++(Cd/Prtry)</td>
+      <td>ExternalPurpose1Code</td>
+      <td>Transaction purpose.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++DbtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>IBAN2007Identifier</td>
+      <td>Payer's account IBAN.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>IBAN2007Identifier</td>
+      <td>Receiver's account IBAN.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Dbtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>Max140Text</td>
+      <td>Payer's name.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Cdtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>Max140Text</td>
+      <td>Receiver's name.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Cd</td>
+      <td>ExternalCashAccountType1Code</td>
+      <td>Receiver's account type code.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Prtry</td>
+      <td>Max35Text</td>
+      <td>Receiver's account type description.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++DbtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>BICFIDec2014Identifier</td>
+      <td>Payer's bank's BIC.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++CdtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>BICFIDec2014Identifier</td>
+      <td>Receiver's bank's BIC.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++NbOfNtries</td>
+      <td>Max15NumericText</td>
+      <td>Total number of transactions.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++TtlNetNtry<br>+++++Amt</td>
+      <td>NonNegativeDecimalNumber</td>
+      <td>Net amount of transactions.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlCdtNtries<br>++++NbOfNtries</td>
+      <td>Max15NumericText</td>
+      <td>Number of credit transactions.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlDbtNtries<br>++++NbOfNtries</td>
+      <td>Max15NumericText</td>
+      <td>Number of debit transactions.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Tp<br>++++CdOrPrtry<br>+++++Cd</td>
+      <td>ExternalBalanceType1Code</td>
+      <td>Balance type code (for example opening or closing balance).</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Amt</td>
+      <td>ActiveOrHistoricCurrencyAndAmount</td>
+      <td>Balance amount.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtDbtInd</td>
+      <td>CreditDebitCode</td>
+      <td>Indicator whether the balance is credit or debit.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Dt<br>++++Dt</td>
+      <td>DateAndDateTime2Choice</td>
+      <td>Balance date.</td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Incl</td>
+      <td>TrueFalseIndicator</td>
+      <td>
+        
+Indicator whether account balance includes credit limit. Separately requested information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
+      </td>
+    </tr>
+    <tr>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Amt</td>
+      <td>ActiveOrHistoricCurrencyAndAmount</td>
+      <td>
+      
+Available credit limit. Separately requested information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
+      </td>
+    </tr>
+  </tbody>
+</table>
