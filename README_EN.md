@@ -595,11 +595,11 @@ Used if requesting additional information to be returned in the response in addi
 
 ## 7. Response message <a name="luku7"></a>
 
-Vastaussanomassa käytetään ISO 20022 sanomia BusinessApplicationHeaderV01 (head.001.001.01) ja InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
+The response message uses ISO 20022 message InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 message's supplementary data contains ISO 20022 message camt.052.001.08.
 
-Alla on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
+The fields used in the reponse message are described in chapter 7.1 below. Schema for submessage [camt.052.001.08](schemas/camt.052.001.08.xsd). Examples of the [response message](examples/queries).
 
-Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
+The content of the response message is similar for all data providers regardless of whether they have implemented a data retrieval system or an interface to account register. Only the method for delivering the response message is different.
 
 ### 7.1 Content of submessage camt.052.001.08 <a name="7-1"></a>
 
