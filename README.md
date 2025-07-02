@@ -896,7 +896,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Saldon</td>
+      <td>Saldon määrä</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtDbtInd</td>
