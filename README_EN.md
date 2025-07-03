@@ -154,7 +154,15 @@ Figure below presents the overall picture of the data flow for account balance a
 4. The data disclosure system forwards the message to the aggregating application.  
 5. The authority retrieves the response to their account balance and transaction information query using the aggregating application's [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_en.md#4-3) and [result APIs](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_en.md#4-4).
 
+### 4.1 Instructions to the data suppliers <a name="4-1"></a>
 
+The account balance and transaction queries are to be replied promptly but no later than the end of business hours, i.e. by 4:15 p.m. (EET), on the next banking day. In case, the query is not received during the business hours, i.e. between 8:00 a.m. and 4:15 p.m., the counting of the time limit starts from the next banking day. For example, if the authority sends the query on Friday afternoon at 6:00 p.m. the response needs to be delivered latest by 4:15 p.m. on the next Tuesday.
+
+When only the account balance is queried the response should be provided immediately. The response needs to be delivered no later than the end of the next banking day. The balance information provided must relate to the account balance at the time of the data suppliers response. A response regarding balance information must include a time stamp specifying the point of time of the account balance. In a query requesting account balance information there is requested by standard besides the account number the amount of money in the account and the date and time related to the balance (according to the Finnish Act on Bank and Payment Accounts section 17 b). The account balance must take into account any authorizations that may apply for the account. The authorizations must have been deducted from the account balance information. In an exceptional case, the authority may also request the separately requested (additional) information. In case there is a request for separately requested information included in the balance information query it should be processed separately in order to deliver all requested data.
+
+In case of a lawyer’s customer asset account, the account balance and transaction information is not returned. The customer asset account refers to accounts held by a lawyer or their office for funds and other assets that do not belong to the lawyer or their office. The account balance and transaction information regarding a lawyer’s customer asset account may not be disclosed via the centralized system for account balance and transaction information (according to the section 17 b and d in the Finnish Act on the Bank and Payment Account System). To clarify the account balance and transaction information the competent authority should contact directly the lawyer acting as the account holder.
+
+The account balance and transaction queries can not be made as international queries.
 
 ### 4.2 Request for clarification <a name="4-2"></a>
 
@@ -913,3 +921,90 @@ Available credit limit. Separately requested additional information that is retu
     </tr>
   </tbody>
 </table>
+
+## 8. Error situations <a name="luku8"></a>
+
+<table>
+  <colgroup><col /><col /><col /><col /></colgroup>
+  <tbody>
+    <tr>
+      <th>Error condition</th>
+      <th >Fault code</th>
+      <th  colspan="1">Fault string</th>
+      <th  colspan="1">Detail</th>
+      <th  colspan="1">Error code</th>
+    </tr>
+    <tr>
+      <td >The asynchronously initiated query has been lost</td>
+      <td >SOAP-ENV:Server</td>
+      <td  colspan="1">The query has been lost. Please re-send initial query.</td>
+      <td  colspan="1"><code>&lt;errorcode&gt;1&lt;/errorcode&gt;</code></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td >The XML signature is invalid</td>
+      <td >SOAP-ENV:Client</td>
+      <td  colspan="1">The provided signature is invalid.</td>
+      <td  colspan="1"><code>&lt;errorcode&gt;2&lt;/errorcode&gt;</code></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td >The transaction was rejected due to a too frequent polling interval</td>
+      <td >SOAP-ENV:Client</td>
+      <td  colspan="1">Too many requests</td>
+      <td  colspan="1"><code>&lt;errorcode&gt;3&lt;/errorcode&gt;</code></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td >There are validation errors in the message, for example incorrect investigation period</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Bad Request</td>
+      <td  colspan="1">
+        <p>1 ValidationError element per validation error eg.</p>
+        <p><code>&lt;errorcode&gt;4&lt;/errorcode&gt;</code><br /><code>&lt;ValidationError&gt;</code><code>Description of validation error&lt;/ValidationError&gt;</code></p>
+      </td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td >The user indicated in the message does not have access rights</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Unauthorized</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;5&lt;/errorcode&gt;</code><br /></p>
+      </td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td >Query response size is too large (over 5 Mb)</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Query response size is too large. Please refine the query.</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
+      </td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td >Query response has multiple hits</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Query response has multiple hits. Please refine the query.</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;7&lt;/errorcode&gt;</code><br /></p>
+      </td>
+      <td>7</td>
+    </tr>
+        <tr>
+      <td >The response has not been submitted within the query processing time limit. The query is closed.</td>
+      <td >SOAP-ENV:Server</td><td  colspan="1">Query has expired and is closed</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;8&lt;/errorcode&gt;</code><br /></p>
+      </td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td  colspan="1">Server error</td>
+      <td  colspan="1">SOAP-ENV:Server</td>
+      <td  colspan="1">Internal Server Error</td>
+      <td  colspan="1"><code>&lt;errorcode&gt;0&lt;/errorcode&gt;</code></td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+If a data retrieval system does not respond within the time limit the aggregation application returns the error code 1 to the the authority.
+
