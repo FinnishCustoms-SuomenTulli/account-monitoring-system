@@ -1,6 +1,6 @@
 # Centralised system for account balance and transaction information
 
-*Document version 0.1*
+*Document version 0.2*
 
 This document is part of the Bank and Payment Account Monitoring System documentation. The document instructs data suppliers and data users on transmission of account balance and transaction information in the Bank and Payment Account Monitoring System. In this document, there is described the prerequisites for the implementation of the system, the flow of balance and transaction information in the system and the balance and account information query and response messages.
 
