@@ -166,7 +166,7 @@ The account balance and transaction queries can not be made as international que
 
 #### Data suppliers reporting to the data disclosure system
 
-Data suppliers reporting to the Account Register receive the account balance and transaction information queries via a secured email ([example email](assets/Example_email.png)). The query message is attached in the email as XML-format. In case there is an error situation, the information for some reason is not found, or request for clarification is needed, the response needs to be delivered to the interface providing the information on the situation. The response to the query needs to be delivered as a message in XML-format to the interface of Customs.
+Data suppliers reporting to the Account Register receive the account balance and transaction information queries via a secured email ([example email](assets/Example_email_en.png)). The query message is attached in the email as XML-format. In case there is an error situation, the information for some reason is not found, or request for clarification is needed, the response needs to be delivered to the interface providing the information on the situation. The response to the query needs to be delivered as a message in XML-format to the interface of Customs.
 In case for some reason the information of the searched is not found the data supplier should reply to the query with the status code NFOU.
 
 ### 4.2 Request for clarification <a name="4-2"></a>
