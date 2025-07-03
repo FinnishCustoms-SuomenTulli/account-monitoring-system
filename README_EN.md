@@ -179,7 +179,7 @@ Example of forwarding contact information: [Example message](examples/general/ex
 
 ## 5. Business Application Header <a name="luku5"></a>
 
-ISO 20022 standard BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) is attached to both the query and the response message. The fields are otherwise used in a similar way in both the query and the response message, except contact details must be sent in the query message in case the data supplier needs to ask additional information.
+ISO 20022 standard BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) is attached to both the query and the response message. The fields are otherwise used in a similar way in both the query and the response message, except the contact details must be sent in the query message in case the data supplier needs to request for clarification.
 
 The sender details in Fr fields contain the authority's information when an authority sends a message, the data supplier's information when the data supplier sends a message and Finnish Customs' information when Finnish Customs forwards a message. Respectively receiver details in To fields contain Finnish Customs' information when a message is sent to aggregating application (koostava sovellus), and the information of the authority or the data supplier when aggregating application forwards the message.
 
@@ -242,7 +242,7 @@ The sender details in Fr fields contain the authority's information when an auth
       </td>
       <td >0..1</td>
       <td >Max140Text</td>
-      <td >Only in the authority's query message: Person's name for the possible request for additional information</td>
+      <td >Only in the authority's query message: Person's name for the possible request for clarification</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -253,7 +253,7 @@ The sender details in Fr fields contain the authority's information when an auth
       </td>
       <td >0..1</td>
       <td >PhoneNumber</td>
-      <td >Only in the authority's query message: Phone number for the possible request for additional information</td>
+      <td >Only in the authority's query message: Phone number for the possible request for clarification</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -264,7 +264,7 @@ The sender details in Fr fields contain the authority's information when an auth
       </td>
       <td >0..1</td>
       <td >Max2048Text</td>
-      <td >Only in the authority's query message: Email address for the possible request for additional information</td>
+      <td >Only in the authority's query message: Email address for the possible request for clarification</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -634,7 +634,7 @@ The response message uses ISO 20022 message InformationRequestResponseV01 [auth.
 
 The fields used in the reponse message are described in chapter 7.1 below. Schema for submessage [camt.052.001.08](schemas/camt.052.001.08.xsd). Examples of the [response message](examples/queries).
 
-The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or an interface to account register. Only the method for delivering the response message is different.
+The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or an interface to the Account Register. Only the method for delivering the response message is different.
 
 ### 7.1 Content of submessage camt.052.001.08 <a name="7-1"></a>
 
