@@ -34,7 +34,7 @@
             <xs:element name="AdditionalTransactionInformation" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="TransactionFieldCode" type="TransactionFieldCode" maxOccurs="N"/>
+                        <xs:element name="TransactionFieldCode" type="TransactionFieldCode" maxOccurs="unbounded"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -71,4 +71,5 @@
             <xs:enumeration value="BAL_CDTLINE_AMT"/>
         </xs:restriction>
     </xs:simpleType>
+
 </xs:schema>
