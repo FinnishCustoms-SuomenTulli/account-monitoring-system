@@ -35,59 +35,58 @@ E-post: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 | Datasöksystem | Datasöksystem avser ett elektroniskt datasöksystem för bank- och betalkonton som administreras av uppgiftslämnaren, och med vilken uppgiftslämnaren direkt och utan hinder av sekretessbestämmelserna förmedlar information om sina kunder, som avses i lagen om ett övervakningssystem för bank- och betalkonton 4 § 2 mom. till behörig myndighet. Enligt lagen bestämmer Tullen de tekniska kraven på datasöksystemet och varje uppgiftslämnare realiserar sitt eget datasöksystem, så det finns alltså många datasöksystem.  |
 | Användare av information | Lagen om ett övervakningssystem för bank- och betalkonton fastställer behörig myndighet samt advokatförening, vilka har rätt att begära information från övervakningssystemet för bank- och betalkonton. Behörighet definieras i gällande lagstiftning.  |
 | Uppgiftslämnare | Uppgiftslämnare avser betalningsinstitut, institut för elektroniska pengar, kreditinstitut eller leverantör av kryptotillgångstjänster som tillhandahåller uppgifter som definieras i lagen om övervakningssystemet för bank- och betalkonton via kontoregistrets uppdateringsgränssnitt som upprätthålls av Tullen eller förmedlar motsvarande uppgifter via datasöksystemet som den upprätthåller. Uppgiftslämnare avser också filialkontor i Finland som innehas av ett utländskt betalningsinstitut, institut för elektroniska pengar, kreditinstitut och tillhandahållare av virtuella valutor. |
-| Tiedonluovutusjärjestelmä | Järjestelmä, johon tilirekisteriin päivittävät tiedonluovuttajat toimittavat vastaussanoman saldo- ja tilitapahtumatietokyselyyn.  |
-| Saldo |  Pankki- ja maksutilillä kyselyn vastaushetkellä oleva rahamäärä, josta on vähennetty mahdollinen katevaraus.  |
-| Tilitapahtumatiedot | Yksityiskohtaisia tietoja toimista, jotka on suoritettu tiettynä ajanjaksona tietyn maksutilin tai IBAN-tilinumerolla yksilöidyn pankkitilin kautta, tai yksityiskohtaisia tietoja kryptovarojen siirroista (kts. pankki- ja maksutilien valvontajärjestelmästä annetun lain 2 §:n 15 kohta). |
-| Lisäselvityspyyntö | Tiedonluovuttaja pyytää lisäselvitystä kyselyn tehneeltä viranomaiselta ennen tiedonluovutusta.  |
-| Erikseen pyydettävät (lisä)tiedot | Tiedot, joita tiedonluovuttaja ei palauta vastaussanomassa ellei viranomainen erikseen pyydä niitä kyselysanomassaan.  |
+| System för utlämnande av uppgifter | System till vilket uppgiftslämnare som uppdaterar kontoregistret skickar svarsmeddelande på förfrågan om saldo och kontotransaktioner.  |
+| Saldo |  Belopp på bank- och betalkonto vid tidpunkten när förfrågan besvaras, där man har dragit av eventuell täckningsreservering.  |
+| Uppgifter om kontotransaktioner | Detaljerad information om transaktioner som utförts under en viss tidsperiod via ett specifikt betalkonto eller bankkonto som identifieras med ett IBAN-kontonummer eller detaljerad information om överföringar av kryptotillgångar (se lagen om övervakningssystemet för bank- och betalkonton 2 § mom. 15). |
+| Begäran om ytterligare information | Uppgiftslämnaren begär ytterligare information av myndigheten som lämnade förfrågan före utlämnandet av uppgifter.  |
+| (Ytterligare) information som begärs separat | Uppgifter som uppgiftslämnaren inte returnerar i svarsmeddelandet om myndigheten inte specifikt begär det i sitt frågemeddelande.  |
 
 
-## 3. Varmenteet <a name="luku3"></a>
+## 3. Certifikat <a name="luku3"></a>
 
-Pankki- ja maksutilien valvontajärjestelmässä ulkoiset yhteydet suojataan varmenteilla. Tiedonluovuttajan tulee ilmoittaa Tullille, mitä varmenteita se käyttää. Varmenteiden tulee olla Tullin ohjeistuksen mukaisia. Tiedonluovuttajan tulee hankkia varmennevaatimukset täyttävät palvelin- ja järjestelmäallekirjoitusvarmenteet ja asentaa ne järjestelmiinsä. Sanomien allekirjoitukseen tarvitaan lisäksi allekirjoitusvarmenne. Teknisesti sama varmenne voi toimia sekä palvelin- että järjestelmäallekirjoitusvarmenteena tai varmenteet voivat olla erillisiä. Tyypillisesti palvelinvarmenne asennetaan tietoliikenneyhteyksiä hoitavaan edustapalvelimeen ja allekirjoitusvarmenne vastaukset muodostavaan taustapalvelimeen.
+I övervakningssystemet för bank- och betalkonton skyddas externa anslutningar med certifikat. Uppgiftslämnaren ska meddela Tullen vilka certifikat som används. Certifikaten ska följa Tullens anvisningar. Uppgiftslämnaren ska skaffa server- och systemsigneringscertifikat som uppfyller certifikatkraven och installera dem i sina system. Dessutom krävs ett signeringscertifikat för signering av meddelanden. Tekniskt kan samma certifikat fungera som både server- och systemsigneringscertifikat, eller certifikaten kan vara separata. Vanligen installeras servercertifikatet på frontservern som hanterar datatrafikanslutningar och signeringscertifikatet på backservern som skapar svaren.
 
 <details>
-<summary>Tiedonhakujärjestelmän varmenteet</summary>
+<summary>Datasöksystemets certifikat</summary>
 <br>
 
-| Standardi    | Varmenteen nimi |  Käyttötarkoitus  |    
+| Standard    | Certifikatets namn |  Avsedd användning  |    
 | -------- | ------- | ------- |  
-| X.509 (versio 3) | Tiedonhakujärjestelmän tietoliikennevarmenne|  Rajapinnan hyödyntäjän ja tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon tunnistaminen  |  
-| X.509 (versio 3) | 	Tiedonhakujärjestelmän allekirjoitusvarmenne  |  Sanoman allekirjoittaminen, sanoman muuttumattomuuden varmistaminen, tiedonluovuttajan tunnistaminen  |  
+| X.509 (versio 3) | Datasöksystemets datatrafikcertifikat |  Autentisera användaren av gränssnittet och uppgiftslämnaren eller instans som uppgiftslämnaren auktoriserat  |  
+| X.509 (versio 3) | 	Datasöksystemets signeringscertifikat  | Signera meddelande, säkerställa att meddelandet förblir oförändrat, autentisera uppgiftslämnaren  |  
 
-Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät sekä tiedonluovuttajat tai tiedonluovuttajan valtuuttamat tahot tunnistetaan X.509-varmenteilla (Tietoliikennevarmenne). Kyselyrajapinnan kysely- ja vastaussanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitusvarmenne).
+Användare av datasöksystemets frågegränssnitt samt uppgiftslämnare  eller instanser som uppgiftslämnaren auktoriserat identifieras med X.509-certifikat (Datatrafikcertifikat). Fråge- och svarsmeddelanden i frågegränssnittet signeras med en XML-signatur (Signeringscertifikat).
 </details>
 
-### 3.1 Tiedonluovuttajan allekirjoitusvarmenne <a name="3-1"></a>
+### 3.1 Uppgiftslämnarens signeringscertifikat <a name="3-1"></a>
 
-Tiedonluovuttajan on allekirjoitettava lähettämänsä sanomat käyttäen x.509 palvelinvarmennetta, josta käy ilmi ko. tiedonluovuttajan Y-tunnus tai ALV-tunnus. Tiedonhakujärjestelmän toteuttajien on myös tarkistettava saapuvien sanomien allekirjoitus. Vastaanottaja ei saa hyväksyä sanomaa ilman hyväksyttävää allekirjoitusta. Allekirjoituksen hyväksyminen edellyttää, että XML-allekirjoitus on validi (kun kyseessä tiedonhakujärjestelmä) ja että
-joko   
-a) varmenne on Digi- ja väestötietoviraston (DVV) myöntämä, voimassa, eikä esiinny DVV:n ylläpitämällä sulkulistalla ja varmenteen kohteen serialNumber attribuuttina on kyseisen tiedonluovuttajan Y-tunnus tai ALV-tunnus  
-tai  
-b) varmenne on eIDAS-hyväksytty sivustojen tunnistamisvarmenne, voimassa, eikä esiinny varmenteen tarjoajan ylläpitämällä ajantasaisella sulkulistalla ja varmenteen kohteen organizationIdentifier-attribuuttina on kyseisen tiedonluovuttajan Y-tunnus tai ALV-tunnus.
+Uppgiftslämnaren måste signera sina avsända meddelanden med x.509-servercertifikat som anger FO-nummer eller momsnummer för uppgiftslämnaren i fråga. De som implementerar datasöksystem måste också kontrollera signaturen i inkommande meddelanden. Mottagaren får inte godkänna meddelandet utan en godtagbar signatur. Godkänd signatur förutsätter att XML-signaturen är valid (när det gäller datasöksystem) och att certifikatet antingen:
+a) utfärdats av Myndigheten för digitalisering och befolkningsdata (MDB) och inte förekommer på spärrlistan som administreras av MDB och att serialNumber-attribut för certifikatets objekt är ifrågavarande uppgiftslämnares FO-nummer eller momsnummer
+eller
+b) är ett giltigt eIDAS-godkänt autentiseringscertifikat på webbplatser och inte förekommer på en uppdaterad spärrlista som administreras av certifikatleverantören och att organizationIdentifier-attribut för certifikatets objekt är ifrågavarande uppgiftslämnares FO-nummer eller momsnummer.
 
-Huom. Jotta sanomien allekirjoitukset täyttävät alla viitatut Kyberturvallisuuskeskuksen tietoturvavaatimukset, tulee allekirjoituksiin käytettävän varmenteen julkisen avaimen (RSA public key) olla vähintään 3072 bittinen. Allekirjoituksiin käytettävän varmenteen käyttötarkoituksiin myös kuulua ”digitaalinen allekirjoitus”. Nämä seikat tulee huomioida varmennetta tilattaessa.
+OBS! För att signaturerna av meddelandena ska uppfylla Cybersäkerhetscentrets krav på informationssäkerhet, ska certifikatets offentliga nyckel (RSA public key) som används för signaturerna vara minst 3 072 bitar. Syftet med certifikat som används för signaturer ska även omfatta "digital signatur". Dessa faktorer ska beaktas vid beställning av certifikat.
 
 <details>
-<summary>Toimivaltaisen viranomaisen allekirjoitusvarmenne</summary>
+<summary>Signeringscertifikat från behörig myndighet</summary>
 <br> 
 
-Toimivaltaisen viranomaisen on allekirjoitettava lähettämänsä sanomat käyttäen x.509 palvelinvarmennetta, josta käy ilmi ko. viranomaisen Y-tunnus. Saapuvien sanomien allekirjoitus on tarkistettava. Vastaanottaja ei saa hyväksyä sanomaa ilman hyväksyttävää allekirjoitusta. Toimivaltaisen viranomaisen allekirjoituksen hyväksyminen edellyttää, että XML-allekirjoitus on validi ja että  
-a) varmenne on DVV:n myöntämä, voimassa, eikä esiinny DVV:n ylläpitämällä sulkulistalla  
-b) varmenteen kohteen serialNumber attribuuttina on sanoman lähettäneen toimivaltaisen viranomaisen Y-tunnus tai tunnus, joka muodostuu kirjaimista “FI” ja Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).
+Den behöriga myndigheten måste signera meddelanden som skickas med x.509-servercertifikat där FO-nummer för myndigheten i fråga framgår. Signaturen på inkommande meddelanden måste kontrolleras. Mottagaren får inte godkänna ett meddelande utan en godtagbar signatur. Godkännande av behörig myndighets signering kräver att XML-signaturen är valid och att
+a) certifikatet utfärdats av MDB, giltigt och inte förekommer på spärrlistan som administreras av MDB
+b) serialNumber-attributet för certifikatobjektet är FO-nummer eller kod för den behöriga myndigheten som skickar meddelandet, och utgörs av bokstäverna "FI" och FO-numrets numeriska del utan bindestreck (kod i momsnummerformat).
 
 </details>
 
 <details>
-<summary> Tiedonhakujärjestelmän yhteydenottajan tietoliikennevarmenne </summary>
+<summary> Kontakttagarens datatrafikcertifikat i datasöksystemet </summary>
 <br> 
 
-Tiedonluovuttaja tai tiedonluovuttajan valtuuttama taho tunnistaa toimivaltaisen viranomaisen, joka ottaa yhteyden tiedonhakujärjestelmän kyselyrajapintaan, palvelinvarmenteen avulla. Yhteys toimivaltaiselta viranomaiselta on hyväksyttävä seuraavin edellytyksin:     
-a) Toimivaltaisen viranomaisen varmenteen on myöntänyt DVV  
-b) varmenne on voimassa, eikä esiinny DVV:n sulkulistalla  
-c) varmenteen kohteen serialNumber attribuuttina on toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen Y-tunnus tai tunnus, joka muodostuu kirjaimista “FI” ja Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).  
+Uppgiftslämnaren eller den instans som uppgiftslämnaren har auktoriserat autentiserar med hjälp av servercertifikatet den behöriga myndighet som tar kontakt med datasöksystemets gränssnitt. Anslutning från behörig myndighet måste godkännas på följande villkor:
+a) Den behöriga myndighetens certifikat har utfärdats av MDB
+b) certifikatet är giltigt och förekommer inte på MDB:s spärrlista
+c) serialNumber-attributet för certifikatets objekt är FO-nummer eller kod som bildas av bokstäverna ”FI” och FO-numrets numeriska del utan bindestreck (kod i momsnummerformat) för den behöriga myndigheten eller det statliga servicecentret som agerar för dess räkning.
 
-Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuskeskuksen tietoturvavaatimukset, tulee käytettävän varmenteen julkisen avaimen (RSA public key) olla vähintään 3072 bittinen. Lisäksi varmenteen tulee olla QWAC (Qualified Website Authentication Certificate) tyyppinen palvelinvarmenne, joka sisältää laajennukset (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Nämä tulee huomioida varmennetta tilattaessa.
+OBS! För att skyddet av datatrafiken ska uppfylla Cybersäkerhetscentrets krav på informationssäkerhet som hänvisas till nedan ska certifikatets offentliga nyckel (RSA public key) vara minst 3 072 bitar. Dessutom ska certifikatet vara ett servercertifikat av typ QWAC (Quality Website Authentication Certificate) som innehåller expansioner (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Dessa ska beaktas vid beställning av certifikat.
 
 </details>
 
