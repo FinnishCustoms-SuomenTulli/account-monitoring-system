@@ -138,17 +138,31 @@ Uppgiftslämnaren ska förnya certifikatet i god tid innan det går ut. Utgånge
 
 Användaren av kontoregistrets gränssnitt är skyldig att utan dröjsmål anmäla om certifikat eller certifikatens hemliga nycklar som denne använder äventyras, både till den som utfärdat certifikatet och till Tullen. Användaren av gränssnittet är också skyldig att utan dröjsmål meddela Tullen om en informationssäkerhetsincident upptäcks i informationssystemet som använder gränssnittet. Om certifikaten för den som implementerar datasöksystemet eller certifikatens hemliga nycklar äventyras måste detta omedelbart rapporteras till den som utfärdat certifikatet och till de behöriga myndigheterna som använder datasöksystemet. Behöriga myndigheter måste också underrättas om en informationssäkerhetsincident upptäcks i datasöksystemet. Om certifikaten för den behöriga myndigheten som använder datasöksystemet eller certifikatens hemliga nycklar äventyras måste detta omedelbart meddelas till den som utfärdat certifikatet och till dem som implementerar datasöksystemet, vars implementering av datasöksystemet den behöriga myndigheten använder.
 
-## 4. Saldo- ja tilitapahtumatietokyselyn tiedonkulku <a name="luku4"></a>
+## 4. Informationsflöde i förfrågan om saldo och kontotransaktioner <a name="luku4"></a>
 
-Allaolevassa kuvassa on esitetty yleiskuva saldo- ja tilitapahtumatietokyselyn tiedonkulusta pankki- ja maksutilien valvontajärjestelmässä.
+Bilden nedan visar en översikt över informationsflödet i förfrågan om saldo och kontotransaktioner i övervakningssystemet för bank- och betalkonton.
 
 ![Pankki- ja maksutilien valvontajärjestelmä](diagrams/tilitap_tiedonkulku_fi.png "Pankki- ja maksutilien valvontajärjestelmä")  
 
-1. Viranomaisen järjestelmä lähettää saldo- ja tilitapahtumatietokyselyn koostavan sovelluksen [kyselyrajapintaan](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-kysely). Kyselysanoman sisältö on kuvattu luvussa [Kyselysanoma](#luku6). 
-2. Koostava sovellus välittää saldo- ja tilitapahtumatietokyselyn toimijalle, jolle kysely on suunnattu joko rajapinnan kautta tiedonhakujärjestelmään tai turvasähköpostilla tilirekisterin toimijalle.  
-3. Tiedonluovuttaja vastaa saldo- ja tilitapahtumatietokyselyyn viimeistään seuraavan pankkipäivän aikana. Jos kysely on osoitettu tiedonhakujärjestelmän toteuttaneelle toimijalle, tiedonhakujärjestelmä lähettää vastaussanoman koostavalle sovellukselle rajapinnan kautta. Jos kysely on osoitettu tilirekisteriä käyttävälle toimijalle, tämä toimittaa vastaussanoman tiedonluovutusjärjestelmään.     
-4. Vastaussanoma välittyy tiedonluovutusjärjestelmästä koostavaan sovellukseen.  
-5. Viranomainen hakee vastauksen saldo- ja tilitapahtumatietokyselyynsä koostavan sovelluksen rajapinnasta. Vastauksen haussa käytetään koostavan sovelluksen [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-status) ja [tulosrajapintoja](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-tulos).
+| -------- | ------- |
+| Viranomaisten järjestelmät    | Myndigheternas system |
+| 1.	Saldo- ja tilitapahtumatietokysely | Förfrågan om saldo och kontotransaktioner|
+| 5.	Saldo- ja tilitapahtumatietokyselyn vastauksen haku | Sökning av svar på förfrågan om saldo och kontotransaktioner |
+| Koostava sovellus | Sammanställningsprogram  |
+| 4.	Vastaus: Saldo- ja tilitapahtumatiedot | Svar: Uppgifter om saldo och kontotransaktioner   |
+| Tiedonluovutusjärjestelmä | System för utlämnande av information |
+| 2.	Saldo- ja tilitapahtumatietokysely | Förfrågan om saldo och kontotransaktioner  |
+| 3.	Vastaus: Saldo- ja tilitapahtumatiedot | Svar: Uppgifter om saldo och kontotransaktioner   |
+| 2.	Saldo- ja tilitapahtumatietokysely | 2. Förfrågan om saldo och kontotransaktioner  |
+| 3.	Vastaus: Saldo- ja tilitapahtumatiedot | Svar: Uppgifter om saldo och kontotransaktioner   |
+| Tiedonluovuttajien tiedonhakujärjestelmät | Uppgiftslämnarens datasöksystem |
+| Tilirekisteriin päivittävät tiedonluovuttajat | Uppgiftslämnare som uppdaterar kontoregistret |
+
+1. Myndighetens system skickar en förfrågan om saldo och kontotransaktioner till sammanställningsprogrammets [frågegränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-2). Innehållet i frågemeddelandet beskrivs i kapitlet [Frågemeddelande](#luku6). 
+2. Sammanställningsprogrammet förmedlar förfrågan om saldo och kontotransaktioner till den operatör som förfrågan riktas till, antingen via gränssnittet till datasöksystemet eller med säker e-post till kontoregistrets operatör.  
+3. Uppgiftslämnaren svarar på förfrågan om saldo och kontotransaktioner senast nästa bankdag. Om förfrågan riktas till den operatör som implementerade datasöksystemet, skickar datasöksystemet ett svarsmeddelande till sammanställningsprogrammet via gränssnittet. Om förfrågan riktas till en operatör som använder kontoregistret, skickar denne svarsmeddelandet till systemet som utlämnar information.    
+4. Svarsmeddelandet förmedlas från systemet som utlämnar information till sammanställningsprogrammet.
+5. Myndigheten hämtar svaret på sin förfrågan om saldo och kontotransaktioner i sammanställningsprogrammets gränssnitt. I sökningen av svar används sammanställningsprogrammets  [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-3) ja [resultatgränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-4).
 
 ### 4.1 Ohjeita tiedonluovuttajille <a name="4-1"></a>
 
