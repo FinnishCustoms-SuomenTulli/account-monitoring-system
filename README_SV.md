@@ -1,40 +1,40 @@
 
-# Keskitetty saldo- ja tilitapahtumatietojärjestelmä
+# Centraliserat informationssystem för saldo och kontotransaktioner
 
-*Dokumentin versio 0.2*
+*Dokumentversion 0.2*
 
-Tämä dokumentti on osa pankki- ja maksutilien valvontajärjestelmän dokumentaatiota ja ohjeistaa tiedonluovuttajia sekä tiedonhyödyntäjiä saldo- ja tilitapahtumatietojen välittämiseksi pankki- ja maksutilien valvontajärjestelmässä. Tässä dokumentissa kuvataan vaadittavat edellytykset järjestelmän toteuttamiseksi, saldo- ja tilitapahtumatietojen kulku järjestelmässä sekä saldo- ja tilitapahtumatietojen kysely- ja vastaussanomat.
+Detta dokument är en del av dokumentationen av övervakningssystemet för bank- och betalkonton och instruerar uppgiftslämnare och användare av information i förmedling av uppgifter om saldo och kontotransaktioner i övervakningssystemet för bank- och betalkonton. Detta dokument beskriver kraven för implementering av systemet, flödet av information om saldo och kontotransaktioner i systemet samt fråge- och svarsmeddelanden om saldo och kontotransaktioner.
 
-Pankki- ja maksutilien valvontajärjestelmä välittää tiedonhyödyntäjille eli laissa säädetyille viranomaisille tietoa kansalaisten, yritysten ja yhteisöjen pankki-ja maksutileistä. Järjestelmä perustuu lakiin pankki- ja maksutilien valvontajärjestelmästä. Lakimuutos saldo- ja tilitapahtumatietokyselyiden sekä arvopaperitietokyselyiden keskittämisestä pankki- ja maksutilien valvontajärjestelmään tulee voimaan joulukuussa 2025.
+Övervakningssystemet för bank- och betalkonton förmedlar information om medborgares, företags och enheters bank- och betalkonton till användare av informationen, dvs. till lagstadgade myndigheter. Systemet grundas på lagen om ett övervakningssystem för bank- och betalkonton. Lagändringen om centralisering av förfrågningar om saldo och kontotransaktioner samt om värdepapper till övervakningssystemet för bank- och betalkonton träder i kraft i december 2025.
 
-Tiedonluovuttajat eli luottolaitokset, maksulaitokset, sähkörahayhteisöt ja kryptovarapalvelun tarjoajat luovuttavat asiakkaidensa pankki- ja maksutilitiedot joko pankki- ja maksutilirekisterin tai oman tiedonhakujärjestelmänsä kautta. Tulli ylläpitää koostavaa sovellusta, joka välittää viranomaisten tietopyynnöt pankki- ja maksutilirekisteriin ja tiedonhakujärjestelmiin sekä siirtää vastaanotetut tiedot viranomaiselle. Saldo- ja tilitapahtumakyselyt toimitetaan joko tiedonluovuttajan tiedonhakujärjestelmään tai suojatulla sähköpostilla tilirekisterin toimijoille. Kyselyihin vastataan joko tiedonluovutusjärjestelmän tai oman tiedonhakujärjestelmän kautta.
+Uppgiftslämnare, dvs. kreditinstitut, betalningsinstitut, institut för elektroniska pengar och leverantörer av kryptotillgångstjänster, överlåter sina kunders bank- och betalkontouppgifter antingen via bank- och betalkontoregistret eller genom sitt eget datasöksystem. Tullen upprätthåller ett sammanställningsprogram som förmedlar myndigheters begäranden om uppgifter till bank- och betalkontoregistret samt överför de mottagna uppgifterna till myndigheten. Förfrågningar om saldo och kontotransaktioner skickas antingen till uppgiftslämnarens datasöksystem eller via skyddad e-post till kontoregistrets operatörer. Förfrågningar besvaras antingen genom ett system för utlämnande av uppgifter eller genom ett eget datasöksystem.
 
-### Sisällysluettelo
+### Innehållsförteckning
 
-[1. Yhteystiedot](#luku1)  
-[2. Sanasto & lyhenteet](#luku2)  
-[3. Varmenteet](#luku3)  
-[4. Saldo- ja tilitapahtumatietokyselyn tiedonkulku](#luku4)  
+[1. Kontaktuppgifter](#luku1)  
+[2. Ordlista & förkortningar](#luku2)  
+[3. Certifikat](#luku3)  
+[4. Dataflöde för saldo och kontotransaktioner](#luku4)  
 [5. Business Application Header](#luku5)  
-[6. Kyselysanoma](#luku6)  
-[7. Vastaussanoma](#luku7)  
-[8. Virhetilanteet](#luku8)  
+[6. Frågemeddelande](#luku6)  
+[7. Svarsmeddelandea](#luku7)  
+[8. Felsituationer](#luku8)  
 
-## 1. Yhteystiedot <a name="luku1"></a>
+## 1. Kontaktuppgifter <a name="luku1"></a>
 
-Sähköposti: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
+E-post: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 
-## 2. Sanasto & lyhenteet <a name="luku2"></a>
+## 2. Ordlista & förkortningar <a name="luku2"></a>
 
-| Termi    | Selite |
+| Term    | Förklaring |
 | -------- | ------- |
-| Pankki- ja maksutilien valvontajärjestelmä | Kansallinen pankki- ja maksutilien valvontajärjestelmä, joka koostuu tilirekisteristä, tiedonhakujärjestelmistä ja 1.11.2022 alkaen koostavasta sovelluksesta, perustuu lakiin pankki- ja maksutilien valvontajärjestelmästä 571/2019 sekä Euroopan parlamentin ja neuvoston direktiiviin (EU) 2018/843, joka on annettu 30 päivänä toukokuuta 2018 rahoitusjärjestelmän käytön estämisestä rahanpesuun tai terrorismin rahoitukseen.|
-| Keskitetty saldo- ja tilitapahtumatietojärjestelmä | Pankki- ja maksutilien valvontajärjestelmästä saatavien saldo- ja tilitapahtumatietojen sekä arvopaperitietojen käsittelytapa, joka perustuu sähköiseen tiedonkäsittelyyn.  |
-| Pankki- ja maksutilirekisteri/Tilirekisteri | Pankki- ja maksutilirekisteri (tilirekisteri) on Tullin rakentama järjestelmä, joka koostuu Tilirekisterisovelluksesta ja sen päivitys- ja kyselyrajapinnoista. Tilirekisteriin kerätään maksulaitosten ja sähkörahayhteisöjen sekä Finanssivalvonnalta poikkeusluvan saaneiden luottolaitosten pankki- ja maksutilien asiakkaiden tiedot sekä kryptovarapalvelun tarjoajien asiakkaiden tiedot.  |
-| Koostava sovellus | Tullin ylläpitämä automatisoitu tekninen ratkaisu, jonka avulla välitetään pankki- ja maksutilitietoja, tallelokerotietoja, saldo- ja tilitapahtumatietoja ja arvopaperitietoja pankki- ja maksutilien valvontajärjestelmän kautta.    |
-| Tiedonhakujärjestelmä | Tiedonhakujärjestelmä tarkoittaa tiedonluovuttajan ylläpitämää sähköistä pankki- ja maksutilien tiedonhakujärjestelmää, jonka avulla tiedonluovuttaja välittää välittömästi ja salassapitosäännösten estämättä pankki- ja maksutilien valvontajärjestelmästä annetun lain 4 §:n 2 momentissa tarkoitettuja tietoja asiakkaistaan toimivaltaiselle viranomaiselle. Tulli määrää lain mukaan tiedonhakujärjestelmästä tekniset vaatimukset ja jokainen tiedonluovuttaja toteuttaa oman tiedonhakujärjestelmän, eli tiedonhakujärjestelmiä on monta.  |
-| Tiedonhyödyntäjä | Pankki- ja maksutilien valvontajärjestelmää koskevassa laissa on määritelty toimivaltainen viranomainen ja asianajajayhdistys, joilla on oikeus tehdä kyselyjä pankki- ja maksutilien valvontajärjestelmään. Toimivalta määritellään ajantasaisessa lainsäädännössä.  |
-| Tiedonluovuttaja | Tiedonluovuttajalla tarkoitetaan maksulaitosta,  sähkörahayhteisöä, luottolaitosta tai kryptovarapalvelun tarjoajaa, joka toimittaa laissa pankki- ja maksutilien valvontajärjestelmästä määriteltyjä tietoja Tullin ylläpitämän tilirekisterin päivitysrajapinnan kautta tai välittää vastaavia tietoja ylläpitämänsä tiedonhakujärjestelmän kautta. Tiedonluovuttajalla tarkoitetaan myös ulkomaisen maksulaitoksen, sähkörahayhteisön, luottolaitoksen ja virtuaalivaluutan tarjoajan Suomessa sijaitsevaa sivuliikettä. |
+| Övervakningssystem för bank- och betalkonton | Det nationella övervakningssystemet för bank- och betalkonton, som består av ett kontoregister, datasöksystem och från och med 1.11.2022 ett sammanställningsprogram, grundas på lagen om ett övervakningssystem för bank- och betalkonton 571/2019 och på Europaparlamentets och rådets direktiv (EU) 2018/843 av den 30 maj 2018 om förhindrande av användning av det finansiella systemet för penningtvätt eller finansiering av terrorism.|
+| Centraliserat informationssystem för saldo och kontotransaktioner | Förfarande för hantering av uppgifter om saldo och kontotransaktioner från övervakningssystemet för bank- och betalkonton samt uppgifter om värdepapper, vilket baseras på elektronisk informationshantering. |
+| Bank- och betalkontoregister/Kontoregister| Bank- och betalkontoregistret (kontoregistret) är ett system som byggts upp av Tullen, som består av applikationen Kontoregister och dess uppdaterings- och frågegränssnitt. Kontoregistret samlar in uppgifter om kunder som har bank- och betalkonton hos betalningsinstitut och institut för elektroniska pengar samt hos kreditinstitut som beviljats dispens av Finansinspektionen, samt kunduppgifter från leverantörer av kryptotillgångstjänster.  |
+| Sammanställningsprogram | En automatiserad teknisk lösning som upprätthålls av Tullen, med vilken man förmedlar uppgifter om bank- och betalkonton, bankfack, saldo och kontotransaktioner samt om värdepapper via övervakningssystemet för bank- och betalkonton.    |
+| Datasöksystem | Datasöksystem avser ett elektroniskt datasöksystem för bank- och betalkonton som administreras av uppgiftslämnaren, och med vilken uppgiftslämnaren direkt och utan hinder av sekretessbestämmelserna förmedlar information om sina kunder, som avses i lagen om ett övervakningssystem för bank- och betalkonton 4 § 2 mom. till behörig myndighet. Enligt lagen bestämmer Tullen de tekniska kraven på datasöksystemet och varje uppgiftslämnare realiserar sitt eget datasöksystem, så det finns alltså många datasöksystem.  |
+| Användare av information | Lagen om ett övervakningssystem för bank- och betalkonton fastställer behörig myndighet samt advokatförening, vilka har rätt att begära information från övervakningssystemet för bank- och betalkonton. Behörighet definieras i gällande lagstiftning.  |
+| Uppgiftslämnare | Uppgiftslämnare avser betalningsinstitut, institut för elektroniska pengar, kreditinstitut eller leverantör av kryptotillgångstjänster som tillhandahåller uppgifter som definieras i lagen om övervakningssystemet för bank- och betalkonton via kontoregistrets uppdateringsgränssnitt som upprätthålls av Tullen eller förmedlar motsvarande uppgifter via datasöksystemet som den upprätthåller. Uppgiftslämnare avser också filialkontor i Finland som innehas av ett utländskt betalningsinstitut, institut för elektroniska pengar, kreditinstitut och tillhandahållare av virtuella valutor. |
 | Tiedonluovutusjärjestelmä | Järjestelmä, johon tilirekisteriin päivittävät tiedonluovuttajat toimittavat vastaussanoman saldo- ja tilitapahtumatietokyselyyn.  |
 | Saldo |  Pankki- ja maksutilillä kyselyn vastaushetkellä oleva rahamäärä, josta on vähennetty mahdollinen katevaraus.  |
 | Tilitapahtumatiedot | Yksityiskohtaisia tietoja toimista, jotka on suoritettu tiettynä ajanjaksona tietyn maksutilin tai IBAN-tilinumerolla yksilöidyn pankkitilin kautta, tai yksityiskohtaisia tietoja kryptovarojen siirroista (kts. pankki- ja maksutilien valvontajärjestelmästä annetun lain 2 §:n 15 kohta). |
