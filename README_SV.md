@@ -90,62 +90,53 @@ OBS! För att skyddet av datatrafiken ska uppfylla Cybersäkerhetscentrets krav 
 
 </details>
 
-### 3.2 Tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon tietoliikennevarmenne <a name="3-2"></a>
+### 3.2 Datatrafikcertifikat för uppgiftslämnaren eller instans som uppgiftslämnaren auktoriserat <a name="3-2"></a>
 
-Tietoliikenne on suojattava (salaus ja vastapuolen tunnistus) x.509 (versio 3) varmenteita käyttäen.
-Tiedonhakujärjestelmän ollessa kyseessä toimivaltainen viranomainen, joka ottaa yhteyden kyselyrajapintaan, tunnistaa tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon palvelinvarmenteen avulla.
+Datatrafiken måste skyddas (kryptering och identifiering av motpart) med certifikat x.509 (version 3). När det gäller ett datasöksystem autentiseras uppgiftslämnaren eller instans som uppgiftslämnaren auktoriserat av den behöriga myndigheten som tar kontakt med frågegränssnittet med hjälp av servercertifikat.
 
-Yhteyden muodostukseen on käytettävä palvelinvarmennetta, josta käy ilmi ko. tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon Y-tunnus tai ALV-tunnus. Tiedonluovuttajan valtuuttamalla taholla tarkoitetaan esim. palvelukeskusta, jonka tiedonluovuttaja on valtuuttanut puolestaan huolehtimaan ilmoitusten muodostamisesta ja/tai lähettämisestä. Tätä koskeva valtuutus on toimitettava Tullille kirjallisesti.
+För att upprätta anslutningen måste ett servercertifikat användas som anger FO-nummer eller momsnummer för uppgiftslämnaren i fråga eller instans som uppgiftslämnaren auktoriserat. Instans som uppgiftslämnaren auktoriserat avser till exempel ett servicecenter som uppgiftslämnaren har auktoriserat att för dess räkning ta hand om att skapa och/eller skicka meddelanden. Auktorisering som gäller detta ska skickas skriftligen till Tullen.
 
-Allekirjoituksen hyväksyminen edellyttää, että
-joko  
-a) palvelinvarmenteen on myöntänyt DVV, varmenne on voimassa, eikä esiinny DVV:n sulkulistalla, varmenteen kohteen serialNumber attribuuttina on kyseisen tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon Y-tunnus tai ALV-tunnus  
-tai  
-b) palvelinvarmenne on eIDAS-hyväksytty sivustojen tunnistamisvarmenne, voimassa, eikä esiinny varmenteen tarjoajan ylläpitämällä ajantasaisella sulkulistalla ja varmenteen kohteen organizationIdentifier-attribuuttina on kyseisen tiedonluovuttajan tai tiedonluovuttajan valtuuttaman tahon Y-tunnus tai ALV-tunnus.
-Mikäli tiedonluovuttajan palvelinvarmenteessa ja lähtevän sanoman allekirjoitusvarmenteessa käytetään samaa Y-tunnusta tai ALV-tunnusta, voidaan kumpaankin tarkoitukseen käyttää samaa varmennetta.
+Godkännande av signatur kräver antingen att:
+a) servercertifikatet utfärdats av MDB, certifikatet är giltigt och inte förekommer på MDB:s spärrlista, serialNumber-attributet för certifikatets objekt är FO-nummer eller momsnummer för uppgiftslämnaren i fråga eller instans som uppgiftslämnaren auktoriserat
+eller
+b) servercertifikatet är ett giltigt och eIDAS-godkänt autentiseringscertifikat för webbplatser och inte förekommer på en uppdaterad spärrlista som upprätthålls av certifikatleverantören och organizationIdentifier-attribut för certifikatets objekt är FO-nummer eller momsnummer för uppgiftslämnaren i fråga eller instans som uppgiftslämnaren auktoriserat. Om samma FO-nummer eller momsnummer används på uppgiftslämnarens servercertifikat och på signaturcertifikatet på det utgående meddelandet kan samma certifikat användas för båda ändamålen.
 
-Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuskeskuksen tietoturvavaatimukset, tulee käytettävän varmenteen julkisen avaimen (RSA public key) olla vähintään 3072 bittinen. Lisäksi varmenteen tulee olla QWAC (Qualified Website Authentication Certificate) tyyppinen palvelinvarmenne, joka sisältää laajennukset (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Nämä tulee huomioida varmennetta tilattaessa.
+OBS! För att skyddet av datatrafiken ska uppfylla Cybersäkerhetscentrets krav på informationssäkerhet som hänvisas till nedan, ska certifikatets offentliga nyckel (RSA public key) vara minst 3 072 bitar. Dessutom ska certifikatet vara ett servercertifikat av typ QWAC (Quality Website Authentication Certificate) som innehåller expansioner (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Dessa bör beaktas vid beställning av certifikat.
 
 <details>
-<summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen <a name="xml-allekirjoitus"></a></summary>
+<summary>Skapa en XML-signatur för datasöksystem <a name="xml-allekirjoitus"></a></summary>
 <br>
 
-Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#luku5) Sgntr-elementin alle.
+Signaturtypen är enveloped signature. Signature-elementet placeras under Sgntr-elementet i [BAH](#luku5).
 
-Esimerkki SignedInfo
+Exempel SignedInfo
 ![esimerkki SignedInfon käytöstä](diagrams/image.png) 
 
-Allekirjoitusalgoritmi on RSA-SHA256 tai RSA-SHA512 ja C14N on Exclusive XML Canonicalization. Reference URI on joko "#applicationRequest" tai "#applicationResponse", riippuen onko kyseessä kysely- vai vastaussanoma. Eli vain "ApplicationRequest" tai "ApplicationResponse" elementti allekirjoitetaan. Allekirjoitusta muodostettaessa laskettavien tiivisteiden (Digest) muodostamiseen tulee käyttää SHA256- tai SHA512 -algoritmia. Huom. Kun kyseessä on vastaussanoma, sen tulee sisältää siihen liittyvän kyselysanoman BusinessApplicationHeaderin (Rltd-elementti), jonka tulee myös olla allekirjoitettu.
+Signaturalgoritmen är RSA-SHA256 eller RSA-SHA512 och C14N är Exclusive XML Canonicalization. Reference URI är antingen ”#applicationRequest” eller ”#applicationResponse”, beroende på om det är ett fråge- eller ett svarsmeddelande. Alltså signeras endast elementet "ApplicationRequest" eller "ApplicationResponse". När signering skapas ska Algoritmen SHA256 eller SHA512 användas för att skapa beräknade sammandrag (Digest). OBS! När det gäller ett svarsmeddelande ska det innehålla det anknytande frågemeddelandet BusinessApplicationHeader (Rltd element) som även ska vara signerad.
 
-Allekirjoituksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Viestintäviraston määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle TL IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
+De kryptografiska algoritmerna som används i signaturen måste minst uppfylla de krav på kryptografisk styrka som anges av Kommunikationsverket för den nationella skyddsnivån TL IV. Gällande krav på styrka beskrivs i dokumentet https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (på finska) (Dnr: 190/651/2015).
 
 </details>
 
-### 3.3 Yhteyksien suojaaminen <a name="3-3"></a>
+### 3.3 Skydd av anslutningar <a name="3-3"></a>
 
-Tilirekisterin päivitysrajapinnan ja tiedonhakujärjestelmän kyselyrajapinnan yhteydet on suojattava TLS-salauksella käyttäen TLS-protokollan versiota 1.2 tai korkeampaa. Yhteyden molemmat päät tunnistetaan yllä kuvatuilla palvelinvarmenteilla käyttäen kaksisuuntaista kättelyä. Yhteys on muodostettava käyttäen ephemeral Diffie-Hellman (DHE) avaintenvaihtoa, jossa jokaiselle sessiolle luodaan uusi uniikki yksityinen salausavain. Tämän menettelyn tarkoituksena on taata salaukselle forward secrecy -ominaisuus, jotta salausavaimen paljastuminen ei jälkikäteen johtaisi salattujen tietojen paljastumiseen.
-TLS-salauksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Traficomin määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle TL IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
+Anslutningar mellan kontoregistrets uppdateringsgränssnitt och datasöksystemets frågegränssnitt måste skyddas med TLS-kryptering med TLS-protokollversion 1.2 eller senare. Båda ändarna av anslutningen autentiseras med de servercertifikat som beskrivs ovan genom en tvåvägs handskakning. Anslutningen måste upprättas med nyckelutbytet ephemeral Diffie-Hellman (DHE), där en ny unik privat krypteringsnyckel skapas för varje session. Syftet med detta förfarande är att säkerställa funktionen forward secrecy för krypteringen, så att ett avslöjande av krypteringsnyckeln i efterhand inte skulle leda till avslöjande av krypterad information. Kryptografiska algoritmer som används för TLS-kryptering måste uppfylla minst de krav på kryptografisk styrka som Traficom definierar för nationell skyddsnivå TL IV. Aktuella styrkekrav beskrivs i dokumentet https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (på finska) (Dnr: 190/651/2015).
 
-### 3.4 Sallittu HTTP-versio <a name="3-4"></a>
+### 3.4 Tillåten HTTP-version <a name="3-4"></a>
 
-Tilirekisterin päivitysrajapinnan ja tiedonhakujärjestelmän kyselyrajapinnan yhteydet käyttävät HTTP-protokollan versiota 1.1.
+Anslutningarna mellan kontoregistrets gränssnitt för uppdatering och datasöksystemets frågegränssnitt använder HTTP-protokollversion 1.1.
 
-### 3.5 Varmenteiden hankinta <a name="3-5"></a>
+### 3.5 Skaffa certifikat <a name="3-5"></a>
 
-Varmenteet hakee se taho, joka muodostaa ja välittää vastaukset tiedonhyödyntäjien kyselyihin. Jos käytetään palveluntarjoajaa, joka muodostaa ja välittää sanomat ilmoitusvelvollisen puolesta, palvelinvarmennetta hakee palveluntarjoaja. Tällöin ilmoitusvelvollisen tulee valtuuttaa palveluntarjoaja allekirjoittamaan lähetettävät sanomat.
-Mikäli varmenteeseen liittyvä yksityinen avain paljastuu tai sen epäillään joutuneen vääriin käsiin, tulee varmenteen haltijan huolehtia siitä, että varmenne suljetaan välittömästi ja tästä ilmoitetaan Tullille ilman viivytystä. Vastaavasti mikäli varmenne myönnetään vahingossa tai vilpillisesti väärälle taholle, tulee varmenteen oikean kohteen huolehtia siitä, että varmenne suljetaan ja tästä ilmoitetaan Tullille välittömästi varmenteen oikean kohteen tultua tietoiseksi asiasta.
+Certifikaten söks av den instans som genererar och förmedlar svaren på förfrågningar från användare av information. Om man använder en tjänsteleverantör som skapar och förmedlar meddelanden för den anmälningsskyldiges räkning, söker tjänsteleverantören servercertifikat. Då måste den anmälningsskyldige auktorisera tjänsteleverantören att signera meddelanden som ska skickas. Om den privata nyckeln som är kopplad till certifikatet avslöjas eller misstänks ha hamnat i fel händer, ska certifikatinnehavaren se till att certifikatet stängs omedelbart och detta rapporteras till Tullen utan dröjsmål. Om certifikatet utfärdas av misstag eller bedrägligt till fel instans ska certifikatets korrekta objekt säkerställa att certifikatet stängs och detta rapporteras till Tullen omedelbart efter att certifikatets korrekta objekt har fått kännedom om saken.
 
-### 3.6 Varmenteiden päivitys <a name="3-6"></a>
+### 3.6 Uppdatering av certifikat <a name="3-6"></a>
 
-Tiedonluovuttajan tulee uusia varmenne hyvissä ajoin ennen sen vanhenemista. Vanhentunutta varmennetta ei voi käyttää. 
-Ellei muuta ole sovittu, uusi tai uusittu varmenne tulee toimittaa Tullille sähköisesti kiistämätöntä ja tietoturvallista tiedonsiirtomenetelmää käyttäen viimeistään 1 kk ennen sen käyttöönottoa. Varmenne tulee lähettää Tullin turvasähköpostipalvelua (https://turvaviesti.tulli.fi/) käyttäen osoitteeseen tilirekisteri@tulli.fi.
-Pankki- ja maksutilien valvontajärjestelmän laissa pykälässä 8 §:n Tullilla on oikeus saada tiedot maksuttomasti, ja näin ollen tiedonluovuttaja vastaa käyttämänsä varmenteen kustannuksista.
+Uppgiftslämnaren ska förnya certifikatet i god tid innan det går ut. Utgånget certifikat kan inte användas. Om annat inte avtalats ska det nya eller förnyade certifikatet levereras till Tullen elektroniskt med hjälp av en obestridd och datasäker dataöverföringsmetod senast en månad före dess införande. Certifikatet ska skickas via Tullens säkra e-posttjänst (https://turvaviesti.tulli.fi/) till adressen tilirekisteri@tulli.fi. Enligt lagen om ett övervakningssystem för bank- och betalkonton 8 § har Tullen rätt att få informationen kostnadsfritt och därför svarar uppgiftslämnaren för kostnaderna för certifikatet som denne använder.
 
-### 3.7 Tietoturvapoikkeamien ilmoitusvelvollisuus <a name="3-7"></a>
+### 3.7 Anmälningsskyldighet om  informationssäkerhetsincidenter <a name="3-7"></a>
 
-Tilirekisterin rajapinnan käyttäjä on velvollinen ilmoittamaan viivytyksettä käyttämiensä varmenteiden tai näiden salaisten avainten vaarantumisesta sekä varmenteen myöntäjälle, että Tullille. Rajapinnan käyttäjä on velvollinen ilmoittamaan viivytyksettä Tullille myös, mikäli rajapintaa käyttävässä tietojärjestelmässä havaitaan tietoturvapoikkeama.
-Mikäli tiedonhakujärjestelmän toteuttajan varmenteet tai näiden salaiset avaimet vaarantuvat on tästä ilmoitettava välittömästi varmenteen myöntäjälle ja niille toimivaltaisille viranomaisille, jotka hyödyntävät tiedonhakujärjestelmää. Toimivaltaisille viranomaisille on ilmoitettava myös, jos tiedonhakujärjestelmässä havaitaan tietoturvapoikkeama.
-Mikäli tiedonhakujärjestelmää hyödyntävän toimivaltaisen viranomaisen varmenteet tai näiden salaiset avaimet vaarantuvat on tästä ilmoitettava välittömästi varmenteen myöntäjälle ja niille tiedonhakujärjestelmän toteuttajille, joiden toteutusta tiedonhakujärjestelmästä kyseinen toimivaltainen viranomainen hyödyntää.
+Användaren av kontoregistrets gränssnitt är skyldig att utan dröjsmål anmäla om certifikat eller certifikatens hemliga nycklar som denne använder äventyras, både till den som utfärdat certifikatet och till Tullen. Användaren av gränssnittet är också skyldig att utan dröjsmål meddela Tullen om en informationssäkerhetsincident upptäcks i informationssystemet som använder gränssnittet. Om certifikaten för den som implementerar datasöksystemet eller certifikatens hemliga nycklar äventyras måste detta omedelbart rapporteras till den som utfärdat certifikatet och till de behöriga myndigheterna som använder datasöksystemet. Behöriga myndigheter måste också underrättas om en informationssäkerhetsincident upptäcks i datasöksystemet. Om certifikaten för den behöriga myndigheten som använder datasöksystemet eller certifikatens hemliga nycklar äventyras måste detta omedelbart meddelas till den som utfärdat certifikatet och till dem som implementerar datasöksystemet, vars implementering av datasöksystemet den behöriga myndigheten använder.
 
 ## 4. Saldo- ja tilitapahtumatietokyselyn tiedonkulku <a name="luku4"></a>
 
