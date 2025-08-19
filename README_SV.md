@@ -14,7 +14,7 @@ Uppgiftslämnare, dvs. kreditinstitut, betalningsinstitut, institut för elektro
 [1. Kontaktuppgifter](#luku1)  
 [2. Ordlista & förkortningar](#luku2)  
 [3. Certifikat](#luku3)  
-[4. Dataflöde för saldo och kontotransaktioner](#luku4)  
+[4. Informationsflöde i förfrågan om saldo och kontotransaktioner](#luku4)  
 [5. Business Application Header](#luku5)  
 [6. Frågemeddelande](#luku6)  
 [7. Svarsmeddelandea](#luku7)  
@@ -144,8 +144,8 @@ Bilden nedan visar en översikt över informationsflödet i förfrågan om saldo
 
 ![Pankki- ja maksutilien valvontajärjestelmä](diagrams/tilitap_tiedonkulku_fi.png "Pankki- ja maksutilien valvontajärjestelmä")  
 
-| -------- | ------- |
 | Viranomaisten järjestelmät    | Myndigheternas system |
+| -------- | ------- |
 | 1.	Saldo- ja tilitapahtumatietokysely | Förfrågan om saldo och kontotransaktioner|
 | 5.	Saldo- ja tilitapahtumatietokyselyn vastauksen haku | Sökning av svar på förfrågan om saldo och kontotransaktioner |
 | Koostava sovellus | Sammanställningsprogram  |
@@ -164,29 +164,29 @@ Bilden nedan visar en översikt över informationsflödet i förfrågan om saldo
 4. Svarsmeddelandet förmedlas från systemet som utlämnar information till sammanställningsprogrammet.
 5. Myndigheten hämtar svaret på sin förfrågan om saldo och kontotransaktioner i sammanställningsprogrammets gränssnitt. I sökningen av svar används sammanställningsprogrammets  [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-3) ja [resultatgränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-4).
 
-### 4.1 Ohjeita tiedonluovuttajille <a name="4-1"></a>
+### 4.1 Anvisningar för uppgiftslämnare <a name="4-1"></a>
 
-Saldo- ja tilitapahtumatietokyselyihin on vastattava viipymättä, mutta viimeistään seuraavana pankkipäivänä virka-ajan päättymiseen eli kello 16:15 (EET) mennessä. Mikäli kysely ei tule virka-ajan puitteissa eli kello 8:00-16:15 välillä, määräajan laskenta alkaa seuraavasta pankkipäivästä. Esimerkiksi, jos viranomainen lähettää kyselyn perjantaina kello 18:00, vastaus tulee toimittaa viimeistään seuraavaan tiistaihin kello 16:15 mennessä.
+Förfrågningar om saldo och kontotransaktioner måste besvaras utan dröjsmål, men senast under kontorstid nästa bankdag, alltså före kl. 16.15 (EET). Om förfrågan inte kommer under kontorstid, dvs. kl. 8.00–16.15, börjar tidsfristen räknas följande bankdag. Om myndigheten till exempel skickar förfrågan på fredag kl. 18.00 ska svaret skickas senast kl. 16.15 följande tisdag.
 
-Kun kyseessä on vain saldokysely, vastaus tulee pyrkiä toimittamaan välittömästi. Viimeistään vastaus tulee toimittaa seuraavan pankkipäivän päättymiseen mennessä. Annetun saldotiedon tulee koskea tiedonluovuttajan vastausajankohdan saldoa. Saldotietoa koskevassa vastauksessa tulee olla aikaleima, joka tarkentaa saldon ajankohdan. Saldokyselyissä vakiomuotoisesti pyydetään tilinumeron lisäksi tilillä oleva rahamäärä ja tilin saldoa koskeva päivämäärä ja kellonaika (laki pankki-ja maksutilien valvontajärjestelmästä 17 b §). Tilin saldossa tulee olla huomioitu mahdolliset tiliä koskevat katevaraukset, joiden tulee olla vähennetty tilin saldotiedosta. Poikkeustilanteissa voidaan kysellä myös lisätiedot. Mikäli saldokyselyyn sisältyy lisätietopyyntö, tulee se käsitellä erikseen kaikkien pyydettyjen tietojen toimittamiseksi.
+När förfrågan endast gäller saldo ska man sträva efter att skicka svar omedelbart. Svaret ska skickas senast vid slutet av nästa bankdag. Saldouppgiften som lämnas måste gälla uppgiftslämnarens saldo vid tidpunkten för svar. Svar som gäller saldouppgiften ska ha en tidsstämpel som preciserar tidpunkten för saldot. I saldoförfrågan begär man som standard kontonumret, summan pengar på kontot samt datum och klockslag för kontots saldo (Lag om ett övervakningssystem för bank- och betalkonton, 17 b §). Kontots saldo måste beakta eventuella täckningsreserveringar på kontot, vilka måste dras av från kontots saldouppgift. Vid avvikande omständigheter kan man även begära ytterligare information. Om saldoförfrågan innehåller en begäran om ytterligare information, ska den behandlas separat för att tillhandahålla all begärd information.
 
-Asianajajan asiakasvaratilien ollessa kyseessä, saldo- ja tilitapahtumatietoja ei palauteta. Asiakasvaratilillä tarkoitetaan asianajajan tai hänen toimistonsa hallussa olevia muille kuin asianajajalle tai hänen toimistolleen kuuluvien raha- ja muiden varojen tilejä. Asianajajan asiakasvaratilejä koskevia saldo- ja tilitapahtumatietoja ei saa luovuttaa keskitetyn sähköisen saldo- ja tilitapahtumajärjestelmän kautta (laki pankki-ja maksutilien valvontajärjestelmästä 17 b § ja 17 d §). Asiakasvaratilin saldo- ja tilitapahtumatietojen selvittämiseksi toimivaltaisen viranomaisen tulisi olla yhteydessä tilin haltijana toimivaan asianajajaan.
+När det gäller en advokats kundmedelskonton lämnas inte uppgifter om saldo och kontotransaktioner. Kundmedelskonto avser finanskonton och konton för andra tillgångar som förvaltas av advokat eller dennes kontor, men som innehas av någon annan än advokaten eller dennes kontor. Uppgifter om saldo och kontotransaktioner avseende en advokats kundmedelskonton får inte lämnas ut via det centraliserade elektroniska systemet för transaktions- och saldouppgifter (Lag om ett övervakningssystem för bank- och betalkonton, § 17 b och § 17 d). För att utreda kundmedelskontots saldo och transaktionsuppgifter bör den behöriga myndigheten vara i kontakt med den advokat som fungerar som kontoinnehavare.
 
-Saldo- ja tilitapahtumakyselyitä ei voi tehdä kansainvälisinä kyselyinä.
+Förfrågningar om saldo och kontotransaktioner kan inte göras som internationella förfrågningar.
 
-#### Tiedonluovutusjärjestelmään raportoivat toimijat
+#### Aktörer som rapporterar till systemet för utlämnande av information
 
-Tilirekisteriin päivittäville tiedonluovuttajille saldo- ja tilitapahtumatietokysely toimitetaan suojatulla sähköpostilla (kts. [esimerkkisähköposti](assets/Example_email.png)). Pyyntösanoma on sähköpostin liitteenä XML-muodossa. Mikäli saldo- ja tilitapahtumakyselyn käsittelyssä tulee virhetilanne, tietoja ei jostain syystä löydykään tai kysely menee lisäselvityspyyntöön, tulee rajapintaan toimittaa vastaus ja ilmoittaa kunkin tilanteen mukainen tieto. Vastaus kyselyyn tulee toimittaa XML-muotoisena sanomana Tullin rajapintaan.
+För uppgiftslämnare som uppdaterar kontoregistret skickas förfrågan om uppgifter om saldo och kontotransaktioner via säker e-post (se [exempel på e -post](assets/Example_email.png)). Meddelandet med begäran finns som bilaga till e-posten i XML-format. Om det uppstår fel i behandlingen av förfrågan om saldo och kontotransaktioner, uppgifterna inte kan hittas av någon anledning eller förfrågan går till begäran om ytterligare redogörelse, ska ett svar skickas till gränssnittet och informationen meddelas enligt gällande situation. Svar på förfrågan ska tillhandahållas som ett meddelande i XML-format till Tullens gränssnitt.
 
-Mikäli jostain syystä tietoja haun kohteesta ei löydykään, tiedonluovuttajan tulee vastata kyselyyn NFOU-statuskoodilla.
+Om uppgifter om objektet för sökningen av någon anledning inte kan hittas, måste uppgiftslämnaren svara på förfrågan med statuskoden NFOU.
 
-### 4.2 Lisäselvityspyyntö <a name="4-2"></a>
+### 4.2 Begäran om ytterligare redogörelse <a name="4-2"></a>
 
-Jos tiedonluovuttaja katsoo vastaanottamansa kyselyn sellaiseksi, että se tarvitsee lisäselvitystä, voi tiedonluovuttaja palauttaa kyselyyn NRES-statuskoodin (käsittely kesken) ja ottaa suoraan yhteyttä kyselyn lähettäneeseen viranomaiseen pyytääkseen lisätietoja. Lisäselvityspyyntöä varten viranomainen lähettää aina kyselysanoman headerin Fr/OrgId/CtctDtls -elementissä yhteystiedot (nimi, puhelinnumero, sähköposti). 
+Om uppgiftslämnaren anser att en mottagen förfrågan behöver utredas ytterligare kan uppgiftslämnaren återställa statuskod NRES i förfrågan (under behandling) och ta direkt kontakt med myndigheten som skickat förfrågan för ytterligare information. För begäran om ytterligare redogörelse skickar myndigheten alltid kontaktuppgifter (namn, telefonnummer, e-post) i frågemeddelandets header-element Fr/OrgId/CtctDtls.
 
-Tiedonluovuttaja vastaa alkuperäiseen kyselyyn lisäselvityksen käsittelyn jälkeen, jos se on aikarajojen puitteissa mahdollista. Jos kyselyyn ei ehditä vastata aikarajan puitteissa, voi viranomainen tarvittaessa tehdä uuden kyselyn, johon tiedonluovuttaja vastaa sovitusti. Jos tiedonluovuttaja on vastannut kyselyyn NRES, koostava sovellus yrittää uudelleennoutaa vastauksen tiedonluovuttajalta tiedonluovutuksen aikarajan loppuun asti. Tiedonluovutuksen aikarajan umpeuduttua kysely suljetaan.
+Uppgiftslämnaren svarar på den ursprungliga förfrågan efter behandling av ytterligare redogörelse, om det är möjligt inom tidsramen. Om man inte hinner besvara förfrågan inom tidsfristen kan myndigheten vid behov göra en ny förfrågan som uppgiftslämnaren besvarar enligt överenskommelse. Om uppgiftslämnaren har besvarat förfrågan NRES försöker sammanställningsprogrammet hämta svaret på nytt från uppgiftslämnaren fram till tidsgränsens slut. När tidsgränsen för utlämnande av uppgifter löper ut stängs förfrågan.
 
-Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](examples/general/example_passing_contact_details.xml)
+Exempel på förmedling av kontaktuppgifter: [Exempel på meddelande](examples/general/example_passing_contact_details.xml)
 
 ## 5. Business Application Header <a name="luku5"></a>
 
