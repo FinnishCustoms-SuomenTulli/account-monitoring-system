@@ -1,7 +1,7 @@
 
 # Centraliserat informationssystem för saldo och kontotransaktioner
 
-*Dokumentversion 0.3*
+*Dokumentversion 0.4*
 
 Detta dokument är en del av dokumentationen av övervakningssystemet för bank- och betalkonton och instruerar uppgiftslämnare och användare av information i förmedling av uppgifter om saldo och kontotransaktioner i övervakningssystemet för bank- och betalkonton. Detta dokument beskriver kraven för implementering av systemet, flödet av information om saldo och kontotransaktioner i systemet samt fråge- och svarsmeddelanden om saldo och kontotransaktioner.
 
