@@ -190,18 +190,18 @@ Exempel på förmedling av kontaktuppgifter: [Exempel på meddelande](examples/g
 
 ## 5. Business Application Header <a name="luku5"></a>
 
-ISO 20022 standardin mukainen BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) sanoma liitetään sekä kysely- että vastaussanomaan. Kenttien käyttö on muutoin samanlaista kysely- ja vastaussanomassa, paitsi kyselysanomassa tulee lähettää yhteystiedot mahdollista lisäselvityspyyntöä varten.
+Meddelande BusinessApplicationHeaderV01  [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) bifogas både fråge- och svarsmeddelandet i enlighet med standard ISO 20022. Användningen av fälten är i övrigt likadan i fråge- och svarsmeddelandet, bortsett från att kontaktuppgifter ska skickas i frågemeddelandet för eventuell begäran om ytterligare redogörelse.
 
-Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanomassa viranomaisen tiedot, tiedonluovuttajan lähettämässä sanomassa tiedonluovuttajan tiedot ja Tullin välittämissä sanomissa Tullin tiedot. Vastaavasti To-kentän vastaanottajatiedoissa on Tullin tiedot, kun lähetetään sanoma koostavaan sovellukseen, ja sanoman vastaanottavan viranomaisen tai tiedonluovuttajan tiedot, kun koostava sovellus välittää sanoman eteenpäin.
+Avsändaruppgifterna i Fr-fältet i meddelande från myndighet innehåller myndighetens uppgifter, meddelande från uppgiftslämnare innehåller uppgiftslämnarens uppgifter och meddelanden från Tullen innehåller Tullens uppgifter. På motsvarande sätt finns Tullens uppgifter i To-fältet i mottagaruppgifterna när man skickar ett meddelande till sammanställningsprogrammet och den mottagande myndighetens eller uppgiftslämnarens uppgifter när sammanställningsprogrammet vidarebefordrar meddelandet.
 
 <table>
   <colgroup><col /><col /><col /><col /></colgroup>
   <tbody>
     <tr>
-      <th>Elementin nimi</th>
+      <th>Elementets namn</th>
       <th >min..max</th>
-      <th >Tyyppi</th>
-      <th >Kuvaus</th>
+      <th >Typ</th>
+      <th >Beskrivning</th>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01</td>
@@ -228,7 +228,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >1..1</td>
       <td >Max35Text</td>
-      <td >Lähettäjän Y-tunnus. Kun tunnusta verrataan sanoman allekirjoitusvarmenteeseen, tulee ottaa huomioon, että varmenteen sisältämä tunnus voi olla joko Y- tai ALV-tunnuksen muodossa.</td>
+      <td >Avsändarens FO-nummer. Vid jämförelse av numret med meddelandets signeringscertifikat ska man beakta att koden som certifikatet innehåller antingen kan vara i formatet FO-nummer eller momsnummer.</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -242,7 +242,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >1..1</td>
       <td >ExternalOrganisationIdentification1Code</td>
-      <td >"Y", organisaatiotunnuksen tyyppi</td>
+      <td >"Y", organisationskodens typ</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -253,7 +253,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >0..1</td>
       <td >Max140Text</td>
-      <td >Vain viranomaisen kyselysanomassa: Henkilön nimi mahdollista lisäselvityspyyntöä varten</td>
+      <td >Endast i frågemeddelande från myndighet: Personens namn för eventuell begäran om ytterligare redogörelse</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -264,7 +264,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >0..1</td>
       <td >PhoneNumber</td>
-      <td >Vain viranomaisen kyselysanomassa: Puhelinnumero mahdollista lisäselvityspyyntöä varten</td>
+      <td >Endast i frågemeddelande från myndighet: Telefonnummer för eventuell begäran om ytterligare redogörelse</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -275,7 +275,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >0..1</td>
       <td >Max2048Text</td>
-      <td >Vain viranomaisen kyselysanomassa: Sähköpostiosoite mahdollista lisäselvityspyyntöä varten</td>
+      <td >Endast i frågemeddelande från myndighet: E-postadress för eventuell ytterligare begäran om redogörelse</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -288,7 +288,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >1..1</td>
       <td >Max35Text</td>
-      <td >Vastaanottajan Y-tunnus</td>
+      <td >Mottagarens FO-nummer</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -302,7 +302,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >1..1</td>
       <td >ExternalOrganisationIdentification1Code</td>
-      <td >"Y", organisaatiotunnuksen tyyppi</td>
+      <td >"Y", organisationskodens typ</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -310,7 +310,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >1..1</td>
       <td >Max35Text</td>
-      <td >Käyttö standardin mukaisesti</td>
+      <td >Användning i enlighet med standard</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -318,7 +318,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >1..1</td>
       <td >Max35Text</td>
-      <td >Sanoma-id, kyselysanomassa "auth.001.001.01" ja vastaussanomassa "auth.002.001.01"</td>
+      <td >Meddelande-id, i frågemeddelande ”auth.001.001.01” och i svarsmeddelandet ”auth.002.001.01”</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -326,7 +326,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       </td>
       <td >1..1</td>
       <td >ISONormalisedDateTime</td>
-      <td >Luomispäivämäärä ja aika. Normalisoitava Z-notaatiolla (UTC)</td>
+      <td >Datum och tid för upprättande. Normaliseras med Z-notation (UTC)</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -336,7 +336,7 @@ Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanoma
       <td >SignatureEnvelope</td>
       <td >
         
-Lähettäjän muodostama [XML-allekirjoitus](#xml-allekirjoitus)        
+[XML-allekirjoitus](#xml-allekirjoitus) som avsändaren bildat        
       </td>
     </tr>
     <tr>
@@ -347,7 +347,7 @@ Lähettäjän muodostama [XML-allekirjoitus](#xml-allekirjoitus)
       </td>
       <td >1..1</td>
       <td >SignatureValueType</td>
-      <td >Allekirjoitus</td>
+      <td >Signatur</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
@@ -359,46 +359,46 @@ Lähettäjän muodostama [XML-allekirjoitus](#xml-allekirjoitus)
       </td>
       <td >1..1</td>
       <td >base64Binary</td>
-      <td >Sertifikaatti</td>
+      <td >Certifikat</td>
     </tr>
   </tbody>
 </table>
 
-## 6. Kyselysanoma <a name="luku6"></a>
+## 6. Frågemeddelande <a name="luku6"></a>
 
-Kyselysanomassa käytetään ISO 20022 sanomaa InformationRequestOpeningV01 [auth.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.001.001.01.xsd). InformationRequestOpeningV01 sanoman supplementary data -osiossa käytetään kansallista InformationRequestFIN012 (fin.012.001.04) sanomalaajennosta.
+I frågemeddelandet används ISO 20022 meddelande InformationRequestOpeningV01  [auth.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.001.001.01.xsd).  I modulen supplementary data i meddelandet InformationRequestOpeningV01 används den nationella expansionen InformationRequestFIN012 (fin.012.001.04).
 
-Alla luvussa 6.2 on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04](schemas/fin.012.001.04.xsd) skeema. Esimerkkejä [kyselysanomasta](examples/queries).
+I kapitel 6.2 nedan beskrivs vilka fält som används i frågemeddelandet. Schema för undermeddelande  [fin.012.001.04](schemas/fin.012.001.04.xsd). Exempel på [frågemeddelande](examples/queries).
 
-### 6.1 Erityyppisten tietojen hakeminen <a name="6-1"></a>
+### 6.1 Söka olika typer av uppgifter <a name="6-1"></a>
 
-Keskitetystä saldo- ja tilitapahtumatietojärjestelmästä on mahdollista hakea pelkkiä saldotietoja, pelkkiä tilitapahtumatietoja, tai molempia.
+Det är möjligt att söka endast uppgifter om saldo eller kontotransaktioner eller båda i det centraliserade informationssystemet för saldo och kontotransaktioner.
 
-[Esimerkkisanoma](examples/general/example_requesting_only_bal_or_entry_or_both.xml) saldo- ja tilitapahtumatietojen kyselystä.
+[Exempelmeddelande](examples/general/example_requesting_only_bal_or_entry_or_both.xml) på förfrågan om saldo och kontotransaktioner.
 
-#### Pelkkien tilitapahtumatietojen haku
+#### Sökning av enbart uppgifter om kontotransaktioner
 
-Käytetään ajantasaisten tilitapahtumatietojen noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
+Används för att hämta aktuell information om kontotransaktioner. Innehåller även ofullbordade händelser [Händelsestatus: ”ofullbordad”]
 
-Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi saldoon (bal-elementti) kuuluvat kentät ja erikseen pyydettävät tiedot.
+Alla uppgifter förmedlas alltid med svaret förutom de fält som ingår i saldot (bal-element) och uppgifter som begärs separat.
 
-Pelkkiä tilitapahtumatietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: TRAN. 
+När endast uppgifter om kontotransaktioner efterfrågas, inkluderas investigationTypeCode i meddelandet: TRAN.
 
-#### Pelkkien saldotietojen haku
+#### Sökning av enbart saldouppgifter
 
-Käytetään luovutushetken saldotietojen noutamiseen. 
+Används för att hämta saldouppgifter vid tidpunkten då uppgifterna lämnas.
 
-Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtumatietoja (entry-elementti) sisältävät kentät ja erikseen pyydettävät tiedot.
+Alla uppgifter förmedlas alltid med svaret förutom fälten med uppgifter om kontotransaktioner (entryelement) och uppgifter som begärs separat.
 
-Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN.
+När endast saldouppgifter efterfrågas, inkluderas investigationTypeCode i meddelandet: BALN.
 
-#### Saldo- ja tilitapahtumatietojen haku
+#### Sökning av uppgifter om saldo och kontotransaktioner
 
-Käytetään hakuaikavälin tilitapahtumatietojen sekä aikavälin alku- ja loppuhetken saldotiedon noutamiseen. Sisältää myös keskeneräiset tapahtumat [Tapahtuman tila: "kesken"]
+Används för att hämta uppgifter om kontotransaktioner inom sökningens tidsintervall samt saldouppgift vid tidsintervallets början och slut. Inkluderar även ofullbordade händelser [Händelsestatus: ”ofullbordad”]
 
-Vastauksen mukana välitetään aina kaikki muut tiedot paitsi erikseen pyydettävät tiedot.
+I svaret förmedlas alltid alla uppgifter förutom uppgifter som begärs separat.
 
-Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisinä elementteinä investigationTypeCode: TRAN ja investigationTypeCode: BALN.
+När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investigationTypeCode som separata element i meddelandet: TRAN och investigationTypeCode: BALN.
 
 ### 6.2 InformationRequestOpeningV01 sanoman sisältö <a name="6-2"></a>
 
