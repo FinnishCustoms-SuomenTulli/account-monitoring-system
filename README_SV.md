@@ -144,17 +144,18 @@ Bilden nedan visar en översikt över informationsflödet i förfrågan om saldo
 
 ![Pankki- ja maksutilien valvontajärjestelmä](diagrams/tilitap_tiedonkulku_fi.png "Pankki- ja maksutilien valvontajärjestelmä")  
 
-| Viranomaisten järjestelmät    | Myndigheternas system |
+|    |   |
 | -------- | ------- |
-| 1.	Saldo- ja tilitapahtumatietokysely | Förfrågan om saldo och kontotransaktioner|
-| 5.	Saldo- ja tilitapahtumatietokyselyn vastauksen haku | Sökning av svar på förfrågan om saldo och kontotransaktioner |
+| Viranomaisten järjestelmät    | Myndigheternas system |
+| 1.	Saldo- ja tilitapahtumatietokysely | 1. Förfrågan om saldo och kontotransaktioner|
+| 5.	Saldo- ja tilitapahtumatietokyselyn vastauksen haku | 5. Sökning av svar på förfrågan om saldo och kontotransaktioner |
 | Koostava sovellus | Sammanställningsprogram  |
-| 4.	Vastaus: Saldo- ja tilitapahtumatiedot | Svar: Uppgifter om saldo och kontotransaktioner   |
+| 4.	Vastaus: Saldo- ja tilitapahtumatiedot | 4. Svar: Uppgifter om saldo och kontotransaktioner   |
 | Tiedonluovutusjärjestelmä | System för utlämnande av information |
-| 2.	Saldo- ja tilitapahtumatietokysely | Förfrågan om saldo och kontotransaktioner  |
-| 3.	Vastaus: Saldo- ja tilitapahtumatiedot | Svar: Uppgifter om saldo och kontotransaktioner   |
 | 2.	Saldo- ja tilitapahtumatietokysely | 2. Förfrågan om saldo och kontotransaktioner  |
-| 3.	Vastaus: Saldo- ja tilitapahtumatiedot | Svar: Uppgifter om saldo och kontotransaktioner   |
+| 3.	Vastaus: Saldo- ja tilitapahtumatiedot | 3. Svar: Uppgifter om saldo och kontotransaktioner   |
+| 2.	Saldo- ja tilitapahtumatietokysely | 2. Förfrågan om saldo och kontotransaktioner  |
+| 3.	Vastaus: Saldo- ja tilitapahtumatiedot | 3. Svar: Uppgifter om saldo och kontotransaktioner   |
 | Tiedonluovuttajien tiedonhakujärjestelmät | Uppgiftslämnarens datasöksystem |
 | Tilirekisteriin päivittävät tiedonluovuttajat | Uppgiftslämnare som uppdaterar kontoregistret |
 
