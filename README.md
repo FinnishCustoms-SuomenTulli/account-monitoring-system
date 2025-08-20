@@ -1,8 +1,6 @@
 
 # Keskitetty saldo- ja tilitapahtumatietojärjestelmä
 
-*Dokumentin versio 0.2*
-
 Tämä dokumentti on osa pankki- ja maksutilien valvontajärjestelmän dokumentaatiota ja ohjeistaa tiedonluovuttajia sekä tiedonhyödyntäjiä saldo- ja tilitapahtumatietojen välittämiseksi pankki- ja maksutilien valvontajärjestelmässä. Tässä dokumentissa kuvataan vaadittavat edellytykset järjestelmän toteuttamiseksi, saldo- ja tilitapahtumatietojen kulku järjestelmässä sekä saldo- ja tilitapahtumatietojen kysely- ja vastaussanomat.
 
 Pankki- ja maksutilien valvontajärjestelmä välittää tiedonhyödyntäjille eli laissa säädetyille viranomaisille tietoa kansalaisten, yritysten ja yhteisöjen pankki-ja maksutileistä. Järjestelmä perustuu lakiin pankki- ja maksutilien valvontajärjestelmästä. Lakimuutos saldo- ja tilitapahtumatietokyselyiden sekä arvopaperitietokyselyiden keskittämisestä pankki- ja maksutilien valvontajärjestelmään tulee voimaan joulukuussa 2025.
