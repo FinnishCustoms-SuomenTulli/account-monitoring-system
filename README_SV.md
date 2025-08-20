@@ -38,7 +38,7 @@ E-post: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 | System för utlämnande av uppgifter | System till vilket uppgiftslämnare som uppdaterar kontoregistret skickar svarsmeddelande på förfrågan om saldo och kontotransaktioner.  |
 | Saldo |  Belopp på bank- och betalkonto vid tidpunkten när förfrågan besvaras, där man har dragit av eventuell täckningsreservering.  |
 | Uppgifter om kontotransaktioner | Detaljerad information om transaktioner som utförts under en viss tidsperiod via ett specifikt betalkonto eller bankkonto som identifieras med ett IBAN-kontonummer eller detaljerad information om överföringar av kryptotillgångar (se lagen om övervakningssystemet för bank- och betalkonton 2 § mom. 15). |
-| Begäran om ytterligare information | Uppgiftslämnaren begär ytterligare information av myndigheten som lämnade förfrågan före utlämnandet av uppgifter.  |
+| Begäran om ytterligare redogörelse | Uppgiftslämnaren begär ytterligare redogörelse av myndigheten som lämnade förfrågan före utlämnandet av uppgifter.  |
 | (Ytterligare) information som begärs separat | Uppgifter som uppgiftslämnaren inte returnerar i svarsmeddelandet om myndigheten inte specifikt begär det i sitt frågemeddelande.  |
 
 
@@ -275,7 +275,7 @@ Avsändaruppgifterna i Fr-fältet i meddelande från myndighet innehåller myndi
       </td>
       <td >0..1</td>
       <td >Max2048Text</td>
-      <td >Endast i frågemeddelande från myndighet: E-postadress för eventuell ytterligare begäran om redogörelse</td>
+      <td >Endast i frågemeddelande från myndighet: E-postadress för eventuell begäran om ytterligare redogörelse</td>
     </tr>
     <tr>
       <td >BusinessApplicationHeaderV01<br>
