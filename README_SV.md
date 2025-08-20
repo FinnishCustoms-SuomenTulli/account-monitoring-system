@@ -400,16 +400,16 @@ I svaret förmedlas alltid alla uppgifter förutom uppgifter som begärs separat
 
 När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investigationTypeCode som separata element i meddelandet: TRAN och investigationTypeCode: BALN.
 
-### 6.2 InformationRequestOpeningV01 sanoman sisältö <a name="6-2"></a>
+### 6.2 InformationRequestOpeningV01 meddelandets innehåll <a name="6-2"></a>
 
 <table>
   <colgroup><col /><col /><col /><col /></colgroup>
   <tbody>
     <tr>
-      <th>Elementin nimi</th>
+      <th>Elementets namn</th>
       <th >min..max</th>
-      <th >Tyyppi</th>
-      <th >Kuvaus</th>
+      <th >Typ</th>
+      <th >Beskrivning</th>
     </tr>
     <tr>
       <td >InformationRequestOpeningV01</td>
@@ -424,7 +424,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >Max35Text</td>
-      <td >Tapauksen tunniste</td>
+      <td >Fallets kod</td>
     </tr>
     <tr>
       <td >
@@ -434,7 +434,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >Max35Text</td>
-      <td >Laillisuusperuste</td>
+      <td >Laglighetsgrund</td>
     </tr>
     <tr>
       <td >
@@ -443,7 +443,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >YesNoIndicator</td>
-      <td >aina "true"</td>
+      <td >alltid "true"</td>
     </tr>
     <tr>
       <td >
@@ -454,7 +454,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Hakuaikavälin alkamispäivä</td>
+      <td >Startdatum för sökintervallet</td>
     </tr>
     <tr>
       <td >
@@ -465,7 +465,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Hakuaikavälin päättymispäivä</td>
+      <td >Slutdatum för sökintervallet</td>
     </tr>
     <tr>
       <td >
@@ -478,8 +478,8 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >0..1</td>
       <td >IBAN2007Identifier</td>
-      <td >Haettavan tilin IBAN-muotoinen tilinumero.<br>
-      Käytetään kun hakukohteena olevalla tilillä on IBAN-muotoinen tilinumero.
+      <td >Kontonummer för kontot som söks i IBAN-format.
+Används när kontot som söks har ett kontonummer i IBAN-format.
       </td>
     </tr>
     <tr>
@@ -494,7 +494,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >Max34Text</td>
-      <td >Haettavan tilin tilinumero, jos kyseessä ei ole IBAN-tili.</td>
+      <td >Kontonummer för kontot som söks om det inte är ett IBAN-konto.</td>
     </tr>
     <tr>
       <td >
@@ -509,7 +509,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >ExternalAccountIdentification1Code</td>
-      <td >"OTHR", jos hakukohteena ei ole IBAN-tili</td>
+      <td >”OTHR” om sökobjektet inte är ett IBAN-konto</td>
     </tr>
     <tr>
       <td >
@@ -533,7 +533,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >Max35Text</td>
-      <td >Halutun vastaussanoman tunniste. Tilitapahtuma- ja saldotietoja haettaessa camt.052.001.08.</td>
+      <td >Identifierare för önskat svarsmeddelande. Vid sökning av uppgifter om kontotransaktioner och saldo camt.052.001.08.</td>
     </tr>
     <tr>
       <td >
@@ -547,7 +547,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >Max140Text</td>
-      <td >Kyselyn lähettävän viranomaisen tunniste</td>
+      <td >Identifierare för myndigheten som skickar förfrågan</td>
     </tr>
     <tr>
       <td >
@@ -561,7 +561,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >Max140Text</td>
-      <td >Kyselyn hyväksyvän viranomaisen tunniste</td>
+      <td >Identifierare för myndigheten som godkänner förfrågan</td>
     </tr>
         <tr>
       <td >
@@ -575,7 +575,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >Max140Text</td>
-      <td >Kyselevän viranomaisen organisaation tunniste</td>
+      <td >Identifierare för den frågande myndighetens organisation</td>
     </tr>
     <tr>
       <td >
@@ -589,7 +589,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
-      <td >Tiedonluovuttaja, jolle kysely on osoitettu (Y-tunnus)</td>
+      <td >Uppgiftslämnare till vilken förfrågan tilldelats (FO-nummer)</td>
     </tr>
     <tr>
       <td >
@@ -603,7 +603,9 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >0..2</td>
       <td >InvestigationTypeCode</td>
-      <td >Jos haetaan tilitapahtumia, lähetetään elementti arvolla "TRAN". <br>Jos haetaan saldotietoja, lähetetään elementti arvolla "BALN". <br>Jos haetaan sekä tilitapahtuma- että saldotiedot, lähetetään elementti kahdesti, kerran kummallakin arvolla.</td>
+      <td >Om man söker kontotransaktioner, skickas elementet med värdet ”TRAN”.
+Om man söker saldouppgifter, skickas elementet med värdet "BALN".
+Om man söker uppgifter om både kontotransaktioner och saldo, skickas elementet två gånger, en gång med varje värde.</td>
     </tr>
     <tr>
       <td >
@@ -619,39 +621,39 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       <td >TransactionFieldCode</td>
       <td >
         
-Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä erikseen pyydettävistä tiedoista: [TransactionFieldCode](#6-3) </td>
+Används om man vill skicka ytterligare information som begärs separat utöver den grundläggande informationen. Lista över uppgifter som vid behov inkluderas i sökningen och begärs separat: [TransactionFieldCode](#6-3) </td>
     </tr>
   </tbody>
 </table>
 
-### 6.3 TransactionFieldCode: erikseen pyydettävät lisätiedot <a name="6-3"></a>
+### 6.3 TransactionFieldCode: ytterligare information som begärs separat <a name="6-3"></a>
 
 | Kuvaus                                | Tietue                                  | Koodi            |
 |:--------------------------------------|:----------------------------------------|:-----------------|
-| Ilmaisin sisältääkö saldo luottorajan | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
-| Käytettävissä oleva luottoraja        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
+| Indikator för om saldot innehåller en kreditgräns | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
+| Tillgänglig kreditgräns        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-[Esimerkkisanoma](examples/general/example_request_additional_info.xml) erikseen pyydettävistä lisätiedoista.
+[Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat.
 
 
-## 7. Vastaussanoma <a name="luku7"></a>
+## 7. Svarsmeddelande <a name="luku7"></a>
 
-Vastaussanomassa käytetään ISO 20022 sanomaa InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
+I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). I modulen supplementary data i meddelandet InformationRequestResponseV01 returneras ISO 20022 meddelandet camt.052.001.08.
 
-Alla luvussa 7.1 on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
+I kapitel 7.1 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande, camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries). 
 
-Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
+Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller gränssnitt till kontoregistret. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
-### 7.1 Alisanoman camt.052.001.08 sisältö <a name="7-1"></a>
+### 7.1 Undermeddelandets camt.052.001.08 innehåll <a name="7-1"></a>
 
 
 <table>
   <colgroup><col /><col /><col /></colgroup>
   <tbody>
     <tr>
-      <th>Elementin nimi</th>
-      <th>Tyyppi</th>
-      <th>Kuvaus</th>
+      <th>Elementets namn</th>
+      <th>Typ</th>
+      <th>Beskrivning</th>
     </tr>
     <tr>
       <td>
@@ -660,7 +662,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++MsgId
       </td>
       <td>Max35Text</td>
-      <td>Viestin yksilöllinen tunniste.</td>
+      <td>Unik identifierare för meddelandet.</td>
     </tr>
     <tr>
       <td>
@@ -669,7 +671,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++CreDtTm
       </td>
       <td>ISODateTime</td>
-      <td>Viestin luontipäivämäärä ja -aika.</td>
+      <td>Datum och tid då meddelandet skapades.</td>
     </tr>
     <tr>
       <td>
@@ -678,7 +680,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++AddtlInf
       </td>
       <td>Max500Text</td>
-      <td>Lähettäjän antamat lisätiedot.</td>
+      <td>Ytterligare information som avsändaren lämnat.</td>
     </tr>
     <tr>
       <td>
@@ -687,7 +689,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++Id
       </td>
       <td>Max35Text</td>
-      <td>Raportin yksilöllinen tunniste.</td>
+      <td>Unik identifierare för rapporten.</td>
     </tr>
     <tr>
       <td>
@@ -696,7 +698,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++CreDtTm
       </td>
       <td>ISODateTime</td>
-      <td>Raportin luontipäivämäärä ja -aika.</td>
+      <td>Datum och tid då rapporten skapades.</td>
     </tr>
     <tr>
       <td>
@@ -706,7 +708,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++FrDtTm
       </td>
       <td>ISODateTime</td>
-      <td>Raportin kattaman aikavälin alkupäivä.</td>
+      <td>Startdatum för datumintervall som rapporten täcker.</td>
     </tr>
     <tr>
       <td>
@@ -716,7 +718,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++ToDtTm
       </td>
       <td>ISODateTime</td>
-      <td>Raportin kattaman aikavälin päättymispäivä.</td>
+      <td>Slutdatum för datumintervall som rapporten täcker.</td>
     </tr>
     <tr>
       <td>
@@ -727,199 +729,199 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++IBAN
       </td>
       <td>IBAN2007Identifier</td>
-      <td>Tilin IBAN, josta raportti on laadittu.</td>
+      <td>IBAN för kontot som rapporten har upprättats om.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Acct<br>+++Othr<br>++++Id</td>
       <td>Max34Text</td>
-      <td>Tilinumero muu kuin IBAN, josta raportti on laadittu.</td>
+      <td>Kontonummer annat än IBAN som rapporten har upprättats om.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++CdtDbtInd</td>
       <td>CreditDebitCode</td>
-      <td>Ilmaisee, onko tapahtuma kredit tai debit.</td>
+      <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++RvslInd</td>
       <td>TrueFalseIndicator</td>
-      <td>Ilmaisee, onko tapahtuma korjaus.</td>
+      <td>Anger om händelsen är en korrigering.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BookgDt<br>++++Dt</td>
       <td>ISODate</td>
-      <td>Päivämäärä, jolloin tapahtuma kirjattiin tilille.</td>
+      <td>Datum då transaktionen bokfördes på kontot.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Tapahtuman rahamäärä ja valuutta.</td>
+      <td>Belopp och valuta för transaktionen.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++ValDt<br>++++ValDt (Dt)</td>
       <td>ISODate</td>
-      <td>Tapahtuman arvopäivä.</td>
+      <td>Transaktionens valutadag.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++AcctSvcrRef</td>
       <td>Max35Text</td>
-      <td>Tiliä hoitavan laitoksen antama viite.</td>
+      <td>Den referens som tillhandahålls av institutionen som förvaltar kontot.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Prtry<br>+++++Cd</td>
       <td>Max35Text</td>
-      <td>Pankin sisäinen tapahtumakoodi.</td>
+      <td>Bankens interna transaktionskod.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domm<br>+++++Cd</td>
       <td>ExternalBankTransactionDomain1Code</td>
-      <td>Pankkitapahtuman standardoitu koodiperhe.</td>
+      <td>En standardiserad kodfamilj för en banktransaktion.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++sts<br>++++Cd</td>
       <td>ExternalEntryStatus1Code</td>
-      <td>Tapahtuman tila (esim. kirjattu, kesken).</td>
+      <td>Transaktionens status (t.ex. registrerad, ofullbordad)..</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++MsgId</td>
       <td>Max35Text</td>
-      <td>Koontitapahtuman tunniste.</td>
+      <td>Samlingstransaktionens identifierare.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++PmtInfId</td>
       <td>Max35Text</td>
-      <td>Maksutiedon tunniste.</td>
+      <td>Betalningsuppgiftens identifierare.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++NbOfTxs</td>
       <td>Max15NumericText</td>
-      <td>Koontitapahtumien lukumäärä.</td>
+      <td>Antal samlingstransaktioner.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++TtlAmt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Koontitapahtumien kokonaissumma.</td>
+      <td>Total summa för samlingstransaktioner.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>++NtryDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Tapahtuman summa.</td>
+      <td>Transaktionens belopp.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++TxDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++CcyXchg<br>++++++UnitCcy</td>
       <td>ActiveOrHistoricCurrencyCode</td>
-      <td>Tapahtuman alkuperäinen valuutta.</td>
+      <td>Transaktionens ursprungliga valuta.Transaktionens ursprungliga valuta.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
       <td>BaseOneRate</td>
-      <td>Käytetty valuuttakurssi.</td>
+      <td>Valutakurs som använts.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
       <td>Max140Text</td>
-      <td>Rakenteeton viestitieto.</td>
+      <td>Ostrukturerad information i meddelande.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Strd<br>+++++++CdtrRefInf<br>++++++++Ref</td>
       <td>Max35Text</td>
-      <td>Saajan viitetiedot.</td>
+      <td>Mottagarens referensuppgifter.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Refs<br>++++++InstrId</td>
       <td>Max35Text</td>
-      <td>Alkuperäisen osapuolen antama tunniste.</td>
+      <td>Identifierare som tillhandahålls av den ursprungliga parten.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Purp<br>++++++(Cd/Prtry)</td>
       <td>ExternalPurpose1Code</td>
-      <td>Tapahtuman syy tai tarkoitus.</td>
+      <td>Orsak eller syfte med transaktionen.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++DbtrAcct<br>+++++++Id<br>++++++++IBAN</td>
       <td>IBAN2007Identifier</td>
-      <td>Maksajan tilin IBAN.</td>
+      <td>Betalarens konto IBAN.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Id<br>++++++++IBAN</td>
       <td>IBAN2007Identifier</td>
-      <td>Saajan tilin IBAN.</td>
+      <td>Mottagarens konto IBAN.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Dbtr<br>+++++++Pty<br>++++++++Nm</td>
       <td>Max140Text</td>
-      <td>Maksajan nimi.</td>
+      <td>Betalarens namn.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Cdtr<br>+++++++Pty<br>++++++++Nm</td>
       <td>Max140Text</td>
-      <td>Saajan nimi.</td>
+      <td>Mottagarens namn.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Cd</td>
       <td>ExternalCashAccountType1Code</td>
-      <td>Saajan tilin tyypin koodi.</td>
+      <td>Typkod för mottagarens konto.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Prtry</td>
       <td>Max35Text</td>
-      <td>Saajan tilin tyypin kuvaus.</td>
+      <td>Beskrivning av typkod för mottagarens konto.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++DbtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
       <td>BICFIDec2014Identifier</td>
-      <td>Maksajan pankin BIC-koodi.</td>
+      <td>BIC-kod för betalarens bank.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++CdtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
       <td>BICFIDec2014Identifier</td>
-      <td>Saajan pankin BIC-koodi.</td>
+      <td>BIC-kod för mottagarens bank.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++NbOfNtries</td>
       <td>Max15NumericText</td>
-      <td>Tapahtumien kokonaismäärä.</td>
+      <td>Totalt antal transaktioner.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++TtlNetNtry<br>+++++Amt</td>
       <td>NonNegativeDecimalNumber</td>
-      <td>Tapahtumien nettosumma.</td>
+      <td>Netto antal transaktioner.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlCdtNtries<br>++++NbOfNtries</td>
       <td>Max15NumericText</td>
-      <td>Kredit-tapahtumien lukumäärä.</td>
+      <td>Antal kredittransaktioner.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlDbtNtries<br>++++NbOfNtries</td>
       <td>Max15NumericText</td>
-      <td>Debit-tapahtumien lukumäärä.</td>
+      <td>Antal debittransaktioner.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Tp<br>++++CdOrPrtry<br>+++++Cd</td>
       <td>ExternalBalanceType1Code</td>
-      <td>Saldotyypin koodi (esim. alku-, loppusaldo).</td>
+      <td>Kod för saldotyp (t.ex. ingående, utgående saldo).</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Saldon määrä</td>
+      <td>Saldobelopp</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtDbtInd</td>
       <td>CreditDebitCode</td>
-      <td>Ilmaisee, onko saldo kredit vai debit.</td>
+      <td>Anger om saldot är kredit eller debit.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Dt<br>++++Dt</td>
       <td>DateAndDateTime2Choice</td>
-      <td>Saldon päivämäärä.</td>
+      <td>Datum för saldo.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Incl</td>
       <td>TrueFalseIndicator</td>
       <td>
         
-Ilmaisin, sisältääkö saldo luottorajan. Erikseen pyydettävä lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
+Indikator för om saldot innehåller en kreditgräns. Ytterligare information som ska begäras separat, och som endast återsänds om detta begärs i förfrågan, se [TransactionFieldCode](#6-3)
       </td>
     </tr>
     <tr>
@@ -927,58 +929,58 @@ Ilmaisin, sisältääkö saldo luottorajan. Erikseen pyydettävä lisätieto, jo
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
+Tillgänglig kreditgräns. Ytterligare information som ska begäras separat, och som endast återsänds om detta begärs i förfrågan, se [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
 </table>
 
 
-## 8. Virhetilanteet <a name="luku8"></a>
+## 8. Felsituationer <a name="luku8"></a>
 
 
 <table>
   <colgroup><col /><col /><col /><col /></colgroup>
   <tbody>
     <tr>
-      <th>Virhetilanne</th>
+      <th>Felsituation</th>
       <th >faultcode</th>
       <th  colspan="1">faultstring</th>
       <th  colspan="1">detail</th>
-      <th  colspan="1">Virhekoodi</th>
+      <th  colspan="1">Felkod</th>
     </tr>
     <tr>
-      <td >Asynkronisesti aloitettu kysely on kadonnut</td>
+      <td >Asynkront initierad förfrågan har försvunnit</td>
       <td >SOAP-ENV:Server</td>
       <td  colspan="1">The query has been lost. Please re-send initial query.</td>
       <td  colspan="1"><code>&lt;errorcode&gt;1&lt;/errorcode&gt;</code></td>
       <td>1</td>
     </tr>
     <tr>
-      <td >XML-allekirjoitus on virheellinen</td>
+      <td >XML-signaturen är felaktig</td>
       <td >SOAP-ENV:Client</td>
       <td  colspan="1">The provided signature is invalid.</td>
       <td  colspan="1"><code>&lt;errorcode&gt;2&lt;/errorcode&gt;</code></td>
       <td>2</td>
     </tr>
     <tr>
-      <td >Transaktio hylätty liian tiheän pollausvälin johdosta</td>
+      <td >Transaktionen avslogs på grund av att förfrågan gjordes för ofta</td>
       <td >SOAP-ENV:Client</td>
       <td  colspan="1">Too many requests</td>
       <td  colspan="1"><code>&lt;errorcode&gt;3&lt;/errorcode&gt;</code></td>
       <td>3</td>
     </tr>
     <tr>
-      <td >Sanomassa on validointivirheit&auml;, esimerkiksi virheellinen investigation period</td>
+      <td >Meddelandet innehåller valideringsfel, till exempel felaktig investigation period</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Bad Request</td>
       <td  colspan="1">
-        <p>1 kpl ValidationError-elementti&auml; per validointivirhe esim.</p>
-        <p><code>&lt;errorcode&gt;4&lt;/errorcode&gt;</code><br /><code>&lt;ValidationError&gt;</code><code>Validaatiovirheen kuvaus&lt;/ValidationError&gt;</code></p>
+        <p>1 st. ValidationError-element per valideringsfel t.ex.</p>
+        <p><code>&lt;errorcode&gt;4&lt;/errorcode&gt;</code><br /><code>&lt;ValidationError&gt;</code><code>Beskrivning av valideringsfel&lt;/ValidationError&gt;</code></p>
       </td>
       <td>4</td>
     </tr>
     <tr>
-      <td >Sanoman indikoimalla käyttäjällä ei ole käyttöoikeutta</td>
+      <td >Användaren som indikeras av meddelandet har inte användarrättighet</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Unauthorized</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;5&lt;/errorcode&gt;</code><br /></p>
@@ -986,7 +988,7 @@ Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palaut
       <td>5</td>
     </tr>
     <tr>
-      <td >Vastaussanoman koko on liian suuri (yli 5 Mb)</td>
+      <td >Storleken på svarsmeddelandet är för stor (över 5 Mb)</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Query response size is too large. Please refine the query.</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
@@ -994,7 +996,7 @@ Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palaut
       <td>6</td>
     </tr>
     <tr>
-      <td >Vastaussanoma sisältää useita osumia</td>
+      <td >Svarsmeddelandet innehåller flera träffar</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Query response has multiple hits. Please refine the query.</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;7&lt;/errorcode&gt;</code><br /></p>
@@ -1002,7 +1004,7 @@ Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palaut
       <td>7</td>
     </tr>
         <tr>
-      <td >Vastausta ei ole toimitettu kyselyn käsittelyaikarajan sisällä. Kysely on suljettu.</td>
+      <td >Svaret har inte skickats inom tidsgränsen för behandling av förfrågan. Förfrågan har stängts.</td>
       <td >SOAP-ENV:Server</td><td  colspan="1">Query has expired and is closed</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;8&lt;/errorcode&gt;</code><br /></p>
@@ -1010,7 +1012,7 @@ Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palaut
       <td>8</td>
     </tr>
     <tr>
-      <td  colspan="1">Palvelimen virhe</td>
+      <td  colspan="1">Serverfel</td>
       <td  colspan="1">SOAP-ENV:Server</td>
       <td  colspan="1">Internal Server Error</td>
       <td  colspan="1"><code>&lt;errorcode&gt;0&lt;/errorcode&gt;</code></td>
@@ -1019,6 +1021,6 @@ Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palaut
   </tbody>
 </table>
 
-Jos tiedonhakujärjestelmä ei vastaa aikarajan kuluessa, palauttaa koostava sovellus viranomaiselle virhekoodin 1.
+Om datasöksystemet inte svarar inom tidsgränsen, sänder sammanställningsprogrammet felkod 1 till myndigheten.
 
 
