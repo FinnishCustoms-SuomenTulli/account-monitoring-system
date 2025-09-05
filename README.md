@@ -669,6 +669,43 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>
         BkToCstmrAcctRpt<br>
         +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Viestin lähettävän tiedonluovuttajan nimi.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max256Text</td>
+      <td>Viestin lähettävän tiedonluovuttajan Y-tunnus.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max35Text</td>
+      <td>"Y"</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
         ++AddtlInf
       </td>
       <td>Max500Text</td>
