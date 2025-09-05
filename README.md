@@ -758,15 +758,66 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++IBAN
       </td>
       <td>IBAN2007Identifier</td>
-      <td>Tilin IBAN, josta raportti on laadittu.</td>
+      <td>IBAN-muotoinen tilinumero tilille, josta raportti on laadittu.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Acct<br>+++Othr<br>++++Id</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Othr<br>
+        +++++Id
+      </td>
       <td>Max34Text</td>
-      <td>Tilinumero muu kuin IBAN, josta raportti on laadittu.</td>
+      <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++CdtDbtInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Tilin tarjoavan pankin nimi.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max140Text</td>
+      <td>Tilin tarjoavan pankin Y-tunnus.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max140Text</td>
+      <td>"Y"</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Ilmaisee, onko tapahtuma kredit tai debit.</td>
     </tr>
