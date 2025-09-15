@@ -431,7 +431,6 @@ Saldo- ja tilitaphtumatietoja kyselt채ess채 sanomaan sis채llytet채채n erillisin�
       <td >Laillisuusperuste</td>
     </tr>
     <tr>
-    <tr>
       <td >
         InformationRequestOpeningV01<br>
         +LglMndBsis<br>
