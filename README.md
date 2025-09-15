@@ -431,6 +431,17 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       <td >Laillisuusperuste</td>
     </tr>
     <tr>
+    <tr>
+      <td >
+        InformationRequestOpeningV01<br>
+        +LglMndBsis<br>
+        ++Dsclmr
+      </td>
+      <td >0..1</td>
+      <td >Max350Text</td>
+      <td >Laillisuusperusteen lisätiedot</td>
+    </tr>
+    <tr>  
       <td >
         InformationRequestOpeningV01<br>
         +CnfdtltySts
@@ -771,6 +782,18 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>Max34Text</td>
       <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++BICFI
+      </td>
+      <td>BICFIDec2014Identifier</td>
+      <td>Tilin tarjoavan pankin BIC.</td>
     </tr>
     <tr>
       <td>
