@@ -387,7 +387,7 @@ Används för att hämta saldouppgifter vid tidpunkten då uppgifterna lämnas.
 
 Alla uppgifter förmedlas alltid med svaret förutom fälten med uppgifter om kontotransaktioner (entryelement) och uppgifter som begärs separat.
 
-När endast saldouppgifter efterfrågas, inkluderas investigationTypeCode i meddelandet: BALN.
+När endast saldouppgifter efterfrågas, inkluderas investigationTypeCode i meddelandet: BALN. När endast saldouppgifter efterfrågas, är både startdatum (FrDt) och slutdatum (ToDt) för sökintervallet (InvstgtnPrd) innevarande dag.
 
 #### Sökning av uppgifter om saldo och kontotransaktioner
 
@@ -436,6 +436,16 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
     <tr>
       <td >
         InformationRequestOpeningV01<br>
+        +LglMndBsis<br>
+        ++Dsclmr
+      </td>
+      <td >0..1</td>
+      <td >Max350Text</td>
+      <td >Ytterligare information om laglighetsgrunden</td>
+    </tr>
+    <tr>
+      <td >
+        InformationRequestOpeningV01<br>
         +CnfdtltySts
       </td>
       <td >1..1</td>
@@ -451,7 +461,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Startdatum för sökintervallet</td>
+      <td >Startdatum för sökintervallet. När endast saldouppgifter efterfrågas, alltid innevarande dag.</td>
     </tr>
     <tr>
       <td >
@@ -462,7 +472,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Slutdatum för sökintervallet</td>
+      <td >Slutdatum för sökintervallet. När endast saldouppgifter efterfrågas, alltid innevarande dag.</td>
     </tr>
     <tr>
       <td >
@@ -674,6 +684,43 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>
         BkToCstmrAcctRpt<br>
         +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Avsändarens namn.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max256Text</td>
+      <td>Avsändarens FO-nummer.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max35Text</td>
+      <td>"Y"</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
         ++AddtlInf
       </td>
       <td>Max500Text</td>
@@ -729,12 +776,74 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>IBAN för kontot som rapporten har upprättats om.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Acct<br>+++Othr<br>++++Id</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Othr<br>
+        +++++Id</td>
       <td>Max34Text</td>
       <td>Kontonummer annat än IBAN som rapporten har upprättats om.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++CdtDbtInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++BICFI
+      </td>
+      <td>BICFIDec2014Identifier</td>
+      <td>Käännä:Tilin tarjoavan pankin BIC.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Käännä:Tilin tarjoavan pankin nimi.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max140Text</td>
+      <td>Käännä:Tilin tarjoavan pankin Y-tunnus.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max140Text</td>
+      <td>"Y"</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
