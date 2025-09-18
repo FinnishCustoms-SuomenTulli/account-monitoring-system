@@ -6,3 +6,4 @@
 | 0.2     | 3.7.2025    | Added English version of README (README_EN) and version history. Minor clarifications and terminology adjustments to Finnish README. |  
 | 0.3     | 13.8.2025    | Correction: In fin.012.001.04 schema maxOccurs on row 37 from "N" to "unbounded". |
 | 0.4     | 20.8.2025    | Added Swedish version of README (README_SV). |
+| 0.5     | .2025    | Updated READMEs. Chapter 6: Clarification that when requesting only account balance, both investigation period start and end date should be current day. Chapter 6: Added LglMndBsis/Dsclmr for additional information about legal madate basis. Chapter 7: Added GrpHdr/MsgRcpt fields and Rpt/Acct/Svcr/FinInstId fields for information about the bank.|
