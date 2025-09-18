@@ -383,7 +383,7 @@ Used for retrieving latest (response time) balance information.
 
 All other information is always included in the response except the fields including transaction information (entry element) and separately requested information.
 
-When requesting only account balance information the investigationTypeCode: BALN is included in the query message.
+When requesting only account balance information the investigationTypeCode: BALN is included in the query message. When requesting only account balance information the investigation period (InvstgtnPrd) start date (FrDt) and end date (ToDt) are the current day.
 
 #### Requesting both account balance and transaction information
 
@@ -457,7 +457,7 @@ When requesting both account balance and transaction information the investigati
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Investigation period start date</td>
+      <td >Investigation period start date. When requesting only account balance, always the current day.</td>
     </tr>
     <tr>
       <td >
@@ -468,7 +468,7 @@ When requesting both account balance and transaction information the investigati
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Investigation period end date</td>
+      <td >Investigation period end date. When requesting only account balance, always the current day.</td>
     </tr>
     <tr>
       <td >
