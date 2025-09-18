@@ -384,7 +384,7 @@ Käytetään luovutushetken saldotietojen noutamiseen.
 
 Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtumatietoja (entry-elementti) sisältävät kentät ja erikseen pyydettävät tiedot.
 
-Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN.
+Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN. Pelkkiä saldotietoja kyseltäessä hakuaikavälin (InvstgtnPrd) sekä alkamispäivä (FrDt) että päättymispäivä (ToDt) ovat kuluva päivä.
 
 #### Saldo- ja tilitapahtumatietojen haku
 
@@ -458,7 +458,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Hakuaikavälin alkamispäivä</td>
+      <td >Hakuaikavälin alkamispäivä. Pelkkää saldoa kyseltäessä aina kuluva päivä.</td>
     </tr>
     <tr>
       <td >
@@ -469,7 +469,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Hakuaikavälin päättymispäivä</td>
+      <td >Hakuaikavälin päättymispäivä. Pelkkää saldoa kyseltäessä aina kuluva päivä.</td>
     </tr>
     <tr>
       <td >
