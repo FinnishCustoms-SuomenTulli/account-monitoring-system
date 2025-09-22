@@ -74,43 +74,43 @@
                                  <MsgId>XML12345678901234567890123456789012</MsgId>
                                  <CreDtTm>2019-05-09T04:33:00.444Z</CreDtTm>
                                  <MsgRcpt>
+                                    <camt52:Nm>Name of the sender</camt52:Nm>
                                     <Id>
                                        <OrgId>
                                           <Othr>
-                                             <Id>1234567890</Id>
+                                             <Id>business id</Id>
                                              <SchmeNm>
-                                                <Cd>CUST</Cd>
-                                             </SchmeNm>
-                                          </Othr>
-                                          <Othr>
-                                             <Id>123456</Id>
-                                             <SchmeNm>
-                                                <Cd>BANK</Cd>
+                                                <Cd>y</Cd>
                                              </SchmeNm>
                                           </Othr>
                                        </OrgId>
                                     </Id>
                                  </MsgRcpt>
+                                 <AddtInf>Additional information from sender</AddtInf>
                               </GrpHdr>
                               <Rpt>
                                  <Id>2019-05-09-04.44.12-EUR0574</Id>
                                  <ElctrncSeqNb>25</ElctrncSeqNb>
                                  <LglSeqNb>20</LglSeqNb>
                                  <CreDtTm>2019-05-09T04:33:00.444Z</CreDtTm>
+                                 <FrToDt>
+                                    <FrDtTm>2019-05-08T00:00:00.444Z</FrDtTm>
+                                    <ToDtTm>2019-05-08T23:30:00.444Z</ToDtTm>
+                                 </FrToDt>
                                  <Acct>
                                     <Id>
                                        <IBAN>FI8529501800030574</IBAN>
                                     </Id>
-                                    <Ccy>EUR</Ccy>
-                                    <Ownr>
-                                       <Nm>TEST COMPANY</Nm>
-                                    </Ownr>
                                     <Svcr>
                                        <FinInstnId>
-                                          <BIC>XXXXFIHH</BIC>
-                                          <PstlAdr>
-                                             <Ctry>FI</Ctry>
-                                          </PstlAdr>
+                                          <BICFI>XXXXFIHH</BICFI>
+                                          <Nm>Name of the sender</Nm>
+                                          <Othr>
+                                             <Id>business id</Id>
+                                             <SchmeNm>
+                                                <Cd>y</Cd>
+                                             </SchmeNm>
+                                          </Othr>
                                        </FinInstnId>
                                     </Svcr>
                                  </Acct>
@@ -138,7 +138,7 @@
                                        <Dt>2019-05-08</Dt>
                                     </Dt>
                                  </Bal>
-                                 <TxsSummry>
+                                 <TxsSummry>                                
                                     <TtlNtries>
                                        <NbOfNtries>6</NbOfNtries>
                                        <Sum>8800.00</Sum>
