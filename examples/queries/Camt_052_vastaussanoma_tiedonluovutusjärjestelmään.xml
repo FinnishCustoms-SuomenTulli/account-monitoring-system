@@ -45,7 +45,20 @@
                                         <camt52:GrpHdr>
                                             <camt52:MsgId>MSG123456789</camt52:MsgId>
                                             <camt52:CreDtTm>2024-12-12T10:00:00Z</camt52:CreDtTm>
-                                            <camt52:AddtlInf>Example Bank To Customer Account Report</camt52:AddtlInf>
+                                            <camt52:MsgRcpt>
+                                                <camt52:Nm>Name of the sender</camt52:Nm>
+                                                <camt52:Id>
+                                                    <camt52:OrgId>
+                                                        <camt52:Othr>
+                                                            <camt52:Id>business id</camt52:Id>
+                                                            <camt52:SchmeNm>
+                                                                <camt52:Cd>y</camt52:Cd>
+                                                            </camt52:SchmeNm>
+                                                        </camt52:Othr>
+                                                    </camt52:OrgId>
+                                                </camt52:Id>
+                                            </camt52:MsgRcpt>
+                                            <camt52:AddtInf>Additional information from sender</camt52:AddtInf>
                                         </camt52:GrpHdr>
                                         <camt52:Rpt>
                                             <camt52:Id>RPT123456789</camt52:Id>
@@ -54,7 +67,18 @@
                                                 <camt52:Id>
                                                     <camt52:IBAN>DE12345678901234567890</camt52:IBAN>
                                                 </camt52:Id>
-                                                <camt52:Ccy>EUR</camt52:Ccy>
+                                                <camt52:Svcr>
+                                                    <camt52:FinInstnId>
+                                                        <camt52:BICFI>XXXXFIHH</camt52:BICFI>
+                                                        <camt52:Nm>Name of the institution providing the account</camt52:Nm>
+                                                        <camt52:Othr>
+                                                            <camt52:Id>business id</camt52:Id>
+                                                            <camt52:SchmeNm>
+                                                                <camt52:Cd>y</camt52:Cd>
+                                                            </camt52:SchmeNm>
+                                                        </camt52:Othr>
+                                                    </camt52:FinInstnId>
+                                                </camt52:Svcr>
                                             </camt52:Acct>
                                             <camt52:Bal>
                                                 <camt52:Tp>
@@ -70,9 +94,13 @@
                                             </camt52:Bal>
                                             <camt52:TxsSummry>
                                                 <camt52:TtlNtries>
-                                                    <camt52:NbOfNtries>5</camt52:NbOfNtries>
-                                                    <camt52:Sum>500.00</camt52:Sum>
+                                                    <camt52:NbOfNtries>1</camt52:NbOfNtries>
+                                                    <camt52:Sum>100.00</camt52:Sum>
                                                 </camt52:TtlNtries>
+                                                <camt52:TtlCdNtries>
+                                                    <camt52:NbOfNtries>1</camt52:NbOfNtries>
+                                                    <camt52:Sum>100.00</camt52:Sum>
+                                                </camt52:TtlCdNtries>
                                             </camt52:TxsSummry>
                                             <camt52:Ntry>
                                                 <camt52:Amt Ccy="EUR">100.00</camt52:Amt>
