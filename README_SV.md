@@ -796,7 +796,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++BICFI
       </td>
       <td>BICFIDec2014Identifier</td>
-      <td>Käännä:Tilin tarjoavan pankin BIC.</td>
+      <td>BIC-kod för banken som tillhandahåller kontot.</td>
     </tr>
     <tr>
       <td>
@@ -808,7 +808,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++Nm
       </td>
       <td>Max140Text</td>
-      <td>Käännä:Tilin tarjoavan pankin nimi.</td>
+      <td>Namn för banken som tillhandahåller kontot.</td>
     </tr>
     <tr>
       <td>
@@ -821,7 +821,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         ++++++Id
       </td>
       <td>Max140Text</td>
-      <td>Käännä:Tilin tarjoavan pankin Y-tunnus.</td>
+      <td>FO-nummer för banken som tillhandahåller kontot.</td>
     </tr>
     <tr>
       <td>
