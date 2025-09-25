@@ -623,7 +623,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       <td >TransactionFieldCode</td>
       <td >
         
-Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä erikseen pyydettävistä tiedoista: [TransactionFieldCode](#6-3) </td>
+Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä erikseen pyydettävistä tiedoista: [TransactionFieldCode](#6-3). Huomaa, että CdtLine/Amt tietoa ei ole mahdollista palauttaa vastauksessa ilman CdtLine/Incl tietoa. </td>
     </tr>
   </tbody>
 </table>
