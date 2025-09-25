@@ -893,27 +893,27 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Samlingstransaktionens identifierare.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++PmtInfId</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++PmtInfId</td>
       <td>Max35Text</td>
       <td>Betalningsuppgiftens identifierare.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++NbOfTxs</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++NbOfTxs</td>
       <td>Max15NumericText</td>
       <td>Antal samlingstransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++TtlAmt</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++TtlAmt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Total summa för samlingstransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>++NtryDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++Amt</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++AmtDtls<br>+++++TxAmt<br>++++++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaktionens belopp.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++TxDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++CcyXchg<br>++++++UnitCcy</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Transaktionens ursprungliga valuta.Transaktionens ursprungliga valuta.</td>
     </tr>
