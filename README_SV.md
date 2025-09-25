@@ -628,7 +628,7 @@ Om man söker uppgifter om både kontotransaktioner och saldo, skickas elementet
       <td >TransactionFieldCode</td>
       <td >
         
-Används om man vill skicka ytterligare information som begärs separat utöver den grundläggande informationen. Lista över uppgifter som vid behov inkluderas i sökningen och begärs separat: [TransactionFieldCode](#6-3) </td>
+Används om man vill skicka ytterligare information som begärs separat utöver den grundläggande informationen. Lista över uppgifter som vid behov inkluderas i sökningen och begärs separat: [TransactionFieldCode](#6-3). Observera att det inte är möjligt att söka CdtLine/Amt fältet utan CdtLine/Incl fältet. </td>
     </tr>
   </tbody>
 </table>
