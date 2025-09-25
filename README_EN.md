@@ -622,7 +622,7 @@ When requesting both account balance and transaction information the investigati
       <td >TransactionFieldCode</td>
       <td >
         
-Used if requesting separately requested additional information to be returned in the response in addition to the basic information. List of additional information that can be included in the response if needed: [TransactionFieldCode](#6-3) </td>
+Used if requesting separately requested additional information to be returned in the response in addition to the basic information. List of additional information that can be included in the response if needed: [TransactionFieldCode](#6-3). Notice that it is not possible to request CdtLine/Amt field without CdtLine/Incl field. </td>
     </tr>
   </tbody>
 </table>
