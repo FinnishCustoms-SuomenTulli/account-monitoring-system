@@ -384,7 +384,7 @@ Käytetään luovutushetken saldotietojen noutamiseen.
 
 Vastauksen mukana välitetään aina kaikki muut tiedot, paitsi tilitapahtumatietoja (entry-elementti) sisältävät kentät ja erikseen pyydettävät tiedot.
 
-Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN.
+Pelkkiä saldotietoja kyseltäessä sanomaan sisällytetään investigationTypeCode: BALN. Pelkkiä saldotietoja kyseltäessä hakuaikavälin (InvstgtnPrd) sekä alkamispäivä (FrDt) että päättymispäivä (ToDt) ovat kuluva päivä.
 
 #### Saldo- ja tilitapahtumatietojen haku
 
@@ -433,6 +433,16 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
     <tr>
       <td >
         InformationRequestOpeningV01<br>
+        +LglMndBsis<br>
+        ++Dsclmr
+      </td>
+      <td >0..1</td>
+      <td >Max350Text</td>
+      <td >Laillisuusperusteen kuvaus</td>
+    </tr>
+    <tr>  
+      <td >
+        InformationRequestOpeningV01<br>
         +CnfdtltySts
       </td>
       <td >1..1</td>
@@ -448,7 +458,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Hakuaikavälin alkamispäivä</td>
+      <td >Hakuaikavälin alkamispäivä. Pelkkää saldoa kyseltäessä aina kuluva päivä.</td>
     </tr>
     <tr>
       <td >
@@ -459,7 +469,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Hakuaikavälin päättymispäivä</td>
+      <td >Hakuaikavälin päättymispäivä. Pelkkää saldoa kyseltäessä aina kuluva päivä.</td>
     </tr>
     <tr>
       <td >
@@ -613,7 +623,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       <td >TransactionFieldCode</td>
       <td >
         
-Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä erikseen pyydettävistä tiedoista: [TransactionFieldCode](#6-3) </td>
+Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lisätietoja perustietojen lisäksi. Lista hakuun tarvittaessa sisällytettävistä erikseen pyydettävistä tiedoista: [TransactionFieldCode](#6-3). Huomaa, että CdtLine/Amt tietoa ei ole mahdollista hakea ilman CdtLine/Incl tietoa. </td>
     </tr>
   </tbody>
 </table>
@@ -664,6 +674,43 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>ISODateTime</td>
       <td>Viestin luontipäivämäärä ja -aika.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Viestin lähettävän tiedonluovuttajan nimi.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max256Text</td>
+      <td>Viestin lähettävän tiedonluovuttajan Y-tunnus.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max35Text</td>
+      <td>"Y"</td>
     </tr>
     <tr>
       <td>
@@ -721,100 +768,296 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++IBAN
       </td>
       <td>IBAN2007Identifier</td>
-      <td>Tilin IBAN, josta raportti on laadittu.</td>
+      <td>IBAN-muotoinen tilinumero tilille, josta raportti on laadittu.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Acct<br>+++Othr<br>++++Id</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Othr<br>
+        +++++Id
+      </td>
       <td>Max34Text</td>
-      <td>Tilinumero muu kuin IBAN, josta raportti on laadittu.</td>
+      <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++CdtDbtInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++BICFI
+      </td>
+      <td>BICFIDec2014Identifier</td>
+      <td>Tilin tarjoavan pankin BIC.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Tilin tarjoavan pankin nimi.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max140Text</td>
+      <td>Tilin tarjoavan pankin Y-tunnus.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max140Text</td>
+      <td>"Y"</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Ilmaisee, onko tapahtuma kredit tai debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++RvslInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++RvslInd
+      </td>
       <td>TrueFalseIndicator</td>
       <td>Ilmaisee, onko tapahtuma korjaus.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BookgDt<br>++++Dt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BookgDt<br>
+        ++++Dt
+      </td>
       <td>ISODate</td>
       <td>Päivämäärä, jolloin tapahtuma kirjattiin tilille.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Tapahtuman rahamäärä ja valuutta.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++ValDt<br>++++ValDt (Dt)</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++ValDt<br>
+        ++++ValDt (Dt)
+      </td>
       <td>ISODate</td>
       <td>Tapahtuman arvopäivä.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++AcctSvcrRef</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++AcctSvcrRef
+      </td>
       <td>Max35Text</td>
       <td>Tiliä hoitavan laitoksen antama viite.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Prtry<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Prtry<br>
+        +++++Cd
+      </td>
       <td>Max35Text</td>
       <td>Pankin sisäinen tapahtumakoodi.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domm<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domm<br>
+        +++++Cd
+      </td>
       <td>ExternalBankTransactionDomain1Code</td>
       <td>Pankkitapahtuman standardoitu koodiperhe.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++sts<br>++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++sts<br>
+        ++++Cd
+      </td>
       <td>ExternalEntryStatus1Code</td>
       <td>Tapahtuman tila (esim. kirjattu, kesken).</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++MsgId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++MsgId
+      </td>
       <td>Max35Text</td>
       <td>Koontitapahtuman tunniste.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++PmtInfId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++PmtInfId
+      </td>
       <td>Max35Text</td>
       <td>Maksutiedon tunniste.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++NbOfTxs</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++NbOfTxs
+      </td>
       <td>Max15NumericText</td>
       <td>Koontitapahtumien lukumäärä.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++TtlAmt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++TtlAmt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Koontitapahtumien kokonaissumma.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>++NtryDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++AmtDtls<br>
+        +++++TxAmt<br>
+        ++++++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Tapahtuman summa.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++TxDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++CcyXchg<br>++++++UnitCcy</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++UnitCcy
+      </td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Tapahtuman alkuperäinen valuutta.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++XchgRate
+      </td>
       <td>BaseOneRate</td>
       <td>Käytetty valuuttakurssi.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Ilmaisee, onko tapahtuma kredit tai debit.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RmtInf<br>
+        ++++++Ustrd
+      </td>
       <td>Max140Text</td>
       <td>Rakenteeton viestitieto.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Strd<br>+++++++CdtrRefInf<br>++++++++Ref</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RmtInf<br>
+        ++++++Strd<br>
+        +++++++CdtrRefInf<br>
+        ++++++++Ref
+      </td>
       <td>Max35Text</td>
       <td>Saajan viitetiedot.</td>
     </tr>

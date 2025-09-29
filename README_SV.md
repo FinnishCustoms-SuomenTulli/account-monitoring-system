@@ -387,7 +387,7 @@ Används för att hämta saldouppgifter vid tidpunkten då uppgifterna lämnas.
 
 Alla uppgifter förmedlas alltid med svaret förutom fälten med uppgifter om kontotransaktioner (entryelement) och uppgifter som begärs separat.
 
-När endast saldouppgifter efterfrågas, inkluderas investigationTypeCode i meddelandet: BALN.
+När endast saldouppgifter efterfrågas, inkluderas investigationTypeCode i meddelandet: BALN. När endast saldouppgifter efterfrågas, är både startdatum (FrDt) och slutdatum (ToDt) för sökintervallet (InvstgtnPrd) innevarande dag.
 
 #### Sökning av uppgifter om saldo och kontotransaktioner
 
@@ -436,6 +436,16 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
     <tr>
       <td >
         InformationRequestOpeningV01<br>
+        +LglMndBsis<br>
+        ++Dsclmr
+      </td>
+      <td >0..1</td>
+      <td >Max350Text</td>
+      <td >Beskrivning av laglighetsgrunden</td>
+    </tr>
+    <tr>
+      <td >
+        InformationRequestOpeningV01<br>
         +CnfdtltySts
       </td>
       <td >1..1</td>
@@ -451,7 +461,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Startdatum för sökintervallet</td>
+      <td >Startdatum för sökintervallet. När endast saldouppgifter efterfrågas, alltid innevarande dag.</td>
     </tr>
     <tr>
       <td >
@@ -462,7 +472,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Slutdatum för sökintervallet</td>
+      <td >Slutdatum för sökintervallet. När endast saldouppgifter efterfrågas, alltid innevarande dag.</td>
     </tr>
     <tr>
       <td >
@@ -618,7 +628,7 @@ Om man söker uppgifter om både kontotransaktioner och saldo, skickas elementet
       <td >TransactionFieldCode</td>
       <td >
         
-Används om man vill skicka ytterligare information som begärs separat utöver den grundläggande informationen. Lista över uppgifter som vid behov inkluderas i sökningen och begärs separat: [TransactionFieldCode](#6-3) </td>
+Används om man vill skicka ytterligare information som begärs separat utöver den grundläggande informationen. Lista över uppgifter som vid behov inkluderas i sökningen och begärs separat: [TransactionFieldCode](#6-3). Observera att det inte är möjligt att söka CdtLine/Amt fältet utan CdtLine/Incl fältet. </td>
     </tr>
   </tbody>
 </table>
@@ -669,6 +679,43 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       </td>
       <td>ISODateTime</td>
       <td>Datum och tid då meddelandet skapades.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Avsändarens namn.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max256Text</td>
+      <td>Avsändarens FO-nummer.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max35Text</td>
+      <td>"Y"</td>
     </tr>
     <tr>
       <td>
@@ -729,12 +776,74 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>IBAN för kontot som rapporten har upprättats om.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Acct<br>+++Othr<br>++++Id</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Othr<br>
+        +++++Id</td>
       <td>Max34Text</td>
       <td>Kontonummer annat än IBAN som rapporten har upprättats om.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++CdtDbtInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++BICFI
+      </td>
+      <td>BICFIDec2014Identifier</td>
+      <td>BIC-kod för banken som tillhandahåller kontot.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Namn för banken som tillhandahåller kontot.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max140Text</td>
+      <td>FO-nummer för banken som tillhandahåller kontot.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max140Text</td>
+      <td>"Y"</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
@@ -784,27 +893,27 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Samlingstransaktionens identifierare.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++PmtInfId</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++PmtInfId</td>
       <td>Max35Text</td>
       <td>Betalningsuppgiftens identifierare.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++NbOfTxs</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++NbOfTxs</td>
       <td>Max15NumericText</td>
       <td>Antal samlingstransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++TtlAmt</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++TtlAmt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Total summa för samlingstransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>++NtryDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++Amt</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++AmtDtls<br>+++++TxAmt<br>++++++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaktionens belopp.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++TxDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++CcyXchg<br>++++++UnitCcy</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Transaktionens ursprungliga valuta.Transaktionens ursprungliga valuta.</td>
     </tr>
@@ -812,6 +921,18 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
       <td>BaseOneRate</td>
       <td>Valutakurs som använts.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
