@@ -437,7 +437,7 @@ When requesting both account balance and transaction information the investigati
       </td>
       <td >0..1</td>
       <td >Max350Text</td>
-      <td >Additional information about legal mandate basis</td>
+      <td >Description of legal mandate basis</td>
     </tr>
     <tr>
       <td >
