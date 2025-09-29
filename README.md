@@ -1028,6 +1028,18 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++Ntry<br>
         +++NtryDtls<br>
         ++++TxDtls<br>
+        +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Ilmaisee, onko saldo kredit vai debit.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
         +++++RmtInf<br>
         ++++++Ustrd
       </td>
