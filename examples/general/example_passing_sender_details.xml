@@ -1,0 +1,83 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:fi:tulli:wsdl_root.002" xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:urn2="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:urn3="urn:fin.012.001.03">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:ApplicationRequest id="applicationRequest">
+            <urn1:AppHdr>
+                <urn1:CharSet>UTF-8</urn1:CharSet>
+                <urn1:Fr>
+                    <urn1:OrgId>
+                        <urn1:Id>
+                            <urn1:OrgId>
+                                <urn1:Othr>
+                                    <urn1:Id>0245442-8</urn1:Id>
+                                    <urn1:SchmeNm>
+                                        <urn1:Cd>Y</urn1:Cd>
+                                    </urn1:SchmeNm>
+                                </urn1:Othr>
+                            </urn1:OrgId>
+                        </urn1:Id>
+                        <urn1:CtctDtls>
+                            <urn1:Nm>Virkailijan nimi</urn1:Nm>
+                            <urn1:PhneNb>Virkailijan puhelinnumero</urn1:PhneNb>
+                            <urn1:EmailAdr>Virkailijan sähköpostiosoite<urn1:EmailAdr>
+                        </urn1:CtctDtls>
+                    </urn1:OrgId>
+                </urn1:Fr>
+                <urn1:To>...
+                </urn1:To>
+                <urn1:BizMsgIdr>MAdsAvAdRLq0W3bfyf2efQ==</urn1:BizMsgIdr>
+                <urn1:MsgDefIdr>auth.001.001.01</urn1:MsgDefIdr>
+                <urn1:CreDt>2022-11-29T15:00:00Z</urn1:CreDt>
+                <urn1:Sgntr>...
+                </urn1:Sgntr>
+            </urn1:AppHdr>
+            <urn2:Document>
+                <urn2:InfReqOpng>
+                    <urn2:InvstgtnId>ABC1234</urn2:InvstgtnId>
+                    <urn2:LglMndtBsis>
+                        <urn2:Prgrph>111/2000_1_11_2</urn2:Prgrph>
+                        <urn2:Dsclmr>Lakiperusteen kuvaus</urn2:Dsclmr>
+                    </urn2:LglMndtBsis>
+                    <urn2:CnfdtltySts>true</urn2:CnfdtltySts>
+                    <urn2:InvstgtnPrd>
+                        <urn2:Dt>
+                            <urn2:FrDt>2020-09-01</urn2:FrDt>
+                            <urn2:ToDt>2024-08-08</urn2:ToDt>
+                        </urn2:Dt>
+                    </urn2:InvstgtnPrd>
+                    <urn2:SchCrit>
+                        <urn2:Acct>
+                            <urn2:Id>
+                                <urn2:Id>
+                                    <urn2:IBAN>FI2933891360008653</urn2:IBAN>
+                                </urn2:Id>
+                            </urn2:Id>
+                            <urn2:InvstgtdPties>
+                                <urn2:Cd>ALLP</urn2:Cd>
+                            </urn2:InvstgtdPties>
+                            <urn2:AuthrtyReqTp>
+                                <urn2:MsgNmId>camt.052.001.08</urn2:MsgNmId>
+                            </urn2:AuthrtyReqTp>
+                        </urn2:Acct>
+                    </urn2:SchCrit>
+                    <urn2:SplmtryData>
+                        <urn2:Envlp>
+                            <urn3:Document>
+                                <urn3:InfReqFin012>
+                                    <urn3:RequestedDataSources>
+                                        <urn3:DataSourceOrgId>0788060-2</urn3:DataSourceOrgId>
+                                    </urn3:RequestedDataSources>
+                                    <urn3:AuthorityInquiry>
+                                        <urn3:officialId>Kyselevän viranomaisen tunniste</urn3:officialId>
+                                        <urn3:officialSuperiorId>Kyselyn hyväksyjän tunniste</urn3:officialSuperiorId>
+                                        <urn3:officialOrgId>Kyselevän viranomaisen organisaation tunniste</urn3:officialOrgId>
+                                    </urn3:AuthorityInquiry>
+                                </urn3:InfReqFin012>
+                            </urn3:Document>
+                        </urn2:Envlp>
+                    </urn2:SplmtryData>
+                </urn2:InfReqOpng>
+            </urn2:Document>
+        </urn:ApplicationRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

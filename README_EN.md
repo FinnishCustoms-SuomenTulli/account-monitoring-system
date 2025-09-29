@@ -383,7 +383,7 @@ Used for retrieving latest (response time) balance information.
 
 All other information is always included in the response except the fields including transaction information (entry element) and separately requested information.
 
-When requesting only account balance information the investigationTypeCode: BALN is included in the query message.
+When requesting only account balance information the investigationTypeCode: BALN is included in the query message. When requesting only account balance information the investigation period (InvstgtnPrd) start date (FrDt) and end date (ToDt) are the current day.
 
 #### Requesting both account balance and transaction information
 
@@ -432,6 +432,16 @@ When requesting both account balance and transaction information the investigati
     <tr>
       <td >
         InformationRequestOpeningV01<br>
+        +LglMndBsis<br>
+        ++Dsclmr
+      </td>
+      <td >0..1</td>
+      <td >Max350Text</td>
+      <td >Description of legal mandate basis</td>
+    </tr>
+    <tr>
+      <td >
+        InformationRequestOpeningV01<br>
         +CnfdtltySts
       </td>
       <td >1..1</td>
@@ -447,7 +457,7 @@ When requesting both account balance and transaction information the investigati
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Investigation period start date</td>
+      <td >Investigation period start date. When requesting only account balance, always the current day.</td>
     </tr>
     <tr>
       <td >
@@ -458,7 +468,7 @@ When requesting both account balance and transaction information the investigati
       </td>
       <td >1..1</td>
       <td >ISODate</td>
-      <td >Investigation period end date</td>
+      <td >Investigation period end date. When requesting only account balance, always the current day.</td>
     </tr>
     <tr>
       <td >
@@ -612,7 +622,7 @@ When requesting both account balance and transaction information the investigati
       <td >TransactionFieldCode</td>
       <td >
         
-Used if requesting separately requested additional information to be returned in the response in addition to the basic information. List of additional information that can be included in the response if needed: [TransactionFieldCode](#6-3) </td>
+Used if requesting separately requested additional information to be returned in the response in addition to the basic information. List of additional information that can be included in the response if needed: [TransactionFieldCode](#6-3). Notice that it is not possible to request CdtLine/Amt field without CdtLine/Incl field. </td>
     </tr>
   </tbody>
 </table>
@@ -662,6 +672,43 @@ The content of the response message is similar for all data suppliers regardless
       </td>
       <td>ISODateTime</td>
       <td>Message creation date and time.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Name of the data supplier sending the message.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max256Text</td>
+      <td>Business ID of the data supplier sending the message.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +GrpHdr<br>
+        ++MsgRcpt<br>
+        +++Id<br>
+        ++++OrgId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max35Text</td>
+      <td>"Y"</td>
     </tr>
     <tr>
       <td>
@@ -722,12 +769,74 @@ The content of the response message is similar for all data suppliers regardless
       <td>IBAN of the account on the report.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Acct<br>+++Othr<br>++++Id</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Acct<br>
+       +++Id<br>
+       ++++Othr<br>
+       +++++Id
+      </td>
       <td>Max34Text</td>
       <td>Other (than IBAN) account identification of the account on the report.</td>
     </tr>
+    <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++BICFI
+      </td>
+      <td>BICFIDec2014Identifier</td>
+      <td>BIC of the bank where the account is.</td>
+    </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++CdtDbtInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Nm
+      </td>
+      <td>Max140Text</td>
+      <td>Name of the bank where the account is.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++Id
+      </td>
+      <td>Max140Text</td>
+      <td>Business ID of the bank where the account is.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Svcr<br>
+        ++++FinInstnId<br>
+        +++++Othr<br>
+        ++++++SchmeNm<br>
+        +++++++Cd
+      </td>
+      <td>Max140Text</td>
+      <td>"Y"</td>
+    </tr>
+    <tr>
+       <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++CdtDbtInd
+       </td>
       <td>CreditDebitCode</td>
       <td>Indicator whether the transaction is debit or credit.</td>
     </tr>
@@ -777,27 +886,27 @@ The content of the response message is similar for all data suppliers regardless
       <td>Identification of the batch transaction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++PmtInfId</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++PmtInfId</td>
       <td>Max35Text</td>
       <td>Identification of the payment information.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++NbOfTxs</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++NbOfTxs</td>
       <td>Max15NumericText</td>
       <td>Number of batch transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++Btch<br>+++TtlAmt</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++TtlAmt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Total amount of batch transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>++NtryDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++Amt</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++AmtDtls<br>+++++TxAmt<br>++++++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaction amount.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++TxDtls<br>+++AmtDtls<br>++++TxAmt<br>+++++CcyXchg<br>++++++UnitCcy</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Original currency of the transaction.</td>
     </tr>
@@ -805,6 +914,18 @@ The content of the response message is similar for all data suppliers regardless
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
       <td>BaseOneRate</td>
       <td>Currency exchange rate that was used.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Indicator whether the transaction is debit or credit.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
