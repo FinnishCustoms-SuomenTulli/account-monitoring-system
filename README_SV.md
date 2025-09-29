@@ -441,7 +441,7 @@ När uppgifter om saldo och kontotransaktioner efterfrågas, inkluderas investig
       </td>
       <td >0..1</td>
       <td >Max350Text</td>
-      <td >Ytterligare information om laglighetsgrunden</td>
+      <td >Beskrivning av laglighetsgrunden</td>
     </tr>
     <tr>
       <td >
