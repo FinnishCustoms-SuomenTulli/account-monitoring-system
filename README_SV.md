@@ -932,7 +932,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Anger om saldot är kredit eller debit.</td>
+      <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
