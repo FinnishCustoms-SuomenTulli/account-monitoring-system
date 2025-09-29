@@ -341,6 +341,7 @@
                                                 </CcyXchg>
                                              </TxAmt>
                                           </AmtDtls>
+                                          <CdtDbtInd>DBIT</CdtDbtInd>
                                           <RltdPties>
                                              <Dbtr>
                                                 <Nm>Maksaja</Nm>
@@ -393,6 +394,7 @@
                                                 </CcyXchg>
                                              </TxAmt>
                                           </AmtDtls>
+                                          <CdtDbtInd>DBIT</CdtDbtInd>
                                           <RltdPties>
                                              <Dbtr>
                                                 <Nm>Maksaja</Nm>
@@ -516,3 +518,4 @@
       </root:ApplicationResponse>
    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+
