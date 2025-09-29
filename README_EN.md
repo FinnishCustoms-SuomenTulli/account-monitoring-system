@@ -925,7 +925,7 @@ The content of the response message is similar for all data suppliers regardless
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Indicator whether the balance is credit or debit.</td>
+      <td>Indicator whether the transaction is debit or credit.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
