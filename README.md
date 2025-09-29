@@ -438,7 +438,7 @@ Saldo- ja tilitaphtumatietoja kyselt채ess채 sanomaan sis채llytet채채n erillisin�
       </td>
       <td >0..1</td>
       <td >Max350Text</td>
-      <td >Laillisuusperusteen lis채tiedot</td>
+      <td >Laillisuusperusteen kuvaus</td>
     </tr>
     <tr>  
       <td >
