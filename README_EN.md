@@ -916,6 +916,18 @@ The content of the response message is similar for all data suppliers regardless
       <td>Currency exchange rate that was used.</td>
     </tr>
     <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Indicator whether the balance is credit or debit.</td>
+    </tr>
+    <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
       <td>Max140Text</td>
       <td>Unstructured message information.</td>
