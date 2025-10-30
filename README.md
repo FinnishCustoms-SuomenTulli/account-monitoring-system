@@ -913,7 +913,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +Rpt<br>
         ++Ntry<br>
         +++BkTxCd<br>
-        ++++Domm<br>
+        ++++Domn<br>
         +++++Cd
       </td>
       <td>ExternalBankTransactionDomain1Code</td>
@@ -924,7 +924,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         BkToCstmrAcctRpt<br>
         +Rpt<br>
         ++Ntry<br>
-        +++sts<br>
+        +++Sts<br>
         ++++Cd
       </td>
       <td>ExternalEntryStatus1Code</td>
@@ -984,9 +984,10 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +Rpt<br>
         ++Ntry<br>
         +++NtryDtls<br>
-        ++++AmtDtls<br>
-        +++++TxAmt<br>
-        ++++++Amt
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Tapahtuman summa.</td>
