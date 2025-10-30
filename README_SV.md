@@ -878,7 +878,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Bankens interna transaktionskod.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domm<br>+++++Cd</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domn<br>+++++Cd</td>
       <td>ExternalBankTransactionDomain1Code</td>
       <td>En standardiserad kodfamilj för en banktransaktion.</td>
     </tr>
@@ -908,7 +908,16 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Total summa för samlingstransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++AmtDtls<br>+++++TxAmt<br>++++++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaktionens belopp.</td>
     </tr>
