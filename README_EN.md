@@ -871,7 +871,7 @@ The content of the response message is similar for all data suppliers regardless
       <td>Bank's internal transaction code.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domm<br>+++++Cd</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domn<br>+++++Cd</td>
       <td>ExternalBankTransactionDomain1Code</td>
       <td>Bank transaction's standardised code family.</td>
     </tr>
@@ -901,7 +901,16 @@ The content of the response message is similar for all data suppliers regardless
       <td>Total amount of batch transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++AmtDtls<br>+++++TxAmt<br>++++++Amt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++AmtDtls<br>
+       ++++++TxAmt<br>
+       +++++++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaction amount.</td>
     </tr>
