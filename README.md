@@ -635,7 +635,7 @@ Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lis
 | Ilmaisin sisältääkö saldo luottorajan | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Käytettävissä oleva luottoraja        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-[Esimerkkisanoma](examples/general/example_request_additional_info.xml) erikseen pyydettävistä lisätiedoista. Koska erikseen pyydettävät lisätiedot liittyvät saldokyselyyn, koostava sovellus palauttaa viranomaiselle virheilmoituksen (virhekoodi 4) jos viranomainen pyytää näitä tietoja pelkässä tilitapahtumakyselyssä.
+[Esimerkkisanoma](examples/general/example_request_additional_info.xml) erikseen pyydettävistä lisätiedoista. Erikseen pyydettäviä lisätietoja ei voi pyytää pelkässä tilitapahtumakyselyssä. Koostava sovellus palauttaa viranomaiselle virhekoodin 4, jos viranomainen yrittää tehdä näin.
 
 
 ## 7. Vastaussanoma <a name="luku7"></a>
