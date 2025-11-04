@@ -634,7 +634,7 @@ Used if requesting separately requested additional information to be returned in
 | Indicator whether account balance includes credit limit | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Available credit limit                                  | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-[Example message](examples/general/example_request_additional_info.xml) of separately requesting additional information. Because separately requested additional information is related to account balance information, the aggregating application returns an error message (error code 4) if an authority requests these fields in a query for only account transaction information.
+[Example message](examples/general/example_request_additional_info.xml) of separately requesting additional information. Separately requested additional information cannot be requested in a request for only account transaction information. The aggregating application returns error code 4 to the authority if an authority tries to do that.
 
 ## 7. Response message <a name="luku7"></a>
 
