@@ -640,7 +640,7 @@ Används om man vill skicka ytterligare information som begärs separat utöver 
 | Indikator för om saldot innehåller en kreditgräns | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Tillgänglig kreditgräns        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-[Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat.
+[Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat. Ytterligare information som begärs separat kan inte begäras i sökning av enbart uppgifter om kontotransaktioner. Sammanställningsprogrammet sänder felkod 4 till myndigheten om de försöker det.
 
 
 ## 7. Svarsmeddelande <a name="luku7"></a>
