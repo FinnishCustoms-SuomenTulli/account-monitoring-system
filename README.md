@@ -644,6 +644,8 @@ Vastaussanomassa käytetään ISO 20022 sanomaa InformationRequestResponseV01 [a
 
 Alla luvussa 7.1 on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
 
+Kaikki perustiedot tulee luovuttaa, jos ne ovat saatavilla tiedonluovuttajalla. Vain erikseen pyydettävät lisätiedot luovutetaan ainoastaan silloin, kun niitä on erikseen pyydetty kyselysanomassa.
+
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
 ### 7.1 Alisanoman camt.052.001.08 sisältö <a name="7-1"></a>
