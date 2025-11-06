@@ -649,6 +649,8 @@ I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01
 
 I kapitel 7.1 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande, camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries). 
 
+Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har informationer. Bara ytterligare information som begärs separat får inte lämnas ut om det inte har begärts speciellt i frågemeddelandet.
+
 Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller gränssnitt till kontoregistret. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
 ### 7.1 Undermeddelandets camt.052.001.08 innehåll <a name="7-1"></a>
