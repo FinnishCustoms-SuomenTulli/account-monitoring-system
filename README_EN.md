@@ -634,13 +634,15 @@ Used if requesting separately requested additional information to be returned in
 | Indicator whether account balance includes credit limit | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Available credit limit                                  | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-[Example message](examples/general/example_request_additional_info.xml) of separately requesting additional information.
+[Example message](examples/general/example_request_additional_info.xml) of separately requesting additional information. Separately requested additional information cannot be requested in a request for only account transaction information. The aggregating application returns error code 4 to the authority if an authority tries to do that.
 
 ## 7. Response message <a name="luku7"></a>
 
 The response message uses ISO 20022 message InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 message's supplementary data contains ISO 20022 message camt.052.001.08.
 
 The fields used in the reponse message are described in chapter 7.1 below. Schema for submessage [camt.052.001.08](schemas/camt.052.001.08.xsd). Examples of the [response message](examples/queries).
+
+All basic information must be included in the response if the data supplier has the information. Only separately requested additional information is not disclosed unless it is specifically requested in the query message.
 
 The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or an interface to the Account Register. Only the method for delivering the response message is different.
 
@@ -871,7 +873,7 @@ The content of the response message is similar for all data suppliers regardless
       <td>Bank's internal transaction code.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domm<br>+++++Cd</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domn<br>+++++Cd</td>
       <td>ExternalBankTransactionDomain1Code</td>
       <td>Bank transaction's standardised code family.</td>
     </tr>
@@ -901,7 +903,16 @@ The content of the response message is similar for all data suppliers regardless
       <td>Total amount of batch transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++AmtDtls<br>+++++TxAmt<br>++++++Amt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++AmtDtls<br>
+       ++++++TxAmt<br>
+       +++++++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaction amount.</td>
     </tr>
@@ -935,7 +946,7 @@ The content of the response message is similar for all data suppliers regardless
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Strd<br>+++++++CdtrRefInf<br>++++++++Ref</td>
       <td>Max35Text</td>
-      <td>Receiveräs reference information.</td>
+      <td>Receiver's reference information.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Refs<br>++++++InstrId</td>

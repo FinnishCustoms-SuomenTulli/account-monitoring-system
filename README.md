@@ -635,7 +635,7 @@ Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lis
 | Ilmaisin sisältääkö saldo luottorajan | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Käytettävissä oleva luottoraja        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-[Esimerkkisanoma](examples/general/example_request_additional_info.xml) erikseen pyydettävistä lisätiedoista.
+[Esimerkkisanoma](examples/general/example_request_additional_info.xml) erikseen pyydettävistä lisätiedoista. Erikseen pyydettäviä lisätietoja ei voi pyytää pelkässä tilitapahtumakyselyssä. Koostava sovellus palauttaa viranomaiselle virhekoodin 4, jos viranomainen yrittää tehdä näin.
 
 
 ## 7. Vastaussanoma <a name="luku7"></a>
@@ -643,6 +643,8 @@ Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lis
 Vastaussanomassa käytetään ISO 20022 sanomaa InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
 
 Alla luvussa 7.1 on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
+
+Kaikki perustiedot tulee luovuttaa, jos ne ovat saatavilla tiedonluovuttajalla. Vain erikseen pyydettävät lisätiedot luovutetaan ainoastaan silloin, kun niitä on erikseen pyydetty kyselysanomassa.
 
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
@@ -913,7 +915,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +Rpt<br>
         ++Ntry<br>
         +++BkTxCd<br>
-        ++++Domm<br>
+        ++++Domn<br>
         +++++Cd
       </td>
       <td>ExternalBankTransactionDomain1Code</td>
@@ -924,7 +926,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         BkToCstmrAcctRpt<br>
         +Rpt<br>
         ++Ntry<br>
-        +++sts<br>
+        +++Sts<br>
         ++++Cd
       </td>
       <td>ExternalEntryStatus1Code</td>
@@ -984,9 +986,10 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +Rpt<br>
         ++Ntry<br>
         +++NtryDtls<br>
-        ++++AmtDtls<br>
-        +++++TxAmt<br>
-        ++++++Amt
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Tapahtuman summa.</td>

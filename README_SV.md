@@ -640,7 +640,7 @@ Används om man vill skicka ytterligare information som begärs separat utöver 
 | Indikator för om saldot innehåller en kreditgräns | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Incl` | BAL_CDTLINE_INCL |
 | Tillgänglig kreditgräns        | `BkToCstmrAcctRpt/Rpt/Bal/CdtLine/Amt`  | BAL_CDTLINE_AMT  |
 
-[Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat.
+[Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat. Ytterligare information som begärs separat kan inte begäras i sökning av enbart uppgifter om kontotransaktioner. Sammanställningsprogrammet sänder felkod 4 till myndigheten om de försöker det.
 
 
 ## 7. Svarsmeddelande <a name="luku7"></a>
@@ -648,6 +648,8 @@ Används om man vill skicka ytterligare information som begärs separat utöver 
 I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). I modulen supplementary data i meddelandet InformationRequestResponseV01 returneras ISO 20022 meddelandet camt.052.001.08.
 
 I kapitel 7.1 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande, camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries). 
+
+Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har informationer. Bara ytterligare information som begärs separat får inte lämnas ut om det inte har begärts speciellt i frågemeddelandet.
 
 Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller gränssnitt till kontoregistret. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
@@ -878,7 +880,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Bankens interna transaktionskod.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domm<br>+++++Cd</td>
+      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domn<br>+++++Cd</td>
       <td>ExternalBankTransactionDomain1Code</td>
       <td>En standardiserad kodfamilj för en banktransaktion.</td>
     </tr>
@@ -908,7 +910,16 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Total summa för samlingstransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++AmtDtls<br>+++++TxAmt<br>++++++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaktionens belopp.</td>
     </tr>
