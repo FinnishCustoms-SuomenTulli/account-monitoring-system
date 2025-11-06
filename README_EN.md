@@ -642,6 +642,8 @@ The response message uses ISO 20022 message InformationRequestResponseV01 [auth.
 
 The fields used in the reponse message are described in chapter 7.1 below. Schema for submessage [camt.052.001.08](schemas/camt.052.001.08.xsd). Examples of the [response message](examples/queries).
 
+All basic information must be included in the response if the data supplier has the information. Only separately requested additional information is not disclosed unless it is specifically requested in the query message.
+
 The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or an interface to the Account Register. Only the method for delivering the response message is different.
 
 ### 7.1 Content of submessage camt.052.001.08 <a name="7-1"></a>
