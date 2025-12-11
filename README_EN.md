@@ -644,6 +644,8 @@ The fields used in the reponse message are described in chapter 7.1 below. Schem
 
 All basic information must be included in the response if the data supplier has the information. Only separately requested additional information is not disclosed unless it is specifically requested in the query message.
 
+If there are no account transactionsd during the investigation period requested by the authority, BkToCstmrAcctRpt/Rpt/Ntry element is not returned in the response message.
+
 The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or an interface to the Account Register. Only the method for delivering the response message is different.
 
 ### 7.1 Content of submessage camt.052.001.08 <a name="7-1"></a>
