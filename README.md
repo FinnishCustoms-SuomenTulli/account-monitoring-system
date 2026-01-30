@@ -17,6 +17,7 @@ Tiedonluovuttajat eli luottolaitokset, maksulaitokset, sähkörahayhteisöt ja k
 [6. Kyselysanoma](#luku6)  
 [7. Vastaussanoma](#luku7)  
 [8. Virhetilanteet](#luku8)  
+[9. Koodisto](#luku9)
 
 ## 1. Yhteystiedot <a name="luku1"></a>
 
@@ -106,7 +107,7 @@ Mikäli tiedonluovuttajan palvelinvarmenteessa ja lähtevän sanoman allekirjoit
 Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuskeskuksen tietoturvavaatimukset, tulee käytettävän varmenteen julkisen avaimen (RSA public key) olla vähintään 3072 bittinen. Lisäksi varmenteen tulee olla QWAC (Qualified Website Authentication Certificate) tyyppinen palvelinvarmenne, joka sisältää laajennukset (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Nämä tulee huomioida varmennetta tilattaessa.
 
 <details>
-<summary>Tiedonhakujärjestelmän XML-allekirjoituksen muodostaminen <a name="xml-allekirjoitus"></a></summary>
+<summary>XML-allekirjoituksen muodostaminen <a name="xml-allekirjoitus"></a></summary>
 <br>
 
 Allekirjoituksen tyyppi on enveloped signature. Signature-elementti sijoitetaan [BAHin](#luku5) Sgntr-elementin alle.
@@ -153,8 +154,8 @@ Allaolevassa kuvassa on esitetty yleiskuva saldo- ja tilitapahtumatietokyselyn t
 ![Pankki- ja maksutilien valvontajärjestelmä](diagrams/tilitap_tiedonkulku_fi.png "Pankki- ja maksutilien valvontajärjestelmä")  
 
 1. Viranomaisen järjestelmä lähettää saldo- ja tilitapahtumatietokyselyn koostavan sovelluksen [kyselyrajapintaan](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-kysely). Kyselysanoman sisältö on kuvattu luvussa [Kyselysanoma](#luku6). 
-2. Koostava sovellus välittää saldo- ja tilitapahtumatietokyselyn toimijalle, jolle kysely on suunnattu joko rajapinnan kautta tiedonhakujärjestelmään tai turvasähköpostilla tilirekisterin toimijalle.  
-3. Tiedonluovuttaja vastaa saldo- ja tilitapahtumatietokyselyyn viimeistään seuraavan pankkipäivän aikana. Jos kysely on osoitettu tiedonhakujärjestelmän toteuttaneelle toimijalle, tiedonhakujärjestelmä lähettää vastaussanoman koostavalle sovellukselle rajapinnan kautta. Jos kysely on osoitettu tilirekisteriä käyttävälle toimijalle, tämä toimittaa vastaussanoman tiedonluovutusjärjestelmään.     
+2. Koostava sovellus välittää saldo- ja tilitapahtumatietokyselyn toimijalle, jolle kysely on suunnattu joko rajapinnan kautta tiedonhakujärjestelmään tai turvasähköpostilla tiedonluovutusjärjestelmää käyttävälle toimijalle.  
+3. Tiedonluovuttaja vastaa saldo- ja tilitapahtumatietokyselyyn viimeistään seuraavan pankkipäivän aikana. Jos kysely on osoitettu tiedonhakujärjestelmän toteuttaneelle toimijalle, tiedonhakujärjestelmä lähettää vastaussanoman koostavalle sovellukselle rajapinnan kautta. Jos kysely on osoitettu tiedonluovutusjärjestelmä käyttävälle toimijalle, tämä toimittaa vastaussanoman tiedonluovutusjärjestelmään.     
 4. Vastaussanoma välittyy tiedonluovutusjärjestelmästä koostavaan sovellukseen.  
 5. Viranomainen hakee vastauksen saldo- ja tilitapahtumatietokyselyynsä koostavan sovelluksen rajapinnasta. Vastauksen haussa käytetään koostavan sovelluksen [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-status) ja [tulosrajapintoja](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-tulos).
 
@@ -180,11 +181,11 @@ Jos tiedonluovuttaja katsoo vastaanottamansa kyselyn sellaiseksi, että se tarvi
 
 Tiedonluovuttaja vastaa alkuperäiseen kyselyyn lisäselvityksen käsittelyn jälkeen, jos se on aikarajojen puitteissa mahdollista. Jos kyselyyn ei ehditä vastata aikarajan puitteissa, voi viranomainen tarvittaessa tehdä uuden kyselyn, johon tiedonluovuttaja vastaa sovitusti. Jos tiedonluovuttaja on vastannut kyselyyn NRES, koostava sovellus yrittää uudelleennoutaa vastauksen tiedonluovuttajalta tiedonluovutuksen aikarajan loppuun asti. Tiedonluovutuksen aikarajan umpeuduttua kysely suljetaan.
 
-Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](examples/general/example_passing_contact_details.xml)
+Esimerkki yhteystietojen välittämisestä: [Esimerkkisanoma](examples/general/example_passing_sender_details.xml)
 
 ## 5. Business Application Header <a name="luku5"></a>
 
-ISO 20022 standardin mukainen BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) sanoma liitetään sekä kysely- että vastaussanomaan. Kenttien käyttö on muutoin samanlaista kysely- ja vastaussanomassa, paitsi kyselysanomassa tulee lähettää yhteystiedot mahdollista lisäselvityspyyntöä varten.
+ISO 20022 standardin mukainen BusinessApplicationHeaderV01 [head.001.001.01](schemas/head.001.001.01.xsd) sanoma liitetään sekä kysely- että vastaussanomaan. Kenttien käyttö on muutoin samanlaista kysely- ja vastaussanomassa, paitsi kyselysanomassa tulee lähettää yhteystiedot mahdollista lisäselvityspyyntöä varten.
 
 Sanoman Fr-kentän lähettäjätiedoissa on viranomaisen lähettämässä sanomassa viranomaisen tiedot, tiedonluovuttajan lähettämässä sanomassa tiedonluovuttajan tiedot ja Tullin välittämissä sanomissa Tullin tiedot. Vastaavasti To-kentän vastaanottajatiedoissa on Tullin tiedot, kun lähetetään sanoma koostavaan sovellukseen, ja sanoman vastaanottavan viranomaisen tai tiedonluovuttajan tiedot, kun koostava sovellus välittää sanoman eteenpäin.
 
@@ -360,9 +361,9 @@ Lähettäjän muodostama [XML-allekirjoitus](#xml-allekirjoitus)
 
 ## 6. Kyselysanoma <a name="luku6"></a>
 
-Kyselysanomassa käytetään ISO 20022 sanomaa InformationRequestOpeningV01 [auth.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.001.001.01.xsd). InformationRequestOpeningV01 sanoman supplementary data -osiossa käytetään kansallista InformationRequestFIN012 (fin.012.001.04) sanomalaajennosta.
+Kyselysanomassa käytetään ISO 20022 sanomaa InformationRequestOpeningV01 [auth.001.001.01](schemas/auth.001.001.01.xsd). InformationRequestOpeningV01 sanoman supplementary data -osiossa käytetään kansallista InformationRequestFIN012 (fin.012.001.04) sanomalaajennosta.
 
-Alla luvussa 6.2 on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04](schemas/fin.012.001.04.xsd) skeema. Esimerkkejä [kyselysanomasta](examples/queries).
+Alla luvussa 6.2 on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisanoman [fin.012.001.04](schemas/fin.012.001.04.xsd) skeema. Esimerkkejä [kyselysanomasta](examples/queries_and_responses/).
 
 ### 6.1 Erityyppisten tietojen hakeminen <a name="6-1"></a>
 
@@ -640,17 +641,39 @@ Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lis
 
 ## 7. Vastaussanoma <a name="luku7"></a>
 
-Vastaussanomassa käytetään ISO 20022 sanomaa InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 sanoman supplementary data -osiossa palautetaan ISO 20022 sanoma camt.052.001.08.
+Vastaussanomassa käytetään ISO 20022 sanomaa InformationRequestResponseV01 [auth.002.001.01](schemas/auth.002.001.01.xsd). Taulukossa on kuvattu sanoman tietueiden käyttö.
 
-Alla luvussa 7.1 on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries). 
+### 7.1 InformationRequestResponseV01 <a name="7-1"></a>
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|InformationRequestResponseV01| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnId|Max35Text|Kyllä|[1..1]|Vastaussanoman id|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Kyllä|[1..1]|Kyselysanomassa toimitettu Case Id|
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Kyllä|[1..1]|Vastaussanoman status, "COMP"|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|[1..1]|Kyselysanomassa esiintynyt Document/InfReqOpng/SchCrit sellaisenaan|
+|&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Kyllä|[0..*]| ks. ReturnIndicator1 käyttö alla. |
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|[0..1]|Ks. [Kiistanalaisten tietojen palauttaminen](#4-13)|
+
+### <a name="return-indicator1"></a> ReturnIndicator1 käyttö
+
+ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän. 
+
+|XPath|Tyyppi|Kuvaus|
+|:---|:---|:---|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (camt.052.001.08)|
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [camt.052.001.08](#7-2), [fin.fault](#8-1) tai `InvstgtnSts` koodilla `NFOU`.
+
+Alisanomaa fin.fault käyttävät ainoastaan kyselyihin tiedonluovutusjärjestelmän kautta vastaavat toimijat.
+
+Alla luvussa 7.2 on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries_and_responses). 
 
 Kaikki perustiedot tulee luovuttaa, jos ne ovat saatavilla tiedonluovuttajalla. Vain erikseen pyydettävät lisätiedot luovutetaan ainoastaan silloin, kun niitä on erikseen pyydetty kyselysanomassa. 
 
-Jos pyydetyllä hakuaikavälillä tilillä ei ole lainkaan tilitapahtumia, BkToCstmrAcctRpt/Rpt/Ntry-elementtiä ei palauteta vastaussanomassa.
+Jos pyydetyllä hakuaikavälillä ei tililtä löydy lainkaan tilitapahtumia, BkToCstmrAcctRpt/Rpt/Ntry-elementtiä ei palauteta vastaussanomassa.
 
-Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai rajapinnan tilirekisteriin. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
+Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai luovuttaa tiedot tiedonluovutusjärjestelmään. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
-### 7.1 Alisanoman camt.052.001.08 sisältö <a name="7-1"></a>
+### 7.2 Alisanoman camt.052.001.08 sisältö <a name="7-2"></a>
 
 
 <table>
@@ -1263,3 +1286,31 @@ Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palaut
 
 Jos tiedonhakujärjestelmä ei vastaa aikarajan kuluessa, palauttaa koostava sovellus viranomaiselle virhekoodin 1.
 
+<details>
+<summary>8.1 Virhetilanteiden raportointi tiedonluovutusjärjestelmään <a name="8-1"></a></summary>
+<br>
+
+Tiedonluovutusjärjestelmään virhetilanteet raportoidaan [fin.fault](schemas/fin.fault.xsd) sanoman avulla.
+
+Fault-alisanoman sisällyttäminen sanomaan kuvattu [luvussa 7.1](#7-1)
+
+Esimerkki 8.1. Virhekoodi 4 raportointi
+
+```
+<fault:Document xmlns:fault="urn:fin.fault">
+    <fault:QueryFaultResponse>
+        <fault:QueryFault>
+            <fault:FaultString>Bad Request</fault:FaultString>
+            <fault:ErrorCode>4</fault:ErrorCode>
+            <fault:ValidationError>Validation error 1</fault:ValidationError>
+        </fault:QueryFault>
+    </fault:QueryFaultResponse>
+</fault:Document>
+```
+
+</details>
+
+
+## 9. Koodisto <a name="luku9"></a>
+
+ISO 20022 ulkoinen koodisto ks. [External code sets](assets/iso20022.org/)
