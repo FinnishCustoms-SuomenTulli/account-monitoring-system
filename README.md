@@ -654,7 +654,7 @@ Vastaussanomassa käytetään ISO 20022 sanomaa InformationRequestResponseV01 [a
 |&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Kyllä|[0..*]| ks. ReturnIndicator1 käyttö alla. |
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|[0..1]|Ks. [Kiistanalaisten tietojen palauttaminen](#4-13)|
 
-### <a name="return-indicator1"></a> ReturnIndicator1 käyttö
+#### <a name="return-indicator1"></a> ReturnIndicator1 käyttö
 
 ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän. 
 
