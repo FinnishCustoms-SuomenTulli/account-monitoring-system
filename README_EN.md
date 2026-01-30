@@ -16,6 +16,7 @@ Credit institutions, payment institutions, electric money institutions and provi
 [6. Query message](#luku6)  
 [7. Response message](#luku7)  
 [8. Error situations](#luku8)  
+[9. Code set](#luku9)
 
 ## 1. Contact information <a name="luku1"></a>
 
@@ -104,7 +105,7 @@ Please note: For the protection of data communications to meet the information s
 
 
 <details>
-<summary>Forming XML signature of data  retrieval system<a name="xml-allekirjoitus"></a></summary>
+<summary>Forming the XML signature<a name="xml-allekirjoitus"></a></summary>
 <br>
 
 The signature is of the enveloped signature type. The signature element is placed in [BAH](#luku5) Sgntr-elementin alle.
