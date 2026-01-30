@@ -153,11 +153,11 @@ Bilden nedan visar en översikt över informationsflödet i förfrågan om saldo
 | 2.	Saldo- ja tilitapahtumatietokysely | 2. Förfrågan om saldo och kontotransaktioner  |
 | 3.	Vastaus: Saldo- ja tilitapahtumatiedot | 3. Svar: Uppgifter om saldo och kontotransaktioner   |
 | Tiedonluovuttajien tiedonhakujärjestelmät | Uppgiftslämnarens datasöksystem |
-| Tilirekisteriin päivittävät tiedonluovuttajat | Uppgiftslämnare som uppdaterar kontoregistret |
+| Tiedonluovutusjärjestelmää käyttävät tiedonluovuttajat | Uppgiftslämnare som som använder system för utlämnande av information |
 
 1. Myndighetens system skickar en förfrågan om saldo och kontotransaktioner till sammanställningsprogrammets [frågegränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-2). Innehållet i frågemeddelandet beskrivs i kapitlet [Frågemeddelande](#luku6). 
-2. Sammanställningsprogrammet förmedlar förfrågan om saldo och kontotransaktioner till den operatör som förfrågan riktas till, antingen via gränssnittet till datasöksystemet eller med säker e-post till kontoregistrets operatör.  
-3. Uppgiftslämnaren svarar på förfrågan om saldo och kontotransaktioner senast nästa bankdag. Om förfrågan riktas till den operatör som implementerade datasöksystemet, skickar datasöksystemet ett svarsmeddelande till sammanställningsprogrammet via gränssnittet. Om förfrågan riktas till en operatör som använder kontoregistret, skickar denne svarsmeddelandet till systemet som utlämnar information.    
+2. Sammanställningsprogrammet förmedlar förfrågan om saldo och kontotransaktioner till den operatör som förfrågan riktas till, antingen via gränssnittet till datasöksystemet eller med säker e-post till operatör som använder system för utlämnande av information.  
+3. Uppgiftslämnaren svarar på förfrågan om saldo och kontotransaktioner senast nästa bankdag. Om förfrågan riktas till den operatör som implementerade datasöksystemet, skickar datasöksystemet ett svarsmeddelande till sammanställningsprogrammet via gränssnittet. Om förfrågan riktas till en operatör som använder system för utlämnande av information, skickar denne svarsmeddelandet till systemet som utlämnar information.    
 4. Svarsmeddelandet förmedlas från systemet som utlämnar information till sammanställningsprogrammet.
 5. Myndigheten hämtar svaret på sin förfrågan om saldo och kontotransaktioner i sammanställningsprogrammets gränssnitt. I sökningen av svar används sammanställningsprogrammets  [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-3) ja [resultatgränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-4).
 
@@ -1153,5 +1153,3 @@ Tillgänglig kreditgräns. Ytterligare information som ska begäras separat, och
 </table>
 
 Om datasöksystemet inte svarar inom tidsgränsen, sänder sammanställningsprogrammet felkod 1 till myndigheten.
-
-
