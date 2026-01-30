@@ -28,7 +28,7 @@
                                 <urn2:Cd>ALLP</urn2:Cd>
                             </urn2:InvstgtdPties>
                             <urn2:AuthrtyReqTp>
-                                <urn2:MsgNmId>camt.053.001.02</urn2:MsgNmId>
+                                <urn2:MsgNmId>camt.052.001.08</urn2:MsgNmId>
                             </urn2:AuthrtyReqTp>
                         </urn2:Acct>
                     </urn2:SchCrit>
@@ -51,4 +51,5 @@
             </urn2:Document>
         </urn:ApplicationRequest>
     </soapenv:Body>
+
 </soapenv:Envelope>
