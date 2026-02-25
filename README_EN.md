@@ -1168,3 +1168,30 @@ Available credit limit. Separately requested additional information that is retu
 
 If a data retrieval system does not respond within the time limit the aggregation application returns the error code 1 to the the authority.
 
+<details>
+<summary>8.1 Reporting error situations to the data disclosure system <a name="8-1"></a></summary>
+<br>
+
+Error situations are reported to the data disclosure system using [fin.fault](schemas/fin.fault.xsd) message.
+
+Including fault submessage is described in [chapter 7.1](#7-1)
+
+Example 8.1. Reporting error code 4
+
+```
+<fault:Document xmlns:fault="urn:fin.fault">
+    <fault:QueryFaultResponse>
+        <fault:QueryFault>
+            <fault:FaultString>Bad Request</fault:FaultString>
+            <fault:ErrorCode>4</fault:ErrorCode>
+            <fault:ValidationError>Validation error 1</fault:ValidationError>
+        </fault:QueryFault>
+    </fault:QueryFaultResponse>
+</fault:Document>
+```
+
+</details>
+
+## 9. Code set <a name="luku9"></a>
+
+ISO 20022 external code set, see [External code sets](assets/iso20022.org/)
