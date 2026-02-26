@@ -643,7 +643,6 @@ Används om man vill skicka ytterligare information som begärs separat utöver 
 
 [Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat. Ytterligare information som begärs separat kan inte begäras i sökning av enbart uppgifter om kontotransaktioner. Sammanställningsprogrammet sänder felkod 4 till myndigheten om de försöker det.
 
-
 ## 7. Svarsmeddelande <a name="luku7"></a>
 
 I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01 [auth.002.001.01](schemas/auth.002.001.01.xsd). Användningen av fälten i meddelandet har beskrivits i tabellen.
@@ -669,15 +668,15 @@ ReturnIndicator1 innehåller en enskild typ av sökresultat.
 |RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|innehåller det utvidgade meddelandets meddelande-id (camt.052.001.08)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [camt.052.001.08](#7-2), [fin.fault](#8-1) eller `InvstgtnSts` med koden `NFOU`.
 
-Bara de som svarar  av system för utlämnande av information JATKA
+Bara aktörer som svarar via system för utlämnande av information använder fin.fault undermeddelandet.
 
-I kapitel 7.2 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande, camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries_and_responses). 
+I kapitel 7.2 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries_and_responses). 
 
 Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har informationer. Bara ytterligare information som begärs separat får inte lämnas ut om det inte har begärts speciellt i frågemeddelandet.
 
-Om det sökta kontot inte har kontotransaktioner inom sökintervallet, BkToCstmrAcctRpt/Rpt/Ntry elementet returneras inte i svarsmeddelandet.
+Om det hittas inga kontotransaktioner från sökta kontot inom sökintervallet, BkToCstmrAcctRpt/Rpt/Ntry elementet returneras inte i svarsmeddelandet.
 
-Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller gränssnitt till kontoregistret. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
+Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller utlämnar information via system för utlämnande av information. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
 ### 7.2 Undermeddelandets camt.052.001.08 innehåll <a name="7-2"></a>
 
@@ -1177,3 +1176,33 @@ Tillgänglig kreditgräns. Ytterligare information som ska begäras separat, och
 </table>
 
 Om datasöksystemet inte svarar inom tidsgränsen, sänder sammanställningsprogrammet felkod 1 till myndigheten.
+
+JATKA KÄÄNTÄMISTÄ
+
+<details>
+<summary>8.1 Virhetilanteiden raportointi tiedonluovutusjärjestelmään <a name="8-1"></a></summary>
+<br>
+
+Tiedonluovutusjärjestelmään virhetilanteet raportoidaan [fin.fault](schemas/fin.fault.xsd) sanoman avulla.
+
+Fault-alisanoman sisällyttäminen sanomaan kuvattu [luvussa 7.1](#7-1)
+
+Esimerkki 8.1. Virhekoodi 4 raportointi
+
+```
+<fault:Document xmlns:fault="urn:fin.fault">
+    <fault:QueryFaultResponse>
+        <fault:QueryFault>
+            <fault:FaultString>Bad Request</fault:FaultString>
+            <fault:ErrorCode>4</fault:ErrorCode>
+            <fault:ValidationError>Validation error 1</fault:ValidationError>
+        </fault:QueryFault>
+    </fault:QueryFaultResponse>
+</fault:Document>
+```
+
+</details>
+
+## 9. Kodlista <a name="luku9"></a>
+
+ISO 20022 extern kodlista ks. [External code sets](assets/iso20022.org/)
