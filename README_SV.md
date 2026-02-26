@@ -17,6 +17,7 @@ Uppgiftslämnare, dvs. kreditinstitut, betalningsinstitut, institut för elektro
 [6. Frågemeddelande](#luku6)  
 [7. Svarsmeddelandea](#luku7)  
 [8. Felsituationer](#luku8)  
+[9. Kodlista](#luku9)   
 
 ## 1. Kontaktuppgifter <a name="luku1"></a>
 
@@ -102,7 +103,7 @@ b) servercertifikatet är ett giltigt och eIDAS-godkänt autentiseringscertifika
 OBS! För att skyddet av datatrafiken ska uppfylla Cybersäkerhetscentrets krav på informationssäkerhet som hänvisas till nedan, ska certifikatets offentliga nyckel (RSA public key) vara minst 3 072 bitar. Dessutom ska certifikatet vara ett servercertifikat av typ QWAC (Quality Website Authentication Certificate) som innehåller expansioner (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Dessa bör beaktas vid beställning av certifikat.
 
 <details>
-<summary>Skapa en XML-signatur för datasöksystem <a name="xml-allekirjoitus"></a></summary>
+<summary>Skapa en XML-signatur<a name="xml-allekirjoitus"></a></summary>
 <br>
 
 Signaturtypen är enveloped signature. Signature-elementet placeras under Sgntr-elementet i [BAH](#luku5).
@@ -183,11 +184,11 @@ Om uppgiftslämnaren anser att en mottagen förfrågan behöver utredas ytterlig
 
 Uppgiftslämnaren svarar på den ursprungliga förfrågan efter behandling av ytterligare redogörelse, om det är möjligt inom tidsramen. Om man inte hinner besvara förfrågan inom tidsfristen kan myndigheten vid behov göra en ny förfrågan som uppgiftslämnaren besvarar enligt överenskommelse. Om uppgiftslämnaren har besvarat förfrågan NRES försöker sammanställningsprogrammet hämta svaret på nytt från uppgiftslämnaren fram till tidsgränsens slut. När tidsgränsen för utlämnande av uppgifter löper ut stängs förfrågan.
 
-Exempel på förmedling av kontaktuppgifter: [Exempel på meddelande](examples/general/example_passing_contact_details.xml)
+Exempel på förmedling av kontaktuppgifter: [Exempel på meddelande](examples/general/example_passing_sender_details.xml)
 
 ## 5. Business Application Header <a name="luku5"></a>
 
-Meddelande BusinessApplicationHeaderV01  [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) bifogas både fråge- och svarsmeddelandet i enlighet med standard ISO 20022. Användningen av fälten är i övrigt likadan i fråge- och svarsmeddelandet, bortsett från att kontaktuppgifter ska skickas i frågemeddelandet för eventuell begäran om ytterligare redogörelse.
+Meddelande BusinessApplicationHeaderV01  [head.001.001.01](schemas/head.001.001.01.xsd) bifogas både fråge- och svarsmeddelandet i enlighet med standard ISO 20022. Användningen av fälten är i övrigt likadan i fråge- och svarsmeddelandet, bortsett från att kontaktuppgifter ska skickas i frågemeddelandet för eventuell begäran om ytterligare redogörelse.
 
 Avsändaruppgifterna i Fr-fältet i meddelande från myndighet innehåller myndighetens uppgifter, meddelande från uppgiftslämnare innehåller uppgiftslämnarens uppgifter och meddelanden från Tullen innehåller Tullens uppgifter. På motsvarande sätt finns Tullens uppgifter i To-fältet i mottagaruppgifterna när man skickar ett meddelande till sammanställningsprogrammet och den mottagande myndighetens eller uppgiftslämnarens uppgifter när sammanställningsprogrammet vidarebefordrar meddelandet.
 
@@ -363,9 +364,9 @@ Avsändaruppgifterna i Fr-fältet i meddelande från myndighet innehåller myndi
 
 ## 6. Frågemeddelande <a name="luku6"></a>
 
-I frågemeddelandet används ISO 20022 meddelande InformationRequestOpeningV01  [auth.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.001.001.01.xsd).  I modulen supplementary data i meddelandet InformationRequestOpeningV01 används den nationella expansionen InformationRequestFIN012 (fin.012.001.04).
+I frågemeddelandet används ISO 20022 meddelande InformationRequestOpeningV01  [auth.001.001.01](schemas/auth.001.001.01.xsd).  I modulen supplementary data i meddelandet InformationRequestOpeningV01 används den nationella expansionen InformationRequestFIN012 (fin.012.001.04).
 
-I kapitel 6.2 nedan beskrivs vilka fält som används i frågemeddelandet. Schema för undermeddelande  [fin.012.001.04](schemas/fin.012.001.04.xsd). Exempel på [frågemeddelande](examples/queries).
+I kapitel 6.2 nedan beskrivs vilka fält som används i frågemeddelandet. Schema för undermeddelande  [fin.012.001.04](schemas/fin.012.001.04.xsd). Exempel på [frågemeddelande](examples/queries_and_responses).
 
 ### 6.1 Söka olika typer av uppgifter <a name="6-1"></a>
 
@@ -645,9 +646,32 @@ Används om man vill skicka ytterligare information som begärs separat utöver 
 
 ## 7. Svarsmeddelande <a name="luku7"></a>
 
-I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). I modulen supplementary data i meddelandet InformationRequestResponseV01 returneras ISO 20022 meddelandet camt.052.001.08.
+I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01 [auth.002.001.01](schemas/auth.002.001.01.xsd). Användningen av fälten i meddelandet har beskrivits i tabellen.
 
-I kapitel 7.1 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande, camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries). 
+### 7.1 InformationRequestResponseV01 <a name="7-1"></a>
+
+|Namn|Typ|Används|[min..max]|Beskrivning|
+|:---|:---|:---|:---|:---|
+|InformationRequestResponseV01| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnId|Max35Text|Ja|[1..1]|Svarsmeddelandets id|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Ja|[1..1]|Case Id som skickats i frågemeddelandet|
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Ja|[1..1]|Svarsmeddelandets status, "COMP"|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|[1..1]|I frågemeddelandet har Document/InfReqOpng/SchCrit förekommit som sådan|
+|&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Ja|[0..*]| Se användning av ReturnIndicator1 nedan.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|[0..1]|Se [Returnering av omtvistade uppgifter](#4-13)|
+
+#### <a name="return-indicator1"></a> Användning av ReturnIndicator1
+
+ReturnIndicator1 innehåller en enskild typ av sökresultat.
+
+|XPath|Typ|Beskrivning|
+|:---|:---|:---|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|innehåller det utvidgade meddelandets meddelande-id (camt.052.001.08)|
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [camt.052.001.08](#7-2), [fin.fault](#8-1) eller `InvstgtnSts` med koden `NFOU`.
+
+Bara de som svarar  av system för utlämnande av information JATKA
+
+I kapitel 7.2 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande, camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries_and_responses). 
 
 Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har informationer. Bara ytterligare information som begärs separat får inte lämnas ut om det inte har begärts speciellt i frågemeddelandet.
 
@@ -655,7 +679,7 @@ Om det sökta kontot inte har kontotransaktioner inom sökintervallet, BkToCstmr
 
 Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller gränssnitt till kontoregistret. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
-### 7.1 Undermeddelandets camt.052.001.08 innehåll <a name="7-1"></a>
+### 7.2 Undermeddelandets camt.052.001.08 innehåll <a name="7-2"></a>
 
 
 <table>
