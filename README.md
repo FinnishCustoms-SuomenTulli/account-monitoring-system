@@ -886,10 +886,10 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +Rpt<br>
         ++Ntry<br>
         +++BookgDt<br>
-        ++++Dt
+        ++++DtTm
       </td>
-      <td>ISODate</td>
-      <td>Päivämäärä, jolloin tapahtuma kirjattiin tilille.</td>
+      <td>ISODateTime</td>
+      <td>Päivämäärä ja kellonaika, jolloin tapahtuma kirjattiin tilille.</td>
     </tr>
     <tr>
       <td>
@@ -907,10 +907,10 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +Rpt<br>
         ++Ntry<br>
         +++ValDt<br>
-        ++++ValDt (Dt)
+        ++++DtTm
       </td>
-      <td>ISODate</td>
-      <td>Tapahtuman arvopäivä.</td>
+      <td>ISODateTime</td>
+      <td>Tapahtuman arvopäivä ja kellonaika.</td>
     </tr>
     <tr>
       <td>
@@ -1090,32 +1090,119 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>Saajan viitetiedot.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Refs<br>++++++InstrId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++Refs<br>
+        ++++++InstrId
+      </td>
       <td>Max35Text</td>
       <td>Alkuperäisen osapuolen antama tunniste.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Purp<br>++++++(Cd/Prtry)</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++Purp<br>
+        ++++++(Cd/Prtry)
+      </td>
       <td>ExternalPurpose1Code</td>
       <td>Tapahtuman syy tai tarkoitus.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++DbtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++DbtrAcct<br>
+        +++++++Id<br>
+        ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Maksajan tilin IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++DbtrAcct<br>
+        +++++++Id<br>
+        ++++++++Othr<br>
+        +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Maksajan tilinumero, jos kyseessä ei ole IBAN-tili.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Id<br>
+        ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Saajan tilin IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Dbtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Id<br>
+        ++++++++Othr<br>
+        +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Saajan tilinumero, jos kyseessä ei ole IBAN-tili.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++Dbtr<br>
+        +++++++Pty<br>
+        ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Maksajan nimi.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Cdtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++Cdtr<br>
+        +++++++Pty<br>
+        ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Saajan nimi.</td>
     </tr>
