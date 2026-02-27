@@ -939,7 +939,7 @@ The content of the response message is similar for all data suppliers regardless
        +++++++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Transaction amount.</td>
+      <td>Transaction amount and currency.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
