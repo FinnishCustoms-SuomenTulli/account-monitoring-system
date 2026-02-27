@@ -946,7 +946,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Transaktionens belopp.</td>
+      <td>Transaktionens belopp och valuta.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
