@@ -1017,7 +1017,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Tapahtuman summa.</td>
+      <td>Tapahtuman summa ja valuutta.</td>
     </tr>
     <tr>
       <td>
