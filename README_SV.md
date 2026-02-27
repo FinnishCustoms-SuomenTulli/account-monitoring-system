@@ -951,7 +951,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
       <td>ActiveOrHistoricCurrencyCode</td>
-      <td>Transaktionens ursprungliga valuta.Transaktionens ursprungliga valuta.</td>
+      <td>Transaktionens ursprungliga valuta.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
