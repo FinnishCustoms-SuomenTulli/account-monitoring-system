@@ -868,62 +868,136 @@ The content of the response message is similar for all data suppliers regardless
       <td>Indicator whether the transaction is debit or credit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++RvslInd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++RvslInd
+      </td>
       <td>TrueFalseIndicator</td>
       <td>Indicator is the transaction a correction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BookgDt<br>++++Dt</td>
-      <td>ISODate</td>
-      <td>Booking date of the transaction to the account.</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BookgDt<br>
+       ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Booking date and time of the transaction to the account.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++Amt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaction amount and currency.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++ValDt<br>++++ValDt (Dt)</td>
-      <td>ISODate</td>
-      <td>Value date of the transaction.</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++ValDt<br>
+       ++++DtTm</td>
+      <td>ISODateTime</td>
+      <td>Value date and time of the transaction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++AcctSvcrRef</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++AcctSvcrRef
+      </td>
       <td>Max35Text</td>
       <td>Account servicer reference.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Prtry<br>+++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BkTxCd<br>
+       ++++Prtry<br>
+       +++++Cd
+      </td>
       <td>Max35Text</td>
       <td>Bank's internal transaction code.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domn<br>+++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BkTxCd<br>
+       ++++Domn<br>
+       +++++Cd
+      </td>
       <td>ExternalBankTransactionDomain1Code</td>
       <td>Bank transaction's standardised code family.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++sts<br>++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++Sts<br>
+       ++++Cd
+      </td>
       <td>ExternalEntryStatus1Code</td>
       <td>Transaction status (for example booked, pending).</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++MsgId</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++MsgId
+      </td>
       <td>Max35Text</td>
       <td>Identification of the batch transaction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++PmtInfId</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++PmtInfId
+      </td>
       <td>Max35Text</td>
       <td>Identification of the payment information.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++NbOfTxs</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++NbOfTxs
+      </td>
       <td>Max15NumericText</td>
       <td>Number of batch transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++TtlAmt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++TtlAmt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Total amount of batch transactions.</td>
     </tr>
@@ -942,12 +1016,32 @@ The content of the response message is similar for all data suppliers regardless
       <td>Transaction amount and currency.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++AmtDtls<br>
+       ++++++TxAmt<br>
+       +++++++CcyXchg<br>
+       ++++++++UnitCcy
+      </td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Original currency of the transaction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++AmtDtls<br>
+       ++++++TxAmt<br>
+       +++++++CcyXchg<br>
+       ++++++++XchgRate
+      </td>
       <td>BaseOneRate</td>
       <td>Currency exchange rate that was used.</td>
     </tr>
@@ -964,42 +1058,148 @@ The content of the response message is similar for all data suppliers regardless
       <td>Indicator whether the transaction is debit or credit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RmtInf<br>
+       ++++++Ustrd
+      </td>
       <td>Max140Text</td>
       <td>Unstructured message information.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Strd<br>+++++++CdtrRefInf<br>++++++++Ref</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RmtInf<br>
+       ++++++Strd<br>
+       +++++++CdtrRefInf<br>
+       ++++++++Ref
+      </td>
       <td>Max35Text</td>
       <td>Receiver's reference information.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Refs<br>++++++InstrId</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++Refs<br>
+       ++++++InstrId
+      </td>
       <td>Max35Text</td>
       <td>Identification given by the original party.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Purp<br>++++++(Cd/Prtry)</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++Purp<br>
+       ++++++(Cd/Prtry)
+      </td>
       <td>ExternalPurpose1Code</td>
       <td>Transaction purpose.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++DbtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++DbtrAcct<br>
+       +++++++Id<br>
+       ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Payer's account IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++DbtrAcct<br>
+       +++++++Id<br>
+       ++++++++Othr<br>
+       +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Payer's account number for non-IBAN account.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++CdtrAcct<br>
+       +++++++Id<br>
+       ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Receiver's account IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Dbtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++CdtrAcct<br>
+       +++++++Id<br>
+       ++++++++Othr<br>
+       +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Receiver's account number for non-IBAN account.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++Dbtr<br>
+       +++++++Pty<br>
+       ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Payer's name.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Cdtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++Cdtr<br>
+       +++++++Pty<br>
+       ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Receiver's name.</td>
     </tr>
