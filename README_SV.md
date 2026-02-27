@@ -875,62 +875,134 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++RvslInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++RvslInd
+      </td>
       <td>TrueFalseIndicator</td>
       <td>Anger om händelsen är en korrigering.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BookgDt<br>++++Dt</td>
-      <td>ISODate</td>
-      <td>Datum då transaktionen bokfördes på kontot.</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BookgDt<br>
+        ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Datum och tid då transaktionen bokfördes på kontot.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Belopp och valuta för transaktionen.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++ValDt<br>++++ValDt (Dt)</td>
-      <td>ISODate</td>
-      <td>Transaktionens valutadag.</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++ValDt<br>
+        ++++DtTm</td>
+      <td>ISODateTime</td>
+      <td>Transaktionens valutadag och tid.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++AcctSvcrRef</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>++Ntry<br>
+        +++AcctSvcrRef
+      </td>
       <td>Max35Text</td>
       <td>Den referens som tillhandahålls av institutionen som förvaltar kontot.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Prtry<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>++Ntry<br>
+        +++BkTxCd<br>
+        ++++Prtry<br>
+        +++++Cd
+      </td>
       <td>Max35Text</td>
       <td>Bankens interna transaktionskod.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domn<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domn<br>
+        +++++Cd
+      </td>
       <td>ExternalBankTransactionDomain1Code</td>
       <td>En standardiserad kodfamilj för en banktransaktion.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++sts<br>++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++Sts<br>
+        ++++Cd
+      </td>
       <td>ExternalEntryStatus1Code</td>
       <td>Transaktionens status (t.ex. registrerad, ofullbordad)..</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++MsgId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++MsgId
+      </td>
       <td>Max35Text</td>
       <td>Samlingstransaktionens identifierare.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++PmtInfId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++PmtInfId
+      </td>
       <td>Max35Text</td>
       <td>Betalningsuppgiftens identifierare.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++NbOfTxs</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++NbOfTxs
+      </td>
       <td>Max15NumericText</td>
       <td>Antal samlingstransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++TtlAmt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++TtlAmt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Total summa för samlingstransaktioner.</td>
     </tr>
@@ -949,12 +1021,32 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Transaktionens belopp och valuta.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++UnitCcy
+      </td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Transaktionens ursprungliga valuta.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++XchgRate
+      </td>
       <td>BaseOneRate</td>
       <td>Valutakurs som använts.</td>
     </tr>
@@ -971,34 +1063,120 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RmtInf<br>
+        ++++++Ustrd
+      </td>
       <td>Max140Text</td>
       <td>Ostrukturerad information i meddelande.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Strd<br>+++++++CdtrRefInf<br>++++++++Ref</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RmtInf<br>
+        ++++++Strd<br>
+        +++++++CdtrRefInf<br>
+        ++++++++Ref
+      </td>
       <td>Max35Text</td>
       <td>Mottagarens referensuppgifter.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Refs<br>++++++InstrId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++Refs<br>
+        ++++++InstrId
+      </td>
       <td>Max35Text</td>
       <td>Identifierare som tillhandahålls av den ursprungliga parten.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Purp<br>++++++(Cd/Prtry)</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++Purp<br>
+        ++++++(Cd/Prtry)
+      </td>
       <td>ExternalPurpose1Code</td>
       <td>Orsak eller syfte med transaktionen.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++DbtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++DbtrAcct<br>
+        +++++++Id<br>
+        ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Betalarens konto IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++DbtrAcct<br>
+        +++++++Id<br>
+        ++++++++Othr<br>
+        +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Betalarens kontonummer, om det inte är ett IBAN-konto</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Id<br>
+        ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Mottagarens konto IBAN.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Id<br>
+        ++++++++Othr<br>
+        +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Mottagarens kontonummer, om det inte är ett IBAN-konto</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Dbtr<br>+++++++Pty<br>++++++++Nm</td>
