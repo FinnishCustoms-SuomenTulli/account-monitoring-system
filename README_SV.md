@@ -1177,17 +1177,15 @@ Tillgänglig kreditgräns. Ytterligare information som ska begäras separat, och
 
 Om datasöksystemet inte svarar inom tidsgränsen, sänder sammanställningsprogrammet felkod 1 till myndigheten.
 
-JATKA KÄÄNTÄMISTÄ
-
 <details>
-<summary>8.1 Virhetilanteiden raportointi tiedonluovutusjärjestelmään <a name="8-1"></a></summary>
+<summary>8.1 Rapportering av fel situationer till system för utlämnande av information <a name="8-1"></a></summary>
 <br>
 
-Tiedonluovutusjärjestelmään virhetilanteet raportoidaan [fin.fault](schemas/fin.fault.xsd) sanoman avulla.
+Fel situationer rapporteras till system för utlämnande av information medelst [fin.fault](schemas/fin.fault.xsd) meddelandet.
 
-Fault-alisanoman sisällyttäminen sanomaan kuvattu [luvussa 7.1](#7-1)
+Det beskrivs i [kapitel 7.1](#7-1) hur fault undermeddelande inkluderas is meddelandet.
 
-Esimerkki 8.1. Virhekoodi 4 raportointi
+Exempel 8.1. Rapportering av fel kod 4
 
 ```
 <fault:Document xmlns:fault="urn:fin.fault">
