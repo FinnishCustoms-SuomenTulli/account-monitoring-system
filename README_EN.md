@@ -940,7 +940,33 @@ The content of the response message is similar for all data suppliers regardless
        +++++Cd
       </td>
       <td>ExternalBankTransactionDomain1Code</td>
+      <td>Bank transaction's standardised code domain.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BkTxCd<br>
+       ++++Domn<br>
+       +++++Fmly<br>
+       ++++++Cd
+      </td>
+      <td>ExternalBankTransactionFamily1Code</td>
       <td>Bank transaction's standardised code family.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BkTxCd<br>
+       ++++Domn<br>
+       +++++Fmly<br>
+       ++++++SubFmlyCd
+      </td>
+      <td>ExternalBankTransactionSubFamily1Code</td>
+      <td>Bank transaction's standardised subcode.</td>
     </tr>
     <tr>
       <td>
@@ -1007,6 +1033,18 @@ The content of the response message is similar for all data suppliers regardless
        +Rpt<br>
        ++Ntry<br>
        +++NtryDtls<br>
+       ++++Btch<br>
+       +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Indicator whether the transaction is debit or credit.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
        ++++TxDtls<br>
        +++++AmtDtls<br>
        ++++++TxAmt<br>
@@ -1025,10 +1063,25 @@ The content of the response message is similar for all data suppliers regardless
        +++++AmtDtls<br>
        ++++++TxAmt<br>
        +++++++CcyXchg<br>
-       ++++++++UnitCcy
+       ++++++++SrcCcy
       </td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Original currency of the transaction.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++AmtDtls<br>
+       ++++++TxAmt<br>
+       +++++++CcyXchg<br>
+       ++++++++UnitCcy
+      </td>
+      <td>ActiveOrHistoricCurrencyCode</td>
+      <td>Calculated base currency of the exchange rate.</td>
     </tr>
     <tr>
       <td>
