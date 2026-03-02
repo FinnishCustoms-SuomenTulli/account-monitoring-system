@@ -945,7 +945,33 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++Cd
       </td>
       <td>ExternalBankTransactionDomain1Code</td>
+      <td>En standardiserad koddomän för en banktransaktion.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domn<br>
+        +++++Fmly<br>
+        ++++++Cd
+      </td>
+      <td>ExternalBankTransactionFamily1Code</td>
       <td>En standardiserad kodfamilj för en banktransaktion.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domn<br>
+        +++++Fmly<br>
+        ++++++SubFmlyCd
+      </td>
+      <td>ExternalBankTransactionSubFamily1Code</td>
+      <td>En standardiserad underkod för en banktransaktion.</td>
     </tr>
     <tr>
       <td>
@@ -1012,6 +1038,18 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +Rpt<br>
         ++Ntry<br>
         +++NtryDtls<br>
+        ++++Btch<br>
+        +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Anger om transaktionen är kredit eller debit.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
         ++++TxDtls<br>
         +++++AmtDtls<br>
         ++++++TxAmt<br>
@@ -1030,10 +1068,25 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++AmtDtls<br>
         ++++++TxAmt<br>
         +++++++CcyXchg<br>
-        ++++++++UnitCcy
+        ++++++++SrcCcy
       </td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Transaktionens ursprungliga valuta.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++UnitCcy
+      </td>
+      <td>ActiveOrHistoricCurrencyCode</td>
+      <td>Växelkursens beräknad grundvaluta.</td>
     </tr>
     <tr>
       <td>
