@@ -944,7 +944,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++Cd
       </td>
       <td>ExternalBankTransactionDomain1Code</td>
-      <td>Pankkitapahtuman standardoitu koodi.</td>
+      <td>Pankkitapahtuman standardoitu koodialue.</td>
     </tr>
     <tr>
       <td>
@@ -957,7 +957,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++++Cd
       </td>
       <td>ExternalBankTransactionFamily1Code</td>
-      <td>Pankkitapahtuman tarkempi standardoitu koodi.</td>
+      <td>Pankkitapahtuman standardoitu koodiperhe.</td>
     </tr>
     <tr>
       <td>
