@@ -650,7 +650,7 @@ The response message uses ISO 20022 message InformationRequestResponseV01 [auth.
 |&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Yes|[1..1]|Status of the response message, "COMP"|
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Yes|[1..1]|The search criteria included in the Document/InfReqOpng/SchCrit as it is|
 |&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Yes|[0..*]|See below for the use of ReturnIndicator1|
-|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Yes|[0..1]|See [Returning disputed details](#4-13)|
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Yes|[0..1]||
 
 #### <a name="return-indicator1"></a> Use of ReturnIndicator1
 
