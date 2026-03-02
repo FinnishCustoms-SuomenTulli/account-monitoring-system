@@ -1086,7 +1086,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++++++UnitCcy
       </td>
       <td>ActiveOrHistoricCurrencyCode</td>
-      <td>Tapahtuman alkuperäinen valuutta?</td>
+      <td>Vaihtokurssin laskennallinen perusvaluutta.</td>
     </tr>
     <tr>
       <td>
