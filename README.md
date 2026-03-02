@@ -652,7 +652,7 @@ Vastaussanomassa käytetään ISO 20022 sanomaa InformationRequestResponseV01 [a
 |&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Kyllä|[1..1]|Vastaussanoman status, "COMP"|
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|[1..1]|Kyselysanomassa esiintynyt Document/InfReqOpng/SchCrit sellaisenaan|
 |&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Kyllä|[0..*]| ks. ReturnIndicator1 käyttö alla. |
-|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|[0..1]|Ks. [Kiistanalaisten tietojen palauttaminen](#4-13)|
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|[0..1]||
 
 #### <a name="return-indicator1"></a> ReturnIndicator1 käyttö
 
@@ -951,6 +951,32 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         BkToCstmrAcctRpt<br>
         +Rpt<br>
         ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domn<br>
+        +++++Fmly<br>
+        ++++++Cd
+      </td>
+      <td>ExternalBankTransactionFamily1Code</td>
+      <td>?????</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domn<br>
+        +++++Fmly<br>
+        ++++++SubFmlyCd
+      </td>
+      <td>ExternalBankTransactionSubFamily1Code</td>
+      <td>?????</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
         +++Sts<br>
         ++++Cd
       </td>
@@ -1004,6 +1030,18 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Koontitapahtumien kokonaissumma.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Ilmaisee, onko tapahtuma kredit tai debit.</td>
     </tr>
     <tr>
       <td>
@@ -1207,32 +1245,85 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>Saajan nimi.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Tp<br>
+        ++++++++Cd
+      </td>
       <td>ExternalCashAccountType1Code</td>
       <td>Saajan tilin tyypin koodi.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Prtry</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Tp<br>
+        ++++++++Prtry
+      </td>
       <td>Max35Text</td>
       <td>Saajan tilin tyypin kuvaus.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++DbtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdAgts<br>
+        ++++++DbtrAgt<br>
+        +++++++FinInstnId<br>
+        ++++++++BICFI
+      </td>
       <td>BICFIDec2014Identifier</td>
       <td>Maksajan pankin BIC-koodi.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++CdtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdAgts<br>
+        ++++++CdtrAgt<br>
+        +++++++FinInstnId<br>
+        ++++++++BICFI
+      </td>
       <td>BICFIDec2014Identifier</td>
       <td>Saajan pankin BIC-koodi.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++NbOfNtries</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Tapahtumien kokonaismäärä.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++TtlNetNtry<br>+++++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++TtlNetNtry<br>
+        +++++Amt
+      </td>
       <td>NonNegativeDecimalNumber</td>
       <td>Tapahtumien nettosumma.</td>
     </tr>
