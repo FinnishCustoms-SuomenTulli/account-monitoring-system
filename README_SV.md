@@ -657,7 +657,7 @@ I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01
 |&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Ja|[1..1]|Svarsmeddelandets status, "COMP"|
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|[1..1]|I frågemeddelandet har Document/InfReqOpng/SchCrit förekommit som sådan|
 |&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Ja|[0..*]| Se användning av ReturnIndicator1 nedan.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|[0..1]|Se [Returnering av omtvistade uppgifter](#4-13)|
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|[0..1]||
 
 #### <a name="return-indicator1"></a> Användning av ReturnIndicator1
 
