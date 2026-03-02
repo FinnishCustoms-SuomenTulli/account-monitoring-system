@@ -944,7 +944,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++Cd
       </td>
       <td>ExternalBankTransactionDomain1Code</td>
-      <td>Pankkitapahtuman standardoitu koodiperhe.</td>
+      <td>Pankkitapahtuman standardoitu koodi.</td>
     </tr>
     <tr>
       <td>
@@ -957,7 +957,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++++Cd
       </td>
       <td>ExternalBankTransactionFamily1Code</td>
-      <td>?????</td>
+      <td>Pankkitapahtuman tarkempi standardoitu koodi.</td>
     </tr>
     <tr>
       <td>
@@ -970,7 +970,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++++SubFmlyCd
       </td>
       <td>ExternalBankTransactionSubFamily1Code</td>
-      <td>?????</td>
+      <td>Pankkitapahtuman standardoitu alikoodi.</td>
     </tr>
     <tr>
       <td>
@@ -1067,10 +1067,26 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++AmtDtls<br>
         ++++++TxAmt<br>
         +++++++CcyXchg<br>
-        ++++++++UnitCcy
+        ++++++++SrcCcy
       </td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Tapahtuman alkuperäinen valuutta.</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++UnitCcy
+      </td>
+      <td>ActiveOrHistoricCurrencyCode</td>
+      <td>Tapahtuman alkuperäinen valuutta?</td>
     </tr>
     <tr>
       <td>
