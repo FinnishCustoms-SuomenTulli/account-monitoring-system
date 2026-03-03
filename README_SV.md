@@ -1250,52 +1250,148 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Mottagarens kontonummer, om det inte är ett IBAN-konto</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Dbtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++Dbtr<br>
+        +++++++Pty<br>
+        ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Betalarens namn.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Cdtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++Cdtr<br>
+        +++++++Pty<br>
+        ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Mottagarens namn.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Tp<br>
+        ++++++++Cd
+      </td>
       <td>ExternalCashAccountType1Code</td>
       <td>Typkod för mottagarens konto.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Prtry</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Tp<br>
+        ++++++++Prtry
+      </td>
       <td>Max35Text</td>
       <td>Beskrivning av typkod för mottagarens konto.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++DbtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdAgts<br>
+        ++++++DbtrAgt<br>
+        +++++++FinInstnId<br>
+        ++++++++BICFI
+      </td>
       <td>BICFIDec2014Identifier</td>
       <td>BIC-kod för betalarens bank.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++CdtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdAgts<br>
+        ++++++CdtrAgt<br>
+        +++++++FinInstnId<br>
+        ++++++++BICFI</td>
       <td>BICFIDec2014Identifier</td>
       <td>BIC-kod för mottagarens bank.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++NbOfNtries</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Totalt antal transaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++TtlNetNtry<br>+++++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++TtlNetNtry<br>
+        +++++Amt
+      </td>
       <td>NonNegativeDecimalNumber</td>
       <td>Netto antal transaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlCdtNtries<br>++++NbOfNtries</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++TtlNetNtry<br>
+        +++++CdDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Anger om transaktionen är kredit eller debit.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlCdtNtries<br>
+        ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Antal kredittransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlDbtNtries<br>++++NbOfNtries</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlDbtNtries<br>
+        ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Antal debittransaktioner.</td>
     </tr>
