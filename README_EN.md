@@ -784,6 +784,24 @@ The content of the response message is similar for all data suppliers regardless
       <td>ISODateTime</td>
       <td>End date of the time period covered by the report.</td>
     </tr>
+   <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++ElctrncSeqNb
+      </td>
+      <td>Number</td>
+      <td>Report sequence number, default value 1.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++LglSeqNb
+      </td>
+      <td>Number</td>
+      <td>Report sequence number, default value 1.</td>
+    </tr>
     <tr>
       <td>
         BkToCstmrAcctRpt<br>
