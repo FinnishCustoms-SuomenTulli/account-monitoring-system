@@ -1362,6 +1362,18 @@ The content of the response message is similar for all data suppliers regardless
        BkToCstmrAcctRpt<br>
        +Rpt<br>
        ++TxsSummry<br>
+       +++TtlNtries<br>
+       ++++TtlNetNtry<br>
+       +++++CdDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Indicator whether the transaction is debit or credit.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
        +++TtlCdtNtries<br>
        ++++NbOfNtries
       </td>
