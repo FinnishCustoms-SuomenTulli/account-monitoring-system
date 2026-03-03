@@ -1282,24 +1282,47 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Antal debittransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Tp<br>++++CdOrPrtry<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Tp<br>
+        ++++CdOrPrtry<br>
+        +++++Cd
+      </td>
       <td>ExternalBalanceType1Code</td>
       <td>Kod för saldotyp (t.ex. ingående, utgående saldo).</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Saldobelopp</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtDbtInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Anger om saldot är kredit eller debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Dt<br>++++Dt</td>
-      <td>DateAndDateTime2Choice</td>
-      <td>Datum för saldo.</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Dt<br>
+        ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Datum och tid för saldo.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Incl</td>
