@@ -1257,67 +1257,161 @@ The content of the response message is similar for all data suppliers regardless
       <td>Receiver's name.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++CdtrAcct<br>
+       +++++++Tp<br>
+       ++++++++Cd
+      </td>
       <td>ExternalCashAccountType1Code</td>
       <td>Receiver's account type code.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Prtry</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++CdtrAcct<br>
+       +++++++Tp<br>
+       ++++++++Prtry
+      </td>
       <td>Max35Text</td>
       <td>Receiver's account type description.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++DbtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdAgts<br>
+       ++++++DbtrAgt<br>
+       +++++++FinInstnId<br>
+       ++++++++BICFI
+      </td>
       <td>BICFIDec2014Identifier</td>
       <td>Payer's bank's BIC.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++CdtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdAgts<br>
+       ++++++CdtrAgt<br>
+       +++++++FinInstnId<br>
+       ++++++++BICFI
+      </td>
       <td>BICFIDec2014Identifier</td>
       <td>Receiver's bank's BIC.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++NbOfNtries</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlNtries<br>
+       ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Total number of transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++TtlNetNtry<br>+++++Amt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlNtries<br>
+       ++++TtlNetNtry<br>
+       +++++Amt
+      </td>
       <td>NonNegativeDecimalNumber</td>
       <td>Net amount of transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlCdtNtries<br>++++NbOfNtries</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlCdtNtries<br>
+       ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Number of credit transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlDbtNtries<br>++++NbOfNtries</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlDbtNtries<br>
+       ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Number of debit transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Tp<br>++++CdOrPrtry<br>+++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++Tp<br>
+       ++++CdOrPrtry<br>
+       +++++Cd
+      </td>
       <td>ExternalBalanceType1Code</td>
       <td>Balance type code (for example opening or closing balance).</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Amt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Balance amount.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtDbtInd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Indicator whether the balance is credit or debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Dt<br>++++Dt</td>
-      <td>DateAndDateTime2Choice</td>
-      <td>Balance date.</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++Dt<br>
+       ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Balance date and time.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Incl</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++CdtLine<br>
+       ++++Incl
+      </td>
       <td>TrueFalseIndicator</td>
       <td>
         
@@ -1325,7 +1419,12 @@ Indicator whether account balance includes credit limit. Separately requested ad
       </td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Amt</td>
+      <td>
+      BkToCstmrAcctRpt<br>
+      +Rpt<br>
+      ++Bal<br>
+      +++CdtLine<br>
+      ++++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
