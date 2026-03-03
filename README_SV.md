@@ -150,15 +150,15 @@ Bilden nedan visar en översikt över informationsflödet i förfrågan om saldo
 | 5.	Saldo- ja tilitapahtumatietokyselyn vastauksen haku | 5. Sökning av svar på förfrågan om saldo och kontotransaktioner |
 | Koostava sovellus | Sammanställningsprogram  |
 | 4.	Vastaus: Saldo- ja tilitapahtumatiedot | 4. Svar: Uppgifter om saldo och kontotransaktioner   |
-| Tiedonluovutusjärjestelmä | System för utlämnande av information |
+| Tiedonluovutusjärjestelmä | System för utlämnande av uppgifter |
 | 2.	Saldo- ja tilitapahtumatietokysely | 2. Förfrågan om saldo och kontotransaktioner  |
 | 3.	Vastaus: Saldo- ja tilitapahtumatiedot | 3. Svar: Uppgifter om saldo och kontotransaktioner   |
 | Tiedonluovuttajien tiedonhakujärjestelmät | Uppgiftslämnarens datasöksystem |
-| Tiedonluovutusjärjestelmää käyttävät tiedonluovuttajat | Uppgiftslämnare som som använder system för utlämnande av information |
+| Tiedonluovutusjärjestelmää käyttävät tiedonluovuttajat | Uppgiftslämnare som som använder system för utlämnande av uppgifter |
 
 1. Myndighetens system skickar en förfrågan om saldo och kontotransaktioner till sammanställningsprogrammets [frågegränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-2). Innehållet i frågemeddelandet beskrivs i kapitlet [Frågemeddelande](#luku6). 
-2. Sammanställningsprogrammet förmedlar förfrågan om saldo och kontotransaktioner till den operatör som förfrågan riktas till, antingen via gränssnittet till datasöksystemet eller med säker e-post till operatör som använder system för utlämnande av information.  
-3. Uppgiftslämnaren svarar på förfrågan om saldo och kontotransaktioner senast nästa bankdag. Om förfrågan riktas till den operatör som implementerade datasöksystemet, skickar datasöksystemet ett svarsmeddelande till sammanställningsprogrammet via gränssnittet. Om förfrågan riktas till en operatör som använder system för utlämnande av information, skickar denne svarsmeddelandet till systemet som utlämnar information.    
+2. Sammanställningsprogrammet förmedlar förfrågan om saldo och kontotransaktioner till den operatör som förfrågan riktas till, antingen via gränssnittet till datasöksystemet eller med säker e-post till operatör som använder system för utlämnande av uppgifter.  
+3. Uppgiftslämnaren svarar på förfrågan om saldo och kontotransaktioner senast nästa bankdag. Om förfrågan riktas till den operatör som implementerade datasöksystemet, skickar datasöksystemet ett svarsmeddelande till sammanställningsprogrammet via gränssnittet. Om förfrågan riktas till en operatör som använder system för utlämnande av uppgifter, skickar denne svarsmeddelandet till systemet som utlämnar information.    
 4. Svarsmeddelandet förmedlas från systemet som utlämnar information till sammanställningsprogrammet.
 5. Myndigheten hämtar svaret på sin förfrågan om saldo och kontotransaktioner i sammanställningsprogrammets gränssnitt. I sökningen av svar används sammanställningsprogrammets  [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-3) ja [resultatgränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-4).
 
@@ -655,7 +655,7 @@ I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01
 |&nbsp;&nbsp;&nbsp;&nbsp;RspnId|Max35Text|Ja|[1..1]|Svarsmeddelandets id|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Ja|[1..1]|Case Id som skickats i frågemeddelandet|
 |&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Ja|[1..1]|Svarsmeddelandets status, "COMP"|
-|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|[1..1]|I frågemeddelandet har Document/InfReqOpng/SchCrit förekommit som sådan|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|[1..1]|Från frågemeddelandet Document/InfReqOpng/SchCrit som det är.|
 |&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Ja|[0..*]| Se användning av ReturnIndicator1 nedan.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|[0..1]||
 
@@ -665,10 +665,10 @@ ReturnIndicator1 innehåller en enskild typ av sökresultat.
 
 |XPath|Typ|Beskrivning|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|innehåller det utvidgade meddelandets meddelande-id (camt.052.001.08)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Innehåller det utvidgade meddelandets meddelande-id (camt.052.001.08)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [camt.052.001.08](#7-2), [fin.fault](#8-1) eller `InvstgtnSts` med koden `NFOU`.
 
-Bara aktörer som svarar via system för utlämnande av information använder fin.fault undermeddelandet.
+Bara aktörer som svarar via system för utlämnande av uppgifter använder fin.fault undermeddelandet.
 
 I kapitel 7.2 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries_and_responses). 
 
@@ -676,7 +676,7 @@ Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har inf
 
 Om det hittas inga kontotransaktioner från sökta kontot inom sökintervallet, BkToCstmrAcctRpt/Rpt/Ntry elementet returneras inte i svarsmeddelandet.
 
-Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller utlämnar information via system för utlämnande av information. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
+Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller utlämnar information via system för utlämnande av uppgifter. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
 ### 7.2 Undermeddelandets camt.052.001.08 innehåll <a name="7-2"></a>
 
@@ -982,7 +982,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         ++++Cd
       </td>
       <td>ExternalEntryStatus1Code</td>
-      <td>Transaktionens status (t.ex. registrerad, ofullbordad)..</td>
+      <td>Transaktionens status (t.ex. registrerad, ofullbordad).</td>
     </tr>
     <tr>
       <td>
@@ -1409,10 +1409,10 @@ Tillgänglig kreditgräns. Ytterligare information som ska begäras separat, och
 Om datasöksystemet inte svarar inom tidsgränsen, sänder sammanställningsprogrammet felkod 1 till myndigheten.
 
 <details>
-<summary>8.1 Rapportering av fel situationer till system för utlämnande av information <a name="8-1"></a></summary>
+<summary>8.1 Rapportering av fel situationer till system för utlämnande av uppgifter <a name="8-1"></a></summary>
 <br>
 
-Fel situationer rapporteras till system för utlämnande av information medelst [fin.fault](schemas/fin.fault.xsd) meddelandet.
+Fel situationer rapporteras till system för utlämnande av uppgifter medelst [fin.fault](schemas/fin.fault.xsd) meddelandet.
 
 Det beskrivs i [kapitel 7.1](#7-1) hur fault undermeddelande inkluderas is meddelandet.
 
