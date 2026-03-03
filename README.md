@@ -155,7 +155,7 @@ Allaolevassa kuvassa on esitetty yleiskuva saldo- ja tilitapahtumatietokyselyn t
 
 1. Viranomaisen järjestelmä lähettää saldo- ja tilitapahtumatietokyselyn koostavan sovelluksen [kyselyrajapintaan](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-kysely). Kyselysanoman sisältö on kuvattu luvussa [Kyselysanoma](#luku6). 
 2. Koostava sovellus välittää saldo- ja tilitapahtumatietokyselyn toimijalle, jolle kysely on suunnattu joko rajapinnan kautta tiedonhakujärjestelmään tai turvasähköpostilla tiedonluovutusjärjestelmää käyttävälle toimijalle.  
-3. Tiedonluovuttaja vastaa saldo- ja tilitapahtumatietokyselyyn viimeistään seuraavan pankkipäivän aikana. Jos kysely on osoitettu tiedonhakujärjestelmän toteuttaneelle toimijalle, tiedonhakujärjestelmä lähettää vastaussanoman koostavalle sovellukselle rajapinnan kautta. Jos kysely on osoitettu tiedonluovutusjärjestelmä käyttävälle toimijalle, tämä toimittaa vastaussanoman tiedonluovutusjärjestelmään.     
+3. Tiedonluovuttaja vastaa saldo- ja tilitapahtumatietokyselyyn viimeistään seuraavan pankkipäivän aikana. Jos kysely on osoitettu tiedonhakujärjestelmän toteuttaneelle toimijalle, tiedonhakujärjestelmä lähettää vastaussanoman koostavalle sovellukselle rajapinnan kautta. Jos kysely on osoitettu tiedonluovutusjärjestelmää käyttävälle toimijalle, tämä toimittaa vastaussanoman tiedonluovutusjärjestelmään.     
 4. Vastaussanoma välittyy tiedonluovutusjärjestelmästä koostavaan sovellukseen.  
 5. Viranomainen hakee vastauksen saldo- ja tilitapahtumatietokyselyynsä koostavan sovelluksen rajapinnasta. Vastauksen haussa käytetään koostavan sovelluksen [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-status) ja [tulosrajapintoja](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index.md#kyselyrajapinta-tulos).
 
@@ -660,8 +660,8 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (camt.052.001.08)|
-|RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [camt.052.001.08](#7-2), [fin.fault](#8-1) tai `InvstgtnSts` koodilla `NFOU`.
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Sisältää sanomalaajennuksen sanoma-id:n (camt.052.001.08)|
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|Palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [camt.052.001.08](#7-2), [fin.fault](#8-1) tai `InvstgtnSts` koodilla `NFOU`.
 
 Alisanomaa fin.fault käyttävät ainoastaan kyselyihin tiedonluovutusjärjestelmän kautta vastaavat toimijat.
 
