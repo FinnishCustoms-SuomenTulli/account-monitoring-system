@@ -790,6 +790,24 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>
         BkToCstmrAcctRpt<br>
         +Rpt<br>
+        ++ElctrncSeqNb
+      </td>
+      <td>Number</td>
+      <td>Raportin järjestysnumero, oletusarvo 1.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++LglSeqNb
+      </td>
+      <td>Number</td>
+      <td>Raportin järjestysnumero, oletusarvo 1.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
         ++Acct<br>
         +++Id<br>
         ++++IBAN
