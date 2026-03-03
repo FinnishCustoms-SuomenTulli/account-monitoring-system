@@ -1354,24 +1354,47 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>Debit-tapahtumien lukumäärä.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Tp<br>++++CdOrPrtry<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Tp<br>
+        ++++CdOrPrtry<br>
+        +++++Cd
+      </td>
       <td>ExternalBalanceType1Code</td>
       <td>Saldotyypin koodi (esim. alku-, loppusaldo).</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Saldon määrä</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtDbtInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Ilmaisee, onko saldo kredit vai debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Dt<br>++++Dt</td>
-      <td>DateAndDateTime2Choice</td>
-      <td>Saldon päivämäärä.</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Dt<br>
+        ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Saldon päivämäärä ja kellonaika.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Incl</td>
