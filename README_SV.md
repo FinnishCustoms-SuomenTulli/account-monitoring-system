@@ -795,6 +795,24 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>
         BkToCstmrAcctRpt<br>
         +Rpt<br>
+        ++ElctrncSeqNb
+      </td>
+      <td>Number</td>
+      <td>Rapport ordningsnummer, standardvärde 1.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++LglSeqNb
+      </td>
+      <td>Number</td>
+      <td>Rapport ordningsnummer, standardvärde 1.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
         ++Acct<br>
         +++Id<br>
         ++++IBAN
