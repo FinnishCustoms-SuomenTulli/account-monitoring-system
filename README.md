@@ -1362,6 +1362,18 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>Tapahtumien nettosumma.</td>
     </tr>
     <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++TtlNetNtry<br>
+        +++++CdDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Ilmaisee, onko tapahtuma kredit tai debit.</td>
+    </tr>
+    <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlCdtNtries<br>++++NbOfNtries</td>
       <td>Max15NumericText</td>
       <td>Kredit-tapahtumien lukumäärä.</td>
