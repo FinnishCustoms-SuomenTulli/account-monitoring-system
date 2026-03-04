@@ -887,6 +887,16 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         BkToCstmrAcctRpt<br>
         +Rpt<br>
         ++Ntry<br>
+        +++NtryRef
+      </td>
+      <td>Max35Text</td>
+      <td>Transaktionens unik identifikationskod.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
         +++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
@@ -1048,7 +1058,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Total summa för samlingstransaktioner.</td>
+      <td>Total summa och valuta för samlingstransaktioner.</td>
     </tr>
     <tr>
       <td>
@@ -1342,6 +1352,19 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>
         BkToCstmrAcctRpt<br>
         +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdDts<br>
+        ++++++AccptncDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Betalningsdag och tid.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
         ++TxsSummry<br>
         +++TtlNtries<br>
         ++++NbOfNtries
@@ -1415,7 +1438,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Saldobelopp</td>
+      <td>Saldobelopp och valuta</td>
     </tr>
     <tr>
       <td>
@@ -1451,7 +1474,7 @@ Indikator för om saldot innehåller en kreditgräns. Ytterligare information so
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Tillgänglig kreditgräns. Ytterligare information som ska begäras separat, och som endast återsänds om detta begärs i förfrågan, se [TransactionFieldCode](#6-3)
+Tillgängliga kreditgränsens belopp och valuta. Ytterligare information som ska begäras separat, och som endast återsänds om detta begärs i förfrågan, se [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
