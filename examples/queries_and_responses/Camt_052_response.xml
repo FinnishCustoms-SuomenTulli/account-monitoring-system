@@ -74,7 +74,7 @@
                                  <MsgId>XML12345678901234567890123456789012</MsgId>
                                  <CreDtTm>2019-05-09T04:33:00.444Z</CreDtTm>
                                  <MsgRcpt>
-                                    <camt52:Nm>Name of the sender</camt52:Nm>
+                                    <Nm>Name of the sender</Nm>
                                     <Id>
                                        <OrgId>
                                           <Othr>
@@ -89,9 +89,9 @@
                                  <AddtInf>Additional information from sender</AddtInf>
                               </GrpHdr>
                               <Rpt>
-                                 <Id>2019-05-09-04.44.12-EUR0574</Id>
-                                 <ElctrncSeqNb>25</ElctrncSeqNb>
-                                 <LglSeqNb>20</LglSeqNb>
+                                 <Id>2026-01-01-04.44.12-EUR0123</Id>
+                                 <ElctrncSeqNb>1</ElctrncSeqNb>
+                                 <LglSeqNb>1</LglSeqNb>
                                  <CreDtTm>2019-05-09T04:33:00.444Z</CreDtTm>
                                  <FrToDt>
                                     <FrDtTm>2019-05-08T00:00:00.444Z</FrDtTm>
@@ -120,10 +120,14 @@
                                           <Cd>OPBD</Cd>
                                        </CdOrPrtry>
                                     </Tp>
+                                    <CdtLine>
+                                       <Incl>false</Incl>
+                                       <Amt Ccy="EUR">10000.00</Amt>
+                                    </CdtLine>
                                     <Amt Ccy="EUR">200.50</Amt>
                                     <CdtDbtInd>CRDT</CdtDbtInd>
                                     <Dt>
-                                       <Dt>2019-05-08</Dt>
+                                       <DtTm>2019-05-08T23:30:00.444Z</DtTm>
                                     </Dt>
                                  </Bal>
                                  <Bal>
@@ -132,39 +136,50 @@
                                           <Cd>CLBD</Cd>
                                        </CdOrPrtry>
                                     </Tp>
+                                    <CdtLine>
+                                       <Incl>false</Incl>
+                                       <Amt Ccy="EUR">10000.00</Amt>
+                                    </CdtLine>
                                     <Amt Ccy="EUR">8800.50</Amt>
                                     <CdtDbtInd>CRDT</CdtDbtInd>
                                     <Dt>
-                                       <Dt>2019-05-08</Dt>
+                                       <DtTm>2019-05-08T23:30:00.444Z</DtTm>
                                     </Dt>
                                  </Bal>
                                  <TxsSummry>                                
                                     <TtlNtries>
                                        <NbOfNtries>6</NbOfNtries>
-                                       <Sum>8800.00</Sum>
+                                       <TtlNetNtry>
+                                          <Amt>8600</Amt>
+                                          <CdtDbtInd>CRDT</CdtDbtInd>
+                                       </TtlNetNtry>
                                     </TtlNtries>
                                     <TtlCdtNtries>
                                        <NbOfNtries>2</NbOfNtries>
-                                       <Sum>10100.50</Sum>
                                     </TtlCdtNtries>
                                     <TtlDbtNtries>
                                        <NbOfNtries>4</NbOfNtries>
-                                       <Sum>1500.50</Sum>
                                     </TtlDbtNtries>
                                  </TxsSummry>
                                  <Ntry>
                                     <NtryRef>1</NtryRef>
+                                    <AcctSvcrRef>1234</AcctSvcrRef>
                                     <Amt Ccy="EUR">10000.00</Amt>
                                     <CdtDbtInd>CRDT</CdtDbtInd>
-                                    <Sts>BOOK</Sts>
+                                    <RvslInd>false</RvslInd>
+                                    <Sts>
+                                       <Cd>BOOK</Cd>   
+                                    </Sts>
                                     <BookgDt>
-                                       <Dt>2019-05-08</Dt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
                                     </BookgDt>
                                     <ValDt>
-                                       <Dt>2019-05-08</Dt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
                                     </ValDt>
-                                    <AcctSvcrRef>1905082588CEAA0001</AcctSvcrRef>
                                     <BkTxCd>
+                                       <Prtry>
+                                          <Cd>7xxTEXT</Cd>
+                                       </Prtry>
                                        <Domn>
                                           <Cd>PMNT</Cd>
                                           <Fmly>
@@ -174,25 +189,274 @@
                                        </Domn>
                                     </BkTxCd>
                                     <NtryDtls>
+                                       <Btch>
+                                          <MsgId>MsgId</MsgId>
+                                          <PmtInfId>PmtInfId</PmtInfId>
+                                          <NbOfTxs>Number of transactions in the batch</NbOfTxs>
+                                          <TtlAmt Ccy="EUR">10000.00</TtlAmt>
+                                          <CdtDbtInd>CRDT</CdtDbtInd>
+                                       </Btch>
                                        <TxDtls>
                                           <Refs>
-                                             <AcctSvcrRef>1905082588CEAA0001</AcctSvcrRef>
-                                             <EndToEndId>20190501-E00005</EndToEndId>
+                                             <InstrId>Debitor ref</InstrId>
                                           </Refs>
                                           <AmtDtls>
                                              <TxAmt>
-                                                <Amt Ccy="EUR">10000.00</Amt>
+                                                <Amt Ccy="EUR">3300.00</Amt>
+                                                <CcyXchg>
+                                                   <UnitCcy>USD</UnitCcy>
+                                                   <SrcCcy>USD</SrcCcy>
+                                                   <XchgRate>1.10</XchgRate>
+                                                </CcyXchg>
                                              </TxAmt>
                                           </AmtDtls>
+                                          <CdtDbtInd>CRDT</CdtDbtInd>
+                                          <Purp>
+                                             <Cd>ExternalPurpose1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                          </Purp>
+                                          <RltdPties>
+                                             <Dbtr>
+                                                <Pty>
+                                                   <Nm>Maksaja</Nm>
+                                                </Pty>
+                                             </Dbtr>
+                                             <DbtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                             </DbtrAcct>
+                                             <Cdtr>
+                                                 <Pty>
+                                                   <Nm>Saaja</Nm>
+                                                </Pty>
+                                             </Cdtr>
+                                             <CdtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                                <Tp>
+                                                   <Cd>ExternalCashAccountType1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                                </Tp>
+                                             </CdtrAcct>
+                                          </RltdPties>
+                                          <RltdAgts>
+                                             <DbtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </DbtrAgt>
+                                             <CdtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </CdtrAgt>
+                                          </RltdAgts>
                                           <RmtInf>
+                                             <Ustrd>Free text max 140 characters</Ustrd>
                                              <Strd>
                                                 <CdtrRefInf>
-                                                   <Tp>
-                                                      <CdOrPrtry>
-                                                         <Cd>SCOR</Cd>
-                                                      </CdOrPrtry>
-                                                   </Tp>
-                                                   <Ref>00000000000000001245</Ref>
+                                                   <Ref>Max35Text</Ref>
+                                                </CdtrRefInf>
+                                             </Strd>
+                                          </RmtInf>
+                                          <RltdDts>
+                                             <AccptncDtTm>2019-05-07T00:00:00Z</AccptncDtTm>
+                                          </RltdDts>
+                                       </TxDtls>
+                                       <TxDtls>
+                                          <Refs>
+                                             <InstrId>Debitor ref</InstrId>
+                                          </Refs>
+                                          <AmtDtls>
+                                             <TxAmt>
+                                                <Amt Ccy="EUR">1500.00</Amt>
+                                                <CcyXchg>
+                                                   <UnitCcy>USD</UnitCcy>
+                                                   <SrcCcy>USD</SrcCcy>
+                                                   <XchgRate>1.10</XchgRate>
+                                                </CcyXchg>
+                                             </TxAmt>
+                                          </AmtDtls>
+                                          <CdtDbtInd>CRDT</CdtDbtInd>
+                                          <Purp>
+                                             <Cd>ExternalPurpose1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                          </Purp>
+                                          <RltdPties>
+                                             <Dbtr>
+                                                <Pty>
+                                                   <Nm>Maksaja</Nm>
+                                                </Pty>
+                                             </Dbtr>
+                                             <DbtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                             </DbtrAcct>
+                                             <Cdtr>
+                                                 <Pty>
+                                                   <Nm>Saaja</Nm>
+                                                </Pty>
+                                             </Cdtr>
+                                             <CdtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                                <Tp>
+                                                   <Cd>ExternalCashAccountType1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                                </Tp>
+                                             </CdtrAcct>
+                                          </RltdPties>
+                                          <RltdAgts>
+                                             <DbtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </DbtrAgt>
+                                             <CdtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </CdtrAgt>
+                                          </RltdAgts>
+                                          <RmtInf>
+                                             <Ustrd>Free text max 140 characters</Ustrd>
+                                             <Strd>
+                                                <CdtrRefInf>
+                                                   <Ref>Max35Text</Ref>
+                                                </CdtrRefInf>
+                                             </Strd>
+                                          </RmtInf>
+                                          <RltdDts>
+                                             <AccptncDtTm>2019-05-07T00:00:00Z</AccptncDtTm>
+                                          </RltdDts>
+                                       </TxDtls>
+                                       <TxDtls>
+                                          <Refs>
+                                             <InstrId>Debitor ref</InstrId>
+                                          </Refs>
+                                          <AmtDtls>
+                                             <TxAmt>
+                                                <Amt Ccy="EUR">5800.00</Amt>
+                                                <CcyXchg>
+                                                   <UnitCcy>USD</UnitCcy>
+                                                   <SrcCcy>USD</SrcCcy>
+                                                   <XchgRate>1.10</XchgRate>
+                                                </CcyXchg>
+                                             </TxAmt>
+                                          </AmtDtls>
+                                          <CdtDbtInd>CRDT</CdtDbtInd>
+                                          <Purp>
+                                             <Cd>ExternalPurpose1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                          </Purp>
+                                          <RltdPties>
+                                             <Dbtr>
+                                                <Pty>
+                                                   <Nm>Maksaja</Nm>
+                                                </Pty>
+                                             </Dbtr>
+                                             <DbtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                             </DbtrAcct>
+                                             <Cdtr>
+                                                 <Pty>
+                                                   <Nm>Saaja</Nm>
+                                                </Pty>
+                                             </Cdtr>
+                                             <CdtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                                <Tp>
+                                                   <Cd>ExternalCashAccountType1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                                </Tp>
+                                             </CdtrAcct>
+                                          </RltdPties>
+                                          <RltdAgts>
+                                             <DbtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </DbtrAgt>
+                                             <CdtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </CdtrAgt>
+                                          </RltdAgts>
+                                          <RmtInf>
+                                             <Ustrd>Free text max 140 characters</Ustrd>
+                                             <Strd>
+                                                <CdtrRefInf>
+                                                   <Ref>Max35Text</Ref>
+                                                </CdtrRefInf>
+                                             </Strd>
+                                          </RmtInf>
+                                          <RltdDts>
+                                             <AccptncDtTm>2019-05-07T00:00:00Z</AccptncDtTm>
+                                          </RltdDts>
+                                       </TxDtls>
+                                       <TxDtls>
+                                          <Refs>
+                                             <InstrId>Debitor ref</InstrId>
+                                          </Refs>
+                                          <AmtDtls>
+                                             <TxAmt>
+                                                <Amt Ccy="EUR">400.00</Amt>
+                                                <CcyXchg>                                                
+                                                   <UnitCcy>USD</UnitCcy>
+                                                   <SrcCcy>USD</SrcCcy>
+                                                   <XchgRate>1.10</XchgRate>
+                                                </CcyXchg>
+                                             </TxAmt>
+                                          </AmtDtls>
+                                          <CdtDbtInd>CRDT</CdtDbtInd>
+                                          <Purp>
+                                             <Cd>ExternalPurpose1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                          </Purp>
+                                          <RltdPties>
+                                             <Dbtr>
+                                                <Pty>
+                                                   <Nm>Maksaja</Nm>
+                                                </Pty>
+                                             </Dbtr>
+                                             <DbtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                             </DbtrAcct>
+                                             <Cdtr>
+                                                 <Pty>
+                                                   <Nm>Saaja</Nm>
+                                                </Pty>
+                                             </Cdtr>
+                                             <CdtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                                <Tp>
+                                                   <Cd>ExternalCashAccountType1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                                </Tp>
+                                             </CdtrAcct>
+                                          </RltdPties>
+                                          <RltdAgts>
+                                             <DbtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </DbtrAgt>
+                                             <CdtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </CdtrAgt>
+                                          </RltdAgts>
+                                          <RmtInf>
+                                             <Ustrd>Free text max 140 characters</Ustrd>
+                                             <Strd>
+                                                <CdtrRefInf>
+                                                   <Ref>Max35Text</Ref>
                                                 </CdtrRefInf>
                                              </Strd>
                                           </RmtInf>
@@ -204,61 +468,27 @@
                                  </Ntry>
                                  <Ntry>
                                     <NtryRef>2</NtryRef>
-                                    <Amt Ccy="EUR">100.50</Amt>
+                                    <AcctSvcrRef>1234</AcctSvcrRef>
+                                    <Amt Ccy="EUR">600.00</Amt>
                                     <CdtDbtInd>CRDT</CdtDbtInd>
                                     <RvslInd>false</RvslInd>
-                                    <Sts>BOOK</Sts>
+                                    <Sts>
+                                       <Cd>BOOK</Cd>   
+                                    </Sts>
                                     <BookgDt>
-                                       <Dt>2019-05-08</Dt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
                                     </BookgDt>
                                     <ValDt>
-                                       <Dt>2019-05-08</Dt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
                                     </ValDt>
-                                    <AcctSvcrRef>1905082588SM12345678</AcctSvcrRef>
                                     <BkTxCd>
+                                       <Prtry>
+                                          <Cd>7xxTEXT</Cd>
+                                       </Prtry>
                                        <Domn>
                                           <Cd>PMNT</Cd>
                                           <Fmly>
                                              <Cd>RCDT</Cd>
-                                             <SubFmlyCd>XBCT</SubFmlyCd>
-                                          </Fmly>
-                                       </Domn>
-                                    </BkTxCd>
-                                    <NtryDtls>
-                                       <TxDtls>
-                                          <Refs>
-                                             <AcctSvcrRef>1905082588SM12345678</AcctSvcrRef>
-                                             <EndToEndId>NOTPROVIDED</EndToEndId>
-                                          </Refs>
-                                          <AmtDtls>
-                                             <TxAmt>
-                                                <Amt Ccy="EUR">100.50</Amt>
-                                             </TxAmt>
-                                          </AmtDtls>
-                                          <RmtInf>
-                                             <Ustrd>Free text max 140 characters and ma</Ustrd>
-                                             <Ustrd>x 35 characters in one line</Ustrd>
-                                          </RmtInf>
-                                       </TxDtls>
-                                    </NtryDtls>
-                                 </Ntry>
-                                 <Ntry>
-                                    <NtryRef>3</NtryRef>
-                                    <Amt Ccy="EUR">700.50</Amt>
-                                    <CdtDbtInd>DBIT</CdtDbtInd>
-                                    <Sts>BOOK</Sts>
-                                    <BookgDt>
-                                       <Dt>2019-05-08</Dt>
-                                    </BookgDt>
-                                    <ValDt>
-                                       <Dt>2019-05-08</Dt>
-                                    </ValDt>
-                                    <AcctSvcrRef>1905082588CEAG0003</AcctSvcrRef>
-                                    <BkTxCd>
-                                       <Domn>
-                                          <Cd>PMNT</Cd>
-                                          <Fmly>
-                                             <Cd>ICDT</Cd>
                                              <SubFmlyCd>ESCT</SubFmlyCd>
                                           </Fmly>
                                        </Domn>
@@ -266,85 +496,27 @@
                                     <NtryDtls>
                                        <TxDtls>
                                           <Refs>
-                                             <MsgId>0001</MsgId>
-                                             <AcctSvcrRef>1905082588CEAG0003</AcctSvcrRef>
-                                             <PmtInfId>PMNTINFID08052019</PmtInfId>
-                                             <InstrId>INSTRID20190508</InstrId>
-                                             <EndToEndId>20190508-E123456</EndToEndId>
-                                          </Refs>
-                                          <AmtDtls>
-                                             <TxAmt>
-                                                <Amt Ccy="EUR">700.50</Amt>
-                                             </TxAmt>
-                                          </AmtDtls>
-                                          <RmtInf>
-                                             <Strd>
-                                                <CdtrRefInf>
-                                                   <Tp>
-                                                      <CdOrPrtry>
-                                                         <Cd>SCOR</Cd>
-                                                      </CdOrPrtry>
-                                                      <Issr>ISO</Issr>
-                                                   </Tp>
-                                                   <Ref>RF332348236</Ref>
-                                                </CdtrRefInf>
-                                             </Strd>
-                                          </RmtInf>
-                                       </TxDtls>
-                                    </NtryDtls>
-                                 </Ntry>
-                                 <Ntry>
-                                    <NtryRef>4</NtryRef>
-                                    <Amt Ccy="EUR">300.00</Amt>
-                                    <CdtDbtInd>DBIT</CdtDbtInd>
-                                    <RvslInd>false</RvslInd>
-                                    <Sts>BOOK</Sts>
-                                    <BookgDt>
-                                       <Dt>2019-05-08</Dt>
-                                    </BookgDt>
-                                    <ValDt>
-                                       <Dt>2019-05-08</Dt>
-                                    </ValDt>
-                                    <AcctSvcrRef>1905092588CEAG0004</AcctSvcrRef>
-                                    <BkTxCd>
-                                       <Domn>
-                                          <Cd>PMNT</Cd>
-                                          <Fmly>
-                                             <Cd>ICCN</Cd>
-                                             <SubFmlyCd>ICCT</SubFmlyCd>
-                                          </Fmly>
-                                       </Domn>
-                                       <Prtry>
-                                          <Cd>123</Cd>
-                                       </Prtry>
-                                    </BkTxCd>
-                                    <NtryDtls>
-                                       <Btch>
-                                          <MsgId>MsgId</MsgId>
-                                          <PmtInfId>PmtInfId</PmtInfId>
-                                          <NbOfTxs>2</NbOfTxs>
-                                          <TtlAmt Ccy="EUR">10000.00</TtlAmt>
-                                          <CdtDbtInd>DBIT</CdtDbtInd>
-                                       </Btch>
-                                       <TxDtls>
-                                          <Refs>
-                                             <AcctSvcrRef>1905092588CEAG0004</AcctSvcrRef>
                                              <InstrId>Debitor ref</InstrId>
-                                             <EndToEndId>NOTPROVIDED</EndToEndId>
                                           </Refs>
                                           <AmtDtls>
                                              <TxAmt>
-                                                <Amt Ccy="EUR">300.00</Amt>
+                                                <Amt Ccy="EUR">600.00</Amt>
                                                 <CcyXchg>
+                                                   <UnitCcy>EUR</UnitCcy>
                                                    <SrcCcy>EUR</SrcCcy>
                                                    <XchgRate>1.00</XchgRate>
                                                 </CcyXchg>
                                              </TxAmt>
                                           </AmtDtls>
-                                          <CdtDbtInd>DBIT</CdtDbtInd>
+                                          <CdtDbtInd>CRDT</CdtDbtInd>
+                                          <Purp>
+                                             <Cd>ExternalPurpose1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                          </Purp>
                                           <RltdPties>
                                              <Dbtr>
-                                                <Nm>Maksaja</Nm>
+                                                <Pty>
+                                                   <Nm>Maksaja</Nm>
+                                                </Pty>
                                              </Dbtr>
                                              <DbtrAcct>
                                                 <Id>
@@ -352,52 +524,96 @@
                                                 </Id>
                                              </DbtrAcct>
                                              <Cdtr>
-                                                <Nm>Saaja</Nm>
+                                                 <Pty>
+                                                   <Nm>Saaja</Nm>
+                                                </Pty>
                                              </Cdtr>
                                              <CdtrAcct>
                                                 <Id>
                                                    <IBAN>FI2447066587000379</IBAN>
                                                 </Id>
+                                                <Tp>
+                                                   <Cd>ExternalCashAccountType1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                                </Tp>
                                              </CdtrAcct>
                                           </RltdPties>
                                           <RltdAgts>
                                              <DbtrAgt>
                                                 <FinInstnId>
-                                                   <BIC>XXXXFIHH</BIC>
+                                                   <BICFI>XXXXFIHH</BICFI>
                                                 </FinInstnId>
                                              </DbtrAgt>
                                              <CdtrAgt>
                                                 <FinInstnId>
-                                                   <BIC>XXXXFIHH</BIC>
+                                                   <BICFI>XXXXFIHH</BICFI>
                                                 </FinInstnId>
                                              </CdtrAgt>
                                           </RltdAgts>
                                           <RmtInf>
                                              <Ustrd>Free text max 140 characters</Ustrd>
+                                             <Strd>
+                                                <CdtrRefInf>
+                                                   <Ref>Max35Text</Ref>
+                                                </CdtrRefInf>
+                                             </Strd>
                                           </RmtInf>
                                           <RltdDts>
                                              <AccptncDtTm>2019-05-07T00:00:00Z</AccptncDtTm>
                                           </RltdDts>
                                        </TxDtls>
+                                    </NtryDtls>
+                                 </Ntry>
+                                 <Ntry>
+                                    <NtryRef>3</NtryRef>
+                                    <AcctSvcrRef>1234</AcctSvcrRef>
+                                    <Amt Ccy="EUR">600.00</Amt>
+                                    <CdtDbtInd>CRDT</CdtDbtInd>
+                                    <RvslInd>false</RvslInd>
+                                    <Sts>
+                                       <Cd>BOOK</Cd>   
+                                    </Sts>
+                                    <BookgDt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
+                                    </BookgDt>
+                                    <ValDt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
+                                    </ValDt>
+                                    <BkTxCd>
+                                       <Prtry>
+                                          <Cd>7xxTEXT</Cd>
+                                       </Prtry>
+                                       <Domn>
+                                          <Cd>PMNT</Cd>
+                                          <Fmly>
+                                             <Cd>RCDT</Cd>
+                                             <SubFmlyCd>ESCT</SubFmlyCd>
+                                          </Fmly>
+                                       </Domn>
+                                    </BkTxCd>
+                                    <NtryDtls>
                                        <TxDtls>
                                           <Refs>
-                                             <AcctSvcrRef>1905092588CEAG0004</AcctSvcrRef>
                                              <InstrId>Debitor ref</InstrId>
-                                             <EndToEndId>NOTPROVIDED</EndToEndId>
                                           </Refs>
                                           <AmtDtls>
                                              <TxAmt>
-                                                <Amt Ccy="EUR">9700.00</Amt>
+                                                <Amt Ccy="EUR">600.00</Amt>
                                                 <CcyXchg>
+                                                   <UnitCcy>EUR</UnitCcy>
                                                    <SrcCcy>EUR</SrcCcy>
                                                    <XchgRate>1.00</XchgRate>
                                                 </CcyXchg>
                                              </TxAmt>
                                           </AmtDtls>
                                           <CdtDbtInd>DBIT</CdtDbtInd>
+                                          <Purp>
+                                             <Cd>ExternalPurpose1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                          </Purp>
                                           <RltdPties>
                                              <Dbtr>
-                                                <Nm>Maksaja</Nm>
+                                                <Pty>
+                                                   <Nm>Maksaja</Nm>
+                                                </Pty>
                                              </Dbtr>
                                              <DbtrAcct>
                                                 <Id>
@@ -405,28 +621,135 @@
                                                 </Id>
                                              </DbtrAcct>
                                              <Cdtr>
-                                                <Nm>Saaja</Nm>
+                                                 <Pty>
+                                                   <Nm>Saaja</Nm>
+                                                </Pty>
                                              </Cdtr>
                                              <CdtrAcct>
                                                 <Id>
                                                    <IBAN>FI2447066587000379</IBAN>
                                                 </Id>
+                                                <Tp>
+                                                   <Cd>ExternalCashAccountType1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                                </Tp>
                                              </CdtrAcct>
                                           </RltdPties>
                                           <RltdAgts>
                                              <DbtrAgt>
                                                 <FinInstnId>
-                                                   <BIC>XXXXFIHH</BIC>
+                                                   <BICFI>XXXXFIHH</BICFI>
                                                 </FinInstnId>
                                              </DbtrAgt>
                                              <CdtrAgt>
                                                 <FinInstnId>
-                                                   <BIC>XXXXFIHH</BIC>
+                                                   <BICFI>XXXXFIHH</BICFI>
                                                 </FinInstnId>
                                              </CdtrAgt>
                                           </RltdAgts>
                                           <RmtInf>
                                              <Ustrd>Free text max 140 characters</Ustrd>
+                                             <Strd>
+                                                <CdtrRefInf>
+                                                   <Ref>Max35Text</Ref>
+                                                </CdtrRefInf>
+                                             </Strd>
+                                          </RmtInf>
+                                          <RltdDts>
+                                             <AccptncDtTm>2019-05-07T00:00:00Z</AccptncDtTm>
+                                          </RltdDts>
+                                       </TxDtls>
+                                    </NtryDtls>
+                                 </Ntry>
+                                 <Ntry>
+                                    <NtryRef>4</NtryRef>
+                                    <AcctSvcrRef>1234</AcctSvcrRef>
+                                    <Amt Ccy="EUR">400.00</Amt>
+                                    <CdtDbtInd>DBIT</CdtDbtInd>
+                                    <RvslInd>false</RvslInd>
+                                    <Sts>
+                                       <Cd>BOOK</Cd>   
+                                    </Sts>
+                                    <BookgDt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
+                                    </BookgDt>
+                                    <ValDt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
+                                    </ValDt>
+                                    <BkTxCd>
+                                       <Prtry>
+                                          <Cd>7xxTEXT</Cd>
+                                       </Prtry>
+                                       <Domn>
+                                          <Cd>PMNT</Cd>
+                                          <Fmly>
+                                             <Cd>RCDT</Cd>
+                                             <SubFmlyCd>ESCT</SubFmlyCd>
+                                          </Fmly>
+                                       </Domn>
+                                    </BkTxCd>
+                                    <NtryDtls>
+                                       <TxDtls>
+                                          <Refs>
+                                             <InstrId>Debitor ref</InstrId>
+                                          </Refs>
+                                          <AmtDtls>
+                                             <TxAmt>
+                                                <Amt Ccy="EUR">400.00</Amt>
+                                                <CcyXchg>
+                                                   <UnitCcy>EUR</UnitCcy>
+                                                   <SrcCcy>EUR</SrcCcy>
+                                                   <XchgRate>1.00</XchgRate>
+                                                </CcyXchg>
+                                             </TxAmt>
+                                          </AmtDtls>
+                                          <CdtDbtInd>DBIT</CdtDbtInd>
+                                          <Purp>
+                                             <Cd>ExternalPurpose1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                          </Purp>
+                                          <RltdPties>
+                                             <Dbtr>
+                                                <Pty>
+                                                   <Nm>Maksaja</Nm>
+                                                </Pty>
+                                             </Dbtr>
+                                             <DbtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                             </DbtrAcct>
+                                             <Cdtr>
+                                                 <Pty>
+                                                   <Nm>Saaja</Nm>
+                                                </Pty>
+                                             </Cdtr>
+                                             <CdtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                                <Tp>
+                                                   <Cd>ExternalCashAccountType1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                                </Tp>
+                                             </CdtrAcct>
+                                          </RltdPties>
+                                          <RltdAgts>
+                                             <DbtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </DbtrAgt>
+                                             <CdtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </CdtrAgt>
+                                          </RltdAgts>
+                                          <RmtInf>
+                                             <Ustrd>Free text max 140 characters</Ustrd>
+                                             <Strd>
+                                                <CdtrRefInf>
+                                                   <Ref>Max35Text</Ref>
+                                                </CdtrRefInf>
+                                             </Strd>
                                           </RmtInf>
                                           <RltdDts>
                                              <AccptncDtTm>2019-05-07T00:00:00Z</AccptncDtTm>
@@ -436,74 +759,98 @@
                                  </Ntry>
                                  <Ntry>
                                     <NtryRef>5</NtryRef>
-                                    <Amt Ccy="EUR">400.00</Amt>
+                                    <AcctSvcrRef>1234</AcctSvcrRef>
+                                    <Amt Ccy="EUR">1000.00</Amt>
                                     <CdtDbtInd>DBIT</CdtDbtInd>
-                                    <Sts>BOOK</Sts>
+                                    <RvslInd>false</RvslInd>
+                                    <Sts>
+                                       <Cd>BOOK</Cd>   
+                                    </Sts>
                                     <BookgDt>
-                                       <Dt>2019-05-08</Dt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
                                     </BookgDt>
                                     <ValDt>
-                                       <Dt>2019-05-08</Dt>
+                                       <DtTm>2019-05-08T00:00:00.444Z</DtTm>
                                     </ValDt>
-                                    <AcctSvcrRef>1905082588CVCC1111</AcctSvcrRef>
                                     <BkTxCd>
+                                       <Prtry>
+                                          <Cd>7xxTEXT</Cd>
+                                       </Prtry>
                                        <Domn>
                                           <Cd>PMNT</Cd>
                                           <Fmly>
-                                             <Cd>NTAV</Cd>
-                                             <SubFmlyCd>NTAV</SubFmlyCd>
+                                             <Cd>RCDT</Cd>
+                                             <SubFmlyCd>ESCT</SubFmlyCd>
                                           </Fmly>
                                        </Domn>
                                     </BkTxCd>
                                     <NtryDtls>
                                        <TxDtls>
                                           <Refs>
-                                             <MsgId>12345567</MsgId>
-                                             <AcctSvcrRef>1905082588CVCC1111</AcctSvcrRef>
-                                             <EndToEndId>NOTPROVIDED</EndToEndId>
+                                             <InstrId>Debitor ref</InstrId>
                                           </Refs>
                                           <AmtDtls>
                                              <TxAmt>
-                                                <Amt Ccy="EUR">400.00</Amt>
+                                                <Amt Ccy="EUR">1000.00</Amt>
+                                                <CcyXchg>
+                                                   <UnitCcy>EUR</UnitCcy>
+                                                   <SrcCcy>EUR</SrcCcy>
+                                                   <XchgRate>1.00</XchgRate>
+                                                </CcyXchg>
                                              </TxAmt>
                                           </AmtDtls>
-                                       </TxDtls>
-                                    </NtryDtls>
-                                 </Ntry>
-                                 <Ntry>
-                                    <NtryRef>6</NtryRef>
-                                    <Amt Ccy="EUR">100.00</Amt>
-                                    <CdtDbtInd>DBIT</CdtDbtInd>
-                                    <Sts>BOOK</Sts>
-                                    <BookgDt>
-                                       <Dt>2019-05-08</Dt>
-                                    </BookgDt>
-                                    <ValDt>
-                                       <Dt>2019-05-08</Dt>
-                                    </ValDt>
-                                    <AcctSvcrRef>1905082588AU123456</AcctSvcrRef>
-                                    <BkTxCd>
-                                       <Domn>
-                                          <Cd>CAMT</Cd>
-                                          <Fmly>
-                                             <Cd>ACCB</Cd>
-                                             <SubFmlyCd>SWEP</SubFmlyCd>
-                                          </Fmly>
-                                       </Domn>
-                                    </BkTxCd>
-                                    <NtryDtls>
-                                       <TxDtls>
-                                          <Refs>
-                                             <AcctSvcrRef>1905082588AU123456</AcctSvcrRef>
-                                          </Refs>
-                                          <AmtDtls>
-                                             <TxAmt>
-                                                <Amt Ccy="EUR">100.00</Amt>
-                                             </TxAmt>
-                                          </AmtDtls>
+                                          <CdtDbtInd>DBIT</CdtDbtInd>
+                                          <Purp>
+                                             <Cd>ExternalPurpose1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                          </Purp>
+                                          <RltdPties>
+                                             <Dbtr>
+                                                <Pty>
+                                                   <Nm>Maksaja</Nm>
+                                                </Pty>
+                                             </Dbtr>
+                                             <DbtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                             </DbtrAcct>
+                                             <Cdtr>
+                                                 <Pty>
+                                                   <Nm>Saaja</Nm>
+                                                </Pty>
+                                             </Cdtr>
+                                             <CdtrAcct>
+                                                <Id>
+                                                   <IBAN>FI2447066587000379</IBAN>
+                                                </Id>
+                                                <Tp>
+                                                   <Cd>ExternalCashAccountType1Code</Cd> | <Prtry>Max35Text</Prtry>
+                                                </Tp>
+                                             </CdtrAcct>
+                                          </RltdPties>
+                                          <RltdAgts>
+                                             <DbtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </DbtrAgt>
+                                             <CdtrAgt>
+                                                <FinInstnId>
+                                                   <BICFI>XXXXFIHH</BICFI>
+                                                </FinInstnId>
+                                             </CdtrAgt>
+                                          </RltdAgts>
                                           <RmtInf>
-                                             <Ustrd>CMS/Account Number</Ustrd>
+                                             <Ustrd>Free text max 140 characters</Ustrd>
+                                             <Strd>
+                                                <CdtrRefInf>
+                                                   <Ref>Max35Text</Ref>
+                                                </CdtrRefInf>
+                                             </Strd>
                                           </RmtInf>
+                                          <RltdDts>
+                                             <AccptncDtTm>2019-05-07T00:00:00Z</AccptncDtTm>
+                                          </RltdDts>
                                        </TxDtls>
                                     </NtryDtls>
                                  </Ntry>
@@ -518,4 +865,3 @@
       </root:ApplicationResponse>
    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-
