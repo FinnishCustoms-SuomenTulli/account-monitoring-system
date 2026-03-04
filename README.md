@@ -883,6 +883,16 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         BkToCstmrAcctRpt<br>
         +Rpt<br>
         ++Ntry<br>
+        +++NtryRef
+      </td>
+      <td>Max35Text</td>
+      <td>Tapahtuman yksilöivä tunniste.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
         +++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
@@ -1047,7 +1057,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Koontitapahtumien kokonaissumma.</td>
+      <td>Koontitapahtumien kokonaissumma ja valuutta.</td>
     </tr>
     <tr>
       <td>
@@ -1342,6 +1352,19 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       <td>
         BkToCstmrAcctRpt<br>
         +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdDts<br>
+        ++++++AccptncDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Maksupäivä ja -aika.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
         ++TxsSummry<br>
         +++TtlNtries<br>
         ++++NbOfNtries
@@ -1403,7 +1426,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Saldon määrä</td>
+      <td>Saldon määrä ja valuutta.</td>
     </tr>
     <tr>
       <td>
@@ -1439,7 +1462,7 @@ Ilmaisin, sisältääkö saldo luottorajan. Erikseen pyydettävä lisätieto, jo
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Käytettävissä oleva luottoraja. Erikseen pyydettävä lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
+Käytettävissä olevan luottorajan määrä ja valuutta. Erikseen pyydettävä lisätieto, joka palautetaan ainoastaan jos sitä on pyydetty kyselyssä, ks. [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
