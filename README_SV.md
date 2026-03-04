@@ -1070,7 +1070,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Anger om transaktionen är kredit eller debit.</td>
+      <td>Anger om samlingstransaktionen är kredit eller debit.</td>
     </tr>
     <tr>
       <td>
