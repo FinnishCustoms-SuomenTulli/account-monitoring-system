@@ -1069,7 +1069,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Ilmaisee, onko tapahtuma kredit tai debit.</td>
+      <td>Ilmaisee, onko koontitapahtuma kredit tai debit.</td>
     </tr>
     <tr>
       <td>
