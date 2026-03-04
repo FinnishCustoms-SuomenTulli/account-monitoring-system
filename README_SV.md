@@ -17,6 +17,7 @@ Uppgiftslämnare, dvs. kreditinstitut, betalningsinstitut, institut för elektro
 [6. Frågemeddelande](#luku6)  
 [7. Svarsmeddelandea](#luku7)  
 [8. Felsituationer](#luku8)  
+[9. Kodlista](#luku9)   
 
 ## 1. Kontaktuppgifter <a name="luku1"></a>
 
@@ -102,7 +103,7 @@ b) servercertifikatet är ett giltigt och eIDAS-godkänt autentiseringscertifika
 OBS! För att skyddet av datatrafiken ska uppfylla Cybersäkerhetscentrets krav på informationssäkerhet som hänvisas till nedan, ska certifikatets offentliga nyckel (RSA public key) vara minst 3 072 bitar. Dessutom ska certifikatet vara ett servercertifikat av typ QWAC (Quality Website Authentication Certificate) som innehåller expansioner (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Dessa bör beaktas vid beställning av certifikat.
 
 <details>
-<summary>Skapa en XML-signatur för datasöksystem <a name="xml-allekirjoitus"></a></summary>
+<summary>Skapa en XML-signatur<a name="xml-allekirjoitus"></a></summary>
 <br>
 
 Signaturtypen är enveloped signature. Signature-elementet placeras under Sgntr-elementet i [BAH](#luku5).
@@ -149,15 +150,15 @@ Bilden nedan visar en översikt över informationsflödet i förfrågan om saldo
 | 5.	Saldo- ja tilitapahtumatietokyselyn vastauksen haku | 5. Sökning av svar på förfrågan om saldo och kontotransaktioner |
 | Koostava sovellus | Sammanställningsprogram  |
 | 4.	Vastaus: Saldo- ja tilitapahtumatiedot | 4. Svar: Uppgifter om saldo och kontotransaktioner   |
-| Tiedonluovutusjärjestelmä | System för utlämnande av information |
+| Tiedonluovutusjärjestelmä | System för utlämnande av uppgifter |
 | 2.	Saldo- ja tilitapahtumatietokysely | 2. Förfrågan om saldo och kontotransaktioner  |
 | 3.	Vastaus: Saldo- ja tilitapahtumatiedot | 3. Svar: Uppgifter om saldo och kontotransaktioner   |
 | Tiedonluovuttajien tiedonhakujärjestelmät | Uppgiftslämnarens datasöksystem |
-| Tilirekisteriin päivittävät tiedonluovuttajat | Uppgiftslämnare som uppdaterar kontoregistret |
+| Tiedonluovutusjärjestelmää käyttävät tiedonluovuttajat | Uppgiftslämnare som som använder system för utlämnande av uppgifter |
 
 1. Myndighetens system skickar en förfrågan om saldo och kontotransaktioner till sammanställningsprogrammets [frågegränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-2). Innehållet i frågemeddelandet beskrivs i kapitlet [Frågemeddelande](#luku6). 
-2. Sammanställningsprogrammet förmedlar förfrågan om saldo och kontotransaktioner till den operatör som förfrågan riktas till, antingen via gränssnittet till datasöksystemet eller med säker e-post till kontoregistrets operatör.  
-3. Uppgiftslämnaren svarar på förfrågan om saldo och kontotransaktioner senast nästa bankdag. Om förfrågan riktas till den operatör som implementerade datasöksystemet, skickar datasöksystemet ett svarsmeddelande till sammanställningsprogrammet via gränssnittet. Om förfrågan riktas till en operatör som använder kontoregistret, skickar denne svarsmeddelandet till systemet som utlämnar information.    
+2. Sammanställningsprogrammet förmedlar förfrågan om saldo och kontotransaktioner till den operatör som förfrågan riktas till, antingen via gränssnittet till datasöksystemet eller med säker e-post till operatör som använder system för utlämnande av uppgifter.  
+3. Uppgiftslämnaren svarar på förfrågan om saldo och kontotransaktioner senast nästa bankdag. Om förfrågan riktas till den operatör som implementerade datasöksystemet, skickar datasöksystemet ett svarsmeddelande till sammanställningsprogrammet via gränssnittet. Om förfrågan riktas till en operatör som använder system för utlämnande av uppgifter, skickar denne svarsmeddelandet till systemet som utlämnar information.    
 4. Svarsmeddelandet förmedlas från systemet som utlämnar information till sammanställningsprogrammet.
 5. Myndigheten hämtar svaret på sin förfrågan om saldo och kontotransaktioner i sammanställningsprogrammets gränssnitt. I sökningen av svar används sammanställningsprogrammets  [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-3) ja [resultatgränssnitt](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_sv.md#4-4).
 
@@ -183,11 +184,11 @@ Om uppgiftslämnaren anser att en mottagen förfrågan behöver utredas ytterlig
 
 Uppgiftslämnaren svarar på den ursprungliga förfrågan efter behandling av ytterligare redogörelse, om det är möjligt inom tidsramen. Om man inte hinner besvara förfrågan inom tidsfristen kan myndigheten vid behov göra en ny förfrågan som uppgiftslämnaren besvarar enligt överenskommelse. Om uppgiftslämnaren har besvarat förfrågan NRES försöker sammanställningsprogrammet hämta svaret på nytt från uppgiftslämnaren fram till tidsgränsens slut. När tidsgränsen för utlämnande av uppgifter löper ut stängs förfrågan.
 
-Exempel på förmedling av kontaktuppgifter: [Exempel på meddelande](examples/general/example_passing_contact_details.xml)
+Exempel på förmedling av kontaktuppgifter: [Exempel på meddelande](examples/general/example_passing_sender_details.xml)
 
 ## 5. Business Application Header <a name="luku5"></a>
 
-Meddelande BusinessApplicationHeaderV01  [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) bifogas både fråge- och svarsmeddelandet i enlighet med standard ISO 20022. Användningen av fälten är i övrigt likadan i fråge- och svarsmeddelandet, bortsett från att kontaktuppgifter ska skickas i frågemeddelandet för eventuell begäran om ytterligare redogörelse.
+Meddelande BusinessApplicationHeaderV01  [head.001.001.01](schemas/head.001.001.01.xsd) bifogas både fråge- och svarsmeddelandet i enlighet med standard ISO 20022. Användningen av fälten är i övrigt likadan i fråge- och svarsmeddelandet, bortsett från att kontaktuppgifter ska skickas i frågemeddelandet för eventuell begäran om ytterligare redogörelse.
 
 Avsändaruppgifterna i Fr-fältet i meddelande från myndighet innehåller myndighetens uppgifter, meddelande från uppgiftslämnare innehåller uppgiftslämnarens uppgifter och meddelanden från Tullen innehåller Tullens uppgifter. På motsvarande sätt finns Tullens uppgifter i To-fältet i mottagaruppgifterna när man skickar ett meddelande till sammanställningsprogrammet och den mottagande myndighetens eller uppgiftslämnarens uppgifter när sammanställningsprogrammet vidarebefordrar meddelandet.
 
@@ -363,9 +364,9 @@ Avsändaruppgifterna i Fr-fältet i meddelande från myndighet innehåller myndi
 
 ## 6. Frågemeddelande <a name="luku6"></a>
 
-I frågemeddelandet används ISO 20022 meddelande InformationRequestOpeningV01  [auth.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.001.001.01.xsd).  I modulen supplementary data i meddelandet InformationRequestOpeningV01 används den nationella expansionen InformationRequestFIN012 (fin.012.001.04).
+I frågemeddelandet används ISO 20022 meddelande InformationRequestOpeningV01  [auth.001.001.01](schemas/auth.001.001.01.xsd).  I modulen supplementary data i meddelandet InformationRequestOpeningV01 används den nationella expansionen InformationRequestFIN012 (fin.012.001.04).
 
-I kapitel 6.2 nedan beskrivs vilka fält som används i frågemeddelandet. Schema för undermeddelande  [fin.012.001.04](schemas/fin.012.001.04.xsd). Exempel på [frågemeddelande](examples/queries).
+I kapitel 6.2 nedan beskrivs vilka fält som används i frågemeddelandet. Schema för undermeddelande  [fin.012.001.04](schemas/fin.012.001.04.xsd). Exempel på [frågemeddelande](examples/queries_and_responses).
 
 ### 6.1 Söka olika typer av uppgifter <a name="6-1"></a>
 
@@ -642,20 +643,42 @@ Används om man vill skicka ytterligare information som begärs separat utöver 
 
 [Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat. Ytterligare information som begärs separat kan inte begäras i sökning av enbart uppgifter om kontotransaktioner. Sammanställningsprogrammet sänder felkod 4 till myndigheten om de försöker det.
 
-
 ## 7. Svarsmeddelande <a name="luku7"></a>
 
-I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). I modulen supplementary data i meddelandet InformationRequestResponseV01 returneras ISO 20022 meddelandet camt.052.001.08.
+I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01 [auth.002.001.01](schemas/auth.002.001.01.xsd). Användningen av fälten i meddelandet har beskrivits i tabellen.
 
-I kapitel 7.1 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande, camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries). 
+### 7.1 InformationRequestResponseV01 <a name="7-1"></a>
+
+|Namn|Typ|Används|[min..max]|Beskrivning|
+|:---|:---|:---|:---|:---|
+|InformationRequestResponseV01| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnId|Max35Text|Ja|[1..1]|Svarsmeddelandets id|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Ja|[1..1]|Case Id som skickats i frågemeddelandet|
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Ja|[1..1]|Svarsmeddelandets status, "COMP"|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|[1..1]|Från frågemeddelandet Document/InfReqOpng/SchCrit som det är.|
+|&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Ja|[0..*]| Se användning av ReturnIndicator1 nedan.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|[0..1]||
+
+#### <a name="return-indicator1"></a> Användning av ReturnIndicator1
+
+ReturnIndicator1 innehåller en enskild typ av sökresultat.
+
+|XPath|Typ|Beskrivning|
+|:---|:---|:---|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Innehåller det utvidgade meddelandets meddelande-id (camt.052.001.08)|
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [camt.052.001.08](#7-2), [fin.fault](#8-1) eller `InvstgtnSts` med koden `NFOU`.
+
+Bara aktörer som svarar via system för utlämnande av uppgifter använder fin.fault undermeddelandet.
+
+I kapitel 7.2 nedan beskrivs vilka fält som används i svarsmeddelandets undermeddelande camt.052.001.08. Schema för undermeddelande [camt.052.001.08](schemas/camt.052.001.08.xsd) Exempel på [svarsmeddelande](examples/queries_and_responses). 
 
 Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har informationer. Bara ytterligare information som begärs separat får inte lämnas ut om det inte har begärts speciellt i frågemeddelandet.
 
-Om det sökta kontot inte har kontotransaktioner inom sökintervallet, BkToCstmrAcctRpt/Rpt/Ntry elementet returneras inte i svarsmeddelandet.
+Om det hittas inga kontotransaktioner från sökta kontot inom sökintervallet, BkToCstmrAcctRpt/Rpt/Ntry elementet returneras inte i svarsmeddelandet.
 
-Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller gränssnitt till kontoregistret. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
+Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller utlämnar information via system för utlämnande av uppgifter. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
-### 7.1 Undermeddelandets camt.052.001.08 innehåll <a name="7-1"></a>
+### 7.2 Undermeddelandets camt.052.001.08 innehåll <a name="7-2"></a>
 
 
 <table>
@@ -772,6 +795,24 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>
         BkToCstmrAcctRpt<br>
         +Rpt<br>
+        ++ElctrncSeqNb
+      </td>
+      <td>Number</td>
+      <td>Rapport ordningsnummer, standardvärde 1.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++LglSeqNb
+      </td>
+      <td>Number</td>
+      <td>Rapport ordningsnummer, standardvärde 1.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
         ++Acct<br>
         +++Id<br>
         ++++IBAN
@@ -846,70 +887,190 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         BkToCstmrAcctRpt<br>
         +Rpt<br>
         ++Ntry<br>
+        +++NtryRef
+      </td>
+      <td>Max35Text</td>
+      <td>Transaktionens unik identifikationskod.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
         +++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
       <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++RvslInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++RvslInd
+      </td>
       <td>TrueFalseIndicator</td>
       <td>Anger om händelsen är en korrigering.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BookgDt<br>++++Dt</td>
-      <td>ISODate</td>
-      <td>Datum då transaktionen bokfördes på kontot.</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BookgDt<br>
+        ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Datum och tid då transaktionen bokfördes på kontot.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Belopp och valuta för transaktionen.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++ValDt<br>++++ValDt (Dt)</td>
-      <td>ISODate</td>
-      <td>Transaktionens valutadag.</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++ValDt<br>
+        ++++DtTm</td>
+      <td>ISODateTime</td>
+      <td>Transaktionens valutadag och tid.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++AcctSvcrRef</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>++Ntry<br>
+        +++AcctSvcrRef
+      </td>
       <td>Max35Text</td>
       <td>Den referens som tillhandahålls av institutionen som förvaltar kontot.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Prtry<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>++Ntry<br>
+        +++BkTxCd<br>
+        ++++Prtry<br>
+        +++++Cd
+      </td>
       <td>Max35Text</td>
       <td>Bankens interna transaktionskod.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domn<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domn<br>
+        +++++Cd
+      </td>
       <td>ExternalBankTransactionDomain1Code</td>
+      <td>En standardiserad koddomän för en banktransaktion.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domn<br>
+        +++++Fmly<br>
+        ++++++Cd
+      </td>
+      <td>ExternalBankTransactionFamily1Code</td>
       <td>En standardiserad kodfamilj för en banktransaktion.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++sts<br>++++Cd</td>
-      <td>ExternalEntryStatus1Code</td>
-      <td>Transaktionens status (t.ex. registrerad, ofullbordad)..</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++BkTxCd<br>
+        ++++Domn<br>
+        +++++Fmly<br>
+        ++++++SubFmlyCd
+      </td>
+      <td>ExternalBankTransactionSubFamily1Code</td>
+      <td>En standardiserad underkod för en banktransaktion.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++MsgId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++Sts<br>
+        ++++Cd
+      </td>
+      <td>ExternalEntryStatus1Code</td>
+      <td>Transaktionens status (t.ex. registrerad, ofullbordad).</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++MsgId
+      </td>
       <td>Max35Text</td>
       <td>Samlingstransaktionens identifierare.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++PmtInfId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++PmtInfId
+      </td>
       <td>Max35Text</td>
       <td>Betalningsuppgiftens identifierare.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++NbOfTxs</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++NbOfTxs
+      </td>
       <td>Max15NumericText</td>
       <td>Antal samlingstransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++TtlAmt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++TtlAmt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Total summa för samlingstransaktioner.</td>
+      <td>Total summa och valuta för samlingstransaktioner.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++Btch<br>
+        +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Anger om samlingstransaktionen är kredit eller debit.</td>
     </tr>
     <tr>
       <td>
@@ -923,15 +1084,50 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Transaktionens belopp.</td>
+      <td>Transaktionens belopp och valuta.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++SrcCcy
+      </td>
       <td>ActiveOrHistoricCurrencyCode</td>
-      <td>Transaktionens ursprungliga valuta.Transaktionens ursprungliga valuta.</td>
+      <td>Transaktionens ursprungliga valuta.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++UnitCcy
+      </td>
+      <td>ActiveOrHistoricCurrencyCode</td>
+      <td>Växelkursens beräknad grundvaluta.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++AmtDtls<br>
+        ++++++TxAmt<br>
+        +++++++CcyXchg<br>
+        ++++++++XchgRate
+      </td>
       <td>BaseOneRate</td>
       <td>Valutakurs som använts.</td>
     </tr>
@@ -948,104 +1144,322 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       <td>Anger om transaktionen är kredit eller debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RmtInf<br>
+        ++++++Ustrd
+      </td>
       <td>Max140Text</td>
       <td>Ostrukturerad information i meddelande.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Strd<br>+++++++CdtrRefInf<br>++++++++Ref</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RmtInf<br>
+        ++++++Strd<br>
+        +++++++CdtrRefInf<br>
+        ++++++++Ref
+      </td>
       <td>Max35Text</td>
       <td>Mottagarens referensuppgifter.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Refs<br>++++++InstrId</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++Refs<br>
+        ++++++InstrId
+      </td>
       <td>Max35Text</td>
       <td>Identifierare som tillhandahålls av den ursprungliga parten.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Purp<br>++++++(Cd/Prtry)</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++Purp<br>
+        ++++++(Cd/Prtry)
+      </td>
       <td>ExternalPurpose1Code</td>
       <td>Orsak eller syfte med transaktionen.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++DbtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++DbtrAcct<br>
+        +++++++Id<br>
+        ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Betalarens konto IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++DbtrAcct<br>
+        +++++++Id<br>
+        ++++++++Othr<br>
+        +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Betalarens kontonummer, om det inte är ett IBAN-konto</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Id<br>
+        ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Mottagarens konto IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Dbtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Id<br>
+        ++++++++Othr<br>
+        +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Mottagarens kontonummer, om det inte är ett IBAN-konto</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++Dbtr<br>
+        +++++++Pty<br>
+        ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Betalarens namn.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Cdtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++Cdtr<br>
+        +++++++Pty<br>
+        ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Mottagarens namn.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Tp<br>
+        ++++++++Cd
+      </td>
       <td>ExternalCashAccountType1Code</td>
       <td>Typkod för mottagarens konto.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Prtry</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdPties<br>
+        ++++++CdtrAcct<br>
+        +++++++Tp<br>
+        ++++++++Prtry
+      </td>
       <td>Max35Text</td>
       <td>Beskrivning av typkod för mottagarens konto.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++DbtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdAgts<br>
+        ++++++DbtrAgt<br>
+        +++++++FinInstnId<br>
+        ++++++++BICFI
+      </td>
       <td>BICFIDec2014Identifier</td>
       <td>BIC-kod för betalarens bank.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++CdtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdAgts<br>
+        ++++++CdtrAgt<br>
+        +++++++FinInstnId<br>
+        ++++++++BICFI</td>
       <td>BICFIDec2014Identifier</td>
       <td>BIC-kod för mottagarens bank.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++NbOfNtries</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdDts<br>
+        ++++++AccptncDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Betalningsdag och tid.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Totalt antal transaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++TtlNetNtry<br>+++++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++TtlNetNtry<br>
+        +++++Amt
+      </td>
       <td>NonNegativeDecimalNumber</td>
       <td>Netto antal transaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlCdtNtries<br>++++NbOfNtries</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlNtries<br>
+        ++++TtlNetNtry<br>
+        +++++CdDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Anger om transaktionen är kredit eller debit.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlCdtNtries<br>
+        ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Antal kredittransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlDbtNtries<br>++++NbOfNtries</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++TxsSummry<br>
+        +++TtlDbtNtries<br>
+        ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Antal debittransaktioner.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Tp<br>++++CdOrPrtry<br>+++++Cd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Tp<br>
+        ++++CdOrPrtry<br>
+        +++++Cd
+      </td>
       <td>ExternalBalanceType1Code</td>
       <td>Kod för saldotyp (t.ex. ingående, utgående saldo).</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Amt</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Saldobelopp</td>
+      <td>Saldobelopp och valuta</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtDbtInd</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Anger om saldot är kredit eller debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Dt<br>++++Dt</td>
-      <td>DateAndDateTime2Choice</td>
-      <td>Datum för saldo.</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Bal<br>
+        +++Dt<br>
+        ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Datum och tid för saldo.</td>
     </tr>
     <tr>
       <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Incl</td>
@@ -1060,7 +1474,7 @@ Indikator för om saldot innehåller en kreditgräns. Ytterligare information so
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Tillgänglig kreditgräns. Ytterligare information som ska begäras separat, och som endast återsänds om detta begärs i förfrågan, se [TransactionFieldCode](#6-3)
+Tillgängliga kreditgränsens belopp och valuta. Ytterligare information som ska begäras separat, och som endast återsänds om detta begärs i förfrågan, se [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
@@ -1154,4 +1568,30 @@ Tillgänglig kreditgräns. Ytterligare information som ska begäras separat, och
 
 Om datasöksystemet inte svarar inom tidsgränsen, sänder sammanställningsprogrammet felkod 1 till myndigheten.
 
+<details>
+<summary>8.1 Rapportering av fel situationer till system för utlämnande av uppgifter <a name="8-1"></a></summary>
+<br>
 
+Fel situationer rapporteras till system för utlämnande av uppgifter medelst [fin.fault](schemas/fin.fault.xsd) meddelandet.
+
+Det beskrivs i [kapitel 7.1](#7-1) hur fault undermeddelande inkluderas is meddelandet.
+
+Exempel 8.1. Rapportering av fel kod 4
+
+```
+<fault:Document xmlns:fault="urn:fin.fault">
+    <fault:QueryFaultResponse>
+        <fault:QueryFault>
+            <fault:FaultString>Bad Request</fault:FaultString>
+            <fault:ErrorCode>4</fault:ErrorCode>
+            <fault:ValidationError>Validation error 1</fault:ValidationError>
+        </fault:QueryFault>
+    </fault:QueryFaultResponse>
+</fault:Document>
+```
+
+</details>
+
+## 9. Kodlista <a name="luku9"></a>
+
+ISO 20022 extern kodlista ks. [External code sets](assets/iso20022.org/)

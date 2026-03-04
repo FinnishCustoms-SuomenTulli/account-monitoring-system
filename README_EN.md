@@ -16,6 +16,7 @@ Credit institutions, payment institutions, electric money institutions and provi
 [6. Query message](#luku6)  
 [7. Response message](#luku7)  
 [8. Error situations](#luku8)  
+[9. Code set](#luku9)
 
 ## 1. Contact information <a name="luku1"></a>
 
@@ -104,7 +105,7 @@ Please note: For the protection of data communications to meet the information s
 
 
 <details>
-<summary>Forming XML signature of data  retrieval system<a name="xml-allekirjoitus"></a></summary>
+<summary>Forming the XML signature<a name="xml-allekirjoitus"></a></summary>
 <br>
 
 The signature is of the enveloped signature type. The signature element is placed in [BAH](#luku5) Sgntr-elementin alle.
@@ -147,8 +148,8 @@ Figure below presents the overall picture of the data flow for account balance a
 ![Pankki- ja maksutilien valvontajärjestelmä](diagrams/tilitap_tiedonkulku_en.png "Pankki- ja maksutilien valvontajärjestelmä")  
 
 1. Authority's system sends an account balance and transaction information query to the [query interface](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_en.md#4-2) of the aggregating application. Content of the query message is described in chapter [Query message](#luku6). 
-2. The aggregating application forwards the account balance and transaction information query to the party it is directed to either via the data retrieval system interface or via secure email to a party using the Account Register.  
-3. The data supplier responds to the account balance and transaction information query during the next banking day at the latest. If the query was directed to a data supplier that is using a data retrieval system, the party responds by sending a response message to the aggregating application interface. If the query was directed to a data supplier that is using the Account Register, they deliver the response message via the data disclosure system.     
+2. The aggregating application forwards the account balance and transaction information query to the party it is directed to either via the data retrieval system interface or via secure email to a party using the data disclosure system.  
+3. The data supplier responds to the account balance and transaction information query during the next banking day at the latest. If the query was directed to a data supplier that is using a data retrieval system, the party responds by sending a response message to the aggregating application interface. If the query was directed to a data supplier that is using the data disclosure system, they deliver the response message via the data disclosure system.     
 4. The data disclosure system forwards the message to the aggregating application.  
 5. The authority retrieves the response to their account balance and transaction information query using the aggregating application's [status](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_en.md#4-3) and [result APIs](https://github.com/FinnishCustoms-SuomenTulli/account-register-aggregating-application/blob/main/index_en.md#4-4).
 
@@ -173,11 +174,11 @@ If the data supplier considers that a query they have received requires clarific
 
 The data supplier responds to the original query after the clarification if the time limit allows it. If it is not possible to respond to the query within the time limit, the authority can, if needed, make another query, to which the data supplier responds as agreed. If the data supplier has responded to the query with NRES, the aggregating application tries to retrieve the response again from the data supplier until the time limit is reached. After the time limit for supplying data is reached, the query is closed.
 
-Example of forwarding contact information: [Example message](examples/general/example_passing_contact_details.xml)
+Example of forwarding contact information: [Example message](examples/general/example_passing_sender_details.xml)
 
 ## 5. Business Application Header <a name="luku5"></a>
 
-ISO 20022 standard BusinessApplicationHeaderV01 [head.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/schemas/head.001.001.01.xsd) is attached to both the query and the response message. The fields are otherwise used in a similar way in both the query and the response message, except the contact details must be sent in the query message in case the data supplier needs to request for clarification.
+ISO 20022 standard BusinessApplicationHeaderV01 [head.001.001.01](schemas/head.001.001.01.xsd) is attached to both the query and the response message. The fields are otherwise used in a similar way in both the query and the response message, except the contact details must be sent in the query message in case the data supplier needs to request for clarification.
 
 The sender details in Fr fields contain the authority's information when an authority sends a message, the data supplier's information when the data supplier sends a message and Finnish Customs' information when Finnish Customs forwards a message. Respectively receiver details in To fields contain Finnish Customs' information when a message is sent to aggregating application (koostava sovellus), and the information of the authority or the data supplier when aggregating application forwards the message.
 
@@ -353,9 +354,9 @@ The [XML signature](#xml-allekirjoitus) formed by the business message sender
 
 ## 6. Query message <a name="luku6"></a>
 
-The query message uses ISO 20022 message InformationRequestOpeningV01 [auth.001.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.001.001.01.xsd). InformationRequestOpeningV01 message's supplementary data contains the national message extension InformationRequestFIN012 (fin.012.001.04).
+The query message uses ISO 20022 message InformationRequestOpeningV01 [auth.001.001.01](schemas/auth.001.001.01.xsd). InformationRequestOpeningV01 message's supplementary data contains the national message extension InformationRequestFIN012 (fin.012.001.04).
 
-The fields used in the query message are described in chapter 6.2 below. Schema for submessage [fin.012.001.04](schemas/fin.012.001.04.xsd). Examples of the [query message](examples/queries).
+The fields used in the query message are described in chapter 6.2 below. Schema for submessage [fin.012.001.04](schemas/fin.012.001.04.xsd). Examples of the [query message](examples/queries_and_responses).
 
 ### 6.1 Requesting different kinds of information <a name="6-1"></a>
 
@@ -638,17 +639,39 @@ Used if requesting separately requested additional information to be returned in
 
 ## 7. Response message <a name="luku7"></a>
 
-The response message uses ISO 20022 message InformationRequestResponseV01 [auth.002.001.01](https://github.com/FinnishCustoms-SuomenTulli/account-register-information-query/blob/master/assets/iso20022org/auth.002.001.01.xsd). InformationRequestResponseV01 message's supplementary data contains ISO 20022 message camt.052.001.08.
+The response message uses ISO 20022 message InformationRequestResponseV01 [auth.002.001.01](schemas/auth.002.001.01.xsd). Usage of the message's data fields is described in the table. 
 
-The fields used in the reponse message are described in chapter 7.1 below. Schema for submessage [camt.052.001.08](schemas/camt.052.001.08.xsd). Examples of the [response message](examples/queries).
+### 7.1 InformationRequestResponseV01 <a name="7-1"></a>
+|Name|Type|In use|[min..max]|Description|
+|:---|:---|:---|:---|:---|
+|InformationRequestResponseV01| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnId|Max35Text|Yes|[1..1]|Id of the response message|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Yes|[1..1]|Case id sent in the query message|
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Yes|[1..1]|Status of the response message, "COMP"|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Yes|[1..1]|The search criteria included in the Document/InfReqOpng/SchCrit as it is|
+|&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Yes|[0..*]|See below for the use of ReturnIndicator1|
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Yes|[0..1]||
+
+#### <a name="return-indicator1"></a> Use of ReturnIndicator1
+
+ReturnIndicator1 includes the presence of a single type of search result.
+
+|XPath|Type|Description|
+|:---|:---|:---|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Includes the message ID of a message extension (camt.052.001.08)|
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|`Rslt` element of type SupplementaryDataEnvelope1 is returned, including either [camt.052.001.08](#7-2), [fin.fault](#8-1) or `InvstgtnSts` with code `NFOU`.
+
+Submessage fin.fault is only used by data suppliers who reply to the queries using the data disclosure system.
+
+The fields used in the response message's submessage camt.52.001.08 are described in chapter 7.2 below. Schema for submessage [camt.052.001.08](schemas/camt.052.001.08.xsd). Examples of the [response message](examples/queries_and_responses).
 
 All basic information must be included in the response if the data supplier has the information. Only separately requested additional information is not disclosed unless it is specifically requested in the query message.
 
-If the account has no account transactions during the investigation period, BkToCstmrAcctRpt/Rpt/Ntry element is not returned in the response message.
+If no account transactions during the investigation period are found from the account, BkToCstmrAcctRpt/Rpt/Ntry element is not returned in the response message.
 
-The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or an interface to the Account Register. Only the method for delivering the response message is different.
+The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or use the data disclosure system to disclose information. Only the method for delivering the response message is different.
 
-### 7.1 Content of submessage camt.052.001.08 <a name="7-1"></a>
+### 7.2 Content of submessage camt.052.001.08 <a name="7-2"></a>
 
 
 <table>
@@ -761,6 +784,24 @@ The content of the response message is similar for all data suppliers regardless
       <td>ISODateTime</td>
       <td>End date of the time period covered by the report.</td>
     </tr>
+   <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++ElctrncSeqNb
+      </td>
+      <td>Number</td>
+      <td>Report sequence number, default value 1.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++LglSeqNb
+      </td>
+      <td>Number</td>
+      <td>Report sequence number, default value 1.</td>
+    </tr>
     <tr>
       <td>
         BkToCstmrAcctRpt<br>
@@ -835,6 +876,16 @@ The content of the response message is similar for all data suppliers regardless
       <td>"Y"</td>
     </tr>
     <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryRef
+      </td>
+      <td>Max35Text</td>
+      <td>Unique identification of transaction.</td>
+    </tr>
+    <tr>
        <td>
        BkToCstmrAcctRpt<br>
        +Rpt<br>
@@ -845,64 +896,176 @@ The content of the response message is similar for all data suppliers regardless
       <td>Indicator whether the transaction is debit or credit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++RvslInd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++RvslInd
+      </td>
       <td>TrueFalseIndicator</td>
       <td>Indicator is the transaction a correction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BookgDt<br>++++Dt</td>
-      <td>ISODate</td>
-      <td>Booking date of the transaction to the account.</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BookgDt<br>
+       ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Booking date and time of the transaction to the account.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++Amt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>Transaction amount and currency.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++ValDt<br>++++ValDt (Dt)</td>
-      <td>ISODate</td>
-      <td>Value date of the transaction.</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++ValDt<br>
+       ++++DtTm</td>
+      <td>ISODateTime</td>
+      <td>Value date and time of the transaction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++AcctSvcrRef</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++AcctSvcrRef
+      </td>
       <td>Max35Text</td>
       <td>Account servicer reference.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Prtry<br>+++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BkTxCd<br>
+       ++++Prtry<br>
+       +++++Cd
+      </td>
       <td>Max35Text</td>
       <td>Bank's internal transaction code.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++BkTxCd<br>++++Domn<br>+++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BkTxCd<br>
+       ++++Domn<br>
+       +++++Cd
+      </td>
       <td>ExternalBankTransactionDomain1Code</td>
+      <td>Bank transaction's standardised code domain.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BkTxCd<br>
+       ++++Domn<br>
+       +++++Fmly<br>
+       ++++++Cd
+      </td>
+      <td>ExternalBankTransactionFamily1Code</td>
       <td>Bank transaction's standardised code family.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++sts<br>++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++BkTxCd<br>
+       ++++Domn<br>
+       +++++Fmly<br>
+       ++++++SubFmlyCd
+      </td>
+      <td>ExternalBankTransactionSubFamily1Code</td>
+      <td>Bank transaction's standardised subcode.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++Sts<br>
+       ++++Cd
+      </td>
       <td>ExternalEntryStatus1Code</td>
       <td>Transaction status (for example booked, pending).</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++MsgId</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++MsgId
+      </td>
       <td>Max35Text</td>
       <td>Identification of the batch transaction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++PmtInfId</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++PmtInfId
+      </td>
       <td>Max35Text</td>
       <td>Identification of the payment information.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++NbOfTxs</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++NbOfTxs
+      </td>
       <td>Max15NumericText</td>
       <td>Number of batch transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++Btch<br>+++++TtlAmt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++TtlAmt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Total amount of batch transactions.</td>
+      <td>Total amount and currency of batch transactions.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++Btch<br>
+       +++++CdtDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Indicator whether the batch transaction is debit or credit.</td>
     </tr>
     <tr>
       <td>
@@ -916,15 +1079,50 @@ The content of the response message is similar for all data suppliers regardless
        +++++++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Transaction amount.</td>
+      <td>Transaction amount and currency.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++UnitCcy</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++AmtDtls<br>
+       ++++++TxAmt<br>
+       +++++++CcyXchg<br>
+       ++++++++SrcCcy
+      </td>
       <td>ActiveOrHistoricCurrencyCode</td>
       <td>Original currency of the transaction.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++AmtDtls<br>++++++TxAmt<br>+++++++CcyXchg<br>++++++++XchgRate</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++AmtDtls<br>
+       ++++++TxAmt<br>
+       +++++++CcyXchg<br>
+       ++++++++UnitCcy
+      </td>
+      <td>ActiveOrHistoricCurrencyCode</td>
+      <td>Calculated base currency of the exchange rate.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++AmtDtls<br>
+       ++++++TxAmt<br>
+       +++++++CcyXchg<br>
+       ++++++++XchgRate
+      </td>
       <td>BaseOneRate</td>
       <td>Currency exchange rate that was used.</td>
     </tr>
@@ -941,107 +1139,332 @@ The content of the response message is similar for all data suppliers regardless
       <td>Indicator whether the transaction is debit or credit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Ustrd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RmtInf<br>
+       ++++++Ustrd
+      </td>
       <td>Max140Text</td>
       <td>Unstructured message information.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RmtInf<br>++++++Strd<br>+++++++CdtrRefInf<br>++++++++Ref</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RmtInf<br>
+       ++++++Strd<br>
+       +++++++CdtrRefInf<br>
+       ++++++++Ref
+      </td>
       <td>Max35Text</td>
       <td>Receiver's reference information.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Refs<br>++++++InstrId</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++Refs<br>
+       ++++++InstrId
+      </td>
       <td>Max35Text</td>
       <td>Identification given by the original party.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++Purp<br>++++++(Cd/Prtry)</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++Purp<br>
+       ++++++(Cd/Prtry)
+      </td>
       <td>ExternalPurpose1Code</td>
       <td>Transaction purpose.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++DbtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++DbtrAcct<br>
+       +++++++Id<br>
+       ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Payer's account IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Id<br>++++++++IBAN</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++DbtrAcct<br>
+       +++++++Id<br>
+       ++++++++Othr<br>
+       +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Payer's account number for non-IBAN account.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++CdtrAcct<br>
+       +++++++Id<br>
+       ++++++++IBAN
+      </td>
       <td>IBAN2007Identifier</td>
       <td>Receiver's account IBAN.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Dbtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++CdtrAcct<br>
+       +++++++Id<br>
+       ++++++++Othr<br>
+       +++++++++Id
+      </td>
+      <td>Max34Text</td>
+      <td>Receiver's account number for non-IBAN account.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++Dbtr<br>
+       +++++++Pty<br>
+       ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Payer's name.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++Cdtr<br>+++++++Pty<br>++++++++Nm</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++Cdtr<br>
+       +++++++Pty<br>
+       ++++++++Nm
+      </td>
       <td>Max140Text</td>
       <td>Receiver's name.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++CdtrAcct<br>
+       +++++++Tp<br>
+       ++++++++Cd
+      </td>
       <td>ExternalCashAccountType1Code</td>
       <td>Receiver's account type code.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdPties<br>++++++CdtrAcct<br>+++++++Tp<br>++++++++Prtry</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdPties<br>
+       ++++++CdtrAcct<br>
+       +++++++Tp<br>
+       ++++++++Prtry
+      </td>
       <td>Max35Text</td>
       <td>Receiver's account type description.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++DbtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdAgts<br>
+       ++++++DbtrAgt<br>
+       +++++++FinInstnId<br>
+       ++++++++BICFI
+      </td>
       <td>BICFIDec2014Identifier</td>
       <td>Payer's bank's BIC.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Ntry<br>+++NtryDtls<br>++++TxDtls<br>+++++RltdAgts<br>++++++CdtrAgt<br>+++++++FinInstnId<br>++++++++BICFI</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Ntry<br>
+       +++NtryDtls<br>
+       ++++TxDtls<br>
+       +++++RltdAgts<br>
+       ++++++CdtrAgt<br>
+       +++++++FinInstnId<br>
+       ++++++++BICFI
+      </td>
       <td>BICFIDec2014Identifier</td>
       <td>Receiver's bank's BIC.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++NbOfNtries</td>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdDts<br>
+        ++++++AccptncDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Date and time of payment.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlNtries<br>
+       ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Total number of transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlNtries<br>++++TtlNetNtry<br>+++++Amt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlNtries<br>
+       ++++TtlNetNtry<br>
+       +++++Amt
+      </td>
       <td>NonNegativeDecimalNumber</td>
       <td>Net amount of transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlCdtNtries<br>++++NbOfNtries</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlNtries<br>
+       ++++TtlNetNtry<br>
+       +++++CdDbtInd
+      </td>
+      <td>CreditDebitCode</td>
+      <td>Indicator whether the transaction is debit or credit.</td>
+    </tr>
+    <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlCdtNtries<br>
+       ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Number of credit transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++TxsSummry<br>+++TtlDbtNtries<br>++++NbOfNtries</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++TxsSummry<br>
+       +++TtlDbtNtries<br>
+       ++++NbOfNtries
+      </td>
       <td>Max15NumericText</td>
       <td>Number of debit transactions.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Tp<br>++++CdOrPrtry<br>+++++Cd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++Tp<br>
+       ++++CdOrPrtry<br>
+       +++++Cd
+      </td>
       <td>ExternalBalanceType1Code</td>
       <td>Balance type code (for example opening or closing balance).</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Amt</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++Amt
+      </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Balance amount.</td>
+      <td>Balance amount and currency.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtDbtInd</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++CdtDbtInd
+      </td>
       <td>CreditDebitCode</td>
       <td>Indicator whether the balance is credit or debit.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++Dt<br>++++Dt</td>
-      <td>DateAndDateTime2Choice</td>
-      <td>Balance date.</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++Dt<br>
+       ++++DtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Balance date and time.</td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Incl</td>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Bal<br>
+       +++CdtLine<br>
+       ++++Incl
+      </td>
       <td>TrueFalseIndicator</td>
       <td>
         
@@ -1049,11 +1472,16 @@ Indicator whether account balance includes credit limit. Separately requested ad
       </td>
     </tr>
     <tr>
-      <td>BkToCstmrAcctRpt<br>+Rpt<br>++Bal<br>+++CdtLine<br>++++Amt</td>
+      <td>
+      BkToCstmrAcctRpt<br>
+      +Rpt<br>
+      ++Bal<br>
+      +++CdtLine<br>
+      ++++Amt</td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Available credit limit. Separately requested additional information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
+Available credit limit amount and currency. Separately requested additional information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
@@ -1145,3 +1573,30 @@ Available credit limit. Separately requested additional information that is retu
 
 If a data retrieval system does not respond within the time limit the aggregation application returns the error code 1 to the the authority.
 
+<details>
+<summary>8.1 Reporting error situations to the data disclosure system <a name="8-1"></a></summary>
+<br>
+
+Error situations are reported to the data disclosure system using [fin.fault](schemas/fin.fault.xsd) message.
+
+Including fault submessage is described in [chapter 7.1](#7-1)
+
+Example 8.1. Reporting error code 4
+
+```
+<fault:Document xmlns:fault="urn:fin.fault">
+    <fault:QueryFaultResponse>
+        <fault:QueryFault>
+            <fault:FaultString>Bad Request</fault:FaultString>
+            <fault:ErrorCode>4</fault:ErrorCode>
+            <fault:ValidationError>Validation error 1</fault:ValidationError>
+        </fault:QueryFault>
+    </fault:QueryFaultResponse>
+</fault:Document>
+```
+
+</details>
+
+## 9. Code set <a name="luku9"></a>
+
+ISO 20022 external code set, see [External code sets](assets/iso20022.org/)

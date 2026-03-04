@@ -39,6 +39,10 @@
                                     <urn3:RequestedDataSources>
                                         <urn3:DataSourceOrgId>0788060-2</urn3:DataSourceOrgId>
                                     </urn3:RequestedDataSources>
+                                    <urn3:InvestigationType>
+                                        <urn3:InvestigationTypeCode>BALN</urn3:InvestigationTypeCode>
+                                        <urn3:InvestigationTypeCode>TRAN</urn3:InvestigationTypeCode>
+                                    </urn3:InvestigationType>
                                     <urn3:AdditionalTransactionInformation>
                                         <urn3:TransactionFieldCode>BAL_CDTLINE_INCL</urn3:TransactionFieldCode>
                                         <urn3:TransactionFieldCode>BAL_CDTLINE_AMT</urn3:TransactionFieldCode>
@@ -51,4 +55,5 @@
             </urn2:Document>
         </urn:ApplicationRequest>
     </soapenv:Body>
+
 </soapenv:Envelope>
