@@ -876,6 +876,16 @@ The content of the response message is similar for all data suppliers regardless
       <td>"Y"</td>
     </tr>
     <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryRef
+      </td>
+      <td>Max35Text</td>
+      <td>Unique identification of transaction.</td>
+    </tr>
+    <tr>
        <td>
        BkToCstmrAcctRpt<br>
        +Rpt<br>
@@ -1043,7 +1053,7 @@ The content of the response message is similar for all data suppliers regardless
        +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Total amount of batch transactions.</td>
+      <td>Total amount and currency of batch transactions.</td>
     </tr>
     <tr>
       <td>
@@ -1336,6 +1346,19 @@ The content of the response message is similar for all data suppliers regardless
     </tr>
     <tr>
       <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Ntry<br>
+        +++NtryDtls<br>
+        ++++TxDtls<br>
+        +++++RltdDts<br>
+        ++++++AccptncDtTm
+      </td>
+      <td>ISODateTime</td>
+      <td>Date and time of payment.</td>
+    </tr>
+    <tr>
+      <td>
        BkToCstmrAcctRpt<br>
        +Rpt<br>
        ++TxsSummry<br>
@@ -1411,7 +1434,7 @@ The content of the response message is similar for all data suppliers regardless
        +++Amt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Balance amount.</td>
+      <td>Balance amount and currency.</td>
     </tr>
     <tr>
       <td>
@@ -1458,7 +1481,7 @@ Indicator whether account balance includes credit limit. Separately requested ad
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
       
-Available credit limit. Separately requested additional information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
+Available credit limit amount and currency. Separately requested additional information that is returned only if it is requested in the query, see [TransactionFieldCode](#6-3)
       </td>
     </tr>
   </tbody>
