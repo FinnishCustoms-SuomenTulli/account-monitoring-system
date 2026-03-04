@@ -1065,7 +1065,7 @@ The content of the response message is similar for all data suppliers regardless
        +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Indicator whether the transaction is debit or credit.</td>
+      <td>Indicator whether the batch transaction is debit or credit.</td>
     </tr>
     <tr>
       <td>
