@@ -669,8 +669,6 @@ Alla luvussa 7.2 on kuvattu, mitä kenttiä käytetään vastaussanoman alisanom
 
 Kaikki perustiedot tulee luovuttaa, jos ne ovat saatavilla tiedonluovuttajalla. Vain erikseen pyydettävät lisätiedot luovutetaan ainoastaan silloin, kun niitä on erikseen pyydetty kyselysanomassa. 
 
-Jos tilitapahtuman aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa, esimerkiksi 2026-03-12T24:00:00+02:00.
-
 Jos pyydetyllä hakuaikavälillä ei tililtä löydy lainkaan tilitapahtumia, BkToCstmrAcctRpt/Rpt/Ntry-elementtiä ei palauteta vastaussanomassa.
 
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai luovuttaa tiedot tiedonluovutusjärjestelmään. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
@@ -919,7 +917,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Päivämäärä ja kellonaika, jolloin tapahtuma kirjattiin tilille.</td>
+      <td>Päivämäärä ja kellonaika, jolloin tapahtuma kirjattiin tilille. Jos aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa, esimerkiksi 2026-03-12T24:00:00+02:00.</td>
     </tr>
     <tr>
       <td>
@@ -940,7 +938,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Tapahtuman arvopäivä ja kellonaika.</td>
+      <td>Tapahtuman arvopäivä ja kellonaika. Jos aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa, esimerkiksi 2026-03-12T24:00:00+02:00.</td>
     </tr>
     <tr>
       <td>
