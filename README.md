@@ -28,7 +28,7 @@ Sähköposti: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 | Termi    | Selite |
 | -------- | ------- |
 | Pankki- ja maksutilien valvontajärjestelmä | Kansallinen pankki- ja maksutilien valvontajärjestelmä, joka koostuu tilirekisteristä, tiedonhakujärjestelmistä ja 1.11.2022 alkaen koostavasta sovelluksesta, perustuu lakiin pankki- ja maksutilien valvontajärjestelmästä 571/2019 sekä Euroopan parlamentin ja neuvoston direktiiviin (EU) 2018/843, joka on annettu 30 päivänä toukokuuta 2018 rahoitusjärjestelmän käytön estämisestä rahanpesuun tai terrorismin rahoitukseen.|
-| Keskitetty saldo- ja tilitapahtumatietojärjestelmä | Pankki- ja maksutilien valvontajärjestelmästä saatavien saldo- ja tilitapahtumatietojen sekä arvopaperitietojen käsittelytapa, joka perustuu sähköiseen tiedonkäsittelyyn.  |
+| Keskitetty saldo- ja tilitapahtumajärjestelmä | Pankki- ja maksutilien valvontajärjestelmästä saatavien saldo- ja tilitapahtumatietojen sekä arvopaperitietojen käsittelytapa, joka perustuu sähköiseen tiedonkäsittelyyn.  |
 | Pankki- ja maksutilirekisteri/Tilirekisteri | Pankki- ja maksutilirekisteri (tilirekisteri) on Tullin rakentama järjestelmä, joka koostuu Tilirekisterisovelluksesta ja sen päivitys- ja kyselyrajapinnoista. Tilirekisteriin kerätään maksulaitosten ja sähkörahayhteisöjen sekä Finanssivalvonnalta poikkeusluvan saaneiden luottolaitosten pankki- ja maksutilien asiakkaiden tiedot sekä kryptovarapalvelun tarjoajien asiakkaiden tiedot.  |
 | Koostava sovellus | Tullin ylläpitämä automatisoitu tekninen ratkaisu, jonka avulla välitetään pankki- ja maksutilitietoja, tallelokerotietoja, saldo- ja tilitapahtumatietoja ja arvopaperitietoja pankki- ja maksutilien valvontajärjestelmän kautta.    |
 | Tiedonhakujärjestelmä | Tiedonhakujärjestelmä tarkoittaa tiedonluovuttajan ylläpitämää sähköistä pankki- ja maksutilien tiedonhakujärjestelmää, jonka avulla tiedonluovuttaja välittää välittömästi ja salassapitosäännösten estämättä pankki- ja maksutilien valvontajärjestelmästä annetun lain 4 §:n 2 momentissa tarkoitettuja tietoja asiakkaistaan toimivaltaiselle viranomaiselle. Tulli määrää lain mukaan tiedonhakujärjestelmästä tekniset vaatimukset ja jokainen tiedonluovuttaja toteuttaa oman tiedonhakujärjestelmän, eli tiedonhakujärjestelmiä on monta.  |
@@ -367,7 +367,7 @@ Alla luvussa 6.2 on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisan
 
 ### 6.1 Erityyppisten tietojen hakeminen <a name="6-1"></a>
 
-Keskitetystä saldo- ja tilitapahtumatietojärjestelmästä on mahdollista hakea pelkkiä saldotietoja, pelkkiä tilitapahtumatietoja, tai molempia.
+Keskitetystä saldo- ja tilitapahtumajärjestelmästä on mahdollista hakea pelkkiä saldotietoja, pelkkiä tilitapahtumatietoja, tai molempia.
 
 [Esimerkkisanoma](examples/general/example_requesting_only_bal_or_entry_or_both.xml) saldo- ja tilitapahtumatietojen kyselystä.
 
