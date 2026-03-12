@@ -1,5 +1,5 @@
 
-# Keskitetty saldo- ja tilitapahtumatietojärjestelmä
+# Keskitetty saldo- ja tilitapahtumajärjestelmä
 
 Tämä dokumentti on osa pankki- ja maksutilien valvontajärjestelmän dokumentaatiota ja ohjeistaa tiedonluovuttajia sekä tiedonhyödyntäjiä saldo- ja tilitapahtumatietojen välittämiseksi pankki- ja maksutilien valvontajärjestelmässä. Tässä dokumentissa kuvataan vaadittavat edellytykset järjestelmän toteuttamiseksi, saldo- ja tilitapahtumatietojen kulku järjestelmässä sekä saldo- ja tilitapahtumatietojen kysely- ja vastaussanomat.
 
@@ -668,6 +668,8 @@ Alisanomaa fin.fault käyttävät ainoastaan kyselyihin tiedonluovutusjärjestel
 Alla luvussa 7.2 on kuvattu, mitä kenttiä käytetään vastaussanoman alisanomassa camt.052.001.08. Alisanoman [camt.052.001.08](schemas/camt.052.001.08.xsd) skeema. Esimerkkejä [vastaussanomasta](examples/queries_and_responses). 
 
 Kaikki perustiedot tulee luovuttaa, jos ne ovat saatavilla tiedonluovuttajalla. Vain erikseen pyydettävät lisätiedot luovutetaan ainoastaan silloin, kun niitä on erikseen pyydetty kyselysanomassa. 
+
+Jos tilitapahtuman aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa, esimerkiksi 2026-03-12T24:00:00+02:00.
 
 Jos pyydetyllä hakuaikavälillä ei tililtä löydy lainkaan tilitapahtumia, BkToCstmrAcctRpt/Rpt/Ntry-elementtiä ei palauteta vastaussanomassa.
 
