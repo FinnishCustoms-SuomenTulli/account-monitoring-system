@@ -914,7 +914,7 @@ The content of the response message is similar for all data suppliers regardless
        ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Booking date and time of the transaction to the account.</td>
+      <td>Booking date and time of the transaction to the account. If the data supplier has this information as a date without exact time of day, the time of day is reported as 24.00 Finnish time on the date, for example 2026-03-12T24:00:00+02:00.</td>
     </tr>
     <tr>
       <td>
@@ -934,7 +934,7 @@ The content of the response message is similar for all data suppliers regardless
        +++ValDt<br>
        ++++DtTm</td>
       <td>ISODateTime</td>
-      <td>Value date and time of the transaction.</td>
+      <td>Value date and time of the transaction. If the data supplier has this information as a date without exact time of day, the time of day is reported as 24.00 Finnish time on the date, for example 2026-03-12T24:00:00+02:00.</td>
     </tr>
     <tr>
       <td>
