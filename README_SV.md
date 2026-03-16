@@ -941,7 +941,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++ValDt<br>
         ++++DtTm</td>
       <td>ISODateTime</td>
-      <td>Transaktionens valutadag och tid.</td>
+      <td>Transaktionens valutadag och tid. Om uppgiftslämnaren har informationen bara som datum utan klockslag, meddelas tiden som 24.00 finsk tid på dagen, till exempel 2026-03-12T24:00:00+02:00.</td>
     </tr>
     <tr>
       <td>
