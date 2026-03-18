@@ -671,6 +671,10 @@ Kaikki perustiedot tulee luovuttaa, jos ne ovat saatavilla tiedonluovuttajalla. 
 
 Jos pyydetyllä hakuaikavälillä ei tililtä löydy lainkaan tilitapahtumia, BkToCstmrAcctRpt/Rpt/Ntry-elementtiä ei palauteta vastaussanomassa.
 
+Jos viranomaisen tilitapahtumakyselyn pyydetty aikaväli sisältää kuluvan päivän, palautetaan vastauksessa tilitapahtumatiedot kyselyn luontihetkeen asti (kyselysanoman Business Application Headerin CreDt-kenttä). 
+
+Pelkkään saldokyselyyn palautetaan vastaushetken mukaiset ajantasaiset saldotiedot.
+
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai luovuttaa tiedot tiedonluovutusjärjestelmään. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
 ### 7.2 Alisanoman camt.052.001.08 sisältö <a name="7-2"></a>
