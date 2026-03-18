@@ -671,7 +671,7 @@ Kaikki perustiedot tulee luovuttaa, jos ne ovat saatavilla tiedonluovuttajalla. 
 
 Jos pyydetyllä hakuaikavälillä ei tililtä löydy lainkaan tilitapahtumia, BkToCstmrAcctRpt/Rpt/Ntry-elementtiä ei palauteta vastaussanomassa.
 
-Jos viranomaisen tilitapahtumakyselyn pyydetty aikaväli sisältää kuluvan päivän, palautetaan vastauksessa tilitapahtumatiedot kyselyn luontihetkeen asti (kyselysanoman Business Application Headerin CreDt-kenttä). 
+Jos tilitapahtumakyselyn pyydetty aikaväli sisältää kuluvan päivän, palautetaan vastauksessa tilitapahtumatiedot kyselyn luontihetkeen asti (kyselysanoman AppHdr/CreDt-kentän aikaleima). 
 
 Pelkkään saldokyselyyn palautetaan vastaushetken mukaiset ajantasaiset saldotiedot.
 
