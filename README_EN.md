@@ -669,6 +669,10 @@ All basic information must be included in the response if the data supplier has 
 
 If no account transactions during the investigation period are found from the account, BkToCstmrAcctRpt/Rpt/Ntry element is not returned in the response message.
 
+If the investigation period of the account transaction query includes the current day, account transactions up to the time of the query (AppHdr/CreDt field of the query message) are returned in the response.
+
+When only account balance information is requested, the up to date balance information of the response moment is returned.
+
 The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or use the data disclosure system to disclose information. Only the method for delivering the response message is different.
 
 ### 7.2 Content of submessage camt.052.001.08 <a name="7-2"></a>
