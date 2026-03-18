@@ -676,6 +676,10 @@ Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har inf
 
 Om det hittas inga kontotransaktioner från sökta kontot inom sökintervallet, BkToCstmrAcctRpt/Rpt/Ntry elementet returneras inte i svarsmeddelandet.
 
+Om sökinternallet i förfrågan om kontotransaktioner inkluderar innevarande dag, returneras kontotransaktioner till och med frågetiden (frågemeddelandets AppHdr/CreDt tidsstämpel) i svarsmeddelandet. 
+
+När förfrågan är om enbart saldouppgifter, returneras uppdaterad saldouppgifter från svarstid.
+
 Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller utlämnar information via system för utlämnande av uppgifter. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
 ### 7.2 Undermeddelandets camt.052.001.08 innehåll <a name="7-2"></a>
