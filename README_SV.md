@@ -676,7 +676,7 @@ Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har inf
 
 Om det hittas inga kontotransaktioner från sökta kontot inom sökintervallet, BkToCstmrAcctRpt/Rpt/Ntry elementet returneras inte i svarsmeddelandet.
 
-Om sökinternallet i förfrågan om kontotransaktioner inkluderar innevarande dag, returneras kontotransaktioner till och med frågetiden (frågemeddelandets AppHdr/CreDt tidsstämpel) i svarsmeddelandet. 
+Om sökintervallet i förfrågan om kontotransaktioner inkluderar innevarande dag, returneras kontotransaktioner till och med frågetiden (frågemeddelandets AppHdr/CreDt tidsstämpel) i svarsmeddelandet. 
 
 När förfrågan är om enbart saldouppgifter, returneras uppdaterad saldouppgifter från svarstid.
 
