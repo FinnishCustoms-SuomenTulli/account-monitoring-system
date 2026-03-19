@@ -1026,8 +1026,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>Max35Text</td>
       <td>
-        
-        [Koontitapahtuman](#7-3) tunniste.
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> tunniste.
       </td>
     </tr>
     <tr>
@@ -1040,7 +1039,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++PmtInfId
       </td>
       <td>Max35Text</td>
-      <td>[Koontitapahtuman](#7-3) maksutiedon tunniste.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> maksutiedon tunniste.
+      </td>
     </tr>
     <tr>
       <td>
@@ -1052,7 +1053,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++NbOfTxs
       </td>
       <td>Max15NumericText</td>
-      <td>[Koontitapahtumien](#7-3) lukumäärä.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtumien</a> lukumäärä.
+      </td>
     </tr>
     <tr>
       <td>
@@ -1064,7 +1067,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>[Koontitapahtumien](#7-3) kokonaissumma ja valuutta.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtumien</a> kokonaissumma ja valuutta.
+        </td>
     </tr>
     <tr>
       <td>
@@ -1076,7 +1081,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Ilmaisee, onko [koontitapahtuma](#7-3) kredit tai debit.</td>
+      <td>
+        Ilmaisee, onko <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">koontitapahtuma</a> kredit tai debit.
+      </td>
     </tr>
     <tr>
       <td>
