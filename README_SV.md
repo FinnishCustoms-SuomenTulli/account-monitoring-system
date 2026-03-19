@@ -678,7 +678,7 @@ Om det hittas inga kontotransaktioner från sökta kontot inom sökintervallet, 
 
 Om sökintervallet i förfrågan om kontotransaktioner inkluderar innevarande dag, returneras kontotransaktioner till och med frågetiden (frågemeddelandets AppHdr/CreDt tidsstämpel) i svarsmeddelandet. 
 
-När förfrågan är om enbart saldouppgifter, returneras uppdaterad saldouppgifter från svarstid.
+När förfrågan endast gäller saldouppgiften, returneras den aktuella saldo vid tidpunkten för svar.
 
 Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller utlämnar information via system för utlämnande av uppgifter. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
