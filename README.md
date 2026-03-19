@@ -1025,7 +1025,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++MsgId
       </td>
       <td>Max35Text</td>
-      <td>Koontitapahtuman tunniste.</td>
+      <td>[Koontitapahtuman](#7-3) tunniste.</td>
     </tr>
     <tr>
       <td>
@@ -1037,7 +1037,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++PmtInfId
       </td>
       <td>Max35Text</td>
-      <td>Maksutiedon tunniste.</td>
+      <td>[Koontitapahtuman](#7-3) maksutiedon tunniste.</td>
     </tr>
     <tr>
       <td>
@@ -1049,7 +1049,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++NbOfTxs
       </td>
       <td>Max15NumericText</td>
-      <td>Koontitapahtumien lukumäärä.</td>
+      <td>[Koontitapahtumien](#7-3) lukumäärä.</td>
     </tr>
     <tr>
       <td>
@@ -1061,7 +1061,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Koontitapahtumien kokonaissumma ja valuutta.</td>
+      <td>[Koontitapahtumien](#7-3) kokonaissumma ja valuutta.</td>
     </tr>
     <tr>
       <td>
@@ -1073,7 +1073,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Ilmaisee, onko koontitapahtuma kredit tai debit.</td>
+      <td>Ilmaisee, onko [koontitapahtuma](#7-3) kredit tai debit.</td>
     </tr>
     <tr>
       <td>
