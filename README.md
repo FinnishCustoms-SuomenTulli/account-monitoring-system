@@ -1025,7 +1025,10 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++MsgId
       </td>
       <td>Max35Text</td>
-      <td>[Koontitapahtuman](#7-3) tunniste.</td>
+      <td>
+        
+        [Koontitapahtuman](#7-3) tunniste.
+      </td>
     </tr>
     <tr>
       <td>
