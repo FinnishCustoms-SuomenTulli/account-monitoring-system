@@ -1026,7 +1026,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>Max35Text</td>
       <td>
-        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> tunniste.
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> tunniste. 
       </td>
     </tr>
     <tr>
@@ -1040,7 +1040,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>Max35Text</td>
       <td>
-        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> maksutiedon tunniste.
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> maksutiedon tunniste. 
       </td>
     </tr>
     <tr>
@@ -1054,7 +1054,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>Max15NumericText</td>
       <td>
-        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtumien</a> lukumäärä.
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtumien</a> lukumäärä. 
       </td>
     </tr>
     <tr>
@@ -1068,7 +1068,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
-        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtumien</a> kokonaissumma ja valuutta.
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtumien</a> kokonaissumma ja valuutta. 
         </td>
     </tr>
     <tr>
@@ -1082,7 +1082,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>CreditDebitCode</td>
       <td>
-        Ilmaisee, onko <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">koontitapahtuma</a> kredit tai debit.
+        Ilmaisee, onko <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">koontitapahtuma</a> kredit tai debit. 
       </td>
     </tr>
     <tr>
