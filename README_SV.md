@@ -15,7 +15,7 @@ Uppgiftslämnare, dvs. kreditinstitut, betalningsinstitut, institut för elektro
 [4. Informationsflöde i förfrågan om saldo och kontotransaktioner](#luku4)  
 [5. Business Application Header](#luku5)  
 [6. Frågemeddelande](#luku6)  
-[7. Svarsmeddelandea](#luku7)  
+[7. Svarsmeddelande](#luku7)  
 [8. Felsituationer](#luku8)  
 [9. Kodlista](#luku9)   
 
