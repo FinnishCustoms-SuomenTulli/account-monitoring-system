@@ -1472,6 +1472,9 @@ Käytettävissä olevan luottorajan määrä ja valuutta. Erikseen pyydettävä 
   </tbody>
 </table>
 
+### 7.3 Koontitapahtumat <a name="7-3"></a>
+
+Jos tilitapahtuma on koontitapahtuma, tiedonluovuttaja palauttaa koontitapahtuman tiedot Ntry/NtryDtls/Btch-elementissä. Jokainen yksittäinen koontitapahtumaan kuuluva tilitapahtuma palautetaan omassa Ntry/NtryDtls/TxDtls-elementissään.
 
 ## 8. Virhetilanteet <a name="luku8"></a>
 
