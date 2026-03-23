@@ -1041,7 +1041,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++PmtInfId
       </td>
       <td>Max35Text</td>
-      <td>Betalningsuppgiftens identifierare.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">Samlingstransaktionens</a> betalningsuppgiftens identifierare. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1053,7 +1055,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++NbOfTxs
       </td>
       <td>Max15NumericText</td>
-      <td>Antal samlingstransaktioner.</td>
+      <td>
+        Antal <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktioner</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1065,7 +1069,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Total summa och valuta för samlingstransaktioner.</td>
+      <td>
+        Total summa och valuta för <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktioner</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1077,7 +1083,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Anger om samlingstransaktionen är kredit eller debit.</td>
+      <td>
+        Anger om <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktionen</a> är kredit eller debit. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1489,7 +1497,7 @@ Tillgängliga kreditgränsens belopp och valuta. Ytterligare information som ska
 
 ### 7.3 Samlingstransaktioner <a name="7-3"></a>
 
-Jos tilitapahtuma on koontitapahtuma, tiedonluovuttaja palauttaa koontitapahtuman tiedot Ntry/NtryDtls/Btch-elementissä. Jokainen yksittäinen koontitapahtumaan kuuluva tilitapahtuma palautetaan omassa Ntry/NtryDtls/TxDtls-elementissään.
+Om kontotransaktion är en samlingstransaktion, returnerar uppgiftslämnaren samlingstransaktionens information i Ntry/NtryDtls/Btch-elementet. Varje enskild kontotransaktion som tillhör till samlingstransaktion ska returneras i sitt eget Ntry/NtryDtls/TxDtls-elementet. 
 
 ## 8. Felsituationer <a name="luku8"></a>
 
