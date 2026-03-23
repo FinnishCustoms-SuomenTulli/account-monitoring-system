@@ -948,7 +948,7 @@ The content of the response message is similar for all data suppliers regardless
        +++AcctSvcrRef
       </td>
       <td>Max35Text</td>
-      <td>Account servicer reference.</td>
+      <td>Account servicer reference (reference number).</td>
     </tr>
     <tr>
       <td>
@@ -1490,6 +1490,10 @@ Available credit limit amount and currency. Separately requested additional info
     </tr>
   </tbody>
 </table>
+
+### 7.3 Batch transactions <a name="7-3"></a>
+
+If an account transaction is a batch transaction, data supplier returns the batch transaction's information in Ntry/NtryDtls/Btch element. Each individual account transaction that belongs to the batch transaction is returned in its own Ntry/NtryDtls/TxDtls element.
 
 ## 8. Error situations <a name="luku8"></a>
 
