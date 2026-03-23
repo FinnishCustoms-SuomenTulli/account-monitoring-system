@@ -1027,7 +1027,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++MsgId
       </td>
       <td>Max35Text</td>
-      <td>Samlingstransaktionens identifierare.</td>
+      <td> 
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">Samlingstransaktionens</a> identifierare. 
+      </td>
     </tr>
     <tr>
       <td>
