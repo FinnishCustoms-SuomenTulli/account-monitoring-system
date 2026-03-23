@@ -950,11 +950,12 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
     <tr>
       <td>
         BkToCstmrAcctRpt<br>
-        +Rpt<br>++Ntry<br>
+        +Rpt<br>
+        ++Ntry<br>
         +++AcctSvcrRef
       </td>
       <td>Max35Text</td>
-      <td>Den referens som tillhandahålls av institutionen som förvaltar kontot.</td>
+      <td>Den referens som tillhandahålls av institutionen som förvaltar kontot (arkivsignum).</td>
     </tr>
     <tr>
       <td>
@@ -1484,6 +1485,9 @@ Tillgängliga kreditgränsens belopp och valuta. Ytterligare information som ska
   </tbody>
 </table>
 
+### 7.3 Samlingstransaktioner <a name="7-3"></a>
+
+Jos tilitapahtuma on koontitapahtuma, tiedonluovuttaja palauttaa koontitapahtuman tiedot Ntry/NtryDtls/Btch-elementissä. Jokainen yksittäinen koontitapahtumaan kuuluva tilitapahtuma palautetaan omassa Ntry/NtryDtls/TxDtls-elementissään.
 
 ## 8. Felsituationer <a name="luku8"></a>
 
