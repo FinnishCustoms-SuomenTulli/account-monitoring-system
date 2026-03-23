@@ -1021,7 +1021,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++MsgId
       </td>
       <td>Max35Text</td>
-      <td>Identification of the batch transaction.</td>
+      <td>
+       Identification of the <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transaction</a>.  
+      </td>
     </tr>
     <tr>
       <td>
@@ -1033,7 +1035,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++PmtInfId
       </td>
       <td>Max35Text</td>
-      <td>Identification of the payment information.</td>
+      <td>
+       Identification of the payment information of the <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transaction</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1045,7 +1049,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++NbOfTxs
       </td>
       <td>Max15NumericText</td>
-      <td>Number of batch transactions.</td>
+      <td>
+       Number of <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transactions</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1057,7 +1063,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Total amount and currency of batch transactions.</td>
+      <td>
+       Total amount and currency of <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transactions</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1069,7 +1077,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Indicator whether the batch transaction is debit or credit.</td>
+      <td>
+       Indicator whether the <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transaction</a> is debit or credit. 
+      </td>
     </tr>
     <tr>
       <td>
