@@ -592,8 +592,7 @@ Används när kontot som söks har ett kontonummer i IBAN-format.
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
-        ++++++RequestedDataSources
+        +++++RequestedDataSources
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
@@ -606,8 +605,7 @@ Används när kontot som söks har ett kontonummer i IBAN-format.
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
-        ++++++InvestigationType
+        +++++InvestigationType
       </td>
       <td >0..2</td>
       <td >InvestigationTypeCode</td>
