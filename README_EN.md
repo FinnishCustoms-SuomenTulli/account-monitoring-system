@@ -588,7 +588,6 @@ When requesting both account balance and transaction information the investigati
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
         ++++++RequestedDataSources
       </td>
       <td >0..*</td>
@@ -602,7 +601,6 @@ When requesting both account balance and transaction information the investigati
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
         ++++++InvestigationType
       </td>
       <td >0..2</td>
