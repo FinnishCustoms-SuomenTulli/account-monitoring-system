@@ -589,7 +589,6 @@ Saldo- ja tilitaphtumatietoja kyselt채ess채 sanomaan sis채llytet채채n erillisin�
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
         ++++++RequestedDataSources
       </td>
       <td >0..*</td>
@@ -603,7 +602,6 @@ Saldo- ja tilitaphtumatietoja kyselt채ess채 sanomaan sis채llytet채채n erillisin�
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
         ++++++InvestigationType
       </td>
       <td >0..2</td>
