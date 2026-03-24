@@ -49,6 +49,7 @@
                                     <urn3:AuthorityInquiry>
                                         <urn3:OfficialId>Viranomaisen nimi</urn3:OfficialId>
                                         <urn3:OfficialSuperiorId>Esimiehen nimi</urn3:OfficialSuperiorId>
+                                        <urn3:OfficialOrgId>Viranomaisen organisaatio</urn3:OfficialOrgId>
                                     </urn3:AuthorityInquiry>
                                     <urn3:RequestedDataSources>
                                         <urn3:DataSourceOrgId>0788060-2</urn3:DataSourceOrgId>
