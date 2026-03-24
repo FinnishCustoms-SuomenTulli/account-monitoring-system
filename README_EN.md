@@ -588,7 +588,7 @@ When requesting both account balance and transaction information the investigati
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        ++++++RequestedDataSources
+        +++++RequestedDataSources
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
@@ -601,7 +601,7 @@ When requesting both account balance and transaction information the investigati
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        ++++++InvestigationType
+        +++++InvestigationType
       </td>
       <td >0..2</td>
       <td >InvestigationTypeCode</td>
