@@ -589,7 +589,7 @@ Saldo- ja tilitaphtumatietoja kyselt채ess채 sanomaan sis채llytet채채n erillisin�
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        ++++++RequestedDataSources
+        +++++RequestedDataSources
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
@@ -602,7 +602,7 @@ Saldo- ja tilitaphtumatietoja kyselt채ess채 sanomaan sis채llytet채채n erillisin�
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        ++++++InvestigationType
+        +++++InvestigationType
       </td>
       <td >0..2</td>
       <td >InvestigationTypeCode</td>
