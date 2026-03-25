@@ -596,7 +596,7 @@ Används när kontot som söks har ett kontonummer i IBAN-format.
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
-      <td >Uppgiftslämnare till vilken förfrågan tilldelats (FO-nummer)</td>
+      <td >Uppgiftslämnare till vilken förfrågan tilldelats (FO-nummer). Fältet skickas inte till uppgiftslämnaren.</td>
     </tr>
     <tr>
       <td >
@@ -923,7 +923,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Datum och tid då transaktionen bokfördes på kontot. Om uppgiftslämnaren har informationen bara som datum utan klockslag, meddelas tiden som 24.00 finsk tid på dagen, till exempel 2026-03-12T24:00:00+02:00.</td>
+      <td>Datum och tid då transaktionen bokfördes på kontot. Om uppgiftslämnaren har informationen bara som datum utan klockslag, meddelas tiden som 24.00 finsk tid på dagen i UTC tidszon, till exempel 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
@@ -943,7 +943,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++ValDt<br>
         ++++DtTm</td>
       <td>ISODateTime</td>
-      <td>Transaktionens valutadag och tid. Om uppgiftslämnaren har informationen bara som datum utan klockslag, meddelas tiden som 24.00 finsk tid på dagen, till exempel 2026-03-12T24:00:00+02:00.</td>
+      <td>Transaktionens valutadag och tid. Om uppgiftslämnaren har informationen bara som datum utan klockslag, meddelas tiden som 24.00 finsk tid på dagen is UTC tidszon, till exempel 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
