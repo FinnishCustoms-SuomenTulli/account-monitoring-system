@@ -593,7 +593,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
-      <td >Tiedonluovuttaja, jolle kysely on osoitettu (Y-tunnus)</td>
+      <td >Tiedonluovuttaja, jolle kysely on osoitettu (Y-tunnus). Kenttää ei välitetä tiedonluovuttajalle.</td>
     </tr>
     <tr>
       <td >
@@ -919,7 +919,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Päivämäärä ja kellonaika, jolloin tapahtuma kirjattiin tilille. Jos aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa, esimerkiksi 2026-03-12T24:00:00+02:00.</td>
+      <td>Päivämäärä ja kellonaika, jolloin tapahtuma kirjattiin tilille. Jos aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa UTC-aikavyöhykkeessä, esimerkiksi 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
@@ -940,7 +940,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Tapahtuman arvopäivä ja kellonaika. Jos aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa, esimerkiksi 2026-03-12T24:00:00+02:00.</td>
+      <td>Tapahtuman arvopäivä ja kellonaika. Jos aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa UTC-aikavyöhykkeessä, esimerkiksi 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
