@@ -592,7 +592,7 @@ When requesting both account balance and transaction information the investigati
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
-      <td >Data supplier to whom the request is directed (Business ID)</td>
+      <td >Data supplier to whom the request is directed (Business ID). The field is not forwarded to the data supplier.</td>
     </tr>
     <tr>
       <td >
@@ -936,7 +936,7 @@ The content of the response message is similar for all data suppliers regardless
        +++ValDt<br>
        ++++DtTm</td>
       <td>ISODateTime</td>
-      <td>Value date and time of the transaction. If the data supplier has this information as a date without exact time of day, the time of day is reported as 24.00 Finnish time on the date, for example 2026-03-12T24:00:00+02:00.</td>
+      <td>Value date and time of the transaction. If the data supplier has this information as a date without exact time of day, the time of day is reported as 24.00 Finnish time on the date in UTC time zone, for example 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
