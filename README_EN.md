@@ -916,7 +916,7 @@ The content of the response message is similar for all data suppliers regardless
        ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Booking date and time of the transaction to the account. If the data supplier has this information as a date without exact time of day, the time of day is reported as 24.00 Finnish time on the date, for example 2026-03-12T24:00:00+02:00.</td>
+      <td>Booking date and time of the transaction to the account. If the data supplier has this information as a date without exact time of day, the time of day is reported as 24.00 Finnish time on the date in UTC time zone, for example 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
