@@ -588,12 +588,11 @@ When requesting both account balance and transaction information the investigati
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
-        ++++++RequestedDataSources
+        +++++RequestedDataSources
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
-      <td >Data supplier to whom the request is directed (Business ID)</td>
+      <td >Data supplier to whom the request is directed (Business ID). The field is not forwarded to the data supplier.</td>
     </tr>
     <tr>
       <td >
@@ -602,8 +601,7 @@ When requesting both account balance and transaction information the investigati
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
-        ++++++InvestigationType
+        +++++InvestigationType
       </td>
       <td >0..2</td>
       <td >InvestigationTypeCode</td>
@@ -668,6 +666,10 @@ The fields used in the response message's submessage camt.52.001.08 are describe
 All basic information must be included in the response if the data supplier has the information. Only separately requested additional information is not disclosed unless it is specifically requested in the query message.
 
 If no account transactions during the investigation period are found from the account, BkToCstmrAcctRpt/Rpt/Ntry element is not returned in the response message.
+
+If the investigation period of the account transaction query includes the current day, account transactions up to the time of the query (AppHdr/CreDt field of the query message) are returned in the response.
+
+When only account balance information is requested, the up to date balance information of the response moment is returned.
 
 The content of the response message is similar for all data suppliers regardless of whether they have implemented a data retrieval system or use the data disclosure system to disclose information. Only the method for delivering the response message is different.
 
@@ -914,7 +916,7 @@ The content of the response message is similar for all data suppliers regardless
        ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Booking date and time of the transaction to the account.</td>
+      <td>Booking date and time of the transaction to the account. If the data supplier has this information as a date without exact time of day, the time of day is reported as 24.00 Finnish time on the date in UTC time zone, for example 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
@@ -934,7 +936,7 @@ The content of the response message is similar for all data suppliers regardless
        +++ValDt<br>
        ++++DtTm</td>
       <td>ISODateTime</td>
-      <td>Value date and time of the transaction.</td>
+      <td>Value date and time of the transaction. If the data supplier has this information as a date without exact time of day, the time of day is reported as 24.00 Finnish time on the date in UTC time zone, for example 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
@@ -944,7 +946,7 @@ The content of the response message is similar for all data suppliers regardless
        +++AcctSvcrRef
       </td>
       <td>Max35Text</td>
-      <td>Account servicer reference.</td>
+      <td>Account servicer reference (reference number).</td>
     </tr>
     <tr>
       <td>
@@ -1017,7 +1019,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++MsgId
       </td>
       <td>Max35Text</td>
-      <td>Identification of the batch transaction.</td>
+      <td>
+       Identification of the <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transaction</a>.  
+      </td>
     </tr>
     <tr>
       <td>
@@ -1029,7 +1033,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++PmtInfId
       </td>
       <td>Max35Text</td>
-      <td>Identification of the payment information.</td>
+      <td>
+       Identification of the payment information of the <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transaction</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1041,7 +1047,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++NbOfTxs
       </td>
       <td>Max15NumericText</td>
-      <td>Number of batch transactions.</td>
+      <td>
+       Number of <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transactions</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1053,7 +1061,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Total amount and currency of batch transactions.</td>
+      <td>
+       Total amount and currency of <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transactions</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1065,7 +1075,9 @@ The content of the response message is similar for all data suppliers regardless
        +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Indicator whether the batch transaction is debit or credit.</td>
+      <td>
+       Indicator whether the <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_EN.md#73-batch-transactions-">batch transaction</a> is debit or credit. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1486,6 +1498,10 @@ Available credit limit amount and currency. Separately requested additional info
     </tr>
   </tbody>
 </table>
+
+### 7.3 Batch transactions <a name="7-3"></a>
+
+If an account transaction is a batch transaction, data supplier returns the batch transaction's information in Ntry/NtryDtls/Btch element. Each individual account transaction that belongs to the batch transaction is returned in its own Ntry/NtryDtls/TxDtls element.
 
 ## 8. Error situations <a name="luku8"></a>
 

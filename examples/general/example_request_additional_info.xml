@@ -1,59 +1,58 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:fi:tulli:wsdl_root.002" xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:urn2="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:urn3="urn:fin.012.001.03">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:root="urn:fi:tulli:wsdl_root.002" xmlns:head001="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:auth001="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:fin012="urn:fin.012.001.04">
     <soapenv:Body>
-        <urn:ApplicationRequest id="applicationRequest">
-            <urn1:AppHdr>
-            ...  
-            </urn1:AppHdr>
-            <urn2:Document>
-                <urn2:InfReqOpng>
-                    <urn2:InvstgtnId>ABC1234</urn2:InvstgtnId>
-                    <urn2:LglMndtBsis>
-                        <urn2:Prgrph>testi</urn2:Prgrph>
-                    </urn2:LglMndtBsis>
-                    <urn2:CnfdtltySts>true</urn2:CnfdtltySts>
-                    <urn2:InvstgtnPrd>
-                        <urn2:Dt>
-                            <urn2:FrDt>2020-09-01</urn2:FrDt>
-                            <urn2:ToDt>2024-08-08</urn2:ToDt>
-                        </urn2:Dt>
-                    </urn2:InvstgtnPrd>
-                    <urn2:SchCrit>
-                        <urn2:Acct>
-                            <urn2:Id>
-                                <urn2:Id>
-                                    <urn2:IBAN>FI2933891360008653</urn2:IBAN>
-                                </urn2:Id>
-                            </urn2:Id>
-                            <urn2:InvstgtdPties>
-                                <urn2:Cd>ALLP</urn2:Cd>
-                            </urn2:InvstgtdPties>
-                            <urn2:AuthrtyReqTp>
-                                <urn2:MsgNmId>camt.052.001.08</urn2:MsgNmId>
-                            </urn2:AuthrtyReqTp>
-                        </urn2:Acct>
-                    </urn2:SchCrit>
-                    <urn2:SplmtryData>
-                        <urn2:Envlp>
-                            <urn3:Document>
-                                <urn3:InfReqFin012>
-                                    <urn3:RequestedDataSources>
-                                        <urn3:DataSourceOrgId>0788060-2</urn3:DataSourceOrgId>
-                                    </urn3:RequestedDataSources>
-                                    <urn3:InvestigationType>
-                                        <urn3:InvestigationTypeCode>BALN</urn3:InvestigationTypeCode>
-                                        <urn3:InvestigationTypeCode>TRAN</urn3:InvestigationTypeCode>
-                                    </urn3:InvestigationType>
-                                    <urn3:AdditionalTransactionInformation>
-                                        <urn3:TransactionFieldCode>BAL_CDTLINE_INCL</urn3:TransactionFieldCode>
-                                        <urn3:TransactionFieldCode>BAL_CDTLINE_AMT</urn3:TransactionFieldCode>
-                                    </urn3:AdditionalTransactionInformation>
-                                </urn3:InfReqFin012>
-                            </urn3:Document>
-                        </urn2:Envlp>
-                    </urn2:SplmtryData>
-                </urn2:InfReqOpng>
-            </urn2:Document>
-        </urn:ApplicationRequest>
+        <root:ApplicationRequest id="applicationRequest">
+            <head001:AppHdr>Include application header details..</head001:AppHdr>
+            <auth001:Document>
+                <auth001:InfReqOpng>
+                    <auth001:InvstgtnId>ABC1234</auth001:InvstgtnId>
+                    <auth001:LglMndtBsis>
+                        <auth001:Prgrph>testi</auth001:Prgrph>
+                    </auth001:LglMndtBsis>
+                    <auth001:CnfdtltySts>true</auth001:CnfdtltySts>
+                    <auth001:InvstgtnPrd>
+                        <auth001:Dt>
+                            <auth001:FrDt>2020-09-01</auth001:FrDt>
+                            <auth001:ToDt>2024-08-08</auth001:ToDt>
+                        </auth001:Dt>
+                    </auth001:InvstgtnPrd>
+                    <auth001:SchCrit>
+                        <auth001:Acct>
+                            <auth001:Id>
+                                <auth001:Id>
+                                    <auth001:IBAN>FI2933891360008653</auth001:IBAN>
+                                </auth001:Id>
+                            </auth001:Id>
+                            <auth001:InvstgtdPties>
+                                <auth001:Cd>ALLP</auth001:Cd>
+                            </auth001:InvstgtdPties>
+                            <auth001:AuthrtyReqTp>
+                                <auth001:MsgNmId>camt.052.001.08</auth001:MsgNmId>
+                            </auth001:AuthrtyReqTp>
+                        </auth001:Acct>
+                    </auth001:SchCrit>
+                    <auth001:SplmtryData>
+                        <auth001:Envlp>
+                            <fin012:Document>
+                                <fin012:InfReqFin012>
+                                    <fin012:AuthorityInquiry>
+                                        <fin012:officialId>Kyselevän viranomaisen tunniste</fin012:officialId>
+                                        <fin012:officialSuperiorId>Kyselyn hyväksyjän tunniste</fin012:officialSuperiorId>
+                                        <fin012:officialOrgId>Kyselevän viranomaisen organisaation tunniste</fin012:officialOrgId>
+                                    </fin012:AuthorityInquiry>
+                                    <fin012:InvestigationType>
+                                        <fin012:InvestigationTypeCode>BALN</fin012:InvestigationTypeCode>
+                                        <fin012:InvestigationTypeCode>TRAN</fin012:InvestigationTypeCode>
+                                    </fin012:InvestigationType>
+                                    <fin012:AdditionalTransactionInformation>
+                                        <fin012:TransactionFieldCode>BAL_CDTLINE_INCL</fin012:TransactionFieldCode>
+                                        <fin012:TransactionFieldCode>BAL_CDTLINE_AMT</fin012:TransactionFieldCode>
+                                    </fin012:AdditionalTransactionInformation>
+                                </fin012:InfReqFin012>
+                            </fin012:Document>
+                        </auth001:Envlp>
+                    </auth001:SplmtryData>
+                </auth001:InfReqOpng>
+            </auth001:Document>
+        </root:ApplicationRequest>
     </soapenv:Body>
-
 </soapenv:Envelope>

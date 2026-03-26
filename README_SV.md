@@ -15,7 +15,7 @@ Uppgiftslämnare, dvs. kreditinstitut, betalningsinstitut, institut för elektro
 [4. Informationsflöde i förfrågan om saldo och kontotransaktioner](#luku4)  
 [5. Business Application Header](#luku5)  
 [6. Frågemeddelande](#luku6)  
-[7. Svarsmeddelandea](#luku7)  
+[7. Svarsmeddelande](#luku7)  
 [8. Felsituationer](#luku8)  
 [9. Kodlista](#luku9)   
 
@@ -592,12 +592,11 @@ Används när kontot som söks har ett kontonummer i IBAN-format.
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
-        ++++++RequestedDataSources
+        +++++RequestedDataSources
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
-      <td >Uppgiftslämnare till vilken förfrågan tilldelats (FO-nummer)</td>
+      <td >Uppgiftslämnare till vilken förfrågan tilldelats (FO-nummer). Fältet skickas inte till uppgiftslämnaren.</td>
     </tr>
     <tr>
       <td >
@@ -606,8 +605,7 @@ Används när kontot som söks har ett kontonummer i IBAN-format.
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
-        ++++++InvestigationType
+        +++++InvestigationType
       </td>
       <td >0..2</td>
       <td >InvestigationTypeCode</td>
@@ -675,6 +673,10 @@ I kapitel 7.2 nedan beskrivs vilka fält som används i svarsmeddelandets underm
 Alla grundläggande informationer måste lämnas ut om uppgiftslämnaren har informationer. Bara ytterligare information som begärs separat får inte lämnas ut om det inte har begärts speciellt i frågemeddelandet.
 
 Om det hittas inga kontotransaktioner från sökta kontot inom sökintervallet, BkToCstmrAcctRpt/Rpt/Ntry elementet returneras inte i svarsmeddelandet.
+
+Om sökintervallet i förfrågan om kontotransaktioner inkluderar innevarande dag, returneras kontotransaktioner till och med frågetiden (frågemeddelandets AppHdr/CreDt tidsstämpel) i svarsmeddelandet. 
+
+När förfrågan endast gäller saldouppgiften, returneras den aktuella saldo vid tidpunkten för svar.
 
 Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett om uppgiftslämnaren har implementerat ett datasöksystem eller utlämnar information via system för utlämnande av uppgifter. Endast leveranssätten för svarsmeddelandet skiljer sig åt.
 
@@ -921,7 +923,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Datum och tid då transaktionen bokfördes på kontot.</td>
+      <td>Datum och tid då transaktionen bokfördes på kontot. Om uppgiftslämnaren har informationen bara som datum utan klockslag, meddelas tiden som 24.00 finsk tid på dagen i UTC tidszon, till exempel 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
@@ -941,16 +943,17 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++ValDt<br>
         ++++DtTm</td>
       <td>ISODateTime</td>
-      <td>Transaktionens valutadag och tid.</td>
+      <td>Transaktionens valutadag och tid. Om uppgiftslämnaren har informationen bara som datum utan klockslag, meddelas tiden som 24.00 finsk tid på dagen is UTC tidszon, till exempel 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
         BkToCstmrAcctRpt<br>
-        +Rpt<br>++Ntry<br>
+        +Rpt<br>
+        ++Ntry<br>
         +++AcctSvcrRef
       </td>
       <td>Max35Text</td>
-      <td>Den referens som tillhandahålls av institutionen som förvaltar kontot.</td>
+      <td>Den referens som tillhandahålls av institutionen som förvaltar kontot (arkivsignum).</td>
     </tr>
     <tr>
       <td>
@@ -1022,7 +1025,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++MsgId
       </td>
       <td>Max35Text</td>
-      <td>Samlingstransaktionens identifierare.</td>
+      <td> 
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">Samlingstransaktionens</a> identifierare. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1034,7 +1039,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++PmtInfId
       </td>
       <td>Max35Text</td>
-      <td>Betalningsuppgiftens identifierare.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">Samlingstransaktionens</a> betalningsuppgiftens identifierare. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1046,7 +1053,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++NbOfTxs
       </td>
       <td>Max15NumericText</td>
-      <td>Antal samlingstransaktioner.</td>
+      <td>
+        Antal <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktioner</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1058,7 +1067,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Total summa och valuta för samlingstransaktioner.</td>
+      <td>
+        Total summa och valuta för <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktioner</a>. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1070,7 +1081,9 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Anger om samlingstransaktionen är kredit eller debit.</td>
+      <td>
+        Anger om <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktionen</a> är kredit eller debit. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1480,6 +1493,9 @@ Tillgängliga kreditgränsens belopp och valuta. Ytterligare information som ska
   </tbody>
 </table>
 
+### 7.3 Samlingstransaktioner <a name="7-3"></a>
+
+Om kontotransaktion är en samlingstransaktion, returnerar uppgiftslämnaren samlingstransaktionens information i Ntry/NtryDtls/Btch-elementet. Varje enskild kontotransaktion som tillhör till samlingstransaktion ska returneras i sitt eget Ntry/NtryDtls/TxDtls-elementet. 
 
 ## 8. Felsituationer <a name="luku8"></a>
 
