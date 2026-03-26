@@ -127,7 +127,12 @@
                         <auth001:Acct>
                             <auth001:Id>
                                 <auth001:Id>
-                                    <auth001:IBAN>FI2933891360008653</auth001:IBAN>
+                                    <auth001:Othr>
+                                        <auth001:Id>OTHER8320134556001</auth001:Id>
+                                        <auth001:SchmeNm>
+                                            <auth001:Cd>OTHR</auth001:Cd>
+                                        </auth001:SchmeNm>
+                                    </auth001:Othr>
                                 </auth001:Id>
                             </auth001:Id>
                             <auth001:InvstgtdPties>
@@ -142,14 +147,15 @@
                         <auth001:Envlp>
                             <fin012:Document>
                                 <fin012:InfReqFin012>
-                                    <fin012:RequestedDataSources>
-                                        <fin012:DataSourceOrgId>0788060-2</fin012:DataSourceOrgId>
-                                    </fin012:RequestedDataSources>
                                     <fin012:AuthorityInquiry>
-                                        <fin012:officialId>Kyselevän viranomaisen tunniste</fin012:officialId>
-                                        <fin012:officialSuperiorId>Kyselyn hyväksyjän tunniste</fin012:officialSuperiorId>
+                                        <fin012:OfficialId>Viranomaisen nimi</fin012:OfficialId>
+                                        <fin012:OfficialSuperiorId>Esimiehen nimi</fin012:OfficialSuperiorId>
                                         <fin012:officialOrgId>Kyselevän viranomaisen organisaation tunniste</fin012:officialOrgId>
                                     </fin012:AuthorityInquiry>
+                                    <fin012:InvestigationType>
+                                        <fin012:InvestigationTypeCode>BALN</fin012:InvestigationTypeCode>
+                                        <fin012:InvestigationTypeCode>TRAN</fin012:InvestigationTypeCode>
+                                    </fin012:InvestigationType>
                                 </fin012:InfReqFin012>
                             </fin012:Document>
                         </auth001:Envlp>

@@ -1,5 +1,5 @@
 
-# Keskitetty saldo- ja tilitapahtumatietojärjestelmä
+# Keskitetty saldo- ja tilitapahtumajärjestelmä
 
 Tämä dokumentti on osa pankki- ja maksutilien valvontajärjestelmän dokumentaatiota ja ohjeistaa tiedonluovuttajia sekä tiedonhyödyntäjiä saldo- ja tilitapahtumatietojen välittämiseksi pankki- ja maksutilien valvontajärjestelmässä. Tässä dokumentissa kuvataan vaadittavat edellytykset järjestelmän toteuttamiseksi, saldo- ja tilitapahtumatietojen kulku järjestelmässä sekä saldo- ja tilitapahtumatietojen kysely- ja vastaussanomat.
 
@@ -28,7 +28,7 @@ Sähköposti: [tilirekisteri@tulli.fi](mailto:tilirekisteri@tulli.fi).
 | Termi    | Selite |
 | -------- | ------- |
 | Pankki- ja maksutilien valvontajärjestelmä | Kansallinen pankki- ja maksutilien valvontajärjestelmä, joka koostuu tilirekisteristä, tiedonhakujärjestelmistä ja 1.11.2022 alkaen koostavasta sovelluksesta, perustuu lakiin pankki- ja maksutilien valvontajärjestelmästä 571/2019 sekä Euroopan parlamentin ja neuvoston direktiiviin (EU) 2018/843, joka on annettu 30 päivänä toukokuuta 2018 rahoitusjärjestelmän käytön estämisestä rahanpesuun tai terrorismin rahoitukseen.|
-| Keskitetty saldo- ja tilitapahtumatietojärjestelmä | Pankki- ja maksutilien valvontajärjestelmästä saatavien saldo- ja tilitapahtumatietojen sekä arvopaperitietojen käsittelytapa, joka perustuu sähköiseen tiedonkäsittelyyn.  |
+| Keskitetty saldo- ja tilitapahtumajärjestelmä | Pankki- ja maksutilien valvontajärjestelmästä saatavien saldo- ja tilitapahtumatietojen sekä arvopaperitietojen käsittelytapa, joka perustuu sähköiseen tiedonkäsittelyyn.  |
 | Pankki- ja maksutilirekisteri/Tilirekisteri | Pankki- ja maksutilirekisteri (tilirekisteri) on Tullin rakentama järjestelmä, joka koostuu Tilirekisterisovelluksesta ja sen päivitys- ja kyselyrajapinnoista. Tilirekisteriin kerätään maksulaitosten ja sähkörahayhteisöjen sekä Finanssivalvonnalta poikkeusluvan saaneiden luottolaitosten pankki- ja maksutilien asiakkaiden tiedot sekä kryptovarapalvelun tarjoajien asiakkaiden tiedot.  |
 | Koostava sovellus | Tullin ylläpitämä automatisoitu tekninen ratkaisu, jonka avulla välitetään pankki- ja maksutilitietoja, tallelokerotietoja, saldo- ja tilitapahtumatietoja ja arvopaperitietoja pankki- ja maksutilien valvontajärjestelmän kautta.    |
 | Tiedonhakujärjestelmä | Tiedonhakujärjestelmä tarkoittaa tiedonluovuttajan ylläpitämää sähköistä pankki- ja maksutilien tiedonhakujärjestelmää, jonka avulla tiedonluovuttaja välittää välittömästi ja salassapitosäännösten estämättä pankki- ja maksutilien valvontajärjestelmästä annetun lain 4 §:n 2 momentissa tarkoitettuja tietoja asiakkaistaan toimivaltaiselle viranomaiselle. Tulli määrää lain mukaan tiedonhakujärjestelmästä tekniset vaatimukset ja jokainen tiedonluovuttaja toteuttaa oman tiedonhakujärjestelmän, eli tiedonhakujärjestelmiä on monta.  |
@@ -367,7 +367,7 @@ Alla luvussa 6.2 on kuvattu, mitä kenttiä käytetään kyselysanomassa. Alisan
 
 ### 6.1 Erityyppisten tietojen hakeminen <a name="6-1"></a>
 
-Keskitetystä saldo- ja tilitapahtumatietojärjestelmästä on mahdollista hakea pelkkiä saldotietoja, pelkkiä tilitapahtumatietoja, tai molempia.
+Keskitetystä saldo- ja tilitapahtumajärjestelmästä on mahdollista hakea pelkkiä saldotietoja, pelkkiä tilitapahtumatietoja, tai molempia.
 
 [Esimerkkisanoma](examples/general/example_requesting_only_bal_or_entry_or_both.xml) saldo- ja tilitapahtumatietojen kyselystä.
 
@@ -589,12 +589,11 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
-        ++++++RequestedDataSources
+        +++++RequestedDataSources
       </td>
       <td >0..*</td>
       <td >Max35Text</td>
-      <td >Tiedonluovuttaja, jolle kysely on osoitettu (Y-tunnus)</td>
+      <td >Tiedonluovuttaja, jolle kysely on osoitettu (Y-tunnus). Kenttää ei välitetä tiedonluovuttajalle.</td>
     </tr>
     <tr>
       <td >
@@ -603,8 +602,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
         ++Envlp<br>
         +++Document<br>
         ++++InfReqFin012<br>
-        +++++AdditionalSearchCriteria<br>
-        ++++++InvestigationType
+        +++++InvestigationType
       </td>
       <td >0..2</td>
       <td >InvestigationTypeCode</td>
@@ -670,6 +668,10 @@ Alla luvussa 7.2 on kuvattu, mitä kenttiä käytetään vastaussanoman alisanom
 Kaikki perustiedot tulee luovuttaa, jos ne ovat saatavilla tiedonluovuttajalla. Vain erikseen pyydettävät lisätiedot luovutetaan ainoastaan silloin, kun niitä on erikseen pyydetty kyselysanomassa. 
 
 Jos pyydetyllä hakuaikavälillä ei tililtä löydy lainkaan tilitapahtumia, BkToCstmrAcctRpt/Rpt/Ntry-elementtiä ei palauteta vastaussanomassa.
+
+Jos tilitapahtumakyselyn pyydetty aikaväli sisältää kuluvan päivän, palautetaan vastauksessa tilitapahtumatiedot kyselyn luontihetkeen asti (kyselysanoman AppHdr/CreDt-kentän aikaleima). 
+
+Pelkkään saldokyselyyn palautetaan vastaushetken mukaiset ajantasaiset saldotiedot.
 
 Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta siitä, onko tiedonluovuttaja toteuttanut tiedonhakujärjestelmän vai luovuttaa tiedot tiedonluovutusjärjestelmään. Ainoastaan vastaussanoman toimitustavat eroavat toisistaan. 
 
@@ -917,7 +919,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Päivämäärä ja kellonaika, jolloin tapahtuma kirjattiin tilille.</td>
+      <td>Päivämäärä ja kellonaika, jolloin tapahtuma kirjattiin tilille. Jos aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa UTC-aikavyöhykkeessä, esimerkiksi 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
@@ -938,7 +940,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++DtTm
       </td>
       <td>ISODateTime</td>
-      <td>Tapahtuman arvopäivä ja kellonaika.</td>
+      <td>Tapahtuman arvopäivä ja kellonaika. Jos aika on tiedonluovuttajalla tallennettu päivämäärätasolla ilman kellonaikaa, kellonajaksi merkitään kyseisen päivän klo 24.00 Suomen aikaa UTC-aikavyöhykkeessä, esimerkiksi 2026-03-12T22:00:00Z.</td>
     </tr>
     <tr>
       <td>
@@ -1021,7 +1023,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++MsgId
       </td>
       <td>Max35Text</td>
-      <td>Koontitapahtuman tunniste.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> tunniste. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1033,7 +1037,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++PmtInfId
       </td>
       <td>Max35Text</td>
-      <td>Maksutiedon tunniste.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> maksutiedon tunniste. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1045,7 +1051,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++NbOfTxs
       </td>
       <td>Max15NumericText</td>
-      <td>Koontitapahtumien lukumäärä.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtumien</a> lukumäärä. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1057,7 +1065,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++TtlAmt
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
-      <td>Koontitapahtumien kokonaissumma ja valuutta.</td>
+      <td>
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtumien</a> kokonaissumma ja valuutta. 
+        </td>
     </tr>
     <tr>
       <td>
@@ -1069,7 +1079,9 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++CdtDbtInd
       </td>
       <td>CreditDebitCode</td>
-      <td>Ilmaisee, onko koontitapahtuma kredit tai debit.</td>
+      <td>
+        Ilmaisee, onko <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">koontitapahtuma</a> kredit tai debit. 
+      </td>
     </tr>
     <tr>
       <td>
@@ -1468,6 +1480,9 @@ Käytettävissä olevan luottorajan määrä ja valuutta. Erikseen pyydettävä 
   </tbody>
 </table>
 
+### 7.3 Koontitapahtumat <a name="7-3"></a>
+
+Jos tilitapahtuma on koontitapahtuma, tiedonluovuttaja palauttaa koontitapahtuman tiedot Ntry/NtryDtls/Btch-elementissä. Jokainen yksittäinen koontitapahtumaan kuuluva tilitapahtuma palautetaan omassa Ntry/NtryDtls/TxDtls-elementissään.
 
 ## 8. Virhetilanteet <a name="luku8"></a>
 
