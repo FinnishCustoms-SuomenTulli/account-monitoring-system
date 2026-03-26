@@ -1024,7 +1024,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
       </td>
       <td>Max35Text</td>
       <td>
-        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README.md#73-koontitapahtumat-">Koontitapahtuman</a> tunniste. 
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/README.md#73-koontitapahtumat-">Koontitapahtuman</a> tunniste. 
       </td>
     </tr>
     <tr>
