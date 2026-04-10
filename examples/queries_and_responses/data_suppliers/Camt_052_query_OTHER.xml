@@ -1,4 +1,4 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:root="urn:fi:tulli:wsdl_root.002" xmlns:head001="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:auth001="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:fin012="urn:fin.012.001.04">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:root="urn:fi:customs:pmj:xsd:register.003" xmlns:head001="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:auth001="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:fin012="urn:fin.012.001.04">
     <soapenv:Header/>
     <soapenv:Body>
         <root:ApplicationRequest id="applicationRequest">
