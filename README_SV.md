@@ -1026,7 +1026,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       </td>
       <td>Max35Text</td>
       <td> 
-        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">Samlingstransaktionens</a> identifierare. 
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/README_SV.md#73-samlingstransaktioner-">Samlingstransaktionens</a> identifierare. 
       </td>
     </tr>
     <tr>
@@ -1040,7 +1040,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       </td>
       <td>Max35Text</td>
       <td>
-        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">Samlingstransaktionens</a> betalningsuppgiftens identifierare. 
+        <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/README_SV.md#73-samlingstransaktioner-">Samlingstransaktionens</a> betalningsuppgiftens identifierare. 
       </td>
     </tr>
     <tr>
@@ -1054,7 +1054,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       </td>
       <td>Max15NumericText</td>
       <td>
-        Antal <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktioner</a>. 
+        Antal <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/README_SV.md#73-samlingstransaktioner-">samlingstransaktioner</a>. 
       </td>
     </tr>
     <tr>
@@ -1068,7 +1068,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       </td>
       <td>ActiveOrHistoricCurrencyAndAmount</td>
       <td>
-        Total summa och valuta för <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktioner</a>. 
+        Total summa och valuta för <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/README_SV.md#73-samlingstransaktioner-">samlingstransaktioner</a>. 
       </td>
     </tr>
     <tr>
@@ -1082,7 +1082,7 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
       </td>
       <td>CreditDebitCode</td>
       <td>
-        Anger om <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/pvm-ohje/README_SV.md#73-samlingstransaktioner-">samlingstransaktionen</a> är kredit eller debit. 
+        Anger om <a href="https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/README_SV.md#73-samlingstransaktioner-">samlingstransaktionen</a> är kredit eller debit. 
       </td>
     </tr>
     <tr>

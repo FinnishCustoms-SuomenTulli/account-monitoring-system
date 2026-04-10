@@ -1,7 +1,7 @@
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Header/>
     <SOAP-ENV:Body>
-        <root:ApplicationResponse id="applicationResponse" xmlns:root="urn:fi:tulli:wsdl_root.002">
+        <root:ResultResponse id="applicationResponse" xmlns:root="urn:fi:customs:pmj:xsd:aggregator.002">
             <head001:AppHdr xmlns:head001="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
                 <head001:CharSet>UTF-8</head001:CharSet>
                 <head001:Fr>
@@ -984,6 +984,6 @@
                     </auth002:RtrInd>
                 </auth002:InfReqRspn>
             </auth002:Document>
-        </root:ApplicationResponse>
+        </root:ResultResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
