@@ -67,10 +67,10 @@ In addition, the use of new version of fin.012 submessage fin.012.001.04 is star
 
 The new interface supports both the old and new version of the message that is sent to the data supplier's interface. The aggregating application makes sure that data users receive message versions that match their interface. When the data supplier is ready to start using the new schema version, they need to inform Customs about the update schedule to the email address tilirekisteri(at)tulli.fi. Customs makes the necessary configuration changes according to the schedule the data supplier has given. After the changes the data supplier is forwarded messages in line with the new schema instead of the old one.
 
-**Before the new schema is deplyed to production the data supplier must update their test interface to use the new schema version. After that Tulli will perform acceptance testing of account information queries for the data supplier.**
+**Before the new schema is deplyed to production the data supplier must update their test interface to use the new schema version. After that Customs will perform acceptance testing of account information queries for the data supplier.**
 
 ## Deployment for data users
 
 All data suppliers' responses are available via the new interface. Via the old interface, only responses from the data suppliers who have not yet deployed the new schema version are available. When the data user is ready to start using the new interface, they can deploy the new interface independently. The new interface uses the same permissions and certificates as the old one. 
 
-**Before deploying the new interface to production, the data user should run through the test cases using the test environment interface. When the data user considers the testing is passed, they should inform Tulli at tilirekisteri(at)tulli.fi about the schedule for starting production interface to get support for the deployment if needed.**
+**Before deploying the new interface to production, the data user should run through the test cases using the test environment interface. When the data user considers the testing is passed, they should inform Customs at tilirekisteri(at)tulli.fi about the schedule for starting production interface to get support for the deployment if needed.**
