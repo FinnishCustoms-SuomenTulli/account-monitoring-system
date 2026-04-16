@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+                  xmlns:tns="urn:fi:customs:pmj:xsd:aggregator.002" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="AggregatorService"
+                  targetNamespace="urn:fi:customs:pmj:xsd:aggregator.002">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:supl.027.001.01" schemaLocation="http://aggregator.internal/schema/supl.027.001.01.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="http://aggregator.internal/schema/head.001.001.01.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" schemaLocation="http://aggregator.internal/schema/auth.001.001.01.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" schemaLocation="http://aggregator.internal/schema/auth.002.001.01.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08" schemaLocation="http://aggregator.internal/schema/camt.052.001.08.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fin.disputed" schemaLocation="http://aggregator.internal/schema/fin.disputed.001.01.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fin.021.001.03" schemaLocation="http://aggregator.internal/schema/fin.021.001.03.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fin.020.001.01" schemaLocation="http://aggregator.internal/schema/fin.020.001.01.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fin.013.001.04" schemaLocation="http://aggregator.internal/schema/fin.013.001.04.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fin.012.001.04" schemaLocation="http://aggregator.internal/schema/fin.012.001.04.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fin.002.001.03" schemaLocation="http://aggregator.internal/schema/fin.002.001.03.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fi:tulli:wsdl_root.002" schemaLocation="http://aggregator.internal/schema/register.002.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fi:customs:pmj:xsd:register.003" schemaLocation="http://aggregator.internal/schema/register.003.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="urn:fi:customs:pmj:xsd:aggregator.002" schemaLocation="http://aggregator.internal/schema/aggregator.002.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://aggregator.internal/schema/xmldsig-core-schema.xsd" />
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" version="1.0">
+            <xs:element name="detail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="errorcode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="message" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="ValidationError" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="Status">
+        <wsdl:part element="tns:StatusRequest" name="StatusRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ResultResponse">
+        <wsdl:part element="tns:ResultResponse" name="ResultResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="QueryResponse">
+        <wsdl:part element="tns:QueryResponse" name="QueryResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="Query">
+        <wsdl:part element="tns:QueryRequest" name="QueryRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="StatusResponse">
+        <wsdl:part element="tns:StatusResponse" name="StatusResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="Result">
+        <wsdl:part element="tns:ResultRequest" name="ResultRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="AggregatorService">
+        <wsdl:operation name="Status">
+            <wsdl:documentation>Status: ACTIVE</wsdl:documentation>
+            <wsdl:input message="tns:Status" name="Status"
+                        wsam:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/StatusRequest"
+                        wsaw:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/StatusRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:StatusResponse" name="StatusResponse"
+                         wsam:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/StatusResponse"
+                         wsaw:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/StatusResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Result">
+            <wsdl:documentation>Status: ACTIVE</wsdl:documentation>
+            <wsdl:input message="tns:Result" name="Result"
+                        wsam:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/ResultRequest"
+                        wsaw:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/ResultRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:ResultResponse" name="ResultResponse"
+                         wsam:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/ResultResponse"
+                         wsaw:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/ResultResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Query">
+            <wsdl:documentation>Status: ACTIVE</wsdl:documentation>
+            <wsdl:input message="tns:Query" name="Query"
+                        wsam:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/QueryRequest"
+                        wsaw:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/QueryRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:QueryResponse" name="QueryResponse"
+                         wsam:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/QueryResponse"
+                         wsaw:Action="urn:fi:customs:pmj:xsd:aggregator.002/AggregatorService/QueryResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AggregatorServiceSoapBinding" type="tns:AggregatorService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsaw:UsingAddressing xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                              xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" wsdl:required="false"/>
+        <wsp:PolicyReference URI="#AggregatorServiceSoapBinding_WSAM_Addressing_Policy"/>
+        <wsdl:operation name="Status">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="Status">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="StatusResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Result">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="Result">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ResultResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Query">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="Query">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="QueryResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="AggregatorService">
+        <wsdl:port binding="tns:AggregatorServiceSoapBinding" name="AggregatorServicePort">
+            <soap:address location="https://ci-tp-tire-aggregator.apps.test-ocp.tulli.fi/api/ws/v2"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                wsu:Id="AggregatorServiceSoapBinding_WSAM_Addressing_Policy">
+        <wsam:Addressing wsp:Optional="true">
+            <wsp:Policy/>
+        </wsam:Addressing>
+    </wsp:Policy>
+</wsdl:definitions>
