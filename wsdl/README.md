@@ -37,7 +37,7 @@ Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta raj
 
 **Ennen uuden rajapinnan käyttöönottoa tuotannossa on tiedonhyödyntäjän syytä käydä läpi kaikki testitapaukset testiympäristön rajapintaa vasten. Kun tiedonhyödyntäjä katsoo testauksen läpäistyksi, tulisi hänen ilmoittaa Tullille tilirekisteri(at)tulli.fi tuotantorajapinnan käytön aloituksen aikataulu, jotta käytönaloituksessa voidaan tukea tarvittaessa.**
 
-![Rajapintasiirtymä](diagrams/siirtyyFI.png "Rajapintasiirtymä") 
+![Rajapintasiirtymä](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/wsdl-parannukset/diagrams/rajapintasiirtyma-fi.png)
 
 # Aggregating application interface v2
 
@@ -76,3 +76,5 @@ The new interface supports both the old and new version of the message that is s
 All data suppliers' responses are available via the new interface. Via the old interface, only responses from the data suppliers who have not yet deployed the new schema version are available. When the data user is ready to start using the new interface, they can deploy the new interface independently. The new interface uses the same permissions and certificates as the old one. 
 
 **Before deploying the new interface to production, the data user should run through the test cases using the test environment interface. When the data user considers the testing is passed, they should inform Customs at tilirekisteri(at)tulli.fi about the schedule for starting production interface to get support for the deployment if needed.**
+
+![Interface transition](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/wsdl-parannukset/diagrams/rajapintasiirtyma-en.png)
