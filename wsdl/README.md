@@ -33,7 +33,7 @@ Kun tiedonluovuttaja on valmis siirtymään käyttämään uutta skeema versiota
 
 ## Käyttöönotto tiedonhyödyntäjälle
 
-Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta rajapinnasta saa vain niiden tiedonluovuttajien vastaukset, jotka eivät vielä ole siirtyneet käyttämään uutta skeemaversiota. Kun tiedonhyödyntäjä on valmis siirtymään käyttämään uutta rajapintaa, voi hän itsenäisesti tehdä uuden rajapinnan käyttöönoton. Uusi rajapinta toimii samoilla luvituksilla ja varmenteilla kuin vanha rajapinta. 
+Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta rajapinnasta saa vain niiden tiedonluovuttajien vastaukset, jotka eivät vielä ole siirtyneet käyttämään uutta skeemaversiota. Tiedonhyödyntäjän siirtyessä käyttämään uutta rajapintaa käyttöönotto ei vaadi muutoksia Tullin puolella. Uusi rajapinta toimii samoilla luvituksilla ja varmenteilla kuin vanha rajapinta. 
 
 **Ennen uuden rajapinnan käyttöönottoa tuotannossa on tiedonhyödyntäjän syytä käydä läpi kaikki testitapaukset testiympäristön rajapintaa vasten. Kun tiedonhyödyntäjä katsoo testauksen läpäistyksi, tulisi hänen ilmoittaa Tullille tilirekisteri(at)tulli.fi tuotantorajapinnan käytön aloituksen aikataulu, jotta käytönaloituksessa voidaan tukea tarvittaessa.**
 
@@ -73,7 +73,7 @@ The new interface supports both the old and new version of the message that is s
 
 ## Deployment for data users
 
-All data suppliers' responses are available via the new interface. Via the old interface, only responses from the data suppliers who have not yet deployed the new schema version are available. When the data user is ready to start using the new interface, they can deploy the new interface independently. The new interface uses the same permissions and certificates as the old one. 
+All data suppliers' responses are available via the new interface. Via the old interface, only responses from the data suppliers who have not yet deployed the new schema version are available. When the data user is ready to start using the new interface the deployment does not require any changes by Customs. The new interface uses the same permissions and certificates as the old one. 
 
 **Before deploying the new interface to production, the data user should run through the test cases using the test environment interface. When the data user considers the testing is passed, they should inform Customs at tilirekisteri(at)tulli.fi about the schedule for starting production interface to get support for the deployment if needed.**
 
