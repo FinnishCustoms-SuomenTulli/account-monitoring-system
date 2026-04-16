@@ -37,6 +37,8 @@ Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta raj
 
 **Ennen uuden rajapinnan käyttöönottoa tuotannossa on tiedonhyödyntäjän syytä käydä läpi kaikki testitapaukset testiympäristön rajapintaa vasten. Kun tiedonhyödyntäjä katsoo testauksen läpäistyksi, tulisi hänen ilmoittaa Tullille tilirekisteri(at)tulli.fi tuotantorajapinnan käytön aloituksen aikataulu, jotta käytönaloituksessa voidaan tukea tarvittaessa.**
 
+![Rajapintasiirtymä](diagrams/siirtyyFI.png "Rajapintasiirtymä") 
+
 # Aggregating application interface v2
 
 ## For data users
