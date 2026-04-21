@@ -158,7 +158,7 @@
     </wsdl:binding>
     <wsdl:service name="AggregatorService">
         <wsdl:port binding="tns:AggregatorServiceSoapBinding" name="AggregatorServicePort">
-            <soap:address location="https://ci-tp-tire-aggregator.apps.test-ocp.tulli.fi/api/ws/v2"/>
+            <soap:address/>
         </wsdl:port>
     </wsdl:service>
     <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
