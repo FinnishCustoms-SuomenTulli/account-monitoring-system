@@ -24,6 +24,10 @@ Pankki- ja maksutilien valvontajärjestelmän kautta saapuville kyselyille ja lu
 
 Lisäksi saapuville kyselyille aletaan käyttää alisanoman fin.012 uutta versiota fin.012.001.04.
 
+### Tiedonluovutujärjestelmään raportoivat
+
+Tiedonluovutusjärjestelmään raportoitaessa käytetään skeemaa [financial.001](financial.001.wsdl)
+
 ## Käyttöönotto tiedonluovuttajalle
 
 Uusi rajapinta tukee sekä vanhaa että uutta tiedonluovuttajien rajapintaan lähetettävän sanoman versiota. Koostava sovellus huolehtii, että tiedonluovuttajalle lähetetään heidän rajapintansa mukainen sanomaversio.
@@ -64,6 +68,10 @@ A new schema has been released for  queries and responses sent through the bank 
    - New: register.003
 
 In addition, the use of new version of fin.012 submessage fin.012.001.04 is starting for arriving queries.
+
+### Entities Reporting to the Data Disclosure System
+
+When submitting reports to the Data Disclosure System, the following schema shall be used: [financial.001](financial.001.wsdl)
 
 ## Deployment for data suppliers
 
