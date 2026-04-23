@@ -24,6 +24,10 @@ Pankki- ja maksutilien valvontajärjestelmän kautta saapuville kyselyille ja lu
 
 Lisäksi saapuville kyselyille aletaan käyttää alisanoman fin.012 uutta versiota fin.012.001.04.
 
+### Tiedonluovutujärjestelmään raportoivat
+
+Tiedonluovutusjärjestelmään raportoitaessa käytetään skeemaa [financial.001](financial.001.wsdl)
+
 ## Käyttöönotto tiedonluovuttajalle
 
 Uusi rajapinta tukee sekä vanhaa että uutta tiedonluovuttajien rajapintaan lähetettävän sanoman versiota. Koostava sovellus huolehtii, että tiedonluovuttajalle lähetetään heidän rajapintansa mukainen sanomaversio.
@@ -37,7 +41,7 @@ Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta raj
 
 **Ennen uuden rajapinnan käyttöönottoa tuotannossa on tiedonhyödyntäjän syytä käydä läpi kaikki testitapaukset testiympäristön rajapintaa vasten. Kun tiedonhyödyntäjä katsoo testauksen läpäistyksi, tulisi hänen ilmoittaa Tullille tilirekisteri(at)tulli.fi tuotantorajapinnan käytön aloituksen aikataulu, jotta käytönaloituksessa voidaan tukea tarvittaessa.**
 
-![Rajapintasiirtymä](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/wsdl-parannukset/diagrams/rajapintasiirtyma-fi.png)
+![Rajapintasiirtymä](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/diagrams/rajapintasiirtyma-fi.png)
 
 # Aggregating application interface v2
 
@@ -65,6 +69,10 @@ A new schema has been released for  queries and responses sent through the bank 
 
 In addition, the use of new version of fin.012 submessage fin.012.001.04 is starting for arriving queries.
 
+### Entities Reporting to the Data Disclosure System
+
+When submitting reports to the Data Disclosure System, the following schema shall be used: [financial.001](financial.001.wsdl)
+
 ## Deployment for data suppliers
 
 The new interface supports both the old and new version of the message that is sent to the data supplier's interface. The aggregating application makes sure that data users receive message versions that match their interface. When the data supplier is ready to start using the new schema version, they need to inform Customs about the update schedule to the email address tilirekisteri(at)tulli.fi. Customs makes the necessary configuration changes according to the schedule the data supplier has given. After the changes the data supplier is forwarded messages in line with the new schema instead of the old one.
@@ -77,4 +85,4 @@ All data suppliers' responses are available via the new interface. Via the old i
 
 **Before deploying the new interface to production, the data user should run through the test cases using the test environment interface. When the data user considers the testing is passed, they should inform Customs at tilirekisteri(at)tulli.fi about the schedule for starting production interface to get support for the deployment if needed.**
 
-![Interface transition](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/wsdl-parannukset/diagrams/rajapintasiirtyma-en.png)
+![Interface transition](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/diagrams/rajapintasiirtyma-en.png)
