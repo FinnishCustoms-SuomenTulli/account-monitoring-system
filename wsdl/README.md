@@ -32,7 +32,7 @@ Uusien pankki- ja maksutilien valvontajärjestelmän kyselyiden vastaanotto edel
 * fin.012: versio 03 korvataan versiolla 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
 * root: wsdl_root.002 korvataan skeemalla [register.003](wsdl/register.003.wsdl)
 
-Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa saldo- että tilitapahtumakyselyissä.
+Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa tilitapahtuma- ja saldokyselyissä.
 
 ### Tiedonluovutujärjestelmään raportoivat
 
@@ -75,22 +75,22 @@ All data suppliers' responses are available via the new interface. Via the old i
 
 ## For data suppliers
 
-A new schema has been released for  queries and responses sent through the bank and payment account monitoring system.
-   - Old: wsdl_root.002
-   - New: register.003
+A new version of the query interface of the aggregating application will be released.
+In order to receive queries from the new bank and payment account monitoring system, the following schemas must be updated to the corresponding new versions:
 
-In addition, the use of new version of fin.012 submessage fin.012.001.04 is starting for arriving queries.
+* fin.012: version 03 is replaced with version 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
+* root: wsdl_root.002 is replaced with [register.003](wsdl/register.003.wsdl) schema
+
+All account information queries directed to data providers will henceforth be implemented in accordance with the new schema versions. The same message structure will also be used in future account transaction and acount balance queries.
 
 ### Entities Reporting to the Data Disclosure System
 
 When submitting reports to the Data Disclosure System, the following schema shall be used: [financial.001](financial.001.wsdl)
 
-## Deployment for data suppliers
+### Deployment for data suppliers
 
 The new interface supports both the old and new version of the message that is sent to the data supplier's interface. The aggregating application makes sure that data users receive message versions that match their interface. When the data supplier is ready to start using the new schema version, they need to inform Customs about the update schedule to the email address tilirekisteri(at)tulli.fi. Customs makes the necessary configuration changes according to the schedule the data supplier has given. After the changes the data supplier is forwarded messages in line with the new schema instead of the old one.
 
 **Before the new schema is deplyed to production the data supplier must update their test interface to use the new schema version. After that Customs will perform acceptance testing of account information queries for the data supplier.**
-
-
 
 ![Interface transition](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/diagrams/rajapintasiirtyma-en.png)
