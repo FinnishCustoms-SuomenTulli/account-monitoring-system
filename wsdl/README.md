@@ -2,17 +2,13 @@
 
 ## Tiedonhyödyntäjille
 
-Tämä muutos koskee ainoastaan uutta viranomaisrajapintaa. Voimassa olevaan viranomaisrajapintaan ei kohdistu muutoksia.
+Koostavassa sovelluksessa otetaan käyttöön uusi viranomaisrajapinta. Rajapintamuutos koskee ainoastaan uutta viranomaisrajapintaa. Voimassa olevaan viranomaisrajapintaan ei kohdistu muutoksia.
 Uuden viranomaisrajapinnan käyttöönotto edellyttää, että seuraavat skeemat on päivitetty vastaamaan uusia versioita:
 
-* fin.012: versio 03 korvataan versiolla 04
-* tiedonhyödyntäjät: root: wsdl_root.002 korvataan skeemalla aggregator.002
+* fin.012: versio 03 korvataan versiolla 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
+* root: wsdl_root.002 korvataan skeemalla [aggregator.002](wsdl/aggregator.002.wsdl)
 
 Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa saldo- että tilitapahtumakyselyissä.
-
-Koostavaan sovellukseen tehtävät kyselyt tehdään uuden rajapinnan kautta uudella skeemalla.
-   - Vanha: wsdl_root.002
-   - Uusi: aggregator.002
 
 Uudessa rajapinnassa erona vanhaan on se, että kaikki query-, result- ja status-kyselyt tehdään yhden osoitteen kautta.
 Eri sanomatyypit on eroteltu skeemassa omiksi operaatioikseen.
@@ -22,8 +18,6 @@ Eri sanomatyypit on eroteltu skeemassa omiksi operaatioikseen.
 <wsdl:operation name="Result">
 ```
 
-Lisäksi uudessa rajapinnassa tulee käyttää alisanoman fin.012 uudempaa versiota fin.012.001.04
-
 ### Käyttöönotto tiedonhyödyntäjälle
 
 Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta rajapinnasta saa vain niiden tiedonluovuttajien vastaukset, jotka eivät vielä ole siirtyneet käyttämään uutta skeemaversiota. Tiedonhyödyntäjän siirtyessä käyttämään uutta rajapintaa käyttöönotto ei vaadi muutoksia Tullin puolella. Uusi rajapinta toimii samoilla luvituksilla ja varmenteilla kuin vanha rajapinta. 
@@ -32,11 +26,13 @@ Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta raj
 
 ## Tiedonluovuttajille
 
-Pankki- ja maksutilien valvontajärjestelmän kautta saapuville kyselyille ja luovutettaville vastauksille on julkaistu uusi skeema.
-   - Vanha: wsdl_root.002
-   - Uusi: register.003
+Koostavan sovelluksen kyselyrajapinnalle julkaistaan uusi versio. 
+Uusien pankki- ja maksutilien valvontajärjestelmän kyselyiden vastaanotto edellyttää, että seuraavat skeemat on päivitetty vastaamaan uusia versioita:
 
-Lisäksi saapuville kyselyille aletaan käyttää alisanoman fin.012 uutta versiota fin.012.001.04.
+* fin.012: versio 03 korvataan versiolla 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
+* root: wsdl_root.002 korvataan skeemalla [register.003](wsdl/register.003.wsdl)
+
+Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa saldo- että tilitapahtumakyselyissä.
 
 ### Tiedonluovutujärjestelmään raportoivat
 
