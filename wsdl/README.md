@@ -2,6 +2,14 @@
 
 ## Tiedonhyödyntäjille
 
+Tämä muutos koskee ainoastaan uutta viranomaisrajapintaa. Voimassa olevaan viranomaisrajapintaan ei kohdistu muutoksia.
+Uuden viranomaisrajapinnan käyttöönotto edellyttää, että seuraavat skeemat on päivitetty vastaamaan uusia versioita:
+
+* fin.012: versio 03 korvataan versiolla 04
+* tiedonhyödyntäjät: root: wsdl_root.002 korvataan skeemalla aggregator.002
+
+Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa saldo- että tilitapahtumakyselyissä.
+
 Koostavaan sovellukseen tehtävät kyselyt tehdään uuden rajapinnan kautta uudella skeemalla.
    - Vanha: wsdl_root.002
    - Uusi: aggregator.002
@@ -16,6 +24,12 @@ Eri sanomatyypit on eroteltu skeemassa omiksi operaatioikseen.
 
 Lisäksi uudessa rajapinnassa tulee käyttää alisanoman fin.012 uudempaa versiota fin.012.001.04
 
+### Käyttöönotto tiedonhyödyntäjälle
+
+Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta rajapinnasta saa vain niiden tiedonluovuttajien vastaukset, jotka eivät vielä ole siirtyneet käyttämään uutta skeemaversiota. Tiedonhyödyntäjän siirtyessä käyttämään uutta rajapintaa käyttöönotto ei vaadi muutoksia Tullin puolella. Uusi rajapinta toimii samoilla luvituksilla ja varmenteilla kuin vanha rajapinta. 
+
+**Ennen uuden rajapinnan käyttöönottoa tuotannossa on tiedonhyödyntäjän syytä käydä läpi kaikki testitapaukset testiympäristön rajapintaa vasten. Kun tiedonhyödyntäjä katsoo testauksen läpäistyksi, tulisi hänen ilmoittaa Tullille tilirekisteri(at)tulli.fi tuotantorajapinnan käytön aloituksen aikataulu, jotta käytönaloituksessa voidaan tukea tarvittaessa.**
+
 ## Tiedonluovuttajille
 
 Pankki- ja maksutilien valvontajärjestelmän kautta saapuville kyselyille ja luovutettaville vastauksille on julkaistu uusi skeema.
@@ -28,18 +42,12 @@ Lisäksi saapuville kyselyille aletaan käyttää alisanoman fin.012 uutta versi
 
 Tiedonluovutusjärjestelmään raportoitaessa käytetään skeemaa [financial.001](financial.001.wsdl)
 
-## Käyttöönotto tiedonluovuttajalle
+### Käyttöönotto tiedonluovuttajalle
 
 Uusi rajapinta tukee sekä vanhaa että uutta tiedonluovuttajien rajapintaan lähetettävän sanoman versiota. Koostava sovellus huolehtii, että tiedonluovuttajalle lähetetään heidän rajapintansa mukainen sanomaversio.
 Kun tiedonluovuttaja on valmis siirtymään käyttämään uutta skeema versiota, päivityksen aikataulu täytyy ilmoittaa Tullille postilaatikkoon tilirekisteri(at)tulli.fi. Tulli tekee tiedonluovuttajan ilmoittaman aikataulun mukaisesti tarvittavat konfiguraatiomuutokset. Tämän jälkeen tiedonluovuttajalle ohjataan uuden skeeman mukaisia sanomia vanhan sijaan.
 
 **Ennen uuden skeeman käyttöönottoa tuotannossa on tiedonluovuttajan päivitettävä testirajapinta käyttämään uutta skeema versiota. Tämän jälkeen Tulli suorittaa tiedonluovuttajakohtaisen hyväksymistestauksen tilitietokyselyille.**
-
-## Käyttöönotto tiedonhyödyntäjälle
-
-Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta rajapinnasta saa vain niiden tiedonluovuttajien vastaukset, jotka eivät vielä ole siirtyneet käyttämään uutta skeemaversiota. Tiedonhyödyntäjän siirtyessä käyttämään uutta rajapintaa käyttöönotto ei vaadi muutoksia Tullin puolella. Uusi rajapinta toimii samoilla luvituksilla ja varmenteilla kuin vanha rajapinta. 
-
-**Ennen uuden rajapinnan käyttöönottoa tuotannossa on tiedonhyödyntäjän syytä käydä läpi kaikki testitapaukset testiympäristön rajapintaa vasten. Kun tiedonhyödyntäjä katsoo testauksen läpäistyksi, tulisi hänen ilmoittaa Tullille tilirekisteri(at)tulli.fi tuotantorajapinnan käytön aloituksen aikataulu, jotta käytönaloituksessa voidaan tukea tarvittaessa.**
 
 ![Rajapintasiirtymä](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/diagrams/rajapintasiirtyma-fi.png)
 
