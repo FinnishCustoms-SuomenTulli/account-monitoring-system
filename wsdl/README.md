@@ -8,7 +8,7 @@ Uuden viranomaisrajapinnan käyttöönotto edellyttää, että seuraavat skeemat
 * fin.012: versio 03 korvataan versiolla 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
 * root: wsdl_root.002 korvataan skeemalla [aggregator.002](wsdl/aggregator.002.wsdl)
 
-Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa saldo- että tilitapahtumakyselyissä.
+Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa tilitapahtuma- ja saldokyselyissä.
 
 Uudessa rajapinnassa erona vanhaan on se, että kaikki query-, result- ja status-kyselyt tehdään yhden osoitteen kautta.
 Eri sanomatyypit on eroteltu skeemassa omiksi operaatioikseen.
@@ -51,19 +51,27 @@ Kun tiedonluovuttaja on valmis siirtymään käyttämään uutta skeema versiota
 
 ## For data users
 
-Queries to aggregating application use the new interface with the new schema.
-   - Old: wsdl_root.002
-   - New: aggregator.002
+A new authority interface will be deployed in the aggregating application. The interface change applies exclusively to the new authority interface. No modifications will be made to the currently active authority interface.
+The introduction of the new authority interface requires that the following schemas be updated to their respective new versions:
+
+* fin.012: version 03 will be replaced by version 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
+* root: wsdl_root.002 will be replaced by the [aggregator.002](wsdl/aggregator.002.wsdl) schema
+
+All account information queries directed to data providers will henceforth be implemented in accordance with the new schema versions. The same message structure will also be used in future account transaction and acount balance queries.
 
 The difference in the new interface compared to the old one is that all query, result and status queries use the same address. 
-The different message types are divided into their own separate operations in the schema. 
+The different message types are distinguished as separate operations within the schema.
 ```
 <wsdl:operation name="Query"> 
 <wsdl:operation name="Status">
 <wsdl:operation name="Result">
 ```
 
-In addition, the new version of fin.012 submessage fin.012.001.04 must be used in the new interface.
+### Deployment for data users
+
+All data suppliers' responses are available via the new interface. Via the old interface, only responses from the data suppliers who have not yet deployed the new schema version are available. When the data user is ready to start using the new interface the deployment does not require any changes by Customs. The new interface uses the same permissions and certificates as the old one. 
+
+**Before deploying the new interface to production, the data user should run through the test cases using the test environment interface. When the data user considers the testing is passed, they should inform Customs at tilirekisteri(at)tulli.fi about the schedule for starting production interface to get support for the deployment if needed.**
 
 ## For data suppliers
 
@@ -83,10 +91,6 @@ The new interface supports both the old and new version of the message that is s
 
 **Before the new schema is deplyed to production the data supplier must update their test interface to use the new schema version. After that Customs will perform acceptance testing of account information queries for the data supplier.**
 
-## Deployment for data users
 
-All data suppliers' responses are available via the new interface. Via the old interface, only responses from the data suppliers who have not yet deployed the new schema version are available. When the data user is ready to start using the new interface the deployment does not require any changes by Customs. The new interface uses the same permissions and certificates as the old one. 
-
-**Before deploying the new interface to production, the data user should run through the test cases using the test environment interface. When the data user considers the testing is passed, they should inform Customs at tilirekisteri(at)tulli.fi about the schedule for starting production interface to get support for the deployment if needed.**
 
 ![Interface transition](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/diagrams/rajapintasiirtyma-en.png)
