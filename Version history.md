@@ -13,4 +13,5 @@
 | 0.9     | 17.3.2026  | Added instructions for reporting transaction booking date and value date (chapter 7.2). Clarification for reporting account transactions when investigation period includes the current day (chapter 7.1). Clarification for reporting batch transactions (chapter 7.3). Correction in query message table in 6.2: RequestedDataSources and InvestigationType are directly under InfReqFin012. Updated example messages. |
 | 1.0     | 10.4.2026   | WDSL for the new interface version added. Updated example files accordingly. |
 | 1.01    | 16.4.2026   | Additional instructions for deploying the new interface version in wsdl/README.md. Wsdls divided into separate files for clarity.| 
-| 1.02    | 23.4.2026   | Added wsdl for data disclosure system users. Removed white space from register.003.wsdl. |
+| 1.02    | 23.4.2026   | Added wsdl for data disclosure system users. Removed white space from register.003.wsdl. | 
+| 1.03    | 27.4.2026   | Readability improvements for wsdl README. |
