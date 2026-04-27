@@ -5,8 +5,8 @@
 Koostavassa sovelluksessa otetaan käyttöön uusi viranomaisrajapinta. Rajapintamuutos koskee ainoastaan uutta viranomaisrajapintaa. Voimassa olevaan viranomaisrajapintaan ei kohdistu muutoksia.
 Uuden viranomaisrajapinnan käyttöönotto edellyttää, että seuraavat skeemat on päivitetty vastaamaan uusia versioita:
 
-* fin.012: versio 03 korvataan versiolla 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
-* root: wsdl_root.002 korvataan skeemalla [aggregator.002](wsdl/aggregator.002.wsdl)
+* fin.012: versio 03 korvataan versiolla 04 [fin.012.001.04](/schemas/fin.012.001.04.xsd)
+* root: wsdl_root.002 korvataan skeemalla [aggregator.002](/wsdl/aggregator.002.wsdl)
 
 Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa tilitapahtuma- ja saldokyselyissä.
 
