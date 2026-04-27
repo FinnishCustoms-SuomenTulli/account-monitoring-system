@@ -29,8 +29,8 @@ Uuden rajapinnan kautta saa kaikkien tiedonluovuttajien vastaukset. Vanhasta raj
 Koostavan sovelluksen kyselyrajapinnalle julkaistaan uusi versio. 
 Uusien pankki- ja maksutilien valvontajärjestelmän kyselyiden vastaanotto edellyttää, että seuraavat skeemat on päivitetty vastaamaan uusia versioita:
 
-* fin.012: versio 03 korvataan versiolla 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
-* root: wsdl_root.002 korvataan skeemalla [register.003](wsdl/register.003.wsdl)
+* fin.012: versio 03 korvataan versiolla 04 [fin.012.001.04](/schemas/fin.012.001.04.xsd)
+* root: wsdl_root.002 korvataan skeemalla [register.003](/wsdl/register.003.wsdl)
 
 Kaikki tiedonluovuttajille kohdistuvat tilitietokyselyt toteutetaan jatkossa uusien skeemaversioiden mukaisesti. Sama sanomarakenne on käytössä myös tulevissa tilitapahtuma- ja saldokyselyissä.
 
@@ -45,7 +45,7 @@ Kun tiedonluovuttaja on valmis siirtymään käyttämään uutta skeema versiota
 
 **Ennen uuden skeeman käyttöönottoa tuotannossa on tiedonluovuttajan päivitettävä testirajapinta käyttämään uutta skeema versiota. Tämän jälkeen Tulli suorittaa tiedonluovuttajakohtaisen hyväksymistestauksen tilitietokyselyille.**
 
-![Rajapintasiirtymä](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/diagrams/rajapintasiirtyma-fi.png)
+![Rajapintasiirtymä](/diagrams/rajapintasiirtyma-fi.png)
 
 # Aggregating application interface v2
 
@@ -54,8 +54,8 @@ Kun tiedonluovuttaja on valmis siirtymään käyttämään uutta skeema versiota
 A new authority interface will be deployed in the aggregating application. The interface change applies exclusively to the new authority interface. No modifications will be made to the currently active authority interface.
 The introduction of the new authority interface requires that the following schemas are updated to their respective new versions:
 
-* fin.012: version 03 will be replaced by version 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
-* root: wsdl_root.002 will be replaced by the [aggregator.002](wsdl/aggregator.002.wsdl) schema
+* fin.012: version 03 will be replaced by version 04 [fin.012.001.04](/schemas/fin.012.001.04.xsd)
+* root: wsdl_root.002 will be replaced by the [aggregator.002](/wsdl/aggregator.002.wsdl) schema
 
 All account information queries directed to data suppliers will henceforth be implemented in accordance with the new schema versions. The same message structure will also be used in future account transaction and acount balance queries.
 
@@ -78,8 +78,8 @@ All data suppliers' responses are available via the new interface. Via the old i
 A new version of the query interface of the aggregating application will be released.
 In order to receive new queries from the bank and payment account monitoring system, the following schemas must be updated to the corresponding new versions:
 
-* fin.012: version 03 is replaced with version 04 [fin.012.001.04](schemas/fin.012.001.04.xsd)
-* root: wsdl_root.002 is replaced with [register.003](wsdl/register.003.wsdl) schema
+* fin.012: version 03 is replaced with version 04 [fin.012.001.04](/schemas/fin.012.001.04.xsd)
+* root: wsdl_root.002 is replaced with [register.003](/wsdl/register.003.wsdl) schema
 
 All account information queries directed to data suppliers will henceforth be implemented in accordance with the new schema versions. The same message structure will also be used in future account transaction and acount balance queries.
 
@@ -93,4 +93,4 @@ The new interface supports both the old and new version of the message that is s
 
 **Before the new schema is deplyed to production the data supplier must update their test interface to use the new schema version. After that Customs will perform acceptance testing of account information queries for the data supplier.**
 
-![Interface transition](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/diagrams/rajapintasiirtyma-en.png)
+![Interface transition](/diagrams/rajapintasiirtyma-en.png)
