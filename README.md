@@ -639,6 +639,7 @@ Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lis
 ### 6.4 X-Correlation-ID otsaketiedot
 Jokaiseen viranomaisen koostavaan sovellukseen lähettämään pyyntöön tulee lisätä mukaan HTTP-otsaketieto X-Correlation-ID. Tunniste annetaan UUIDv4 muodossa. Sovellus käyttää tietoa yhdistämään samaan kyselyyn liittyvät pyynnöt Query-, Status- ja Result-rajapintoihin. X-Correlation-ID:n tulee olla sama jokaisella samaan kyselyyn liittyvällä pyynnöllä. Kyselylle annetaan X-Correlation-ID, kun Query-rajapintaan tehdään uusi kysely. Tämän jälkeen samaa X-Correlation-ID:tä käytetään kaikissa kyselyyn liittyvissä Status- ja Result-rajapintojen pyynnöissä.
 
+Esimerkki: Pyyntösanoman tietoja
 ```
 Address: http://host:port/path
 HttpMethod: POST
@@ -646,7 +647,6 @@ Content-Type: text/xml
 Headers: {X-Correlation-ID=37b64fe6-b363-418d-851a-9e831dedc68a}
 Payload: <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body>...</soap:Body></soap:Envelope>
 ```
-Esimerkki: Pyyntösanoman tietoja
 
 ## 7. Vastaussanoma <a name="luku7"></a>
 
