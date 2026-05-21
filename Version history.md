@@ -15,3 +15,4 @@
 | 1.01    | 16.4.2026   | Additional instructions for deploying the new interface version in wsdl/README.md. Wsdls divided into separate files for clarity.| 
 | 1.02    | 23.4.2026   | Added wsdl for data disclosure system users. Removed white space from register.003.wsdl. | 
 | 1.03    | 27.4.2026   | Readability improvements for wsdl README. |
+| 1.04    | 21.5.2026   | Added chapter 6.4 about use of X-Correation-ID for authorities. |

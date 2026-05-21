@@ -641,6 +641,20 @@ Används om man vill skicka ytterligare information som begärs separat utöver 
 
 [Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat. Ytterligare information som begärs separat kan inte begäras i sökning av enbart uppgifter om kontotransaktioner. Sammanställningsprogrammet sänder felkod 4 till myndigheten om de försöker det.
 
+### 6.4 X-Correlation-ID header information
+Gäller endast informationsanvändare, dvs. myndigheter.
+
+Till varje förfrågan som en myndighet skickar till sammanställningsprogrammet ska HTTP‑headern X-Correlation-ID inkluderas. Identifieraren ska anges i formatet UUIDv4. Applikationen använder denna information för att koppla varje begäran till Query, Status och Result gränssnitten som hör till samma förfrågan. X-Correlation-ID ska vara densamma i varje begäran som hör till samma förfrågan. Förfrågan tilldelas ett X-Correlation-ID när en ny förfrågan görs till Query‑gränssnittet. Därefter används samma X-Correlation-ID i varje begäran till Status‑ och Result‑gränssnitten som är kopplade till förfrågan.
+
+Exempel: Uppgifter i begäranmeddelandet
+```
+Address: http://host:port/path
+HttpMethod: POST
+Content-Type: text/xml
+Headers: {X-Correlation-ID=37b64fe6-b363-418d-851a-9e831dedc68a}
+Payload: <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body>...</soap:Body></soap:Envelope>
+```
+
 ## 7. Svarsmeddelande <a name="luku7"></a>
 
 I svarsmeddelandet används  ISO 20022 meddelandet InformationRequestResponseV01 [auth.002.001.01](schemas/auth.002.001.01.xsd). Användningen av fälten i meddelandet har beskrivits i tabellen.
