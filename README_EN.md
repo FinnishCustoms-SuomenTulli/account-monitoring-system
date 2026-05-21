@@ -635,6 +635,20 @@ Used if requesting separately requested additional information to be returned in
 
 [Example message](examples/general/example_request_additional_info.xml) of separately requesting additional information. Separately requested additional information cannot be requested in a request for only account transaction information. The aggregating application returns error code 4 to the authority if an authority tries to do that.
 
+### 6.4 X-Correlation-ID otsaketiedot
+Concerns only data users i.e. authorities.
+
+An X-Correlation-ID HTTP header must be included into each request sent to the aggregating application by an authority. The identifier is reported in UUIDv4 form. The application uses the identifier to link all requests to Query, Status and Result API that are related to the same query. The X-Correlation-ID must be same for each request that is related to the the same query. An X-Correlation-ID is given to a query when a new query is made to the Query API. After that the same X-Correlation-ID is used in all Status and Result API requests related to the query.
+
+Example: Request message data
+```
+Address: http://host:port/path
+HttpMethod: POST
+Content-Type: text/xml
+Headers: {X-Correlation-ID=37b64fe6-b363-418d-851a-9e831dedc68a}
+Payload: <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body>...</soap:Body></soap:Envelope>
+```
+
 ## 7. Response message <a name="luku7"></a>
 
 The response message uses ISO 20022 message InformationRequestResponseV01 [auth.002.001.01](schemas/auth.002.001.01.xsd). Usage of the message's data fields is described in the table. 
