@@ -499,7 +499,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >Max34Text</td>
-      <td >Haettavan tilin tilinumero, jos kyseessä ei ole IBAN-tili.</td>
+      <td >Haettavan tilin tilinumero, jos kyseessä ei ole IBAN-tili. Jos haettavan tilin tilinumero on yli 34 merkkiä pitkä, kentän arvoksi asetetaan 1 ja varsinainen tilinumero annetaan kentässä XXXXXX.</td>
     </tr>
     <tr>
       <td >
@@ -514,7 +514,19 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >ExternalAccountIdentification1Code</td>
-      <td >"OTHR", jos hakukohteena ei ole IBAN-tili</td>
+      <td >Käytetään, jos hakukohteena ei ole IBAN-tili. Arvoksi asetetaan "OTHR", jos tilinumero on korkeintaan 34 merkkiä pitkä. Arvoksi asetetaan "GLID", jos tilinumer on yli 34 merkkiä pitkä.</td>
+    </tr>
+    <tr>
+      <td >
+        InformationRequestOpeningV01<br>
+        +SchCrit<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Nm
+      </td>
+      <td >0..1</td>
+      <td >Max70Text</td>
+      <td >Jos hakukohteena olevan tilin tilinumero on yli 34 merkkiä pitkä, tilinumero annetaan tässä kentässä. Muutoin kenttää ei käytetä.</td>
     </tr>
     <tr>
       <td >
