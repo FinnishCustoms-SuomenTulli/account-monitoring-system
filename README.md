@@ -499,7 +499,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >Max34Text</td>
-      <td >Haettavan tilin tilinumero, jos kyseessä ei ole IBAN-tili. Jos haettavan tilin tilinumero on yli 34 merkkiä pitkä, kentän arvoksi asetetaan 1 ja varsinainen tilinumero annetaan kentässä XXXXXX.</td>
+      <td >Haettavan tilin tilinumero, jos kyseessä ei ole IBAN-tili. Jos haettavan tilin tilinumero on yli 34 merkkiä pitkä, kentän arvoksi asetetaan 1 ja varsinainen tilinumero annetaan kentässä SchCrit/Acct/Id/Nm.</td>
     </tr>
     <tr>
       <td >
@@ -854,8 +854,31 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++Id
       </td>
       <td>Max34Text</td>
-      <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu.</td>
+      <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu. Jos tilinumero on yli 34 merkkiä pitkä, arvoksi asetetaan 1 ja varsinainen tilinumero on kentässä Rpt/Acct/Nm.</td>
     </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Othr<br>
+        +++++SchmeNm<br>
+        ++++++Cd
+      </td>
+      <td>ExternalAccountIdentification1Code</td>
+      <td>Arvoksi asetetaan "GLID", jos tilin tilinumero on yli 34 merkkiä pitkä. (Käytetäänkö muutoin?)</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Nm
+      </td>
+      <td>Max70Text</td>
+      <td>Jos tilin tilinumero on yli 34 merkkiä pitkä, tilinumero annetaan tässä kentässä. Muutoin kenttää ei käytetä.</td>
+    </tr>    
     <tr>
       <td>
         BkToCstmrAcctRpt<br>
