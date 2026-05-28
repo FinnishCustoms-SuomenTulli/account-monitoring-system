@@ -638,7 +638,7 @@ Used if requesting separately requested additional information to be returned in
 ### 6.4 X-Correlation-ID otsaketiedot
 Concerns only data users i.e. authorities and users of the data disclosure system.
 
-An X-Correlation-ID HTTP header must be included into each request sent to the aggregating application by an authority. Also data suppliers who use the data diclosure system must include the X-Correlation-ID they received in the query to the response delivered to the data disclosure system. The identifier is reported in UUIDv4 form. The application uses the identifier to link all requests that are related to the same query. The X-Correlation-ID must be same for each request that is related to the the same query. An X-Correlation-ID is given to a query when a new query is made to the Query API. After that the same X-Correlation-ID is used in all Status and Result API requests related to the query.
+An X-Correlation-ID HTTP header must be included into each request sent to the aggregating application by an authority. Also data suppliers who use the data disclosure system must include the X-Correlation-ID they received in the query to the response delivered to the data disclosure system. The identifier is reported in UUIDv4 form. The application uses the identifier to link all requests that are related to the same query. The X-Correlation-ID must be same for each request that is related to the the same query. An X-Correlation-ID is given to a query when a new query is made to the Query API. After that the same X-Correlation-ID is used in all Status and Result API requests and response to the data disclosure system related to the query.
 
 Example: Request message data
 ```
