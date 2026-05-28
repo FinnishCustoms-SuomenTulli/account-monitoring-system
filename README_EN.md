@@ -636,9 +636,9 @@ Used if requesting separately requested additional information to be returned in
 [Example message](examples/general/example_request_additional_info.xml) of separately requesting additional information. Separately requested additional information cannot be requested in a request for only account transaction information. The aggregating application returns error code 4 to the authority if an authority tries to do that.
 
 ### 6.4 X-Correlation-ID otsaketiedot
-Concerns only data users i.e. authorities.
+Concerns only data users i.e. authorities and users of data disclosure system.
 
-An X-Correlation-ID HTTP header must be included into each request sent to the aggregating application by an authority. The identifier is reported in UUIDv4 form. The application uses the identifier to link all requests to Query, Status and Result API that are related to the same query. The X-Correlation-ID must be same for each request that is related to the the same query. An X-Correlation-ID is given to a query when a new query is made to the Query API. After that the same X-Correlation-ID is used in all Status and Result API requests related to the query.
+An X-Correlation-ID HTTP header must be included into each request sent to the aggregating application by an authority. Also data suppliers who use the data diclosure system must include the X-Correlation-ID they received in the query to the response delivered to the data disclosure system. The identifier is reported in UUIDv4 form. The application uses the identifier to link all requests that are related to the same query. The X-Correlation-ID must be same for each request that is related to the the same query. An X-Correlation-ID is given to a query when a new query is made to the Query API. After that the same X-Correlation-ID is used in all Status and Result API requests related to the query.
 
 Example: Request message data
 ```
