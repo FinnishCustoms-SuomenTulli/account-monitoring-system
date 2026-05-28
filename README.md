@@ -499,7 +499,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >Max34Text</td>
-      <td >Haettavan tilin tilinumero, jos kyseessä ei ole IBAN-tili. Jos haettavan tilin tilinumero on yli 34 merkkiä pitkä, kentän arvoksi asetetaan 1 ja varsinainen tilinumero annetaan kentässä SchCrit/Acct/Id/Nm.</td>
+      <td >Haettavan tilin tilinumero, jos kyseessä ei ole IBAN-tili.</td>
     </tr>
     <tr>
       <td >
@@ -514,19 +514,7 @@ Saldo- ja tilitaphtumatietoja kyseltäessä sanomaan sisällytetään erillisin�
       </td>
       <td >1..1</td>
       <td >ExternalAccountIdentification1Code</td>
-      <td >Käytetään, jos hakukohteena ei ole IBAN-tili. Arvoksi asetetaan "OTHR", jos tilinumero on korkeintaan 34 merkkiä pitkä. Arvoksi asetetaan "GLID", jos tilinumer on yli 34 merkkiä pitkä.</td>
-    </tr>
-    <tr>
-      <td >
-        InformationRequestOpeningV01<br>
-        +SchCrit<br>
-        ++Acct<br>
-        +++Id<br>
-        ++++Nm
-      </td>
-      <td >0..1</td>
-      <td >Max70Text</td>
-      <td >Jos hakukohteena olevan tilin tilinumero on yli 34 merkkiä pitkä, tilinumero annetaan tässä kentässä. Muutoin kenttää ei käytetä.</td>
+      <td >"OTHR", jos hakukohteena ei ole IBAN-tili</td>
     </tr>
     <tr>
       <td >
@@ -651,9 +639,7 @@ Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lis
 ### 6.4 X-Correlation-ID header tiedot
 Koskee ainoastaan tiedonhyödyntäjiä eli viranomaisia sekä tiedonluovutusjärjestelmän käyttäjiä.
 
-Jokaiseen viranomaisen koostavaan sovellukseen lähettämään pyyntöön tulee lisätä mukaan HTTP-otsaketieto X-Correlation-ID. Tunniste annetaan UUIDv4 muodossa. Sovellus käyttää tietoa yhdistämään samaan kyselyyn liittyvät pyynnöt Query-, Status- ja Result-rajapintoihin. X-Correlation-ID:n tulee olla sama jokaisella samaan kyselyyn liittyvällä pyynnöllä. Kyselylle annetaan X-Correlation-ID, kun Query-rajapintaan tehdään uusi kysely. Tämän jälkeen samaa X-Correlation-ID:tä käytetään kaikissa kyselyyn liittyvissä Status- ja Result-rajapintojen pyynnöissä.
-
-Tiedonluovutusjärjestelmää käyttävä tiedonluovuttaja lisää kyselyssä vastaanottamansa X-Correlation-ID:n tiedonluovutusjärjestelmään toimittamaansa vastaukseen.
+Jokaiseen viranomaisen koostavaan sovellukseen lähettämään pyyntöön tulee lisätä mukaan HTTP-otsaketieto X-Correlation-ID. Tiedonluovutusjärjestelmää käyttävän tiedonluovuttajan tulee lisätä kyselyssä vastaanottamansa X-Correlation-ID tiedonluovutusjärjestelmään toimittamaansa vastaukseen. Tunniste annetaan UUIDv4 muodossa. Sovellus käyttää tietoa yhdistämään samaan kyselyyn liittyvät pyynnöt. X-Correlation-ID:n tulee olla sama jokaisella samaan kyselyyn liittyvällä pyynnöllä. Kyselylle annetaan X-Correlation-ID, kun Query-rajapintaan tehdään uusi kysely. Tämän jälkeen samaa X-Correlation-ID:tä käytetään kaikissa kyselyyn liittyvissä Status- ja Result-rajapintojen pyynnöissä sekä tiedonluovutusjärjestelmään toimitettavassa vastauksessa.
 
 Esimerkki: Pyyntösanoman tietoja
 ```
@@ -854,31 +840,8 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++Id
       </td>
       <td>Max34Text</td>
-      <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu. Jos tilinumero on yli 34 merkkiä pitkä, arvoksi asetetaan 1 ja varsinainen tilinumero on kentässä Rpt/Acct/Nm.</td>
-    </tr>
-    <tr>
-      <td>
-        BkToCstmrAcctRpt<br>
-        +Rpt<br>
-        ++Acct<br>
-        +++Id<br>
-        ++++Othr<br>
-        +++++SchmeNm<br>
-        ++++++Cd
-      </td>
-      <td>ExternalAccountIdentification1Code</td>
-      <td>Arvoksi asetetaan "GLID", jos tilin tilinumero on yli 34 merkkiä pitkä. (Käytetäänkö muutoin?)</td>
-    </tr>
-    <tr>
-      <td>
-        BkToCstmrAcctRpt<br>
-        +Rpt<br>
-        ++Acct<br>
-        +++Nm
-      </td>
-      <td>Max70Text</td>
-      <td>Jos tilin tilinumero on yli 34 merkkiä pitkä, tilinumero annetaan tässä kentässä. Muutoin kenttää ei käytetä.</td>
-    </tr>    
+      <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu.</td>
+    </tr>  
     <tr>
       <td>
         BkToCstmrAcctRpt<br>
