@@ -639,7 +639,7 @@ Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lis
 ### 6.4 X-Correlation-ID header tiedot
 Koskee ainoastaan tiedonhyödyntäjiä eli viranomaisia sekä tiedonluovutusjärjestelmän käyttäjiä.
 
-Jokaiseen viranomaisen koostavaan sovellukseen lähettämään pyyntöön tulee lisätä mukaan HTTP-otsaketieto X-Correlation-ID. Tiedonluovutusjärjestelmää käyttävän tiedonluovuttajan tulee lisätä kyselyssä vastaanottamansa X-Correlation-ID tiedonluovutusjärjestelmään toimittamaansa vastaukseen. Tunniste annetaan UUIDv4 muodossa. Sovellus käyttää tietoa yhdistämään samaan kyselyyn liittyvät pyynnöt. X-Correlation-ID:n tulee olla sama jokaisella samaan kyselyyn liittyvällä pyynnöllä. Kyselylle annetaan X-Correlation-ID, kun Query-rajapintaan tehdään uusi kysely. Tämän jälkeen samaa X-Correlation-ID:tä käytetään kaikissa kyselyyn liittyvissä Status- ja Result-rajapintojen pyynnöissä sekä tiedonluovutusjärjestelmään toimitettavassa vastauksessa.
+Jokaiseen viranomaisen koostavaan sovellukseen lähettämään pyyntöön tulee lisätä mukaan HTTP-otsaketieto X-Correlation-ID. Myös tiedonluovutusjärjestelmää käyttävän tiedonluovuttajan tulee lisätä kyselyssä vastaanottamansa X-Correlation-ID tiedonluovutusjärjestelmään toimittamaansa vastaukseen. Tunniste annetaan UUIDv4 muodossa. Sovellus käyttää tietoa yhdistämään samaan kyselyyn liittyvät pyynnöt. X-Correlation-ID:n tulee olla sama jokaisella samaan kyselyyn liittyvällä pyynnöllä. Kyselylle annetaan X-Correlation-ID, kun Query-rajapintaan tehdään uusi kysely. Tämän jälkeen samaa X-Correlation-ID:tä käytetään kaikissa kyselyyn liittyvissä Status- ja Result-rajapintojen pyynnöissä sekä tiedonluovutusjärjestelmään toimitettavassa vastauksessa.
 
 Esimerkki: Pyyntösanoman tietoja
 ```
