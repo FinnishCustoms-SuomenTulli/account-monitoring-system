@@ -16,3 +16,4 @@
 | 1.02    | 23.4.2026   | Added wsdl for data disclosure system users. Removed white space from register.003.wsdl. | 
 | 1.03    | 27.4.2026   | Readability improvements for wsdl README. |
 | 1.04    | 21.5.2026   | Added chapter 6.4 about use of X-Correation-ID for authorities. |
+| 1.05    | 29.5.2026   | Modified chapter 6.4 X-Correlation-ID to also concern users of the data disclosure system. |
