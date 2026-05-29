@@ -642,9 +642,9 @@ Används om man vill skicka ytterligare information som begärs separat utöver 
 [Exempelmeddelande](examples/general/example_request_additional_info.xml) för ytterligare information som begärs separat. Ytterligare information som begärs separat kan inte begäras i sökning av enbart uppgifter om kontotransaktioner. Sammanställningsprogrammet sänder felkod 4 till myndigheten om de försöker det.
 
 ### 6.4 X-Correlation-ID header information
-Gäller endast informationsanvändare, dvs. myndigheter.
+Gäller endast informationsanvändare dvs. myndigheter och användare av system för utlämnande av uppgifter.
 
-Till varje förfrågan som en myndighet skickar till sammanställningsprogrammet ska HTTP‑headern X-Correlation-ID inkluderas. Identifieraren ska anges i formatet UUIDv4. Applikationen använder denna information för att koppla varje begäran till Query, Status och Result gränssnitten som hör till samma förfrågan. X-Correlation-ID ska vara densamma i varje begäran som hör till samma förfrågan. Förfrågan tilldelas ett X-Correlation-ID när en ny förfrågan görs till Query‑gränssnittet. Därefter används samma X-Correlation-ID i varje begäran till Status‑ och Result‑gränssnitten som är kopplade till förfrågan.
+Till varje förfrågan som en myndighet skickar till sammanställningsprogrammet ska HTTP‑headern X-Correlation-ID inkluderas. Också användare av system för utlämnande av uppgifter ska inkludera X-Correlation-ID som de har mottagen i förfrågan i sin svar till system för utlämnande av uppgifter. Identifieraren ska anges i formatet UUIDv4. Applikationen använder denna information för att koppla varje begäran som hör till samma förfrågan. X-Correlation-ID ska vara densamma i varje begäran som hör till samma förfrågan. Förfrågan tilldelas ett X-Correlation-ID när en ny förfrågan görs till Query‑gränssnittet. Därefter används samma X-Correlation-ID i varje begäran till Status‑ och Result‑gränssnitten och varje svar till system för utlämnande av uppgifter som är kopplade till förfrågan.
 
 Exempel: Uppgifter i begäranmeddelandet
 ```
