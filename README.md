@@ -867,7 +867,7 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         ++++++Cd
       </td>
       <td>ExternalAccountIdentification1Code</td>
-      <td>Arvoksi asetetaan "GLID", jos tilin tilinumero on yli 34 merkkiä pitkä. (Käytetäänkö muutoin?)</td>
+      <td>Arvoksi asetetaan "GLID", jos tilin tilinumero on yli 34 merkkiä pitkä. Muutoin kenttää ei käytetä.</td>
     </tr>
     <tr>
       <td>
