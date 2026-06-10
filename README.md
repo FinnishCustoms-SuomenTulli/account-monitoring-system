@@ -637,9 +637,9 @@ Käytetään, jos vastauksessa halutaan palautettavan erikseen pyydettäviä lis
 [Esimerkkisanoma](examples/general/example_request_additional_info.xml) erikseen pyydettävistä lisätiedoista. Erikseen pyydettäviä lisätietoja ei voi pyytää pelkässä tilitapahtumakyselyssä. Koostava sovellus palauttaa viranomaiselle virhekoodin 4, jos viranomainen yrittää tehdä näin.
 
 ### 6.4 X-Correlation-ID header tiedot
-Koskee ainoastaan tiedonhyödyntäjiä eli viranomaisia sekä tiedonluovutusjärjestelmän käyttäjiä.
+Koskee ainoastaan tiedonhyödyntäjiä (eli viranomaisia) sekä tiedonluovutusjärjestelmän käyttäjiä.
 
-Jokaiseen viranomaisen koostavaan sovellukseen lähettämään pyyntöön tulee lisätä mukaan HTTP-otsaketieto X-Correlation-ID. Myös tiedonluovutusjärjestelmää käyttävän tiedonluovuttajan tulee lisätä kyselyssä vastaanottamansa X-Correlation-ID tiedonluovutusjärjestelmään toimittamaansa vastaukseen. Tunniste annetaan UUIDv4 muodossa. Sovellus käyttää tietoa yhdistämään samaan kyselyyn liittyvät pyynnöt. X-Correlation-ID:n tulee olla sama jokaisella samaan kyselyyn liittyvällä pyynnöllä. Kyselylle annetaan X-Correlation-ID, kun Query-rajapintaan tehdään uusi kysely. Tämän jälkeen samaa X-Correlation-ID:tä käytetään kaikissa kyselyyn liittyvissä Status- ja Result-rajapintojen pyynnöissä sekä tiedonluovutusjärjestelmään toimitettavassa vastauksessa.
+Jokaiseen viranomaisen koostavaan sovellukseen lähettämään sanomaan tulee lisätä mukaan HTTP-otsaketieto X-Correlation-ID. Myös tiedonluovutusjärjestelmää käyttävän tiedonluovuttajan tulee antaa X-Correlation-ID tiedonluovutusjärjestelmään toimittamaansa vastaukseen. Tunniste annetaan UUIDv4 muodossa. Sovellus käyttää tietoa yhdistämään samaan kyselyyn liittyvät sanomat. X-Correlation-ID:n tulee olla sama jokaisella samaan kyselyyn liittyvällä sanomalla. Kyselylle annetaan X-Correlation-ID, kun Query-rajapintaan tehdään uusi kysely. Tämän jälkeen samaa X-Correlation-ID:tä käytetään kaikissa kyselyyn liittyvissä Status- ja Result-rajapintojen sanomissa.
 
 Esimerkki: Pyyntösanoman tietoja
 ```
