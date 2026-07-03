@@ -9,9 +9,13 @@ and against the ISO 20022 External Code Sets. Used as the CI gate for this repo.
    `schemas/*.xsd`, then validates every `AppHdr` / `Document` subtree it finds —
    so SOAP-wrapped messages and standalone headers are all covered without any
    per-file configuration.
-2. **Value formats.** A few fields are typed as free-form text in the schema
-   (e.g. `head.001` `EmailAdr` is `Max2048Text` with no pattern). `VALUE_CHECKS`
-   adds format checks so example *values* stay realistic, not just well-formed.
+2. **Value formats.** Some fields have a format the XSD type doesn't fully pin
+   down — free-form text (`head.001` `EmailAdr` is `Max2048Text` with no pattern)
+   or timestamps that are valid `xs:dateTime` but not required to be UTC (the
+   `camt.052` `ISODateTime` fields, unlike `head.001`, don't require a `Z`).
+   `VALUE_CHECKS` adds a regex per field so example *values* stay realistic and
+   consistent (e.g. emails look like emails, timestamps are `…Z`), not just
+   structurally valid.
 3. **External code values.** ISO types many `<Cd>` fields as `External*Code`,
    which the XSD treats as an unconstrained string — so a wrong code (e.g. `DIVI`
    for `DIVD`, `Y` for `COID`) passes XSD untouched. `resolve_codeset()` infers

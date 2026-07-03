@@ -13,10 +13,12 @@ matches a catalog entry. That transparently covers SOAP-wrapped messages,
 standalone AppHdr/Document files, and any schema/example added later -- no
 per-file mapping to maintain.
 
-Value checks (VALUE_CHECKS): some leaf fields are typed as free-form text in the
-schema (e.g. head.001 EmailAdr is Max2048Text with no pattern), so the XSD alone
-would accept placeholder prose. VALUE_CHECKS adds a format check for such fields
-so the example *values* stay realistic, not just structurally valid.
+Value checks (VALUE_CHECKS): some leaf fields have a well-known format the XSD
+type does not fully pin down -- free-form text (e.g. head.001 EmailAdr is
+Max2048Text with no pattern) or timestamps that are valid xs:dateTime but not
+required to be UTC (the camt.052 ISODateTime fields, unlike head.001, do not
+require a "Z"). VALUE_CHECKS adds a regex per (namespace, localname) so the
+example *values* stay realistic and consistent, not just structurally valid.
 
 External code checks (external_codes.json): ISO types many <Cd> fields as
 External*Code, which the XSD treats as an unconstrained string -- so a wrong code
@@ -51,13 +53,33 @@ SCHEMAS_DIR = ROOT / "schemas"
 EXAMPLES_DIR = ROOT / "examples"
 XSD_ELEMENT = "{http://www.w3.org/2001/XMLSchema}element"
 HEAD_NS = "urn:iso:std:iso:20022:tech:xsd:head.001.001.01"
+CAMT_NS = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.08"
+AUTH1_NS = "urn:iso:std:iso:20022:tech:xsd:auth.001.001.01"
 
-# Format checks for leaf fields the schema leaves as free-form text (Max*Text)
-# but which carry a well-known format, so example values stay realistic.
-# ponytail: one entry today (EmailAdr); add a row if another free-text field
-# needs its example values constrained.
+# Value-format checks: (namespace, localname) -> (regex, message). The value must
+# fully match the regex. These catch wrong-looking values the XSD type accepts.
+#
+# Timestamps/dates are typed xs:dateTime / xs:date, so the XSD already rejects
+# impossible dates -- but only head.001 requires UTC ("Z" suffix); the camt.052
+# ISODateTime fields do not, while every example (and the head.001 convention)
+# uses "...Z". The checks below enforce that UTC convention and a plain date form.
+# (A parse-based check is deliberately avoided: xs:dateTime allows "24:00:00",
+# which Python's strptime rejects, so a regex on the lexical shape is safer.)
+_UTC_DATETIME = (re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z"),
+                 "not an ISO-8601 UTC timestamp (YYYY-MM-DDThh:mm:ss[.ffffff]Z)")
+_DATE = (re.compile(r"\d{4}-\d{2}-\d{2}"), "not an ISO-8601 date (YYYY-MM-DD)")
 VALUE_CHECKS: dict[tuple[str, str], tuple[Pattern[str], str]] = {
     (HEAD_NS, "EmailAdr"): (re.compile(r"[^@\s]+@[^@\s]+\.[^@\s]+"), "not a valid email address"),
+    (HEAD_NS, "CreDt"): _UTC_DATETIME,
+    (CAMT_NS, "CreDtTm"): _UTC_DATETIME,
+    (CAMT_NS, "DtTm"): _UTC_DATETIME,
+    (CAMT_NS, "FrDtTm"): _UTC_DATETIME,
+    (CAMT_NS, "ToDtTm"): _UTC_DATETIME,
+    (CAMT_NS, "AccptncDtTm"): _UTC_DATETIME,
+    (CAMT_NS, "FrDt"): _DATE,
+    (CAMT_NS, "ToDt"): _DATE,
+    (AUTH1_NS, "FrDt"): _DATE,
+    (AUTH1_NS, "ToDt"): _DATE,
 }
 
 # ISO External Code Sets used by the examples' <Cd> fields, keyed by code-set name.
@@ -258,6 +280,18 @@ def selftest():
     email_re, _ = VALUE_CHECKS[(HEAD_NS, "EmailAdr")]
     assert email_re.fullmatch("matti.meikalainen@example.com")
     assert not email_re.fullmatch("Virkailijan sähköpostiosoite")
+
+    # Timestamp check: UTC datetimes (incl. 24:00:00 and fractions) pass; a
+    # missing "Z", an offset, or junk fails.
+    dt_re, _ = VALUE_CHECKS[(CAMT_NS, "CreDtTm")]
+    assert dt_re.fullmatch("2019-05-08T24:00:00Z")
+    assert dt_re.fullmatch("2022-09-28T08:16:34.315328Z")
+    assert not dt_re.fullmatch("2019-05-08T00:00:00")        # no Z -> not UTC
+    assert not dt_re.fullmatch("2019-05-08T00:00:00+02:00")  # offset, not Z
+    assert not dt_re.fullmatch("not-a-timestamp")
+    date_re, _ = VALUE_CHECKS[(AUTH1_NS, "FrDt")]
+    assert date_re.fullmatch("2020-09-01")
+    assert not date_re.fullmatch("2020-09-01T00:00:00Z")
 
     # Code-set context resolution works without the generated data...
     org_cd = etree.fromstring(
