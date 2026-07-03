@@ -1,0 +1,32 @@
+name: Validate XML examples
+
+on:
+  push:
+    paths:
+      - 'examples/**'
+      - 'schemas/**'
+      - 'assets/iso20022.org/**'
+      - '.github/workflows/validate-xml.yml'
+  pull_request:
+    paths:
+      - 'examples/**'
+      - 'schemas/**'
+      - 'assets/iso20022.org/**'
+      - '.github/workflows/validate-xml.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.x'
+      - run: pip install lxml openpyxl
+      - name: Unzip ISO external code sets
+        run: |
+          for z in assets/iso20022.org/*.zip; do unzip -o "$z" -d assets/iso20022.org/; done
+      - name: Generate external_codes.json from the workbook
+        run: python examples/validate.py --generate-codes
+      - name: Validate examples against schemas and code sets
+        run: python examples/validate.py
