@@ -387,7 +387,8 @@
                                                         <camt052:RltdPties>
                                                             <camt052:Dbtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Maksaja</camt052:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt052:Nm>Minttu Maksaja</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Dbtr>
                                                             <camt052:DbtrAcct>
@@ -397,7 +398,8 @@
                                                             </camt052:DbtrAcct>
                                                             <camt052:Cdtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Saaja</camt052:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt052:Nm>Matti Virtanen</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Cdtr>
                                                             <camt052:CdtrAcct>
@@ -454,7 +456,8 @@
                                                         <camt052:RltdPties>
                                                             <camt052:Dbtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Maksaja</camt052:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt052:Nm>Minttu Maksaja</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Dbtr>
                                                             <camt052:DbtrAcct>
@@ -464,7 +467,8 @@
                                                             </camt052:DbtrAcct>
                                                             <camt052:Cdtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Saaja</camt052:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt052:Nm>Matti Virtanen</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Cdtr>
                                                             <camt052:CdtrAcct>
@@ -521,7 +525,8 @@
                                                         <camt052:RltdPties>
                                                             <camt052:Dbtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Maksaja</camt052:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt052:Nm>Minttu Maksaja</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Dbtr>
                                                             <camt052:DbtrAcct>
@@ -531,7 +536,8 @@
                                                             </camt052:DbtrAcct>
                                                             <camt052:Cdtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Saaja</camt052:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt052:Nm>Matti Virtanen</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Cdtr>
                                                             <camt052:CdtrAcct>
@@ -588,7 +594,8 @@
                                                         <camt052:RltdPties>
                                                             <camt052:Dbtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Maksaja</camt052:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt052:Nm>Minttu Maksaja</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Dbtr>
                                                             <camt052:DbtrAcct>
@@ -598,7 +605,8 @@
                                                             </camt052:DbtrAcct>
                                                             <camt052:Cdtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Saaja</camt052:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt052:Nm>Matti Virtanen</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Cdtr>
                                                             <camt052:CdtrAcct>
@@ -685,7 +693,8 @@
                                                         <camt052:RltdPties>
                                                             <camt052:Dbtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Maksaja</camt052:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt052:Nm>Minttu Maksaja</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Dbtr>
                                                             <camt052:DbtrAcct>
@@ -695,7 +704,8 @@
                                                             </camt052:DbtrAcct>
                                                             <camt052:Cdtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Saaja</camt052:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt052:Nm>Matti Virtanen</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Cdtr>
                                                             <camt052:CdtrAcct>
@@ -782,7 +792,8 @@
                                                         <camt052:RltdPties>
                                                             <camt052:Dbtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Maksaja</camt052:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt052:Nm>Minttu Maksaja</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Dbtr>
                                                             <camt052:DbtrAcct>
@@ -792,7 +803,8 @@
                                                             </camt052:DbtrAcct>
                                                             <camt052:Cdtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Saaja</camt052:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt052:Nm>Matti Virtanen</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Cdtr>
                                                             <camt052:CdtrAcct>
@@ -879,7 +891,8 @@
                                                         <camt052:RltdPties>
                                                             <camt052:Dbtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Maksaja</camt052:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt052:Nm>Minttu Maksaja</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Dbtr>
                                                             <camt052:DbtrAcct>
@@ -889,7 +902,8 @@
                                                             </camt052:DbtrAcct>
                                                             <camt052:Cdtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Saaja</camt052:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt052:Nm>Matti Virtanen</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Cdtr>
                                                             <camt052:CdtrAcct>
@@ -976,7 +990,8 @@
                                                         <camt052:RltdPties>
                                                             <camt052:Dbtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Maksaja</camt052:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt052:Nm>Minttu Maksaja</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Dbtr>
                                                             <camt052:DbtrAcct>
@@ -986,7 +1001,8 @@
                                                             </camt052:DbtrAcct>
                                                             <camt052:Cdtr>
                                                                 <camt052:Pty>
-                                                                    <camt052:Nm>Saaja</camt052:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt052:Nm>Matti Virtanen</camt052:Nm>
                                                                 </camt052:Pty>
                                                             </camt052:Cdtr>
                                                             <camt052:CdtrAcct>

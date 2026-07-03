@@ -383,10 +383,12 @@
                                                                     <camt52:XchgRate>1.10</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
-                                                        </camt52:AmtDtls>                                                        <camt52:RltdPties>
+                                                        </camt52:AmtDtls>
+                                                        <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -396,7 +398,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -432,7 +435,8 @@
                                                             </camt52:Strd>
                                                         </camt52:RmtInf>
                                                         <camt52:RltdDts>
-                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z</camt52:AccptncDtTm>
+                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z
+                                                            </camt52:AccptncDtTm>
                                                         </camt52:RltdDts>
                                                     </camt52:TxDtls>
                                                     <camt52:TxDtls>
@@ -449,10 +453,12 @@
                                                                     <camt52:XchgRate>1.10</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
-                                                        </camt52:AmtDtls>                                                        <camt52:RltdPties>
+                                                        </camt52:AmtDtls>
+                                                        <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -462,7 +468,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -515,10 +522,12 @@
                                                                     <camt52:XchgRate>1.10</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
-                                                        </camt52:AmtDtls>                                                        <camt52:RltdPties>
+                                                        </camt52:AmtDtls>
+                                                        <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -528,7 +537,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -581,10 +591,12 @@
                                                                     <camt52:XchgRate>1.10</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
-                                                        </camt52:AmtDtls>                                                        <camt52:RltdPties>
+                                                        </camt52:AmtDtls>
+                                                        <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -594,7 +606,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -677,10 +690,12 @@
                                                                     <camt52:XchgRate>1.00</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
-                                                        </camt52:AmtDtls>                                                        <camt52:RltdPties>
+                                                        </camt52:AmtDtls>
+                                                        <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -690,7 +705,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -726,7 +742,8 @@
                                                             </camt52:Strd>
                                                         </camt52:RmtInf>
                                                         <camt52:RltdDts>
-                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z</camt52:AccptncDtTm>
+                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z
+                                                            </camt52:AccptncDtTm>
                                                         </camt52:RltdDts>
                                                     </camt52:TxDtls>
                                                 </camt52:NtryDtls>
@@ -773,10 +790,12 @@
                                                                     <camt52:XchgRate>1.00</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
-                                                        </camt52:AmtDtls>                                                        <camt52:RltdPties>
+                                                        </camt52:AmtDtls>
+                                                        <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -786,7 +805,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -822,7 +842,8 @@
                                                             </camt52:Strd>
                                                         </camt52:RmtInf>
                                                         <camt52:RltdDts>
-                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z</camt52:AccptncDtTm>
+                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z
+                                                            </camt52:AccptncDtTm>
                                                         </camt52:RltdDts>
                                                     </camt52:TxDtls>
                                                 </camt52:NtryDtls>
@@ -869,10 +890,12 @@
                                                                     <camt52:XchgRate>1.00</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
-                                                        </camt52:AmtDtls>                                                        <camt52:RltdPties>
+                                                        </camt52:AmtDtls>
+                                                        <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -882,7 +905,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -965,10 +989,12 @@
                                                                     <camt52:XchgRate>1.00</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
-                                                        </camt52:AmtDtls>                                                        <camt52:RltdPties>
+                                                        </camt52:AmtDtls>
+                                                        <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -978,7 +1004,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>

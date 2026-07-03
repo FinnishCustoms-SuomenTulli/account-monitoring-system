@@ -117,7 +117,8 @@
                     <auth001:InvstgtnId>ABC1234</auth001:InvstgtnId>
                     <auth001:LglMndtBsis>
                         <auth001:Prgrph>111/2000_1_11_2</auth001:Prgrph>
-                        <auth001:Dsclmr>Lakiperusteen kuvaus</auth001:Dsclmr>
+                        <!-- Example value for the description of the legal mandate basis -->
+                        <auth001:Dsclmr>Description of the legal mandate basis for the request</auth001:Dsclmr>
                     </auth001:LglMndtBsis>
                     <auth001:CnfdtltySts>true</auth001:CnfdtltySts>
                     <auth001:InvstgtnPrd>
@@ -146,9 +147,12 @@
                             <fin012:Document>
                                 <fin012:InfReqFin012>
                                     <fin012:AuthorityInquiry>
-                                        <fin012:OfficialId>Viranomaisen nimi</fin012:OfficialId>
-                                        <fin012:OfficialSuperiorId>Esimiehen nimi</fin012:OfficialSuperiorId>
-                                        <fin012:OfficialOrgId>Kyselevän viranomaisen organisaation tunniste</fin012:OfficialOrgId>
+                                        <!-- Example value for the identification of the official sending the request -->
+                                        <fin012:OfficialId>Matti Meikäläinen</fin012:OfficialId>
+                                        <!-- Example value for the identification of the official approving the request -->
+                                        <fin012:OfficialSuperiorId>Liisa Virtanen</fin012:OfficialSuperiorId>
+                                        <!-- Example value for the organisation identification of the requesting authority -->
+                                        <fin012:OfficialOrgId>1234567-8</fin012:OfficialOrgId>
                                     </fin012:AuthorityInquiry>
                                     <fin012:InvestigationType>
                                         <fin012:InvestigationTypeCode>BALN</fin012:InvestigationTypeCode>
