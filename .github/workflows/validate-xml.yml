@@ -28,5 +28,7 @@ jobs:
           for z in assets/iso20022.org/*.zip; do unzip -o "$z" -d assets/iso20022.org/; done
       - name: Generate external_codes.json from the workbook
         run: python examples/validate.py --generate-codes
+      - name: Self-check the validator
+        run: python examples/validate.py --selftest
       - name: Validate examples against schemas and code sets
         run: python examples/validate.py

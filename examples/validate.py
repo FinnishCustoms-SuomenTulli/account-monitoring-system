@@ -336,7 +336,9 @@ def generate_codes():
     for i, row in enumerate(wb["AllCodeSets"].iter_rows(values_only=True)):
         if i == 0 or not row[0]:
             continue
-        sets.setdefault(str(row[0]).strip(), set()).add(str(row[1] or "").strip())
+        code = str(row[1] or "").strip()
+        if code:  # skip rows with no code value -- an empty <Cd/> must not validate
+            sets.setdefault(str(row[0]).strip(), set()).add(code)
 
     out = {name: sorted(sets.get(name, set())) for name in CODE_SETS}
     out["ExternalFinancialInstitutionIdentification1Code"] = []  # not published by ISO
