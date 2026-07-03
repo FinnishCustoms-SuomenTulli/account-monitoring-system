@@ -11,7 +11,7 @@
                                 <head001:Othr>
                                     <head001:Id>0245442-8</head001:Id>
                                     <head001:SchmeNm>
-                                        <head001:Cd>Y</head001:Cd>
+                                        <head001:Cd>COID</head001:Cd>
                                     </head001:SchmeNm>
                                 </head001:Othr>
                             </head001:OrgId>
@@ -25,7 +25,7 @@
                                 <head001:Othr>
                                     <head001:Id>0245442-8</head001:Id>
                                     <head001:SchmeNm>
-                                        <head001:Cd>Y</head001:Cd>
+                                        <head001:Cd>COID</head001:Cd>
                                     </head001:SchmeNm>
                                 </head001:Othr>
                             </head001:OrgId>
@@ -107,15 +107,18 @@
                                     <head001:Othr>
                                         <head001:Id>0245442-8</head001:Id>
                                         <head001:SchmeNm>
-                                            <head001:Cd>Y</head001:Cd>
+                                            <head001:Cd>COID</head001:Cd>
                                         </head001:SchmeNm>
                                     </head001:Othr>
                                 </head001:OrgId>
                             </head001:Id>
                             <head001:CtctDtls>
-                                <head001:Nm>Virkailijan nimi</head001:Nm>
-                                <head001:PhneNb>Virkailijan puhelinnumero</head001:PhneNb>
-                                <head001:EmailAdr>Virkailijan sähköpostiosoite<head001:EmailAdr>
+                                <!-- Example value for the official's name -->
+                                <head001:Nm>Matti Meikäläinen</head001:Nm>
+                                <!-- Example value for a phone number -->
+                                <head001:PhneNb>+358-401234567</head001:PhneNb>
+                                <!-- Example value for email address (RFC2606) -->
+                                <head001:EmailAdr>matti.meikalainen@example.com</head001:EmailAdr>
                             </head001:CtctDtls>
                         </head001:OrgId>
                     </head001:Fr>
@@ -126,7 +129,7 @@
                                     <head001:Othr>
                                         <head001:Id>0245442-8</head001:Id>
                                         <head001:SchmeNm>
-                                            <head001:Cd>Y</head001:Cd>
+                                            <head001:Cd>COID</head001:Cd>
                                         </head001:SchmeNm>
                                     </head001:Othr>
                                 </head001:OrgId>
@@ -265,7 +268,7 @@
                                                         <camt052:Othr>
                                                             <camt052:Id>business id</camt052:Id>
                                                             <camt052:SchmeNm>
-                                                                <camt052:Cd>y</camt052:Cd>
+                                                                <camt052:Cd>COID</camt052:Cd>
                                                             </camt052:SchmeNm>
                                                         </camt052:Othr>
                                                     </camt052:OrgId>
@@ -293,7 +296,7 @@
                                                         <camt052:Othr>
                                                             <camt052:Id>business id</camt052:Id>
                                                             <camt052:SchmeNm>
-                                                                <camt052:Cd>y</camt052:Cd>
+                                                                <camt052:Prtry>Y-tunnus</camt052:Prtry>
                                                             </camt052:SchmeNm>
                                                         </camt052:Othr>
                                                     </camt052:FinInstnId>
@@ -377,7 +380,7 @@
                                                     <camt052:Btch>
                                                         <camt052:MsgId>MsgId</camt052:MsgId>
                                                         <camt052:PmtInfId>PmtInfId</camt052:PmtInfId>
-                                                        <camt052:NbOfTxs>Number of transactions in the batch</camt052:NbOfTxs>
+                                                        <camt052:NbOfTxs>2</camt052:NbOfTxs>
                                                         <camt052:TtlAmt Ccy="EUR">10000.00</camt052:TtlAmt>
                                                         <camt052:CdtDbtInd>CRDT</camt052:CdtDbtInd>
                                                     </camt052:Btch>
@@ -568,7 +571,7 @@
                                                             </camt052:CdtrAgt>
                                                         </camt052:RltdAgts>
                                                         <camt052:Purp>
-                                                            <camt052:Cd>DIVI</camt052:Cd>
+                                                            <camt052:Cd>DIVD</camt052:Cd>
                                                         </camt052:Purp>
                                                         <camt052:RmtInf>
                                                             <camt052:Ustrd>Free text max 140 characters</camt052:Ustrd>
