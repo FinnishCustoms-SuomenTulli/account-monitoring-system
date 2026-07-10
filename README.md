@@ -1608,6 +1608,38 @@ Esimerkki 8.1. Virhekoodi 4 raportointi
 
 </details>
 
+<details>
+<summary>8.2 Validaatiovirheen laajennus viranomaisille <a name="8-1"></a></summary>
+<br>
+
+Kun tiedonluovuttaja palauttaa virhekoodin 4 tai vastauksessa on validaatiovirheitä, tulee tiedonhyödyntäjälle vastauksessa koostavasta sovelluksesta lisätietoina kooste näistä virheistä.
+
+Kooste palautetaan omassa SupplementaryData elementissään polussa `/Envelope/Body/StatusResponse/Document/InfReqRspn/SplmtryData/Envlp/DocumentExtension` ilman skeemaa. Tämä lisäosa fin.021.001.03 sanomaan palautetaan aina id-tunnisteella "ExtensionFin021".
+
+Tunnisteeseen viitataan fin.021.001.03 sanoman ResultKey:n errorDescription attribuutissa tiedolla `[[ref=ExtensionFin021]]`.
+
+Esimerkki 8.2.1. ResultKey-elementti
+
+```xml
+<ns11:ResultKey datasourceOrganisationId="123456-7" errorCode="4" errorDescription="[[ref=ExtensionFin021]] Bad Request">3a0fa6c4-630b-4b0b-b82a-d94f6ac308c8</ns11:ResultKey>
+```
+Mahdollisia virhekategorioita tiedonluovuttajan vastaukselle on kolme:
+1.	Tiedonluovuttajan vastaus aiheuttaa validaatiovirheen. Esimerkiksi, jos tiedonluovuttajan palauttama vastaus ei läpäise Tullin validaatiota.
+2.	Tiedonluovuttaja palauttaa virheen. Esimerkiksi, jos tiedonluovuttaja ei pysty vielä palauttamaan vastausta tai kyselyn käsittelyssä havaitaan ongelmia ja tiedonluovuttaja palauttaa virhekoodin 4.
+3.	Muun tunnistamattoman syyn aiheuttama virhe 
+
+Esimerkki 8.2.2. DocumentExtension-elementti
+
+```xml
+<ns15:DocumentExtension id="ExtensionFin021">
+    <Errors datasourceOrganisationId="123456-7">
+        <ResponseError>(1.) Kuvaus tiedonluovuttajan vastauksen aiheuttamasta virheestä.</ResponseError>
+        <RequestError>(2.) Kuvaus tiedonluovuttajan palauttamasta virheestä.</RequestError>
+        <Error>(3.) Muu tunnistamaton virhe, joka voi johtua joko välitetystä pyynnöstä tai vastauksesta.</Error>
+    </Errors>
+</ns15:DocumentExtension>
+```
+</details>
 
 ## 9. Koodisto <a name="luku9"></a>
 
