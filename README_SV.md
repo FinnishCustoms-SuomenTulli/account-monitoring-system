@@ -1622,6 +1622,39 @@ Exempel 8.1. Rapportering av fel kod 4
 
 </details>
 
+<details>
+<summary>8.2 Förlängning av valideringsfel för myndigheterna <a name="8-1"></a></summary>
+<br>
+
+Om en uppgiftslämnare returnerar en felkod 4 eller om det finns valideringsfel i uppgiftslämnares svar returnerar den sammanställningsprogrammen ett aggregat av felen i ett förlängningselement i svaret för användaren av informationen.
+
+Tillägget kommer att finnas i ett separat kompletterande dataelement i sökvägen "/Envelope/Body/StatusResponse/Document/InfReqRspn/SplmtryData/Envlp/DocumentionExtension" utan schemat. Programmet returnerar förlängningselementet till fin.021.001.03 schema med ett id-attribut för 'ExtensionFin021'.
+
+Denna id refereras till i fin.021.001.03 schemats resultatKey elements felBeskrivningsattribut med "[[ref=ExtensionFin021]". 
+
+Exempel 8.2.1. ResultKey-element
+
+```xml
+<ns11:ResultKey datasourceOrganisationId="123456-7" errorCode="4" errorDescription="[[ref=ExtensionFin021]] Bad Request">3a0fa6c4-630b-4b0b-b82a-d94f6ac308c8</ns11:ResultKey>
+```
+Det finns tre möjliga felkategorier för uppgiftslämnares svar: 
+1. Svaret från uppgiftslämnaren orsakar ett valideringsfel. Det svar som den returnerade uppgiftslämnaren har t.ex. inte godkänt Tullens validering. 
+2. Uppgiftslämnaren returnerar ett fel. Till exempel, om uppgiftslämnaren ännu inte kan returnera svaret eller det finns problem som upptäcks i hanteringen av frågan och uppgiftslämnaren returnerar en felkod 4. 
+3. Fel orsakat av oidentifierat skäl
+
+Esimerkki 8.2.2. Dokumentextensions-element
+
+```xml
+<ns15:DocumentExtension id="ExtensionFin021">
+    <Errors datasourceOrganisationId="123456-7">
+        <ResponseError>(1.) Beskrivning av det fel som orsakas av uppgiftslämnarens svar.</ResponseError>
+        <RequestError>(2.) Beskrivning av det fel som uppgiftslämnaren returnerat.</RequestError>
+        <Error>(3.) Beskrivning av det fel som orsakas av oidentifierade skäl.</Error>
+    </Errors>
+</ns15:DocumentExtension>
+```
+</details>
+
 ## 9. Kodlista <a name="luku9"></a>
 
 ISO 20022 extern kodlista ks. [External code sets](assets/iso20022.org/)

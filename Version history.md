@@ -18,3 +18,4 @@
 | 1.04    | 21.5.2026   | Added chapter 6.4 about use of X-Correation-ID for authorities. |
 | 1.05    | 29.5.2026   | Modified chapter 6.4 X-Correlation-ID to also concern users of the data disclosure system. |  
 | 1.06    | 10.6.2026   | Clarifications to chapter 6.4. |
+| 1.07    | 10.7.2026   | Added chapter 8.2 about the validation error extension for the authorities. |
