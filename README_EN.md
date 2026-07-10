@@ -1627,6 +1627,39 @@ Example 8.1. Reporting error code 4
 
 </details>
 
+<details>
+<summary>8.2 Validation error extension for the authorities <a name="8-1"></a></summary>
+<br>
+
+If a data supplier returns an error code 4 or there are validation errors in the data supplier’s response the aggregating application returns an aggregate of the errors in an extension element in the response for the data user.
+
+The extension will be in a separate SupplementaryData element in the path `/Envelope/Body/StatusResponse/Document/InfReqRspn/SplmtryData/Envlp/DocumentExtension` without the schema. The application returns the extension element to fin.021.001.03 schema with an id attribute of 'ExtensionFin021'.
+
+This id is referenced in fin.021.001.03 schema's ResultKey element's errorDescription attribute with `[[ref=ExtensionFin021]]`.
+
+Example 8.2.1. ResultKey element
+
+```xml
+<ns11:ResultKey datasourceOrganisationId="123456-7" errorCode="4" errorDescription="[[ref=ExtensionFin021]] Bad Request">3a0fa6c4-630b-4b0b-b82a-d94f6ac308c8</ns11:ResultKey>
+```
+There are three possible error categories for data supplier’s responses:
+1. The response from the data supplier causes a validation error. For example, the response that the data supplier returned does not pass the validation by Customs.
+2.  The data supplier returns an error. For example, if the data supplier is not yet able to return the response or there are issues detected in the handling of the query and the data supplier returns an error code 4.
+3.  Error caused by unidentified reason.
+
+Example 8.2.2. DocumentExtension element
+
+```xml
+<ns15:DocumentExtension id="ExtensionFin021">
+    <Errors datasourceOrganisationId="123456-7">
+        <ResponseError>(1.) Description of the error caused by the data supplier’s response.</ResponseError>
+        <RequestError>(2.) Description of the error returned by the data supplier.</RequestError>
+        <Error>(3.) Description of the error caused by unidentified reason.</Error>
+    </Errors>
+</ns15:DocumentExtension>
+```
+</details>
+
 ## 9. Code set <a name="luku9"></a>
 
 ISO 20022 external code set, see [External code sets](assets/iso20022.org/)
