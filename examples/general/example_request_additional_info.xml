@@ -1,12 +1,46 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:root="urn:fi:customs:pmj:xsd:aggregator.002" xmlns:head001="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:auth001="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:fin012="urn:fin.012.001.04">
     <soapenv:Body>
         <root:QueryRequest id="applicationRequest">
-            <head001:AppHdr>Include application header details..</head001:AppHdr>
+            <head001:AppHdr>
+                <head001:CharSet>UTF-8</head001:CharSet>
+                <head001:Fr>
+                    <head001:OrgId>
+                        <head001:Id>
+                            <head001:OrgId>
+                                <head001:Othr>
+                                    <head001:Id>0245442-8</head001:Id>
+                                    <head001:SchmeNm>
+                                        <head001:Cd>COID</head001:Cd>
+                                    </head001:SchmeNm>
+                                </head001:Othr>
+                            </head001:OrgId>
+                        </head001:Id>
+                    </head001:OrgId>
+                </head001:Fr>
+                <head001:To>
+                    <head001:OrgId>
+                        <head001:Id>
+                            <head001:OrgId>
+                                <head001:Othr>
+                                    <head001:Id>0245442-8</head001:Id>
+                                    <head001:SchmeNm>
+                                        <head001:Cd>COID</head001:Cd>
+                                    </head001:SchmeNm>
+                                </head001:Othr>
+                            </head001:OrgId>
+                        </head001:Id>
+                    </head001:OrgId>
+                </head001:To>
+                <head001:BizMsgIdr>8v96z4DKSVO4Zz66fKZrjg==</head001:BizMsgIdr>
+                <head001:MsgDefIdr>auth.001.001.01</head001:MsgDefIdr>
+                <head001:CreDt>2022-09-28T08:16:34.315328Z</head001:CreDt>
+            </head001:AppHdr>
             <auth001:Document>
                 <auth001:InfReqOpng>
                     <auth001:InvstgtnId>ABC1234</auth001:InvstgtnId>
                     <auth001:LglMndtBsis>
-                        <auth001:Prgrph>testi</auth001:Prgrph>
+                        <!-- Example value for the legal mandate basis (statute reference) -->
+                        <auth001:Prgrph>111/2000_1_11_2</auth001:Prgrph>
                     </auth001:LglMndtBsis>
                     <auth001:CnfdtltySts>true</auth001:CnfdtltySts>
                     <auth001:InvstgtnPrd>
@@ -35,9 +69,12 @@
                             <fin012:Document>
                                 <fin012:InfReqFin012>
                                     <fin012:AuthorityInquiry>
-                                        <fin012:officialId>Kyselevän viranomaisen tunniste</fin012:officialId>
-                                        <fin012:officialSuperiorId>Kyselyn hyväksyjän tunniste</fin012:officialSuperiorId>
-                                        <fin012:officialOrgId>Kyselevän viranomaisen organisaation tunniste</fin012:officialOrgId>
+                                        <!-- Example value for the identification of the official sending the request -->
+                                        <fin012:OfficialId>Matti Meikäläinen</fin012:OfficialId>
+                                        <!-- Example value for the identification of the official approving the request -->
+                                        <fin012:OfficialSuperiorId>Liisa Virtanen</fin012:OfficialSuperiorId>
+                                        <!-- Example value for the organisation identification of the requesting authority -->
+                                        <fin012:OfficialOrgId>1234567-8</fin012:OfficialOrgId>
                                     </fin012:AuthorityInquiry>
                                     <fin012:InvestigationType>
                                         <fin012:InvestigationTypeCode>BALN</fin012:InvestigationTypeCode>
