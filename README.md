@@ -852,8 +852,31 @@ Vastaussanoman sisältö on samanlainen kaikilla tiedonluovuttajilla riippumatta
         +++++Id
       </td>
       <td>Max34Text</td>
-      <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu.</td>
-    </tr>  
+      <td>Ei-IBAN-muotoinen tilinumero tilille, josta raportti on laadittu. Jos tilinumero on yli 34 merkkiä pitkä, asetetaan arvoksi 1 ja tilinumero annetaan Rpt/Acct/Nm kentässä.</td>
+    </tr> 
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Othr<br>
+        +++++SchmeNm<br>
+        ++++++Cd
+      </td>
+      <td>ExternalAccountIdentification1Code</td>
+      <td>"GLID", jos tilinumero on yli 34 merkkiä pitkä. Muulloin kenttää ei käytetä.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Nm
+      </td>
+      <td>Max70Text</td>
+      <td>Jos tilinumero on yli 34 merkkiä pitkä, se annetaan tässä kentässä. Muulloin kenttää ei käytetä.</td>
+    </tr>
     <tr>
       <td>
         BkToCstmrAcctRpt<br>
