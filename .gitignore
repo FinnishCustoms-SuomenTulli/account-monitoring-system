@@ -1,0 +1,3 @@
+# Generated at build/CI time from the tracked ISO code-sets zip — see examples/validate.md
+assets/iso20022.org/external_codes.json
+assets/iso20022.org/*.xlsx

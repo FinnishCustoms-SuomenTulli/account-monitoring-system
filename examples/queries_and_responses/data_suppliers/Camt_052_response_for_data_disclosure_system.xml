@@ -12,7 +12,7 @@
                                 <head001:Othr>
                                     <head001:Id>0245442-8</head001:Id>
                                     <head001:SchmeNm>
-                                        <head001:Cd>Y</head001:Cd>
+                                        <head001:Cd>COID</head001:Cd>
                                     </head001:SchmeNm>
                                 </head001:Othr>
                             </head001:OrgId>
@@ -26,7 +26,7 @@
                                 <head001:Othr>
                                     <head001:Id>0245442-8</head001:Id>
                                     <head001:SchmeNm>
-                                        <head001:Cd>Y</head001:Cd>
+                                        <head001:Cd>COID</head001:Cd>
                                     </head001:SchmeNm>
                                 </head001:Othr>
                             </head001:OrgId>
@@ -108,15 +108,18 @@
                                     <head001:Othr>
                                         <head001:Id>0245442-8</head001:Id>
                                         <head001:SchmeNm>
-                                            <head001:Cd>Y</head001:Cd>
+                                            <head001:Cd>COID</head001:Cd>
                                         </head001:SchmeNm>
                                     </head001:Othr>
                                 </head001:OrgId>
                             </head001:Id>
                             <head001:CtctDtls>
-                                <head001:Nm>Virkailijan nimi</head001:Nm>
-                                <head001:PhneNb>Virkailijan puhelinnumero</head001:PhneNb>
-                                <head001:EmailAdr>Virkailijan sähköpostiosoite<head001:EmailAdr>
+                                <!-- Example value for the official's name -->
+                                <head001:Nm>Matti Meikäläinen</head001:Nm>
+                                <!-- Example value for a phone number -->
+                                <head001:PhneNb>+358-401234567</head001:PhneNb>
+                                <!-- Example value for email address (RFC2606) -->
+                                <head001:EmailAdr>matti.meikalainen@example.com</head001:EmailAdr>
                             </head001:CtctDtls>
                         </head001:OrgId>
                     </head001:Fr>
@@ -127,7 +130,7 @@
                                     <head001:Othr>
                                         <head001:Id>0245442-8</head001:Id>
                                         <head001:SchmeNm>
-                                            <head001:Cd>Y</head001:Cd>
+                                            <head001:Cd>COID</head001:Cd>
                                         </head001:SchmeNm>
                                     </head001:Othr>
                                 </head001:OrgId>
@@ -238,7 +241,7 @@
                         </auth002:AuthrtyReqTp>
                         <auth002:InvstgtnRslt>
                             <auth002:Rslt>
-                                <camt52:Document xmlns:camt52="urn:iso:std:iso:20022:tech:xsd:camt.052.001.12">
+                                <camt52:Document xmlns:camt52="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
                                     <camt52:BkToCstmrAcctRpt>
                                         <camt52:GrpHdr>
                                             <camt52:MsgId>MSG123456789</camt52:MsgId>
@@ -250,13 +253,13 @@
                                                         <camt52:Othr>
                                                             <camt52:Id>business id</camt52:Id>
                                                             <camt52:SchmeNm>
-                                                                <camt52:Cd>y</camt52:Cd>
+                                                                <camt52:Cd>COID</camt52:Cd>
                                                             </camt52:SchmeNm>
                                                         </camt52:Othr>
                                                     </camt52:OrgId>
                                                 </camt52:Id>
                                             </camt52:MsgRcpt>
-                                            <camt52:AddtInf>Additional information from sender</camt52:AddtInf>
+                                            <camt52:AddtlInf>Additional information from sender</camt52:AddtlInf>
                                         </camt52:GrpHdr>
                                         <camt52:Rpt>
                                             <camt52:Id>2026-01-01-04.44.12-EUR0123</camt52:Id>
@@ -278,7 +281,7 @@
                                                         <camt52:Othr>
                                                             <camt52:Id>business id</camt52:Id>
                                                             <camt52:SchmeNm>
-                                                                <camt52:Cd>y</camt52:Cd>
+                                                                <camt52:Prtry>Y-tunnus</camt52:Prtry>
                                                             </camt52:SchmeNm>
                                                         </camt52:Othr>
                                                     </camt52:FinInstnId>
@@ -333,7 +336,6 @@
                                             </camt52:TxsSummry>
                                             <camt52:Ntry>
                                                 <camt52:NtryRef>1</camt52:NtryRef>
-                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:Amt Ccy="EUR">10000.00</camt52:Amt>
                                                 <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                 <camt52:RvslInd>false</camt52:RvslInd>
@@ -346,10 +348,8 @@
                                                 <camt52:ValDt>
                                                     <camt52:DtTm>2019-05-08T00:00:00Z</camt52:DtTm>
                                                 </camt52:ValDt>
+                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:BkTxCd>
-                                                    <camt52:Prtry>
-                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
-                                                    </camt52:Prtry>
                                                     <camt52:Domn>
                                                         <camt52:Cd>PMNT</camt52:Cd>
                                                         <camt52:Fmly>
@@ -357,12 +357,15 @@
                                                             <camt52:SubFmlyCd>ESCT</camt52:SubFmlyCd>
                                                         </camt52:Fmly>
                                                     </camt52:Domn>
+                                                    <camt52:Prtry>
+                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
+                                                    </camt52:Prtry>
                                                 </camt52:BkTxCd>
                                                 <camt52:NtryDtls>
                                                     <camt52:Btch>
                                                         <camt52:MsgId>MsgId</camt52:MsgId>
                                                         <camt52:PmtInfId>PmtInfId</camt52:PmtInfId>
-                                                        <camt52:NbOfTxs>Number of transactions in the batch</camt52:NbOfTxs>
+                                                        <camt52:NbOfTxs>2</camt52:NbOfTxs>
                                                         <camt52:TtlAmt Ccy="EUR">10000.00</camt52:TtlAmt>
                                                         <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                     </camt52:Btch>
@@ -370,24 +373,22 @@
                                                         <camt52:Refs>
                                                             <camt52:InstrId>Debitor ref</camt52:InstrId>
                                                         </camt52:Refs>
+                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                         <camt52:AmtDtls>
                                                             <camt52:TxAmt>
                                                                 <camt52:Amt Ccy="EUR">3300.00</camt52:Amt>
                                                                 <camt52:CcyXchg>
-                                                                    <camt52:UnitCcy>USD</camt52:UnitCcy>
                                                                     <camt52:SrcCcy>USD</camt52:SrcCcy>
+                                                                    <camt52:UnitCcy>USD</camt52:UnitCcy>
                                                                     <camt52:XchgRate>1.10</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
                                                         </camt52:AmtDtls>
-                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
-                                                        <camt52:Purp>
-                                                            <camt52:Cd>ExternalPurpose1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
-                                                        </camt52:Purp>
                                                         <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -397,7 +398,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -405,7 +407,7 @@
                                                                     <camt52:IBAN>FI2447066587000379</camt52:IBAN>
                                                                 </camt52:Id>
                                                                 <camt52:Tp>
-                                                                    <camt52:Cd>ExternalCashAccountType1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
+                                                                    <camt52:Cd>CACC</camt52:Cd>
                                                                 </camt52:Tp>
                                                             </camt52:CdtrAcct>
                                                         </camt52:RltdPties>
@@ -421,6 +423,9 @@
                                                                 </camt52:FinInstnId>
                                                             </camt52:CdtrAgt>
                                                         </camt52:RltdAgts>
+                                                        <camt52:Purp>
+                                                            <camt52:Cd>OTHR</camt52:Cd>
+                                                        </camt52:Purp>
                                                         <camt52:RmtInf>
                                                             <camt52:Ustrd>Free text max 140 characters</camt52:Ustrd>
                                                             <camt52:Strd>
@@ -430,31 +435,30 @@
                                                             </camt52:Strd>
                                                         </camt52:RmtInf>
                                                         <camt52:RltdDts>
-                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z</camt52:AccptncDtTm>
+                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z
+                                                            </camt52:AccptncDtTm>
                                                         </camt52:RltdDts>
                                                     </camt52:TxDtls>
                                                     <camt52:TxDtls>
                                                         <camt52:Refs>
                                                             <camt52:InstrId>Debitor ref</camt52:InstrId>
                                                         </camt52:Refs>
+                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                         <camt52:AmtDtls>
                                                             <camt52:TxAmt>
                                                                 <camt52:Amt Ccy="EUR">1500.00</camt52:Amt>
                                                                 <camt52:CcyXchg>
-                                                                    <camt52:UnitCcy>USD</camt52:UnitCcy>
                                                                     <camt52:SrcCcy>USD</camt52:SrcCcy>
+                                                                    <camt52:UnitCcy>USD</camt52:UnitCcy>
                                                                     <camt52:XchgRate>1.10</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
                                                         </camt52:AmtDtls>
-                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
-                                                        <camt52:Purp>
-                                                            <camt52:Cd>ExternalPurpose1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
-                                                        </camt52:Purp>
                                                         <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -464,7 +468,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -472,7 +477,7 @@
                                                                     <camt52:IBAN>FI2447066587000379</camt52:IBAN>
                                                                 </camt52:Id>
                                                                 <camt52:Tp>
-                                                                    <camt52:Cd>ExternalCashAccountType1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
+                                                                    <camt52:Cd>CACC</camt52:Cd>
                                                                 </camt52:Tp>
                                                             </camt52:CdtrAcct>
                                                         </camt52:RltdPties>
@@ -488,6 +493,9 @@
                                                                 </camt52:FinInstnId>
                                                             </camt52:CdtrAgt>
                                                         </camt52:RltdAgts>
+                                                        <camt52:Purp>
+                                                            <camt52:Cd>OTHR</camt52:Cd>
+                                                        </camt52:Purp>
                                                         <camt52:RmtInf>
                                                             <camt52:Ustrd>Free text max 140 characters</camt52:Ustrd>
                                                             <camt52:Strd>
@@ -504,24 +512,22 @@
                                                         <camt52:Refs>
                                                             <camt52:InstrId>Debitor ref</camt52:InstrId>
                                                         </camt52:Refs>
+                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                         <camt52:AmtDtls>
                                                             <camt52:TxAmt>
                                                                 <camt52:Amt Ccy="EUR">5800.00</camt52:Amt>
                                                                 <camt52:CcyXchg>
-                                                                    <camt52:UnitCcy>USD</camt52:UnitCcy>
                                                                     <camt52:SrcCcy>USD</camt52:SrcCcy>
+                                                                    <camt52:UnitCcy>USD</camt52:UnitCcy>
                                                                     <camt52:XchgRate>1.10</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
                                                         </camt52:AmtDtls>
-                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
-                                                        <camt52:Purp>
-                                                            <camt52:Cd>ExternalPurpose1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
-                                                        </camt52:Purp>
                                                         <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -531,7 +537,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -539,7 +546,7 @@
                                                                     <camt52:IBAN>FI2447066587000379</camt52:IBAN>
                                                                 </camt52:Id>
                                                                 <camt52:Tp>
-                                                                    <camt52:Cd>ExternalCashAccountType1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
+                                                                    <camt52:Cd>CACC</camt52:Cd>
                                                                 </camt52:Tp>
                                                             </camt52:CdtrAcct>
                                                         </camt52:RltdPties>
@@ -555,6 +562,9 @@
                                                                 </camt52:FinInstnId>
                                                             </camt52:CdtrAgt>
                                                         </camt52:RltdAgts>
+                                                        <camt52:Purp>
+                                                            <camt52:Cd>OTHR</camt52:Cd>
+                                                        </camt52:Purp>
                                                         <camt52:RmtInf>
                                                             <camt52:Ustrd>Free text max 140 characters</camt52:Ustrd>
                                                             <camt52:Strd>
@@ -571,24 +581,22 @@
                                                         <camt52:Refs>
                                                             <camt52:InstrId>Debitor ref</camt52:InstrId>
                                                         </camt52:Refs>
+                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                         <camt52:AmtDtls>
                                                             <camt52:TxAmt>
                                                                 <camt52:Amt Ccy="EUR">400.00</camt52:Amt>
                                                                 <camt52:CcyXchg>
-                                                                    <camt52:UnitCcy>USD</camt52:UnitCcy>
                                                                     <camt52:SrcCcy>USD</camt52:SrcCcy>
+                                                                    <camt52:UnitCcy>USD</camt52:UnitCcy>
                                                                     <camt52:XchgRate>1.10</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
                                                         </camt52:AmtDtls>
-                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
-                                                        <camt52:Purp>
-                                                            <camt52:Cd>ExternalPurpose1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
-                                                        </camt52:Purp>
                                                         <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -598,7 +606,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -606,7 +615,7 @@
                                                                     <camt52:IBAN>FI2447066587000379</camt52:IBAN>
                                                                 </camt52:Id>
                                                                 <camt52:Tp>
-                                                                    <camt52:Cd>ExternalCashAccountType1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
+                                                                    <camt52:Cd>CACC</camt52:Cd>
                                                                 </camt52:Tp>
                                                             </camt52:CdtrAcct>
                                                         </camt52:RltdPties>
@@ -622,6 +631,9 @@
                                                                 </camt52:FinInstnId>
                                                             </camt52:CdtrAgt>
                                                         </camt52:RltdAgts>
+                                                        <camt52:Purp>
+                                                            <camt52:Cd>OTHR</camt52:Cd>
+                                                        </camt52:Purp>
                                                         <camt52:RmtInf>
                                                             <camt52:Ustrd>Free text max 140 characters</camt52:Ustrd>
                                                             <camt52:Strd>
@@ -638,7 +650,6 @@
                                             </camt52:Ntry>
                                             <camt52:Ntry>
                                                 <camt52:NtryRef>2</camt52:NtryRef>
-                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:Amt Ccy="EUR">600.00</camt52:Amt>
                                                 <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                 <camt52:RvslInd>false</camt52:RvslInd>
@@ -651,10 +662,8 @@
                                                 <camt52:ValDt>
                                                     <camt52:DtTm>2019-05-08T00:00:00Z</camt52:DtTm>
                                                 </camt52:ValDt>
+                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:BkTxCd>
-                                                    <camt52:Prtry>
-                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
-                                                    </camt52:Prtry>
                                                     <camt52:Domn>
                                                         <camt52:Cd>PMNT</camt52:Cd>
                                                         <camt52:Fmly>
@@ -662,30 +671,31 @@
                                                             <camt52:SubFmlyCd>ESCT</camt52:SubFmlyCd>
                                                         </camt52:Fmly>
                                                     </camt52:Domn>
+                                                    <camt52:Prtry>
+                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
+                                                    </camt52:Prtry>
                                                 </camt52:BkTxCd>
                                                 <camt52:NtryDtls>
                                                     <camt52:TxDtls>
                                                         <camt52:Refs>
                                                             <camt52:InstrId>Debitor ref</camt52:InstrId>
                                                         </camt52:Refs>
+                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                         <camt52:AmtDtls>
                                                             <camt52:TxAmt>
                                                                 <camt52:Amt Ccy="EUR">600.00</camt52:Amt>
                                                                 <camt52:CcyXchg>
-                                                                    <camt52:UnitCcy>EUR</camt52:UnitCcy>
                                                                     <camt52:SrcCcy>EUR</camt52:SrcCcy>
+                                                                    <camt52:UnitCcy>EUR</camt52:UnitCcy>
                                                                     <camt52:XchgRate>1.00</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
                                                         </camt52:AmtDtls>
-                                                        <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
-                                                        <camt52:Purp>
-                                                            <camt52:Cd>ExternalPurpose1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
-                                                        </camt52:Purp>
                                                         <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -695,7 +705,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -703,7 +714,7 @@
                                                                     <camt52:IBAN>FI2447066587000379</camt52:IBAN>
                                                                 </camt52:Id>
                                                                 <camt52:Tp>
-                                                                    <camt52:Cd>ExternalCashAccountType1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
+                                                                    <camt52:Cd>CACC</camt52:Cd>
                                                                 </camt52:Tp>
                                                             </camt52:CdtrAcct>
                                                         </camt52:RltdPties>
@@ -719,6 +730,9 @@
                                                                 </camt52:FinInstnId>
                                                             </camt52:CdtrAgt>
                                                         </camt52:RltdAgts>
+                                                        <camt52:Purp>
+                                                            <camt52:Cd>OTHR</camt52:Cd>
+                                                        </camt52:Purp>
                                                         <camt52:RmtInf>
                                                             <camt52:Ustrd>Free text max 140 characters</camt52:Ustrd>
                                                             <camt52:Strd>
@@ -728,14 +742,14 @@
                                                             </camt52:Strd>
                                                         </camt52:RmtInf>
                                                         <camt52:RltdDts>
-                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z</camt52:AccptncDtTm>
+                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z
+                                                            </camt52:AccptncDtTm>
                                                         </camt52:RltdDts>
                                                     </camt52:TxDtls>
                                                 </camt52:NtryDtls>
                                             </camt52:Ntry>
                                             <camt52:Ntry>
                                                 <camt52:NtryRef>3</camt52:NtryRef>
-                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:Amt Ccy="EUR">600.00</camt52:Amt>
                                                 <camt52:CdtDbtInd>CRDT</camt52:CdtDbtInd>
                                                 <camt52:RvslInd>false</camt52:RvslInd>
@@ -748,10 +762,8 @@
                                                 <camt52:ValDt>
                                                     <camt52:DtTm>2019-05-08T00:00:00Z</camt52:DtTm>
                                                 </camt52:ValDt>
+                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:BkTxCd>
-                                                    <camt52:Prtry>
-                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
-                                                    </camt52:Prtry>
                                                     <camt52:Domn>
                                                         <camt52:Cd>PMNT</camt52:Cd>
                                                         <camt52:Fmly>
@@ -759,30 +771,31 @@
                                                             <camt52:SubFmlyCd>ESCT</camt52:SubFmlyCd>
                                                         </camt52:Fmly>
                                                     </camt52:Domn>
+                                                    <camt52:Prtry>
+                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
+                                                    </camt52:Prtry>
                                                 </camt52:BkTxCd>
                                                 <camt52:NtryDtls>
                                                     <camt52:TxDtls>
                                                         <camt52:Refs>
                                                             <camt52:InstrId>Debitor ref</camt52:InstrId>
                                                         </camt52:Refs>
+                                                        <camt52:CdtDbtInd>DBIT</camt52:CdtDbtInd>
                                                         <camt52:AmtDtls>
                                                             <camt52:TxAmt>
                                                                 <camt52:Amt Ccy="EUR">600.00</camt52:Amt>
                                                                 <camt52:CcyXchg>
-                                                                    <camt52:UnitCcy>EUR</camt52:UnitCcy>
                                                                     <camt52:SrcCcy>EUR</camt52:SrcCcy>
+                                                                    <camt52:UnitCcy>EUR</camt52:UnitCcy>
                                                                     <camt52:XchgRate>1.00</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
                                                         </camt52:AmtDtls>
-                                                        <camt52:CdtDbtInd>DBIT</camt52:CdtDbtInd>
-                                                        <camt52:Purp>
-                                                            <camt52:Cd>ExternalPurpose1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
-                                                        </camt52:Purp>
                                                         <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -792,7 +805,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -800,7 +814,7 @@
                                                                     <camt52:IBAN>FI2447066587000379</camt52:IBAN>
                                                                 </camt52:Id>
                                                                 <camt52:Tp>
-                                                                    <camt52:Cd>ExternalCashAccountType1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
+                                                                    <camt52:Cd>CACC</camt52:Cd>
                                                                 </camt52:Tp>
                                                             </camt52:CdtrAcct>
                                                         </camt52:RltdPties>
@@ -816,6 +830,9 @@
                                                                 </camt52:FinInstnId>
                                                             </camt52:CdtrAgt>
                                                         </camt52:RltdAgts>
+                                                        <camt52:Purp>
+                                                            <camt52:Cd>OTHR</camt52:Cd>
+                                                        </camt52:Purp>
                                                         <camt52:RmtInf>
                                                             <camt52:Ustrd>Free text max 140 characters</camt52:Ustrd>
                                                             <camt52:Strd>
@@ -825,14 +842,14 @@
                                                             </camt52:Strd>
                                                         </camt52:RmtInf>
                                                         <camt52:RltdDts>
-                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z</camt52:AccptncDtTm>
+                                                            <camt52:AccptncDtTm>2019-05-07T00:00:00Z
+                                                            </camt52:AccptncDtTm>
                                                         </camt52:RltdDts>
                                                     </camt52:TxDtls>
                                                 </camt52:NtryDtls>
                                             </camt52:Ntry>
                                             <camt52:Ntry>
                                                 <camt52:NtryRef>4</camt52:NtryRef>
-                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:Amt Ccy="EUR">400.00</camt52:Amt>
                                                 <camt52:CdtDbtInd>DBIT</camt52:CdtDbtInd>
                                                 <camt52:RvslInd>false</camt52:RvslInd>
@@ -845,10 +862,8 @@
                                                 <camt52:ValDt>
                                                     <camt52:DtTm>2019-05-08T00:00:00Z</camt52:DtTm>
                                                 </camt52:ValDt>
+                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:BkTxCd>
-                                                    <camt52:Prtry>
-                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
-                                                    </camt52:Prtry>
                                                     <camt52:Domn>
                                                         <camt52:Cd>PMNT</camt52:Cd>
                                                         <camt52:Fmly>
@@ -856,30 +871,31 @@
                                                             <camt52:SubFmlyCd>ESCT</camt52:SubFmlyCd>
                                                         </camt52:Fmly>
                                                     </camt52:Domn>
+                                                    <camt52:Prtry>
+                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
+                                                    </camt52:Prtry>
                                                 </camt52:BkTxCd>
                                                 <camt52:NtryDtls>
                                                     <camt52:TxDtls>
                                                         <camt52:Refs>
                                                             <camt52:InstrId>Debitor ref</camt52:InstrId>
                                                         </camt52:Refs>
+                                                        <camt52:CdtDbtInd>DBIT</camt52:CdtDbtInd>
                                                         <camt52:AmtDtls>
                                                             <camt52:TxAmt>
                                                                 <camt52:Amt Ccy="EUR">400.00</camt52:Amt>
                                                                 <camt52:CcyXchg>
-                                                                    <camt52:UnitCcy>EUR</camt52:UnitCcy>
                                                                     <camt52:SrcCcy>EUR</camt52:SrcCcy>
+                                                                    <camt52:UnitCcy>EUR</camt52:UnitCcy>
                                                                     <camt52:XchgRate>1.00</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
                                                         </camt52:AmtDtls>
-                                                        <camt52:CdtDbtInd>DBIT</camt52:CdtDbtInd>
-                                                        <camt52:Purp>
-                                                            <camt52:Cd>ExternalPurpose1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
-                                                        </camt52:Purp>
                                                         <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -889,7 +905,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -897,7 +914,7 @@
                                                                     <camt52:IBAN>FI2447066587000379</camt52:IBAN>
                                                                 </camt52:Id>
                                                                 <camt52:Tp>
-                                                                    <camt52:Cd>ExternalCashAccountType1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
+                                                                    <camt52:Cd>CACC</camt52:Cd>
                                                                 </camt52:Tp>
                                                             </camt52:CdtrAcct>
                                                         </camt52:RltdPties>
@@ -913,6 +930,9 @@
                                                                 </camt52:FinInstnId>
                                                             </camt52:CdtrAgt>
                                                         </camt52:RltdAgts>
+                                                        <camt52:Purp>
+                                                            <camt52:Cd>OTHR</camt52:Cd>
+                                                        </camt52:Purp>
                                                         <camt52:RmtInf>
                                                             <camt52:Ustrd>Free text max 140 characters</camt52:Ustrd>
                                                             <camt52:Strd>
@@ -929,7 +949,6 @@
                                             </camt52:Ntry>
                                             <camt52:Ntry>
                                                 <camt52:NtryRef>5</camt52:NtryRef>
-                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:Amt Ccy="EUR">1000.00</camt52:Amt>
                                                 <camt52:CdtDbtInd>DBIT</camt52:CdtDbtInd>
                                                 <camt52:RvslInd>false</camt52:RvslInd>
@@ -942,10 +961,8 @@
                                                 <camt52:ValDt>
                                                     <camt52:DtTm>2019-05-08T00:00:00Z</camt52:DtTm>
                                                 </camt52:ValDt>
+                                                <camt52:AcctSvcrRef>1234</camt52:AcctSvcrRef>
                                                 <camt52:BkTxCd>
-                                                    <camt52:Prtry>
-                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
-                                                    </camt52:Prtry>
                                                     <camt52:Domn>
                                                         <camt52:Cd>PMNT</camt52:Cd>
                                                         <camt52:Fmly>
@@ -953,30 +970,31 @@
                                                             <camt52:SubFmlyCd>ESCT</camt52:SubFmlyCd>
                                                         </camt52:Fmly>
                                                     </camt52:Domn>
+                                                    <camt52:Prtry>
+                                                        <camt52:Cd>7xxTEXT</camt52:Cd>
+                                                    </camt52:Prtry>
                                                 </camt52:BkTxCd>
                                                 <camt52:NtryDtls>
                                                     <camt52:TxDtls>
                                                         <camt52:Refs>
                                                             <camt52:InstrId>Debitor ref</camt52:InstrId>
                                                         </camt52:Refs>
+                                                        <camt52:CdtDbtInd>DBIT</camt52:CdtDbtInd>
                                                         <camt52:AmtDtls>
                                                             <camt52:TxAmt>
                                                                 <camt52:Amt Ccy="EUR">1000.00</camt52:Amt>
                                                                 <camt52:CcyXchg>
-                                                                    <camt52:UnitCcy>EUR</camt52:UnitCcy>
                                                                     <camt52:SrcCcy>EUR</camt52:SrcCcy>
+                                                                    <camt52:UnitCcy>EUR</camt52:UnitCcy>
                                                                     <camt52:XchgRate>1.00</camt52:XchgRate>
                                                                 </camt52:CcyXchg>
                                                             </camt52:TxAmt>
                                                         </camt52:AmtDtls>
-                                                        <camt52:CdtDbtInd>DBIT</camt52:CdtDbtInd>
-                                                        <camt52:Purp>
-                                                            <camt52:Cd>ExternalPurpose1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
-                                                        </camt52:Purp>
                                                         <camt52:RltdPties>
                                                             <camt52:Dbtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Maksaja</camt52:Nm>
+                                                                    <!-- Example value for the debtor's name -->
+                                                                    <camt52:Nm>Minttu Maksaja</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Dbtr>
                                                             <camt52:DbtrAcct>
@@ -986,7 +1004,8 @@
                                                             </camt52:DbtrAcct>
                                                             <camt52:Cdtr>
                                                                 <camt52:Pty>
-                                                                    <camt52:Nm>Saaja</camt52:Nm>
+                                                                    <!-- Example value for the creditor's name -->
+                                                                    <camt52:Nm>Matti Virtanen</camt52:Nm>
                                                                 </camt52:Pty>
                                                             </camt52:Cdtr>
                                                             <camt52:CdtrAcct>
@@ -994,7 +1013,7 @@
                                                                     <camt52:IBAN>FI2447066587000379</camt52:IBAN>
                                                                 </camt52:Id>
                                                                 <camt52:Tp>
-                                                                    <camt52:Cd>ExternalCashAccountType1Code</camt52:Cd> | <camt52:Prtry>Max35Text</camt52:Prtry>
+                                                                    <camt52:Cd>CACC</camt52:Cd>
                                                                 </camt52:Tp>
                                                             </camt52:CdtrAcct>
                                                         </camt52:RltdPties>
@@ -1010,6 +1029,9 @@
                                                                 </camt52:FinInstnId>
                                                             </camt52:CdtrAgt>
                                                         </camt52:RltdAgts>
+                                                        <camt52:Purp>
+                                                            <camt52:Cd>OTHR</camt52:Cd>
+                                                        </camt52:Purp>
                                                         <camt52:RmtInf>
                                                             <camt52:Ustrd>Free text max 140 characters</camt52:Ustrd>
                                                             <camt52:Strd>
