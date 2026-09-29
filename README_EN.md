@@ -498,7 +498,7 @@ When requesting both account balance and transaction information the investigati
       </td>
       <td >1..1</td>
       <td >Max34Text</td>
-      <td >Account identification of the requested account, if the account is not an IBAN account.</td>
+      <td >Account identification of the requested account, if the account is not an IBAN account. If the account number is over 34 characters long, the value is set as 1 and the actual account number is in field SchCrit/Acct/Id/Nm.</td>
     </tr>
     <tr>
       <td >
@@ -513,7 +513,19 @@ When requesting both account balance and transaction information the investigati
       </td>
       <td >1..1</td>
       <td >ExternalAccountIdentification1Code</td>
-      <td >"OTHR", if requesting non-IBAN account</td>
+      <td >Only used when the requested account is not an IBAN account. The value is "GLID" if the account number is over 34 characters long, otherwise "OTHR".</td>
+    </tr>
+   <tr>
+      <td >
+        InformationRequestOpeningV01<br>
+        +SchCrit<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Nm
+      </td>
+      <td >0..1</td>
+      <td >Max70Text</td>
+      <td >If the requested account number is over 34 characters long, the account number is reported here. Otherwise the field is not used.</td>
     </tr>
     <tr>
       <td >
@@ -839,7 +851,30 @@ The content of the response message is similar for all data suppliers regardless
        +++++Id
       </td>
       <td>Max34Text</td>
-      <td>Other (than IBAN) account identification of the account on the report.</td>
+      <td>Other (than IBAN) account identification of the account on the report. If the account number is over 34 characters long, the value is set as 1 and the actual account number is in field Rpt/Acct/Nm.</td>
+    </tr>
+   <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Acct<br>
+       +++Id<br>
+       ++++Othr<br>
+       +++++SchmeNm<br>
+       ++++++Cd
+      </td>
+      <td>ExternalAccountIdentification1Code</td>
+      <td>"GLID" if the account number is over 34 characters long. Otherwise the field is not used.</td>
+    </tr>
+   <tr>
+      <td>
+       BkToCstmrAcctRpt<br>
+       +Rpt<br>
+       ++Acct<br>
+       +++Nm
+      </td>
+      <td>Max70Text</td>
+      <td>If the account number is over 34 characters long, the account number is reported here. Otherwise the field is not used.</td>
     </tr>
     <td>
         BkToCstmrAcctRpt<br>

@@ -502,7 +502,7 @@ Används när kontot som söks har ett kontonummer i IBAN-format.
       </td>
       <td >1..1</td>
       <td >Max34Text</td>
-      <td >Kontonummer för kontot som söks om det inte är ett IBAN-konto.</td>
+      <td >Kontonummer för kontot som söks om det inte är ett IBAN-konto. Om kontonumret är över 34 tecken lång värdet är 1 och den verkliga kontonumret ges i fältet SchCrit/Acct/Id/Nm.</td>
     </tr>
     <tr>
       <td >
@@ -517,7 +517,19 @@ Används när kontot som söks har ett kontonummer i IBAN-format.
       </td>
       <td >1..1</td>
       <td >ExternalAccountIdentification1Code</td>
-      <td >”OTHR” om sökobjektet inte är ett IBAN-konto</td>
+      <td >Används bara när sökobjektet inte är ett IBAN-konto. Värdet är "GLID" om kontonumret är över 34 tecken lång, annars "OTHR".</td>
+    </tr>
+    <tr>
+      <td >
+        InformationRequestOpeningV01<br>
+        +SchCrit<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Nm
+      </td>
+      <td >0..1</td>
+      <td >Max70Text</td>
+      <td >Om kontonumret som sökas är över 34 tecken lång, reporteras kontonumret i det här fältet. Annars fältet används inte.</td>
     </tr>
     <tr>
       <td >
@@ -845,7 +857,30 @@ Innehållet i svarsmeddelandet är detsamma för alla uppgiftslämnare, oavsett 
         ++++Othr<br>
         +++++Id</td>
       <td>Max34Text</td>
-      <td>Kontonummer annat än IBAN som rapporten har upprättats om.</td>
+      <td>Kontonummer annat än IBAN som rapporten har upprättats om. Om kontonumret är över 34 tecken lång värdet är 1 och den verkliga kontonumret ges i fältet Rpt/Acct/Nm</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Id<br>
+        ++++Othr<br>
+        +++++SchmeNm<br>
+        ++++++Cd
+      </td>
+      <td>ExternalAccountIdentification1Code</td>
+      <td>"GLID" om kontonumret är över 34 tecken lång. Annars fältet används inte.</td>
+    </tr>
+    <tr>
+      <td>
+        BkToCstmrAcctRpt<br>
+        +Rpt<br>
+        ++Acct<br>
+        +++Nm
+      </td>
+      <td>Max70Text</td>
+      <td>Om kontonumret är över 34 tecken lång, reporteras kontonumret i det här fältet. Annars fältet används inte.</td>
     </tr>
     <tr>
       <td>
